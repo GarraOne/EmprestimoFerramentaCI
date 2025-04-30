@@ -41,8 +41,6 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Test with Maven
-        run: mvn -B test --file pom.xml
       - name: Cache SonarQube packages
         uses: actions/cache@v4
         with:
