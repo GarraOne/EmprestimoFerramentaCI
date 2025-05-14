@@ -11,10 +11,20 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     private Amigo objetoamigo;
     // cria o vínculo com Amigo.java
 
+    private String mensagem;
+
     public FrmCadastroAmigo() {
         initComponents();
         this.objetoamigo = new Amigo();
         // carrega o objeto vazio de amigo
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
 
     /**
@@ -177,6 +187,10 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
                 new FrmCadastroAmigo().setVisible(true);
             }
         });
+    }
+
+    public void mostrarMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCadastrar;
