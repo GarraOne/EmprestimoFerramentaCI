@@ -16,6 +16,7 @@ public class TesteAmigo {
         amigo = new Amigo(1, "Joao", "48999");
 
     }
+
     @Test
     void testGetIdAmigo() {
         //Define o valor esperado para a operação
@@ -35,7 +36,7 @@ public class TesteAmigo {
         //Premissa verifica se os valores são iguais
         assertEquals(retornoEsperado, retornoFeito, "");
     }
-    
+
     @Test
     void testGetTelefone() {
         //Define o valor esperado para a operação
