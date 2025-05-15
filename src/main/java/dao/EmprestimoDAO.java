@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,15 +12,16 @@ public class EmprestimoDAO extends ConexaoDAO {
 
     // Lista para armazenar os dados dos empréstimos
     public static ArrayList<Emprestimo> listaEmprestimo = new ArrayList<>();
-
+public EmprestimoDAO(){
+    criar();
+}
     public ArrayList<Emprestimo> getListaEmprestimo() {
         // Limpa a lista para evitar duplicatas
-
         listaEmprestimo.clear();
         try {
             // Cria uma declaração para executar a consulta SQL
             Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select * from tb_emprestimo");
+            ResultSet res = smt.executeQuery("select * from emprestimo");
 
             // Itera sobre o resultado da consulta e adiciona empréstimos à lista
             while (res.next()) {
@@ -28,6 +30,7 @@ public class EmprestimoDAO extends ConexaoDAO {
                 int idFerramenta = res.getInt("idFerramenta");
                 String dataEmprestimo = res.getString("dataInicio");
                 String dataDevolucao = res.getString("dataDevolucao");
+                System.out.println(dataDevolucao);
                 Emprestimo objeto = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
 
                 listaEmprestimo.add(objeto);
@@ -52,7 +55,7 @@ public class EmprestimoDAO extends ConexaoDAO {
         int MaiorID = 0;
         try {
             Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select MAX(idEmprestimo)idEmprestimo from tb_emprestimo");
+            ResultSet res = smt.executeQuery("select MAX(idEmprestimo)idEmprestimo from emprestimo");
             res.next();
             MaiorID = res.getInt("idEmprestimo");
             smt.close();
@@ -63,15 +66,10 @@ public class EmprestimoDAO extends ConexaoDAO {
     }
 
     public boolean insertEmprestimoDB(Emprestimo emprestimo) {
-        String res = "insert into tb_emprestimo(idEmprestimo,idAmigo,idFerramenta,dataInicio,dataDevolucao)values(?,?,?,?,?)";
+        String res = "insert into emprestimo(idEmprestimo,dataInicio,dataDevolucao,idFerramenta,idAmigo)values('"+emprestimo.getIDEmprestimo()+"','"+emprestimo.getDataEmprestimo()+"','"+emprestimo.getDataDevolucao()+"','"+emprestimo.getIDFerramenta()+"','"+emprestimo.getIDAmigo()+"')";
         try {
-            PreparedStatement smt = super.getConexao().prepareCall(res);
-            smt.setInt(1, emprestimo.getIDEmprestimo());
-            smt.setInt(2, emprestimo.getIDAmigo());
-            smt.setInt(3, emprestimo.getIDFerramenta());
-            smt.setString(4, emprestimo.getDataEmprestimo());
-            smt.setString(5, emprestimo.getDataDevolucao());
-            smt.execute();
+          Statement smt = super.getConexao().createStatement();
+            smt.executeUpdate(res);
             smt.close();
             return true;
         } catch (SQLException erro) {
@@ -85,7 +83,7 @@ public class EmprestimoDAO extends ConexaoDAO {
         emprestimo.setIDEmprestimo(IdEmprestimo);
         try {
             Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select * from tb_emprestimo where idEmprestimo = " + IdEmprestimo);
+            ResultSet res = smt.executeQuery("select * from emprestimo where idEmprestimo = " + IdEmprestimo);
             res.next();
             emprestimo.setIDEmprestimo(res.getInt("idEmprestimo"));
             emprestimo.setDataDevolucao(res.getString("dataDevolucao"));
@@ -100,7 +98,7 @@ public class EmprestimoDAO extends ConexaoDAO {
     }
 
     public boolean updateEmprestimoDB(Emprestimo emprestimo) {
-        String res = "update tb_emprestimo set idEmprestimo=?,idAmigo=?, idFerramenta=?, dataInicio=?, dataDevolucao=? where idEmprestimo=?";
+        String res = "update emprestimo set idEmprestimo=?,dataInicio=?,dataDevolucao=?, idFerramenta=?,idAmigo=? where idEmprestimo=?";
         try {
             PreparedStatement smt = super.getConexao().prepareStatement(res);
             smt.setInt(1, emprestimo.getIDEmprestimo());
@@ -121,13 +119,21 @@ public class EmprestimoDAO extends ConexaoDAO {
     public boolean deleteEmprestimoDB(int IdEmprestimo) {
         try {
             Statement smt = super.getConexao().createStatement();
-            smt.executeUpdate("delete from tb_emprestimo where idEmprestimo=" + IdEmprestimo);
+            smt.executeUpdate("delete from emprestimo where idEmprestimo=" + IdEmprestimo);
             smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
         return true;
     }
-
-    // Outros métodos de manipulação de empréstimos
+private void criar() {
+        try {
+            try ( Connection con = getConexao();  Statement stmt = con.createStatement()) {
+                //Cria a tabela senão existir
+                stmt.execute("create table IF NOT EXISTS emprestimo (idEmprestimo integer PRIMARY KEY, idFerramenta integer, idAmigo integer,dataInicio text, dataDevolucao text);");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro no criar:{0}"+ e.toString());
+        }
+    }
 }

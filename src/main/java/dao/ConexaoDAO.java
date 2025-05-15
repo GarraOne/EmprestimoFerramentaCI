@@ -1,4 +1,4 @@
-package dao;
+    package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,18 +15,10 @@ public class ConexaoDAO {
         Connection connection = null;
         try {
             // Carrega o driver do banco de dados
-            String driver = "com.mysql.cj.jdbc.Driver";
-            Class.forName(driver);
-
-            // Informações de conexão com o banco de dados
-            String server = "localhost";
-            String database = "db_emprestimo";
-            String url = "jdbc:mysql://" + server + ":3306/" + database + "?useTimezone=true&serverTimezone=UTC";
-            String user = "root";
-            String password = "root";
+            Class.forName("org.sqlite.JDBC");
 
             // Estabelece a conexão com o banco de dados
-            connection = DriverManager.getConnection(url, user, password);
+            connection = DriverManager.getConnection("jdbc:sqlite:emprestimo.db");
 
             // Verifica se a conexão foi bem-sucedida e exibe uma mensagem
             if (connection != null) {

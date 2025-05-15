@@ -186,12 +186,8 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         int id = Integer.parseInt(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 0).toString());
         int idAmigo = Integer.parseInt(JTFIdAmigo.getText());
         int idFerramenta = Integer.parseInt(JTFIdFerramenta.getText());
-        String[] DataEmprestimoSeparado = JTFDataEmprestimo.getText().split("-");
-        String dataEmprestimo = DataEmprestimoSeparado[2] + "-" + DataEmprestimoSeparado[1] + "-" + DataEmprestimoSeparado[0];
-        if ("".equals(JTFDataDevolucao.getText()) == false) {
-            String[] DataDevolucaoSeparado = JTFDataDevolucao.getText().split("-");
-            dataDevolucao = DataDevolucaoSeparado[2] + "-" + DataDevolucaoSeparado[1] + "-" + DataDevolucaoSeparado[0];
-        }
+        String dataEmprestimo = JTFDataEmprestimo.getText();
+            dataDevolucao = JTFDataDevolucao.getText();
         if (emprestimo.updateEmprestimoDB(id, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao)) {
             JOptionPane.showMessageDialog(null, "Empréstimo atualizado com sucesso.");
             JLId.setVisible(false);
@@ -237,8 +233,8 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                 listaEmprestimo.get(i).getIDEmprestimo(),
                 listaEmprestimo.get(i).getIDAmigo(),
                 listaEmprestimo.get(i).getIDFerramenta(),
-                listaEmprestimo.get(i).getDataEmprestimoInvertido(),
-                listaEmprestimo.get(i).getDataDevolucaoInvertido(),
+                listaEmprestimo.get(i).getDataEmprestimo(),
+                listaEmprestimo.get(i).getDataDevolucao(),
                 listaEmprestimo.get(i).emprestimoAtivo(listaEmprestimo.get(i).getIDEmprestimo()),}
             );
         }

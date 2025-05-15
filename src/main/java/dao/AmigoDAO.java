@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,11 +23,14 @@ public class AmigoDAO extends ConexaoDAO {
      *
      * @return Lista de amigos.
      */
+    public AmigoDAO(){
+    criar();
+    }
     public ArrayList<Amigo> getListaAmigo() {
         listaAmigo.clear();
         try {
             Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select * from tb_amigo");
+            ResultSet res = smt.executeQuery("select * from amigo");
             while (res.next()) {
                 int idAmigo = res.getInt("IdAmigo");
                 String nomeAmigo = res.getString("nomeAmigo");
@@ -59,7 +63,7 @@ public class AmigoDAO extends ConexaoDAO {
         int MaiorID = 0;
         try {
             Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select MAX(idAmigo)idAmigo from tb_amigo");
+            ResultSet res = smt.executeQuery("select MAX(idAmigo)idAmigo from amigo");
             res.next();
             MaiorID = res.getInt("idAmigo");
             smt.close();
@@ -77,13 +81,10 @@ public class AmigoDAO extends ConexaoDAO {
      * lança uma exceção.
      */
     public boolean insertAmigoDB(Amigo amigo) {
-        String res = "insert into tb_amigo(idAmigo,nomeAmigo,telefoneAmigo)values(?,?,?)";
+        String res = "insert into amigo(idAmigo, nomeAmigo, telefoneAmigo) values ('"+amigo.getIdAmigo()+"','"+amigo.getNomeAmigo()+"','"+amigo.getTelefone()+"')";
         try {
-            PreparedStatement smt = super.getConexao().prepareCall(res);
-            smt.setInt(1, amigo.getIdAmigo());
-            smt.setString(2, amigo.getNomeAmigo());
-            smt.setString(3, amigo.getTelefone());
-            smt.execute();
+            Statement smt = super.getConexao().createStatement();
+            smt.executeUpdate(res);
             smt.close();
             return true;
         } catch (SQLException erro) {
@@ -103,7 +104,7 @@ public class AmigoDAO extends ConexaoDAO {
         amigo.setIdAmigo(IdAmigo);
         try {
             Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select * from tb_amigo where idAmigo = " + IdAmigo);
+            ResultSet res = smt.executeQuery("select * from amigo where idAmigo = " + IdAmigo);
             res.next();
             amigo.setNomeAmigo(res.getString("nomeAmigo"));
             amigo.setTelefone(res.getString("telefoneAmigo"));
@@ -122,7 +123,7 @@ public class AmigoDAO extends ConexaoDAO {
      * lança uma exceção.
      */
     public boolean updateAmigoDB(Amigo amigo) {
-        String res = "update tb_amigo set idAmigo=?,nomeAmigo=?,telefoneAmigo=? where idAmigo=?";
+        String res = "update amigo set idAmigo=?,nomeAmigo=?,telefoneAmigo=? where idAmigo=?";
         try {
             PreparedStatement smt = super.getConexao().prepareStatement(res);
             smt.setInt(1, amigo.getIdAmigo());
@@ -148,11 +149,21 @@ public class AmigoDAO extends ConexaoDAO {
     public boolean deleteAmigoDB(int IdAmigo) {
         try {
             Statement smt = super.getConexao().createStatement();
-            smt.executeUpdate("delete from tb_amigo where idAmigo = " + IdAmigo);
+            smt.executeUpdate("delete from amigo where idAmigo = " + IdAmigo);
             smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
         return true;
+    }
+private void criar() {
+        try {
+            try ( Connection con = getConexao();  Statement stmt = con.createStatement()) {
+                //Cria a tabela senão existir
+                stmt.execute("create table IF NOT EXISTS amigo (idAmigo integer PRIMARY KEY, nomeAmigo varchar(45), telefoneAmigo varchar(12));");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro no criar:{0}"+ e.toString());
+        }
     }
 }

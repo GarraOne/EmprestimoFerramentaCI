@@ -121,6 +121,8 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             }
             int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramenta();
             String DataInicio = LocalDate.now() + "";
+            String[] inversaoData = DataInicio.split("-");
+            DataInicio= inversaoData[2] + "-" + inversaoData[1] + "-" + inversaoData[0];
             if (conf == 0) {
                 if (emprestimo.insertEmprestimoDB(idAmigo, idFerramenta, DataInicio)) {
                     JOptionPane.showMessageDialog(null, "Empréstimo cadastrado com sucesso.");

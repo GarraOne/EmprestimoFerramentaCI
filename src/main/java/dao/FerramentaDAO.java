@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +17,9 @@ public class FerramentaDAO extends ConexaoDAO {
      * Lista de ferramentas em armazenamento.
      */
     public static ArrayList<Ferramenta> listaFerramenta = new ArrayList<>();
-
+public FerramentaDAO(){
+    criar();
+}
     /**
      * Obtém a lista de ferramentas do banco de dados.
      *
@@ -26,7 +29,7 @@ public class FerramentaDAO extends ConexaoDAO {
         listaFerramenta.clear();
         try {
             Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select * from tb_Ferramenta");
+            ResultSet res = smt.executeQuery("select * from ferramenta");
             while (res.next()) {
                 int idFerramenta = res.getInt("IdFerramenta");
                 String nomeFerramenta = res.getString("nomeFerramenta");
@@ -61,7 +64,7 @@ public class FerramentaDAO extends ConexaoDAO {
         int MaiorID = 0;
         try {
             Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select MAX(idFerramenta)idFerramenta from tb_Ferramenta");
+            ResultSet res = smt.executeQuery("select MAX(idFerramenta)idFerramenta from ferramenta");
             res.next();
             MaiorID = res.getInt("idFerramenta");
             smt.close();
@@ -79,14 +82,10 @@ public class FerramentaDAO extends ConexaoDAO {
      * lança uma exceção.
      */
     public boolean insertFerramentaDB(Ferramenta ferramenta) {
-        String res = "insert into tb_Ferramenta(idFerramenta,nomeFerramenta,marcaFerramenta,custoFerramenta)values(?,?,?,?)";
+        String res = "insert into ferramenta(idFerramenta,nomeFerramenta,marcaFerramenta,custoFerramenta)values('"+ferramenta.getIdFerramenta()+"','"+ferramenta.getNomeFerramenta()+"','"+ferramenta.getMarcaFerramenta()+"','"+ferramenta.getCustoFerramenta()+"')";
         try {
-            PreparedStatement smt = super.getConexao().prepareCall(res);
-            smt.setInt(1, ferramenta.getIdFerramenta());
-            smt.setString(2, ferramenta.getNomeFerramenta());
-            smt.setString(3, ferramenta.getMarcaFerramenta());
-            smt.setDouble(4, ferramenta.getCustoFerramenta());
-            smt.execute();
+            Statement smt = super.getConexao().createStatement();
+            smt.executeUpdate(res);
             smt.close();
             return true;
         } catch (SQLException erro) {
@@ -106,7 +105,7 @@ public class FerramentaDAO extends ConexaoDAO {
         ferramenta.setIdFerramenta(IdFerramenta);
         try {
             Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select * from tb_Ferramenta where idFerramenta = " + IdFerramenta);
+            ResultSet res = smt.executeQuery("select * from ferramenta where idFerramenta = " + IdFerramenta);
             res.next();
             ferramenta.setNomeFerramenta(res.getString("nomeFerramenta"));
             ferramenta.setMarcaFerramenta(res.getString("marcaFerramenta"));
@@ -126,7 +125,7 @@ public class FerramentaDAO extends ConexaoDAO {
      * lança uma exceção.
      */
     public boolean updateFerramentaDB(Ferramenta ferramenta) {
-        String res = "update tb_Ferramenta set idFerramenta=?,nomeFerramenta=?, marcaFerramenta=?, custoFerramenta=? where idFerramenta=?";
+        String res = "update ferramenta set idFerramenta=?,nomeFerramenta=?, marcaFerramenta=?, custoFerramenta=? where idFerramenta=?";
         try {
             PreparedStatement smt = super.getConexao().prepareStatement(res);
             smt.setInt(1, ferramenta.getIdFerramenta());
@@ -153,11 +152,22 @@ public class FerramentaDAO extends ConexaoDAO {
     public boolean deleteFerramentaDB(int IdFerramenta) {
         try {
             Statement smt = super.getConexao().createStatement();
-            smt.executeUpdate("delete from tb_Ferramenta where idFerramenta=" + IdFerramenta);
+            smt.executeUpdate("delete from ferramenta where idFerramenta=" + IdFerramenta);
             smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
         return true;
     }
+private void criar() {
+        try {
+            try ( Connection con = getConexao();  Statement stmt = con.createStatement()) {
+                //Cria a tabela senão existir
+                stmt.execute("create table IF NOT EXISTS ferramenta (idFerramenta integer PRIMARY KEY, nomeFerramenta varchar(45), marcaFerramenta varchar(45), custoFerramenta real);");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro no criar:{0}"+ e.toString());
+        }
+    }
 }
+

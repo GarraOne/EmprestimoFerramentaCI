@@ -140,12 +140,15 @@ public class Emprestimo {
      * @return A data de devolução do emprestimo.
      */
     public String getDataDevolucao() {
+        if(dataDevolucao == "null"){
         return dataDevolucao;
+    }
+        return "";
     }
 
     public String getDataDevolucaoInvertido() {
         String dataDevolucao = this.dataDevolucao;
-        if (dataDevolucao != null) {
+        if (!"null".equals(dataDevolucao)) {
             String[] DataDevolucaoSeparado = this.dataDevolucao.split("-");
             dataDevolucao = DataDevolucaoSeparado[2] + "-" + DataDevolucaoSeparado[1] + "-" + DataDevolucaoSeparado[0];
         }
@@ -258,22 +261,20 @@ public class Emprestimo {
 
             for (int i = 0; i < listaEmprestimo.size(); i++) {
 
-                if (listaEmprestimo.get(i).getDataDevolucao() == null) {
-                    listaEmprestimoAtivo.add(listaEmprestimo.get(i));
-
-                }
-                if (listaEmprestimo.get(i).getDataDevolucao() != null) {
-                    Date dataDevolucao = sdf.parse(listaEmprestimo.get(i).getDataDevolucao());
+                if ((!"null".equals(listaEmprestimo.get(i).getDataDevolucao()))&&(!"".equals(listaEmprestimo.get(i).getDataDevolucao()))) {
+                    Date dataDevolucao = sdf.parse(listaEmprestimo.get(i).getDataDevolucaoInvertido());
                     Date dataAtual = sdf.parse(LocalDate.now() + "");
-
                     if (dataAtual.compareTo(dataDevolucao) < 0) {
                         listaEmprestimoAtivo.add(listaEmprestimo.get(i));
 
                     }
+                }else{
+                   listaEmprestimoAtivo.add(listaEmprestimo.get(i));
                 }
 
             }
         } catch (ParseException erro) {
+            System.out.println("jorge");
         }
 
         return listaEmprestimoAtivo;

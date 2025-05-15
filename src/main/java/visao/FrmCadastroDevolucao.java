@@ -108,8 +108,9 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
         ArrayList<Emprestimo> listaEmprestimo = emprestimo.getListaEmprestimoAtivo();
         Emprestimo emp = new Emprestimo();
         String data = LocalDate.now() + "";
-
-        if (emp.updateEmprestimoDB(listaEmprestimo.get(posicaoEmprestimo).getIDEmprestimo(), listaEmprestimo.get(posicaoEmprestimo).getIDAmigo(), listaEmprestimo.get(posicaoEmprestimo).getIDFerramenta(), listaEmprestimo.get(posicaoEmprestimo).getDataEmprestimo(), data + "")) {
+        String[] dataInvertida= data.split("-");
+        data= dataInvertida[2]+"-"+dataInvertida[1]+"-"+dataInvertida[0];
+        if (emp.updateEmprestimoDB(listaEmprestimo.get(posicaoEmprestimo).getIDEmprestimo(), listaEmprestimo.get(posicaoEmprestimo).getIDAmigo(), listaEmprestimo.get(posicaoEmprestimo).getIDFerramenta(), listaEmprestimo.get(posicaoEmprestimo).getDataEmprestimo(), (data + ""))) {
             JOptionPane.showMessageDialog(null, "Devolucao cadastrada com sucesso.");
             JCBEmprestimo.removeAllItems();
             this.carregaCBEmprestimo();
