@@ -95,7 +95,8 @@ public class FrmRelatorio extends javax.swing.JFrame {
         string = string + lista + "\n Amigo com maior quantidade de empréstimos: "+amg.getNomeAmigo(idAmigo)+"\n Quantidade de empréstimos: "+maior+"\n\n EMPRÉSTIMOS: \n";
         lista = "";
         for (int i = 0; i < listaEmprestimo.size(); i++) {
-            lista = lista + "\n ID do Empréstimo: " + listaEmprestimo.get(i).getIDEmprestimo() + "\n Nome do Amigo: " + amg.getNomeAmigo(listaEmprestimo.get(i).getIDAmigo()) + "\n Nome da Ferramenta: " + frmt.getNomeFerramenta(listaEmprestimo.get(i).getIDFerramenta()) + "\n Data de Início: " + listaEmprestimo.get(i).getDataEmprestimoInvertido() + "\n Data de Devolução: " + listaEmprestimo.get(i).getDataDevolucaoInvertido() + "\n";
+            System.out.println(i);
+            lista = lista + "\n ID do Empréstimo: " + listaEmprestimo.get(i).getIDEmprestimo() + "\n Nome do Amigo: " + amg.getNomeAmigo(listaEmprestimo.get(i).getIDAmigo()) + "\n Nome da Ferramenta: " + frmt.getNomeFerramenta(listaEmprestimo.get(i).getIDFerramenta()) + "\n Data de Início: " + listaEmprestimo.get(i).getDataEmprestimo() + "\n Data de Devolução: " + listaEmprestimo.get(i).getDataDevolucao() + "\n";
         }
         string = string + lista;
         JTARelatorio.setText(string);

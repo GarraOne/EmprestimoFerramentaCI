@@ -30,7 +30,6 @@ public EmprestimoDAO(){
                 int idFerramenta = res.getInt("idFerramenta");
                 String dataEmprestimo = res.getString("dataInicio");
                 String dataDevolucao = res.getString("dataDevolucao");
-                System.out.println(dataDevolucao);
                 Emprestimo objeto = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
 
                 listaEmprestimo.add(objeto);
@@ -66,7 +65,7 @@ public EmprestimoDAO(){
     }
 
     public boolean insertEmprestimoDB(Emprestimo emprestimo) {
-        String res = "insert into emprestimo(idEmprestimo,dataInicio,dataDevolucao,idFerramenta,idAmigo)values('"+emprestimo.getIDEmprestimo()+"','"+emprestimo.getDataEmprestimo()+"','"+emprestimo.getDataDevolucao()+"','"+emprestimo.getIDFerramenta()+"','"+emprestimo.getIDAmigo()+"')";
+        String res = "insert into emprestimo(idEmprestimo,idFerramenta,idAmigo,dataInicio,dataDevolucao)values('"+emprestimo.getIDEmprestimo()+"','"+emprestimo.getIDFerramenta()+"','"+emprestimo.getIDAmigo()+"','"+emprestimo.getDataEmprestimo()+"','"+emprestimo.getDataDevolucao()+"')";
         try {
           Statement smt = super.getConexao().createStatement();
             smt.executeUpdate(res);
@@ -98,12 +97,13 @@ public EmprestimoDAO(){
     }
 
     public boolean updateEmprestimoDB(Emprestimo emprestimo) {
-        String res = "update emprestimo set idEmprestimo=?,dataInicio=?,dataDevolucao=?, idFerramenta=?,idAmigo=? where idEmprestimo=?";
+        String res = "update emprestimo set idEmprestimo=?,idFerramenta=?,idAmigo=?,dataInicio=?,dataDevolucao=? where idEmprestimo=?";
         try {
+            System.out.println(emprestimo.getDataDevolucao());
             PreparedStatement smt = super.getConexao().prepareStatement(res);
             smt.setInt(1, emprestimo.getIDEmprestimo());
-            smt.setInt(2, emprestimo.getIDAmigo());
-            smt.setInt(3, emprestimo.getIDFerramenta());
+            smt.setInt(2, emprestimo.getIDFerramenta());
+            smt.setInt(3, emprestimo.getIDAmigo());
             smt.setString(4, emprestimo.getDataEmprestimo());
             smt.setString(5, emprestimo.getDataDevolucao());
             smt.setInt(6, emprestimo.getIDEmprestimo());

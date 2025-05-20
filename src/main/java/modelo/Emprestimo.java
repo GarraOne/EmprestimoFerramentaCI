@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * Representa um emprestimo com id, id do amigo, id da ferramenta, data de
@@ -118,7 +119,7 @@ public class Emprestimo {
 
     public String getDataEmprestimoInvertido() {
         String dataEmprestimo = this.dataEmprestimo;
-        if (dataEmprestimo != null) {
+        if (dataEmprestimo != "") {
             String[] DataEmprestimoSeparado = this.dataEmprestimo.split("-");
             dataEmprestimo = DataEmprestimoSeparado[2] + "-" + DataEmprestimoSeparado[1] + "-" + DataEmprestimoSeparado[0];
         }
@@ -140,10 +141,7 @@ public class Emprestimo {
      * @return A data de devolução do emprestimo.
      */
     public String getDataDevolucao() {
-        if(dataDevolucao == "null"){
         return dataDevolucao;
-    }
-        return "";
     }
 
     public String getDataDevolucaoInvertido() {
@@ -184,7 +182,7 @@ public class Emprestimo {
      */
     public boolean insertEmprestimoDB(int idAmigo, int idFerramenta, String dataEmprestimo) {
         int maiorID = dao.maiorIDEmprestimo() + 1;
-        Emprestimo emprestimo = new Emprestimo(maiorID, idAmigo, idFerramenta, dataEmprestimo, null);
+        Emprestimo emprestimo = new Emprestimo(maiorID, idAmigo, idFerramenta, dataEmprestimo, "");
         dao.insertEmprestimoDB(emprestimo);
         return true;
 
@@ -221,14 +219,16 @@ public class Emprestimo {
      * Atualiza um emprestimo no banco de dados.
      *
      * @param idEmprestimo O id do emprestimo a ser atualizado.
-     * @param idAmgio O id do amigo a ser atualizado.
+     * @param idAmigo O id do amigo a ser atualizado.
      * @param idFerramenta O id da ferramenta a ser atualizada.
-     * @param DataEmprestimo A Data do emprestimo a ser atualizada.
-     * @param DataDevolucao A Data de devolução da ferramenta a ser atualizada.
+     * @param dataEmprestimo A Data do emprestimo a ser atualizada.
+     * @param dataDevolucao A Data de devolução da ferramenta a ser atualizada.
      * @return true se a inserção for bem-sucedida, false caso contrário.
      */
     public boolean updateEmprestimoDB(int idEmprestimo, int idAmigo, int idFerramenta, String dataEmprestimo, String dataDevolucao) {
+        System.out.println(dataDevolucao);
         Emprestimo emprestimo = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
+        System.out.println(emprestimo.getDataDevolucao());
         int indice = this.procuraIndice(idEmprestimo);
         dao.updateEmprestimoDB(emprestimo);
         return true;
