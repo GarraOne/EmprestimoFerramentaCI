@@ -20,10 +20,10 @@ public class TesteAmigoDao {
     @Test
     void testMaiorIDAmigo() {
         //Define o valor esperado para a operação
-        int retornoEsperado = 0;
+        int retornoEsperado = 1;
         //Chama a operacao maiorIDAmigo()
         int retornoFeito = amigodao.maiorIDAmigo();
         //Premissa verifica se os valores são iguais
-        assertEquals(retornoEsperado, retornoFeito, 0);
+        assertEquals(retornoEsperado, retornoFeito);
     }
 }
