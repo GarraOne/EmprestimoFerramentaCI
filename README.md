@@ -8,7 +8,7 @@
 # EmprestimoFerramentaCI
 
 ## Integrantes:
- Gabriel Teotônio Cordeiro 10724111027/
- Luan Campi Galatti/
- Davi Dias Perius 10724114628/
- Victor Lucio Scheuer Rodrigues 1072410296/
+ Gabriel Teotônio Cordeiro 10724111027 \
+ Luan Campi Galatti \
+ Davi Dias Perius 10724114628 \
+ Victor Lucio Scheuer Rodrigues 1072410296
