@@ -9,6 +9,6 @@
 
 ## Integrantes:
  Gabriel Teotônio Cordeiro 10724111027 \
- Luan Campi Galatti \
+ Luan Campi Galatti 1072419087 \
  Davi Dias Perius 10724114628 \
  Victor Lucio Scheuer Rodrigues 1072410296
