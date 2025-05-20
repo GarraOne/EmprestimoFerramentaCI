@@ -1,5 +1,6 @@
 package visao;
 
+import dao.AmigoDAO;
 import modelo.Amigo;
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -41,5 +42,9 @@ public class TesteFrmCadrastroAmigo {
         // Verifica se a mensagem exibida é a de sucesso
         assertEquals("Amigo cadastrado com sucesso.", frmCadastroAmigo.getMensagem());
     }
-
+@AfterEach
+void finaliza(){
+    AmigoDAO amigodao = new AmigoDAO();
+    amigodao.deleteAmigoDB(1);
+}
 }
