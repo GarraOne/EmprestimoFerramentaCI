@@ -28,12 +28,14 @@ public class TesteEmprestimoDao {
 
     }
 
+    @Test
     void TestMaiorID() {
         EmprestimoDAO dao = new EmprestimoDAO();
         int retornoEsperado = 2;
         assertEquals(retornoEsperado, dao.maiorIDEmprestimo());
     }
 
+    @Test
     void TestRetrieve() {
         EmprestimoDAO dao = new EmprestimoDAO();
         Emprestimo emprestimoRecebido = dao.retrieveEmprestimoDB(1);
@@ -65,6 +67,7 @@ public class TesteEmprestimoDao {
         assertEquals(dataDevolucaoEsperada, emprestimoRecebido.getDataDevolucao());
     }
 
+    @Test
     void TestUpdate() {
         EmprestimoDAO dao = new EmprestimoDAO();
         Emprestimo emprestimoAtualiza = new Emprestimo(1, 2, 3, "12-09-2025", "13-10-2026");
