@@ -205,6 +205,10 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         return this.JBCadastrar;
     }
 
+    protected javax.swing.JButton getJBLimpar() {
+        return this.JBLimpar;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCadastrar;
     private javax.swing.JButton JBCancelar;

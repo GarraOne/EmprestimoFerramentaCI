@@ -20,7 +20,6 @@ public class TesteFrmCadrastroAmigo {
     /**
      * Inicializa os objetos para o teste.
      */
-    
     @BeforeEach
     public void inicializa() {
         //Dados de teste de inclusão
@@ -42,9 +41,24 @@ public class TesteFrmCadrastroAmigo {
         // Verifica se a mensagem exibida é a de sucesso
         assertEquals("Amigo cadastrado com sucesso.", frmCadastroAmigo.getMensagem());
     }
-@AfterEach
-void finaliza(){
-    AmigoDAO amigodao = new AmigoDAO();
-    amigodao.deleteAmigoDB(1);
-}
+
+    @Test
+    public void testLimparCadastro() {
+        // Preenche os campos do formulário via getters do fake
+        frmCadastroAmigo.getJTFNomeAmigo().setText(amigoTeste.getNomeAmigo());
+        frmCadastroAmigo.getJTFTelefone().setText(amigoTeste.getTelefone());
+
+        // Simula o clique no botão Limpar via método do fake
+        frmCadastroAmigo.clicarBotaoLimpar();
+
+        // Verifica se foi limpo os campos do formulário
+        assertEquals("", frmCadastroAmigo.getJTFNomeAmigo().getText());
+        assertEquals("", frmCadastroAmigo.getJTFTelefone().getText());
+    }
+
+    @AfterEach
+    void finaliza() {
+        AmigoDAO amigodao = new AmigoDAO();
+        amigodao.deleteAmigoDB(1);
+    }
 }
