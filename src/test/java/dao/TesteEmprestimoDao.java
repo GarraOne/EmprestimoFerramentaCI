@@ -40,8 +40,8 @@ public class TesteEmprestimoDao {
         EmprestimoDAO dao = new EmprestimoDAO();
         Emprestimo emprestimoRecebido = dao.retrieveEmprestimoDB(1);
         int idEmprestimoEsperado = 1;
-        int idFerramentaEsperado = 7;
-        int idAmigoEsperado = 9;
+        int idFerramentaEsperado = 9;
+        int idAmigoEsperado = 7;
         String dataEmprestimoEsperada = "10-05-2020";
         String dataDevolucaoEsperada = "15-02-2021";
         assertEquals(idEmprestimoEsperado, emprestimoRecebido.getIDEmprestimo());
