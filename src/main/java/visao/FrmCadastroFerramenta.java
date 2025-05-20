@@ -9,10 +9,20 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
      * Creates new form FrmCadastroFerramenta
      */
     private Ferramenta objetoferramenta;
+    
+    private String mensagem;
 
     public FrmCadastroFerramenta() {
         initComponents();
         this.objetoferramenta = new Ferramenta();
+    }
+    
+        public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
 
     /**
@@ -159,7 +169,7 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
 
             }
             if (ferramenta.InsertFerramentaDB(nome, marca, custo)) {
-                JOptionPane.showMessageDialog(null, "Ferramenta cadastrada com sucesso.");
+                mostrarMensagem("Ferramenta cadastrada com sucesso.");
                 JTFMarcaFerramenta.setText("");
                 JTFNomeFerramenta.setText("");
                 JTFCustoFerramenta.setText("");
@@ -208,6 +218,30 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
                 new FrmCadastroFerramenta().setVisible(true);
             }
         });
+    }
+
+    public void mostrarMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+
+    protected javax.swing.JTextField getJTFNomeFerramenta() {
+        return this.JTFNomeFerramenta;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTextField getJTFMarcaFerramenta() {
+        return this.JTFMarcaFerramenta;
+    }
+
+    protected javax.swing.JTextField getJTFCustoFerramenta() {
+        return this.JTFCustoFerramenta;
+    }
+
+    protected javax.swing.JButton getJBCadastrar() {
+        return this.JBCadastrar;
+    }
+
+    protected javax.swing.JButton getJBLimpar() {
+        return this.JBLimpar;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
