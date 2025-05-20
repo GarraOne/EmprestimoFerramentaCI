@@ -145,7 +145,7 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
 
             }
             if (amigo.insertAmigoDB(nome, telefone)) {
-                JOptionPane.showMessageDialog(null, "Amigo cadastrado com sucesso.");
+                mostrarMensagem("Amigo cadastrado com sucesso.");
                 JTFNomeAmigo.setText("");
                 JTFTelefone.setText("");
             }
@@ -192,6 +192,19 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     public void mostrarMensagem(String mensagem) {
         JOptionPane.showMessageDialog(null, mensagem);
     }
+
+    protected javax.swing.JTextField getJTFNomeAmigo() {
+        return this.JTFNomeAmigo;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTextField getJTFTelefone() {
+        return this.JTFTelefone;
+    }
+
+    protected javax.swing.JButton getJBCadastrar() {
+        return this.JBCadastrar;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCadastrar;
     private javax.swing.JButton JBCancelar;
