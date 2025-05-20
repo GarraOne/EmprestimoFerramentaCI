@@ -49,6 +49,22 @@ public class TesteEmprestimoDao {
         assertEquals(dataDevolucaoEsperada, emprestimoRecebido.getDataDevolucao());
     }
 
+    @Test
+    void TestRetrieveSQLException() {
+        EmprestimoDAO dao = new EmprestimoDAO();
+        Emprestimo emprestimoRecebido = dao.retrieveEmprestimoDB(4);
+        int idEmprestimoEsperado = 4;
+        int idFerramentaEsperado = 0;
+        int idAmigoEsperado = 0;
+        String dataEmprestimoEsperada = "";
+        String dataDevolucaoEsperada = "";
+        assertEquals(idEmprestimoEsperado, emprestimoRecebido.getIDEmprestimo());
+        assertEquals(idAmigoEsperado, emprestimoRecebido.getIDAmigo());
+        assertEquals(idFerramentaEsperado, emprestimoRecebido.getIDFerramenta());
+        assertEquals(dataEmprestimoEsperada, emprestimoRecebido.getDataEmprestimo());
+        assertEquals(dataDevolucaoEsperada, emprestimoRecebido.getDataDevolucao());
+    }
+
     void TestUpdate() {
         EmprestimoDAO dao = new EmprestimoDAO();
         Emprestimo emprestimoAtualiza = new Emprestimo(1, 2, 3, "12-09-2025", "13-10-2026");
