@@ -27,12 +27,14 @@ public class TesteFerramentaDao {
         assertEquals(retornoEsperado, listaFerramenta.size());
     }
     
+    @Test
     void TestMaiorIdFerramenta() {
         FerramentaDAO dao = new FerramentaDAO();
         int retornoEsperado = 2;
         assertEquals(retornoEsperado, dao.maiorIDFerramenta());
     }
     
+    @Test
     void TestRetriveFerramenta() {
         FerramentaDAO dao = new FerramentaDAO();
         Ferramenta ferramentaRecebida = dao.retrieveFerramentaDB(1);
@@ -46,6 +48,7 @@ public class TesteFerramentaDao {
         assertEquals(marcaFerramentaEsperado, ferramentaRecebida.getMarcaFerramenta());
     }
     
+    @Test
     void TestUpdateFerramenta() {
         FerramentaDAO dao = new FerramentaDAO();
         Ferramenta ferramentaAtualiza = new Ferramenta(1, "Martelo", 12.0, "Bosh");
@@ -55,6 +58,20 @@ public class TesteFerramentaDao {
         assertEquals(ferramentaAtualiza.getNomeFerramenta(), ferramentaRecebido.getNomeFerramenta());
         assertEquals(ferramentaAtualiza.getCustoFerramenta(), ferramentaRecebido.getCustoFerramenta());
         assertEquals(ferramentaAtualiza.getMarcaFerramenta(), ferramentaRecebido.getMarcaFerramenta());
+    }
+    
+    @Test
+    void TestRetriveSQLExceptionFerramenta() {
+        FerramentaDAO dao = new FerramentaDAO();
+        Ferramenta ferramentaRecebida = dao.retrieveFerramentaDB(3);
+        int idFerramentaEsperada = 3;
+        String nomeFerramentaEsperada = "";
+        double precoFerramentaEsperado = 0;
+        String marcaFerramentaEsperada = "";
+        assertEquals(idFerramentaEsperada, ferramentaRecebida.getIdFerramenta());
+        assertEquals(nomeFerramentaEsperada, ferramentaRecebida.getNomeFerramenta());
+        assertEquals(precoFerramentaEsperado, ferramentaRecebida.getCustoFerramenta());
+        assertEquals(marcaFerramentaEsperada, ferramentaRecebida.getMarcaFerramenta());
     }
     
     @AfterEach
