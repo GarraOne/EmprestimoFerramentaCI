@@ -10,7 +10,7 @@ import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
-public class TesteFrmCadastroFerramenta {
+class TesteFrmCadastroFerramenta {
 
     //Objeto ferramenta a ser inserido
     Ferramenta ferramentaTeste;

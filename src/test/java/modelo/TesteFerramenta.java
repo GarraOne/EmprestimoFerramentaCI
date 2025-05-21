@@ -8,7 +8,7 @@ import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
-public class TesteFerramenta {
+class TesteFerramenta {
     
     Ferramenta ferramenta;
     

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.TestInstance;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 
-public class TesteEmprestimo {
+class TesteEmprestimo {
 
     Emprestimo emprestimo;
 

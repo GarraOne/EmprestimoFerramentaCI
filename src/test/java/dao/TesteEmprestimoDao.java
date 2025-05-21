@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 
-public class TesteEmprestimoDao {
+class TesteEmprestimoDao {
 
     @BeforeEach
     void inicializacao() {

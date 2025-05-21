@@ -6,7 +6,7 @@ import java.sql.Connection;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-public class TesteConexaoDao {
+class TesteConexaoDao {
     @Test
     void testConexaoBemSucedidaOuNao() {
         // Captura a saída do console

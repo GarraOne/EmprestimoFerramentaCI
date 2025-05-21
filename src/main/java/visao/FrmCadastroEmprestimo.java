@@ -1,5 +1,6 @@
 package visao;
 
+import javax.swing.JComboBox;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -12,12 +13,22 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
     private Ferramenta ferramenta;
     private Amigo amigo;
 
+    private String mensagem;
+
     public FrmCadastroEmprestimo() {
         initComponents();
         this.ferramenta = new Ferramenta();
         this.amigo = new Amigo();
         carregaCBFerramenta();
         carregaCBAmigo();
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
 
     /**
@@ -122,10 +133,10 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramenta();
             String DataInicio = LocalDate.now() + "";
             String[] inversaoData = DataInicio.split("-");
-            DataInicio= inversaoData[2] + "-" + inversaoData[1] + "-" + inversaoData[0];
+            DataInicio = inversaoData[2] + "-" + inversaoData[1] + "-" + inversaoData[0];
             if (conf == 0) {
                 if (emprestimo.insertEmprestimoDB(idAmigo, idFerramenta, DataInicio)) {
-                    JOptionPane.showMessageDialog(null, "Empréstimo cadastrado com sucesso.");
+                    mostrarMensagem("Empréstimo cadastrado com sucesso.");
                     ferramenta.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramenta(), listaFerramenta.get(posicaoFerramenta).getMarcaFerramenta(), listaFerramenta.get(posicaoFerramenta).getCustoFerramenta());
                 };
 
@@ -181,6 +192,22 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             }
         });
     }
+
+    public void mostrarMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+
+    protected javax.swing.JButton getJBCadastrar() {
+        return this.JBCadastrar;
+    }
+
+    public JComboBox<String> getJCBAmigo() {
+        return JCBAmigo;
+    }
+        public JComboBox<String> getJCBFerramenta() {
+        return JCBFerramenta;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCadastrar;
