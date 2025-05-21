@@ -117,15 +117,6 @@ public class Emprestimo {
         return dataEmprestimo;
     }
 
-    public String getDataEmprestimoInvertido() {
-        String dataEmprestimo = this.dataEmprestimo;
-        if (dataEmprestimo != "") {
-            String[] DataEmprestimoSeparado = this.dataEmprestimo.split("-");
-            dataEmprestimo = DataEmprestimoSeparado[2] + "-" + DataEmprestimoSeparado[1] + "-" + DataEmprestimoSeparado[0];
-        }
-        return dataEmprestimo;
-    }
-
     /**
      * Define a data do emprestimo.
      *
@@ -141,15 +132,6 @@ public class Emprestimo {
      * @return A data de devolução do emprestimo.
      */
     public String getDataDevolucao() {
-        return dataDevolucao;
-    }
-
-    public String getDataDevolucaoInvertido() {
-        String dataDevolucao = this.dataDevolucao;
-        if (!"null".equals(dataDevolucao)) {
-            String[] DataDevolucaoSeparado = this.dataDevolucao.split("-");
-            dataDevolucao = DataDevolucaoSeparado[2] + "-" + DataDevolucaoSeparado[1] + "-" + DataDevolucaoSeparado[0];
-        }
         return dataDevolucao;
     }
 
@@ -262,7 +244,8 @@ public class Emprestimo {
             for (int i = 0; i < listaEmprestimo.size(); i++) {
 
                 if ((!"null".equals(listaEmprestimo.get(i).getDataDevolucao()))&&(!"".equals(listaEmprestimo.get(i).getDataDevolucao()))) {
-                    Date dataDevolucao = sdf.parse(listaEmprestimo.get(i).getDataDevolucaoInvertido());
+                    String[] dataDevolucaoInvertida = listaEmprestimo.get(i).getDataDevolucao().split("-"); 
+                    Date dataDevolucao = sdf.parse(dataDevolucaoInvertida[2]+"-"+dataDevolucaoInvertida[1]+"-"+dataDevolucaoInvertida[0]);
                     Date dataAtual = sdf.parse(LocalDate.now() + "");
                     if (dataAtual.compareTo(dataDevolucao) < 0) {
                         listaEmprestimoAtivo.add(listaEmprestimo.get(i));
