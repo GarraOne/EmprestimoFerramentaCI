@@ -2,6 +2,7 @@ package visao;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import modelo.Amigo;
 import modelo.Emprestimo;
@@ -13,12 +14,22 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
     private Amigo amigo;
     private Ferramenta ferramenta;
 
+    private String mensagem;
+
     public FrmCadastroDevolucao() {
         initComponents();
         emprestimo = new Emprestimo();
         amigo = new Amigo();
         ferramenta = new Ferramenta();
         this.carregaCBEmprestimo();
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
 
     /**
@@ -108,11 +119,11 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
         ArrayList<Emprestimo> listaEmprestimo = emprestimo.getListaEmprestimoAtivo();
         Emprestimo emp = new Emprestimo();
         String data = LocalDate.now() + "";
-        String[] dataInvertida= data.split("-");
-        data= dataInvertida[2]+"-"+dataInvertida[1]+"-"+dataInvertida[0];
+        String[] dataInvertida = data.split("-");
+        data = dataInvertida[2] + "-" + dataInvertida[1] + "-" + dataInvertida[0];
 
-        if (emp.updateEmprestimoDB(listaEmprestimo.get(posicaoEmprestimo).getIDEmprestimo(), listaEmprestimo.get(posicaoEmprestimo).getIDAmigo(), listaEmprestimo.get(posicaoEmprestimo).getIDFerramenta(), listaEmprestimo.get(posicaoEmprestimo).getDataEmprestimo(),data)) {
-            JOptionPane.showMessageDialog(null, "Devolucao cadastrada com sucesso.");
+        if (emp.updateEmprestimoDB(listaEmprestimo.get(posicaoEmprestimo).getIDEmprestimo(), listaEmprestimo.get(posicaoEmprestimo).getIDAmigo(), listaEmprestimo.get(posicaoEmprestimo).getIDFerramenta(), listaEmprestimo.get(posicaoEmprestimo).getDataEmprestimo(), data)) {
+            mostrarMensagem("Devolucao cadastrada com sucesso.");
             JCBEmprestimo.removeAllItems();
             this.carregaCBEmprestimo();
         } else {
@@ -161,6 +172,18 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
                 new FrmCadastroDevolucao().setVisible(true);
             }
         });
+    }
+
+    public void mostrarMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+
+    public JComboBox<String> getJCBEmprestimo() {
+        return JCBEmprestimo;
+    }
+
+    protected javax.swing.JButton getJBCadastrar() {
+        return this.JBCadastrar;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
