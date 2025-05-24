@@ -10,10 +10,20 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
     private Amigo amigo;
 
+    private String mensagem;
+
     public FrmGerenciarAmigo() {
         initComponents();
         this.amigo = new Amigo();
         this.carregaListaAmigo();
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
 
     /**
@@ -178,7 +188,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
             }
 
             if (amigo.updateAmigoDB(id, nome, telefone)) {
-                JOptionPane.showMessageDialog(null, "Amigo atualizado com sucesso.");
+                mostrarMensagem("Amigo atualizado com sucesso.");
                 JLId.setVisible(false);
                 JTFNome.setText("");
                 JTFTelefone.setText("");
@@ -269,6 +279,30 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
                 new FrmGerenciarAmigo().setVisible(true);
             }
         });
+    }
+
+    public void mostrarMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+
+    protected javax.swing.JTextField getJTFNome() {
+        return this.JTFNome;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTextField getJTFTelefone() {
+        return this.JTFTelefone;
+    }
+
+    protected javax.swing.JButton getJBModificar() {
+        return this.JBModificar;
+    }
+
+    protected javax.swing.JButton getJBApagar() {
+        return this.JBApagar;
+    }
+
+    protected javax.swing.JTable getJTableAmigos() {
+        return this.jTableAmigos;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
