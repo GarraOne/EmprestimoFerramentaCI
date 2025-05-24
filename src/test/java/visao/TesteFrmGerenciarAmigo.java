@@ -30,7 +30,7 @@ public class TesteFrmGerenciarAmigo {
     }
 
     @Test
-    public void testCadastroValido() {
+    public void testModificarAmigo() {
 
         amigoTeste.insertAmigoDB("Joao", "12345678");
 
