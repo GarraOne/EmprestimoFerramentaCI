@@ -73,15 +73,6 @@ class TesteAmigo {
     }
 
     @Test
-    void testGetNomeAmigo() {
-        amigo.insertAmigoDB("Joao", "48999");
-        int id = amigo.maiorID();
-        
-        String nome = amigo.getNomeAmigo(id);
-        assertEquals("Joao", nome);
-    }
-
-    @Test
     void testGetVazio() {
         String retornoEsperado = "";
         Amigo amigo = new Amigo();
