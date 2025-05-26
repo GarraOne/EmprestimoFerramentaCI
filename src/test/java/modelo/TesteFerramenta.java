@@ -49,7 +49,7 @@ class TesteFerramenta {
         ferramenta.deleteFerramentaDB(ferramenta.getIdFerramenta());
     }
 
-        @Test
+    @Test
     void TestGetNomeFerramenta() {
         ferramenta.InsertFerramentaDB("martelo", "Bosh", 15);
         ferramenta = ferramenta.retrieveFerramentaDB(1);
@@ -57,42 +57,29 @@ class TesteFerramenta {
         assertEquals(nomeEsperado, ferramenta.getNomeFerramenta(1));
         ferramenta.deleteFerramentaDB(ferramenta.getIdFerramenta());
     }
-    
+
     @Test
-    void TestGProcuraIndice() {
+    void TestProcuraIndice() {
         ferramenta.InsertFerramentaDB("martelo", "Bosh", 15);
         ferramenta.InsertFerramentaDB("maquita", "jorge", 20);
-        int indiceEsperado = 1;
-        int indiceRecebido = ferramenta.procuraIndice(2);
+        int indiceEsperado = 0;
+        int indiceRecebido = ferramenta.procuraIndice(1);
         assertEquals(indiceEsperado, indiceRecebido);
         ferramenta.deleteFerramentaDB(1);
         ferramenta.deleteFerramentaDB(2);
     }
 
     @Test
-    void TestProcuraIndice(){
+    void TestMaiorID() {
         ferramenta.InsertFerramentaDB("martelo", "Bosh", 15);
         int maiorIDEsperado = 1;
         int maiorIDRecebido = ferramenta.MaiorID();
         assertEquals(maiorIDEsperado, maiorIDRecebido);
         ferramenta.deleteFerramentaDB(1);
     }
-    
+
     @AfterEach
     public void finalizacao() {
         ferramenta = null;
     }
-@BeforeAll
-void dropTable(){
-            try {
-ConexaoDAO conec =  new ConexaoDAO();
-                try ( Connection con = conec.getConexao();  Statement stmt = con.createStatement()) {
-                //Cria a tabela senão existir
-                stmt.execute("drop table ferramenta");
-            }
-        } catch (SQLException e) {
-            System.out.println("Erro no criar:{0}"+ e.toString());
-        }
-    }
 }
-

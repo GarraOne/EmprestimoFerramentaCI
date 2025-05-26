@@ -67,8 +67,8 @@ public class FrmRelatorio extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
     public void criaRelatorio() {
-        int idAmigo=0;
-        int maior=0;
+        int idAmigo = 0;
+        int maior = 0;
         String string = "FERRAMENTAS: \n";
         String lista = "";
         double som = 0;
@@ -87,12 +87,12 @@ public class FrmRelatorio extends javax.swing.JFrame {
         lista = "";
         for (int i = 0; i < listaAmigo.size(); i++) {
             lista = lista + "\n ID do Amigo: " + listaAmigo.get(i).getIdAmigo() + "\n Nome do Amigo: " + listaAmigo.get(i).getNomeAmigo() + "\n Telefone do Amigo: " + listaAmigo.get(i).getTelefone() + "\n Número de Empréstimos: " + listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo()) + "\n Possui empréstimo ativo: " + listaAmigo.get(i).possuiEmprestimoAtivo(listaAmigo.get(i).getIdAmigo()) + "\n";
-        if(listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo())>maior){
-        idAmigo=listaAmigo.get(i).getIdAmigo();
-        maior=listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo());
+            if (listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo()) > maior) {
+                idAmigo = listaAmigo.get(i).getIdAmigo();
+                maior = listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo());
+            }
         }
-        }
-        string = string + lista + "\n Amigo com maior quantidade de empréstimos: "+amg.getNomeAmigo(idAmigo)+"\n Quantidade de empréstimos: "+maior+"\n\n EMPRÉSTIMOS: \n";
+        string = string + lista + "\n Amigo com maior quantidade de empréstimos: " + amg.getNomeAmigo(idAmigo) + "\n Quantidade de empréstimos: " + maior + "\n\n EMPRÉSTIMOS: \n";
         lista = "";
         for (int i = 0; i < listaEmprestimo.size(); i++) {
             System.out.println(i);

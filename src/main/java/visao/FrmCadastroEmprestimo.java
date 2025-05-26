@@ -204,10 +204,10 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
     public JComboBox<String> getJCBAmigo() {
         return JCBAmigo;
     }
-        public JComboBox<String> getJCBFerramenta() {
+
+    public JComboBox<String> getJCBFerramenta() {
         return JCBFerramenta;
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCadastrar;

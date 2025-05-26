@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 class TesteConexaoDao {
+
     @Test
     void testConexaoBemSucedidaOuNao() {
         // Captura a saída do console
@@ -26,9 +27,9 @@ class TesteConexaoDao {
         if (conexao != null) {
             assertTrue(output.contains("Status: Conectado!"));
         } else {
-            assertTrue(output.contains("Status: NÃO CONECTADO!") ||
-                       output.contains("Não foi possível conectar...") ||
-                       output.contains("O driver não foi encontrado"));
+            assertTrue(output.contains("Status: NÃO CONECTADO!")
+                    || output.contains("Não foi possível conectar...")
+                    || output.contains("O driver não foi encontrado"));
         }
     }
 }

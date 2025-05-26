@@ -1,6 +1,6 @@
 package visao;
 
-public class FrmCadastroFerramentaFake extends FrmCadastroFerramenta{
+public class FrmCadastroFerramentaFake extends FrmCadastroFerramenta {
 
     /**
      * Inicializa os atributos.
@@ -25,8 +25,8 @@ public class FrmCadastroFerramentaFake extends FrmCadastroFerramenta{
     public javax.swing.JTextField getJTFMarcaFerramenta() {
         return super.getJTFMarcaFerramenta();
     }
-    
-        public javax.swing.JTextField getJTFCustoFerramenta() {
+
+    public javax.swing.JTextField getJTFCustoFerramenta() {
         return super.getJTFCustoFerramenta();
     }
 

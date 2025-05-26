@@ -187,7 +187,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         int idAmigo = Integer.parseInt(JTFIdAmigo.getText());
         int idFerramenta = Integer.parseInt(JTFIdFerramenta.getText());
         String dataEmprestimo = JTFDataEmprestimo.getText();
-            dataDevolucao = JTFDataDevolucao.getText();
+        dataDevolucao = JTFDataDevolucao.getText();
         if (emprestimo.updateEmprestimoDB(id, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao)) {
             JOptionPane.showMessageDialog(null, "Empréstimo atualizado com sucesso.");
             JLId.setVisible(false);

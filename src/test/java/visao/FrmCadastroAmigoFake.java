@@ -29,7 +29,7 @@ public class FrmCadastroAmigoFake extends FrmCadastroAmigo {
     public void clicarBotaoCadastrar() {
         super.getJBCadastrar().doClick();
     }
-    
+
     public void clicarBotaoLimpar() {
         super.getJBLimpar().doClick();
     }

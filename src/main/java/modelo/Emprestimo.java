@@ -243,16 +243,16 @@ public class Emprestimo {
 
             for (int i = 0; i < listaEmprestimo.size(); i++) {
 
-                if ((!"null".equals(listaEmprestimo.get(i).getDataDevolucao()))&&(!"".equals(listaEmprestimo.get(i).getDataDevolucao()))) {
-                    String[] dataDevolucaoInvertida = listaEmprestimo.get(i).getDataDevolucao().split("-"); 
-                    Date dataDevolucao = sdf.parse(dataDevolucaoInvertida[2]+"-"+dataDevolucaoInvertida[1]+"-"+dataDevolucaoInvertida[0]);
+                if ((!"null".equals(listaEmprestimo.get(i).getDataDevolucao())) && (!"".equals(listaEmprestimo.get(i).getDataDevolucao()))) {
+                    String[] dataDevolucaoInvertida = listaEmprestimo.get(i).getDataDevolucao().split("-");
+                    Date dataDevolucao = sdf.parse(dataDevolucaoInvertida[2] + "-" + dataDevolucaoInvertida[1] + "-" + dataDevolucaoInvertida[0]);
                     Date dataAtual = sdf.parse(LocalDate.now() + "");
                     if (dataAtual.compareTo(dataDevolucao) < 0) {
                         listaEmprestimoAtivo.add(listaEmprestimo.get(i));
 
                     }
-                }else{
-                   listaEmprestimoAtivo.add(listaEmprestimo.get(i));
+                } else {
+                    listaEmprestimoAtivo.add(listaEmprestimo.get(i));
                 }
 
             }

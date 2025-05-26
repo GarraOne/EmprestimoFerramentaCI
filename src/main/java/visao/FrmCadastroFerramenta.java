@@ -9,15 +9,15 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
      * Creates new form FrmCadastroFerramenta
      */
     private Ferramenta objetoferramenta;
-    
+
     private String mensagem;
 
     public FrmCadastroFerramenta() {
         initComponents();
         this.objetoferramenta = new Ferramenta();
     }
-    
-        public String getMensagem() {
+
+    public String getMensagem() {
         return mensagem;
     }
 

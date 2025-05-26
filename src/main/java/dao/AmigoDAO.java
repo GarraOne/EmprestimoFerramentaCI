@@ -23,9 +23,10 @@ public class AmigoDAO extends ConexaoDAO {
      *
      * @return Lista de amigos.
      */
-    public AmigoDAO(){
-    criar();
+    public AmigoDAO() {
+        criar();
     }
+
     public ArrayList<Amigo> getListaAmigo() {
         listaAmigo.clear();
         try {
@@ -81,7 +82,7 @@ public class AmigoDAO extends ConexaoDAO {
      * lança uma exceção.
      */
     public boolean insertAmigoDB(Amigo amigo) {
-        String res = "insert into amigo(idAmigo, nomeAmigo, telefoneAmigo) values ('"+amigo.getIdAmigo()+"','"+amigo.getNomeAmigo()+"','"+amigo.getTelefone()+"')";
+        String res = "insert into amigo(idAmigo, nomeAmigo, telefoneAmigo) values ('" + amigo.getIdAmigo() + "','" + amigo.getNomeAmigo() + "','" + amigo.getTelefone() + "')";
         try {
             Statement smt = super.getConexao().createStatement();
             smt.executeUpdate(res);
@@ -156,14 +157,15 @@ public class AmigoDAO extends ConexaoDAO {
         }
         return true;
     }
-private void criar() {
+
+    private void criar() {
         try {
-            try ( Connection con = getConexao();  Statement stmt = con.createStatement()) {
+            try (Connection con = getConexao(); Statement stmt = con.createStatement()) {
                 //Cria a tabela senão existir
                 stmt.execute("create table IF NOT EXISTS amigo (idAmigo integer PRIMARY KEY, nomeAmigo varchar(45), telefoneAmigo varchar(12));");
             }
         } catch (SQLException e) {
-            System.out.println("Erro no criar:{0}"+ e.toString());
+            System.out.println("Erro no criar:{0}" + e.toString());
         }
     }
 }

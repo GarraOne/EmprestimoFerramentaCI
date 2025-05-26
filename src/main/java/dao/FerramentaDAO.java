@@ -17,9 +17,11 @@ public class FerramentaDAO extends ConexaoDAO {
      * Lista de ferramentas em armazenamento.
      */
     public static ArrayList<Ferramenta> listaFerramenta = new ArrayList<>();
-public FerramentaDAO(){
-    criar();
-}
+
+    public FerramentaDAO() {
+        criar();
+    }
+
     /**
      * Obtém a lista de ferramentas do banco de dados.
      *
@@ -82,7 +84,7 @@ public FerramentaDAO(){
      * lança uma exceção.
      */
     public boolean insertFerramentaDB(Ferramenta ferramenta) {
-        String res = "insert into ferramenta(idFerramenta,nomeFerramenta,marcaFerramenta,custoFerramenta)values('"+ferramenta.getIdFerramenta()+"','"+ferramenta.getNomeFerramenta()+"','"+ferramenta.getMarcaFerramenta()+"','"+ferramenta.getCustoFerramenta()+"')";
+        String res = "insert into ferramenta(idFerramenta,nomeFerramenta,marcaFerramenta,custoFerramenta)values('" + ferramenta.getIdFerramenta() + "','" + ferramenta.getNomeFerramenta() + "','" + ferramenta.getMarcaFerramenta() + "','" + ferramenta.getCustoFerramenta() + "')";
         try {
             Statement smt = super.getConexao().createStatement();
             smt.executeUpdate(res);
@@ -159,15 +161,15 @@ public FerramentaDAO(){
         }
         return true;
     }
-private void criar() {
+
+    private void criar() {
         try {
-            try ( Connection con = getConexao();  Statement stmt = con.createStatement()) {
+            try (Connection con = getConexao(); Statement stmt = con.createStatement()) {
                 //Cria a tabela senão existir
                 stmt.execute("create table IF NOT EXISTS ferramenta (idFerramenta integer PRIMARY KEY, nomeFerramenta varchar(45), marcaFerramenta varchar(45), custoFerramenta real);");
             }
         } catch (SQLException e) {
-            System.out.println("Erro no criar:{0}"+ e.toString());
+            System.out.println("Erro no criar:{0}" + e.toString());
         }
     }
 }
-

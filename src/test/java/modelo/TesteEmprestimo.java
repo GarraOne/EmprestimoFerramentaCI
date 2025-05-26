@@ -8,7 +8,6 @@ import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
-
 class TesteEmprestimo {
 
     Emprestimo emprestimo;
@@ -17,7 +16,7 @@ class TesteEmprestimo {
     void inicializacao() {
         emprestimo = new Emprestimo(5, 5, 5, "", "");
     }
-    
+
     @Test
     void testgetIDEmprestimo() {
         //Define o valor esperado para a operação

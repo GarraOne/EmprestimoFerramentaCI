@@ -83,14 +83,16 @@ class TesteAmigo {
         String retornoFeito = amigo.getNomeAmigo();
         assertEquals(retornoEsperado, retornoFeito, "");
     }
-@Test
-void testGetNomeAmigo(){
-amigo.insertAmigoDB("jorge", "123123123");
-String nomeEsperado = "jorge";
-String nomeRecebido = amigo.getNomeAmigo(1);
-assertEquals(nomeEsperado, nomeRecebido);
-amigo.deleteAmigoDB(1);
-}
+
+    @Test
+    void testGetNomeAmigo() {
+        amigo.insertAmigoDB("jorge", "123123123");
+        String nomeEsperado = "jorge";
+        String nomeRecebido = amigo.getNomeAmigo(1);
+        assertEquals(nomeEsperado, nomeRecebido);
+        amigo.deleteAmigoDB(1);
+    }
+
     @AfterEach
     public void finalizacao() {
         Amigo dao = new Amigo();

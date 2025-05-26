@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 
 class TesteFerramentaDao {
-    
+
     @BeforeEach
     void inicializacao() {
         FerramentaDAO dao = new FerramentaDAO();
@@ -18,7 +18,7 @@ class TesteFerramentaDao {
         Ferramenta ferramenta2 = new Ferramenta(2, "Furadeira", 25.0, "Makita");
         dao.insertFerramentaDB(ferramenta2);
     }
-    
+
     @Test
     void TestGetListaFerramenta() {
         FerramentaDAO dao = new FerramentaDAO();
@@ -26,14 +26,14 @@ class TesteFerramentaDao {
         int retornoEsperado = 2;
         assertEquals(retornoEsperado, listaFerramenta.size());
     }
-    
+
     @Test
     void TestMaiorIdFerramenta() {
         FerramentaDAO dao = new FerramentaDAO();
         int retornoEsperado = 2;
         assertEquals(retornoEsperado, dao.maiorIDFerramenta());
     }
-    
+
     @Test
     void TestRetriveFerramenta() {
         FerramentaDAO dao = new FerramentaDAO();
@@ -47,7 +47,7 @@ class TesteFerramentaDao {
         assertEquals(precoFerramentaEsperado, ferramentaRecebida.getCustoFerramenta());
         assertEquals(marcaFerramentaEsperado, ferramentaRecebida.getMarcaFerramenta());
     }
-    
+
     @Test
     void TestUpdateFerramenta() {
         FerramentaDAO dao = new FerramentaDAO();
@@ -59,7 +59,7 @@ class TesteFerramentaDao {
         assertEquals(ferramentaAtualiza.getCustoFerramenta(), ferramentaRecebido.getCustoFerramenta());
         assertEquals(ferramentaAtualiza.getMarcaFerramenta(), ferramentaRecebido.getMarcaFerramenta());
     }
-    
+
     @Test
     void TestRetriveSQLExceptionFerramenta() {
         FerramentaDAO dao = new FerramentaDAO();
@@ -73,7 +73,7 @@ class TesteFerramentaDao {
         assertEquals(precoFerramentaEsperado, ferramentaRecebida.getCustoFerramenta());
         assertEquals(marcaFerramentaEsperada, ferramentaRecebida.getMarcaFerramenta());
     }
-    
+
     @AfterEach
     void finalizacao() {
         FerramentaDAO dao = new FerramentaDAO();

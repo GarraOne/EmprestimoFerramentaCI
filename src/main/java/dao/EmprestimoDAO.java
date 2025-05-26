@@ -12,9 +12,11 @@ public class EmprestimoDAO extends ConexaoDAO {
 
     // Lista para armazenar os dados dos empréstimos
     public static ArrayList<Emprestimo> listaEmprestimo = new ArrayList<>();
-public EmprestimoDAO(){
-    criar();
-}
+
+    public EmprestimoDAO() {
+        criar();
+    }
+
     public ArrayList<Emprestimo> getListaEmprestimo() {
         // Limpa a lista para evitar duplicatas
         listaEmprestimo.clear();
@@ -65,9 +67,9 @@ public EmprestimoDAO(){
     }
 
     public boolean insertEmprestimoDB(Emprestimo emprestimo) {
-        String res = "insert into emprestimo(idEmprestimo,idFerramenta,idAmigo,dataInicio,dataDevolucao)values('"+emprestimo.getIDEmprestimo()+"','"+emprestimo.getIDFerramenta()+"','"+emprestimo.getIDAmigo()+"','"+emprestimo.getDataEmprestimo()+"','"+emprestimo.getDataDevolucao()+"')";
+        String res = "insert into emprestimo(idEmprestimo,idFerramenta,idAmigo,dataInicio,dataDevolucao)values('" + emprestimo.getIDEmprestimo() + "','" + emprestimo.getIDFerramenta() + "','" + emprestimo.getIDAmigo() + "','" + emprestimo.getDataEmprestimo() + "','" + emprestimo.getDataDevolucao() + "')";
         try {
-          Statement smt = super.getConexao().createStatement();
+            Statement smt = super.getConexao().createStatement();
             smt.executeUpdate(res);
             smt.close();
             return true;
@@ -126,14 +128,15 @@ public EmprestimoDAO(){
         }
         return true;
     }
-private void criar() {
+
+    private void criar() {
         try {
-            try ( Connection con = getConexao();  Statement stmt = con.createStatement()) {
+            try (Connection con = getConexao(); Statement stmt = con.createStatement()) {
                 //Cria a tabela senão existir
                 stmt.execute("create table IF NOT EXISTS emprestimo (idEmprestimo integer PRIMARY KEY, idFerramenta integer, idAmigo integer,dataInicio text, dataDevolucao text);");
             }
         } catch (SQLException e) {
-            System.out.println("Erro no criar:{0}"+ e.toString());
+            System.out.println("Erro no criar:{0}" + e.toString());
         }
     }
 }
