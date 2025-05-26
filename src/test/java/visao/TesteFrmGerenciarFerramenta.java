@@ -30,7 +30,7 @@ public class TesteFrmGerenciarFerramenta {
     }
 
     @Test
-    public void testModificarAmigo() {
+    public void testModificarFerramenta() {
 
         ferramentaTeste.InsertFerramentaDB("Tesoura", "selos", 17);
 

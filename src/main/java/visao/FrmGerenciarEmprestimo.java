@@ -9,10 +9,20 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
     private Emprestimo emprestimo;
 
+    private String mensagem;
+
     public FrmGerenciarEmprestimo() {
         initComponents();
         this.emprestimo = new Emprestimo();
         this.CarregaListaEmprestimo();
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
 
     /**
@@ -189,7 +199,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         String dataEmprestimo = JTFDataEmprestimo.getText();
         dataDevolucao = JTFDataDevolucao.getText();
         if (emprestimo.updateEmprestimoDB(id, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao)) {
-            JOptionPane.showMessageDialog(null, "Empréstimo atualizado com sucesso.");
+            mostrarMensagem("Empréstimo atualizado com sucesso.");
             JLId.setVisible(false);
             JTFIdAmigo.setText("");
             JTFIdFerramenta.setText("");
@@ -275,6 +285,37 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         });
     }
 
+    public void mostrarMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+
+    protected javax.swing.JTextField getJTFIdAmigo() {
+        return this.JTFIdAmigo;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTextField getJTFIdFerramenta() {
+        return this.JTFIdFerramenta;
+    }
+
+    protected javax.swing.JTextField getJTFDataEmprestimo() {
+        return this.JTFDataEmprestimo;
+    }
+
+    protected javax.swing.JTextField getJTFDataDevolucao() {
+        return this.JTFDataDevolucao;
+    }
+
+    protected javax.swing.JButton getJBModificar() {
+        return this.JBModificar;
+    }
+
+    protected javax.swing.JButton getJBApagar() {
+        return this.JBApagar;
+    }
+
+    protected javax.swing.JTable getJTableEmprestimo() {
+        return this.JTableEmprestimo;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBApagar;
     private javax.swing.JButton JBCancelar;
