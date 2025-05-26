@@ -79,7 +79,17 @@ class TesteEmprestimo {
         assertEquals(tamanhoListaEsperado, tamanhoListaRecebido);
         emp.deleteEmprestimoDB(1);
     }
-
+   @Test
+    void TestListaEmprestimoAtivoParseException() {
+        EmprestimoDAO dao = new EmprestimoDAO();
+        Emprestimo emp = new Emprestimo(1, 1, 1, "05-05-2005","a-1-1" );
+        dao.insertEmprestimoDB(emp);
+    ArrayList<Emprestimo> listaEmprestimoAtivo = emprestimo.getListaEmprestimoAtivo();
+        int tamanhoListaEsperado = 0;
+        int tamanhoListaRecebido = listaEmprestimoAtivo.size();
+        assertEquals(tamanhoListaEsperado, tamanhoListaRecebido);
+        emp.deleteEmprestimoDB(1);
+    }
     @AfterAll
     public void finalizacao() {
         emprestimo = null;
