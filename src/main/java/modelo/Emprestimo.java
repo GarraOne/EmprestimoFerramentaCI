@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashSet;
 
 /**
  * Representa um emprestimo com id, id do amigo, id da ferramenta, data de
@@ -257,9 +256,9 @@ public class Emprestimo {
 
             }
         } catch (ParseException erro) {
-            System.out.println("jorge");
+            System.out.println("Erro: formato da data invalido");
         }
-
+        
         return listaEmprestimoAtivo;
     }
 
