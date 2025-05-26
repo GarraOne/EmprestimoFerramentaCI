@@ -1,6 +1,10 @@
 package modelo;
 
+import dao.ConexaoDAO;
 import dao.EmprestimoDAO;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -78,5 +82,17 @@ class TesteFerramenta {
     public void finalizacao() {
         ferramenta = null;
     }
-
+@BeforeAll
+void dropTable(){
+            try {
+ConexaoDAO conec =  new ConexaoDAO();
+                try ( Connection con = conec.getConexao();  Statement stmt = con.createStatement()) {
+                //Cria a tabela senão existir
+                stmt.execute("drop table ferramenta");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro no criar:{0}"+ e.toString());
+        }
+    }
 }
+
