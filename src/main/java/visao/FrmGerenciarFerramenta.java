@@ -11,10 +11,20 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
 
     private Ferramenta ferramenta;
 
+    private String mensagem;
+
     public FrmGerenciarFerramenta() {
         initComponents();
         this.ferramenta = new Ferramenta();
         this.CarregaListaFerramenta();
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
 
     /**
@@ -233,7 +243,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
 
             }
             if (ferramenta.updateFerramentaDB(id, nome, marca, custo)) {
-                JOptionPane.showMessageDialog(null, "Ferramenta atualizada com sucesso.");
+                mostrarMensagem("Ferramenta atualizada com sucesso.");
                 JLId.setVisible(false);
                 JTFMarca.setText("");
                 JTFNome.setText("");
@@ -324,6 +334,33 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         });
     }
 
+    public void mostrarMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+
+    protected javax.swing.JTextField getJTFNome() {
+        return this.JTFNome;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTextField getJTFCustoFerramenta() {
+        return this.JTFCustoFerramenta;
+    }
+
+    protected javax.swing.JTextField getJTFMarca() {
+        return this.JTFMarca;
+    }
+
+    protected javax.swing.JButton getJBModificar() {
+        return this.JBModificar;
+    }
+
+    protected javax.swing.JButton getJBApagar() {
+        return this.JBApagar;
+    }
+
+    protected javax.swing.JTable getJTableAmigos() {
+        return this.jTableAmigos;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBApagar;
     private javax.swing.JButton JBCancelar;
