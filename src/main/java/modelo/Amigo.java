@@ -131,10 +131,13 @@ public class Amigo {
      * @return O índice do amigo na lista.
      */
     private int procuraIndice(int id) {
+        AmigoDAO dao = new AmigoDAO();
+        ArrayList<Amigo> amigos = dao.getListaAmigo();
         int indice = -1;
-        for (int i = 0; i < AmigoDAO.listaAmigo.size(); i++) {
-            if (AmigoDAO.listaAmigo.get(i).getIdAmigo() == id) {
+        for (int i = 0; i < amigos.size(); i++) {
+            if (amigos.get(i).getIdAmigo() == id) {
                 indice = i;
+                break;
             }
         }
         return indice;

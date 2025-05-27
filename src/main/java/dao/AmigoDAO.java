@@ -16,7 +16,7 @@ public class AmigoDAO extends ConexaoDAO {
     /**
      * Lista de amigos em memória.
      */
-    public static ArrayList<Amigo> listaAmigo = new ArrayList<>();
+    private static ArrayList<Amigo> listaAmigo = new ArrayList<>();
 
     /**
      * Obtém a lista de amigos do banco de dados.
@@ -28,7 +28,9 @@ public class AmigoDAO extends ConexaoDAO {
     }
 
     public ArrayList<Amigo> getListaAmigo() {
-        listaAmigo.clear();
+        synchronized (listaAmigo) {
+            listaAmigo.clear();
+        }
         try {
             Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("select * from amigo");
@@ -43,7 +45,7 @@ public class AmigoDAO extends ConexaoDAO {
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
-        return listaAmigo;
+        return new ArrayList<>(listaAmigo);
     }
 
     /**
@@ -51,8 +53,11 @@ public class AmigoDAO extends ConexaoDAO {
      *
      * @param listaAmigo Lista de amigos a ser definida.
      */
-    public static void setListaAmigo(ArrayList<Amigo> listaAmigo) {
-        AmigoDAO.listaAmigo = listaAmigo;
+    public static void setListaAmigo(ArrayList<Amigo> novaLista) {
+        synchronized (listaAmigo) {
+            listaAmigo.clear();
+            listaAmigo.addAll(novaLista);
+        }
     }
 
     /**
