@@ -78,12 +78,6 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
 
         JLNome.setText("Nome:");
 
-        JTFNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFNomeActionPerformed(evt);
-            }
-        });
-
         JLMarca.setText("Marca:");
 
         JLCustoFerramenta.setText("Custo:");
@@ -201,10 +195,6 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         //Libera todos os recurso da interface gráfica
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
-
-    private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFNomeActionPerformed
 
     private void jTableAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAmigosMouseClicked
         if (this.jTableAmigos.getSelectedRow() != -1) {
