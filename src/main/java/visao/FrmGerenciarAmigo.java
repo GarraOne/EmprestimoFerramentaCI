@@ -81,11 +81,6 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         JLTelefone.setText("Telefone:");
 
         JBApagar.setText("Apagar");
-        JBApagar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JBApagarMouseClicked(evt);
-            }
-        });
         JBApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBApagarActionPerformed(evt);
@@ -235,10 +230,6 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_JBApagarActionPerformed
-
-    private void JBApagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBApagarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JBApagarMouseClicked
     public void carregaListaAmigo() {
         DefaultTableModel model = (DefaultTableModel) jTableAmigos.getModel();
         JLId.setVisible(false);
