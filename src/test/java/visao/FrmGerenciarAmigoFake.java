@@ -1,5 +1,7 @@
 package visao;
 
+import javax.swing.JOptionPane;
+
 public class FrmGerenciarAmigoFake extends FrmGerenciarAmigo {
 
     /**
@@ -16,6 +18,11 @@ public class FrmGerenciarAmigoFake extends FrmGerenciarAmigo {
 
         //Mostra a mensagem
         System.out.println("Mensagem:" + mensagem);
+    }
+
+    @Override
+    public int confirmarApagarAmigo() {
+        return JOptionPane.YES_OPTION; // Simula clique no "Sim"
     }
 
     public void inicializarLista() {

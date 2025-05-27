@@ -49,6 +49,22 @@ public class TesteFrmGerenciarAmigo {
         assertEquals("Amigo atualizado com sucesso.", frmGerenciarAmigo.getMensagem());
     }
 
+    @Test
+    public void testApagarAmigo() {
+
+        amigoTeste.insertAmigoDB("Joao", "12345678");
+
+        frmGerenciarAmigo.inicializarLista();
+
+        frmGerenciarAmigo.selecionarLinha(0);
+
+        // Simula o clique no botão Apagar via método do fake
+        frmGerenciarAmigo.clicarBotaoApagar();
+
+        // Verifica se a mensagem exibida é a de sucesso
+        assertEquals("Amigo apagado com sucesso.", frmGerenciarAmigo.getMensagem());
+    }
+
     @AfterEach
     void finaliza() {
         AmigoDAO amigodao = new AmigoDAO();
