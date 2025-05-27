@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TesteFrmGerenciarEmprestimo {
+class TesteFrmGerenciarEmprestimo {
     //Objeto amigo a ser inserido
 
     Amigo amigoTeste;
@@ -27,7 +27,7 @@ public class TesteFrmGerenciarEmprestimo {
      * Inicializa os objetos para o teste.
      */
     @BeforeEach
-    public void inicializa() {
+    void inicializa() {
         //Dados de teste de inclusão
         amigoTeste = new Amigo(1, "Joao", "12345678");
         ferramentaTeste = new Ferramenta(1, "Tesoura", 17, "selos");
@@ -39,7 +39,7 @@ public class TesteFrmGerenciarEmprestimo {
     }
 
     @Test
-    public void testModificarEmprestimo() {
+    void testModificarEmprestimo() {
 
         amigoTeste.insertAmigoDB("Joao", "12345678");
         ferramentaTeste.InsertFerramentaDB("Tesoura", "selos", 17);
@@ -62,8 +62,8 @@ public class TesteFrmGerenciarEmprestimo {
         assertEquals("Empréstimo atualizado com sucesso.", frmGerenciarEmprestimo.getMensagem());
     }
     
-   @Test
-    public void testApagarEmprestimo() {
+    @Test
+    void testApagarEmprestimo() {
 
         emprestimoTeste.insertEmprestimoDB(1, 1, "21-05-2025");
 
