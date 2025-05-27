@@ -232,6 +232,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         JTFDataEmprestimo.setText("");
         JTFDataDevolucao.setText("");
         this.CarregaListaEmprestimo();
+        mostrarMensagem("Emprestimo apagado com sucesso.");
     }//GEN-LAST:event_JBApagarActionPerformed
     public void CarregaListaEmprestimo() {
         DefaultTableModel model = (DefaultTableModel) JTableEmprestimo.getModel();
@@ -283,6 +284,9 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                 new FrmGerenciarEmprestimo().setVisible(true);
             }
         });
+    }
+    protected int confirmarApagarEmprestimo() {
+        return JOptionPane.showConfirmDialog(null, "Esta ação também apagará todos os empréstimos associados a este Ferramenta, deseja continuar?");
     }
 
     public void mostrarMensagem(String mensagem) {

@@ -1,5 +1,7 @@
 package visao;
 
+import javax.swing.JOptionPane;
+
 public class FrmGerenciarEmprestimoFake extends FrmGerenciarEmprestimo {
 
     /**
@@ -16,6 +18,11 @@ public class FrmGerenciarEmprestimoFake extends FrmGerenciarEmprestimo {
 
         //Mostra a mensagem
         System.out.println("Mensagem:" + mensagem);
+    }
+    
+    @Override
+    public int confirmarApagarEmprestimo() {
+        return JOptionPane.YES_OPTION; // Simula clique no "Sim"
     }
 
     public void inicializarLista() {
