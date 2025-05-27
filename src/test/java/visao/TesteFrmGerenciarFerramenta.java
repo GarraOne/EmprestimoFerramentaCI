@@ -50,6 +50,22 @@ public class TesteFrmGerenciarFerramenta {
         assertEquals("Ferramenta atualizada com sucesso.", frmGerenciarFerramenta.getMensagem());
     }
 
+    @Test
+    public void testApagarFerramenta() {
+
+        ferramentaTeste.InsertFerramentaDB("cano","felipes",25);
+
+        frmGerenciarFerramenta.inicializarLista();
+
+        frmGerenciarFerramenta.selecionarLinha(0);
+
+        // Simula o clique no botão Apagar via método do fake
+        frmGerenciarFerramenta.clicarBotaoApagar();
+
+        // Verifica se a mensagem exibida é a de sucesso
+        assertEquals("Ferramenta apagada com sucesso.", frmGerenciarFerramenta.getMensagem());
+    }
+
     @AfterEach
     void finaliza() {
         FerramentaDAO ferramentadao = new FerramentaDAO();

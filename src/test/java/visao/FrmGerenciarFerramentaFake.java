@@ -1,5 +1,7 @@
 package visao;
 
+import javax.swing.JOptionPane;
+
 public class FrmGerenciarFerramentaFake extends FrmGerenciarFerramenta {
 
     /**
@@ -17,7 +19,11 @@ public class FrmGerenciarFerramentaFake extends FrmGerenciarFerramenta {
         //Mostra a mensagem
         System.out.println("Mensagem:" + mensagem);
     }
-
+    
+    @Override
+    public int confirmarApagarFerramenta() {
+        return JOptionPane.YES_OPTION; // Simula clique no "Sim"
+    }
     public void inicializarLista() {
         CarregaListaFerramenta();
     }

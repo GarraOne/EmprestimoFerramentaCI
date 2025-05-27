@@ -261,7 +261,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         Emprestimo emp = new Emprestimo();
         ArrayList<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
         int idEmprestimo = 0;
-        conf = JOptionPane.showConfirmDialog(null, "Esta ação também apagará todos os empréstimos associados a esta ferramenta, deseja continuar?");
+        conf = confirmarApagarFerramenta();
         if (conf == 0) {
 
             for (int i = 0; i < listaEmprestimo.size(); i++) {
@@ -276,6 +276,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
             JTFCustoFerramenta.setText("");
             JLdisponivel.setText("");
             this.CarregaListaFerramenta();
+            mostrarMensagem("Ferramenta apagada com sucesso.");
         }
 
     }//GEN-LAST:event_JBApagarActionPerformed
@@ -332,6 +333,10 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 new FrmGerenciarFerramenta().setVisible(true);
             }
         });
+    }
+
+    protected int confirmarApagarFerramenta() {
+        return JOptionPane.showConfirmDialog(null, "Esta ação também apagará todos os empréstimos associados a este Ferramenta, deseja continuar?");
     }
 
     public void mostrarMensagem(String mensagem) {
