@@ -94,7 +94,7 @@ class TesteAmigo {
     }
 
     @AfterEach
-    public void finalizacao() {
+    void finalizacao() {
         Amigo dao = new Amigo();
         dao.deleteAmigoDB(1);
         dao.deleteAmigoDB(2);

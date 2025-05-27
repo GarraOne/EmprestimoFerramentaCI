@@ -8,10 +8,10 @@ import java.awt.event.ActionListener;
 import static org.junit.jupiter.api.Assertions.*;
 import java.lang.reflect.Field;
 
-public class TestFrmMenuPrincipal {
+class TestFrmMenuPrincipal {
 
     @Test
-    public void testMenuItemSairActionPerformed() throws Exception {
+    void testMenuItemSairActionPerformed() throws Exception {
         //Cria a instancia da janela
         FrmMenuPrincipal janela = new FrmMenuPrincipal();
         //Necessidade para testes em UI
@@ -31,7 +31,7 @@ public class TestFrmMenuPrincipal {
     }
 
     @Test
-    public void testMenuItemGerenciarAmigosActionPerformed() throws Exception {
+    void testMenuItemGerenciarAmigosActionPerformed() throws Exception {
         //Criação da janela
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
@@ -85,7 +85,7 @@ public class TestFrmMenuPrincipal {
     }
 
     @Test
-    public void testMenuItemCadastarFerramentasActionPerformed() throws Exception {
+    void testMenuItemCadastarFerramentasActionPerformed() throws Exception {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
@@ -132,7 +132,7 @@ public class TestFrmMenuPrincipal {
     }
 
     @Test
-    public void testMenuItemEmpréstimoActionPerformed() throws Exception {
+    void testMenuItemEmpréstimoActionPerformed() throws Exception {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
@@ -179,7 +179,7 @@ public class TestFrmMenuPrincipal {
     }
 
     @Test
-    public void testMenuItemDevoluçãoActionPerformed() throws Exception {
+    void testMenuItemDevoluçãoActionPerformed() throws Exception {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
@@ -226,7 +226,7 @@ public class TestFrmMenuPrincipal {
     }
 
     @Test
-    public void testMenuItemGerenciarEmprestimoPerformed() throws Exception {
+    void testMenuItemGerenciarEmprestimoPerformed() throws Exception {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
@@ -273,7 +273,7 @@ public class TestFrmMenuPrincipal {
     }
 
     @Test
-    public void testMenuItemRelatorioPerformed() throws Exception {
+    void testMenuItemRelatorioPerformed() throws Exception {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
@@ -320,7 +320,7 @@ public class TestFrmMenuPrincipal {
     }
 
     @Test
-    public void testMenuItemCadastrarAmigosPerformed() throws Exception {
+    void testMenuItemCadastrarAmigosPerformed() throws Exception {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
@@ -367,7 +367,7 @@ public class TestFrmMenuPrincipal {
     }
 
     @Test
-    public void testMenuItemGerenciarFerramentasAmigosPerformed() throws Exception {
+    void testMenuItemGerenciarFerramentasAmigosPerformed() throws Exception {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);

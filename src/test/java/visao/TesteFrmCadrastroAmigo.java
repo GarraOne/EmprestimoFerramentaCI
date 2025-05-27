@@ -21,7 +21,7 @@ class TesteFrmCadrastroAmigo {
      * Inicializa os objetos para o teste.
      */
     @BeforeEach
-    public void inicializa() {
+    void inicializa() {
         //Dados de teste de inclusão
         amigoTeste = new Amigo(1, "Joao", "12345678");
         //Instância o formulário fake
@@ -30,7 +30,7 @@ class TesteFrmCadrastroAmigo {
     }
 
     @Test
-    public void testCadastroValido() {
+    void testCadastroValido() {
         // Preenche os campos do formulário via getters do fake
         frmCadastroAmigo.getJTFNomeAmigo().setText(amigoTeste.getNomeAmigo());
         frmCadastroAmigo.getJTFTelefone().setText(amigoTeste.getTelefone());
@@ -43,7 +43,7 @@ class TesteFrmCadrastroAmigo {
     }
 
     @Test
-    public void testLimparCadastro() {
+    void testLimparCadastro() {
         // Preenche os campos do formulário via getters do fake
         frmCadastroAmigo.getJTFNomeAmigo().setText(amigoTeste.getNomeAmigo());
         frmCadastroAmigo.getJTFTelefone().setText(amigoTeste.getTelefone());

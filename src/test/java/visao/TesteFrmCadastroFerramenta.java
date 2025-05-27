@@ -21,7 +21,7 @@ class TesteFrmCadastroFerramenta {
      * Inicializa os objetos para o teste.
      */
     @BeforeEach
-    public void inicializa() {
+    void inicializa() {
         //Dados de teste de inclusão
         ferramentaTeste = new Ferramenta(1, "Tesoura", 17, "selos");
         //Instância o formulário fake
@@ -30,7 +30,7 @@ class TesteFrmCadastroFerramenta {
     }
 
     @Test
-    public void testCadastroValido() {
+    void testCadastroValido() {
         // Preenche os campos do formulário via getters do fake
         frmCadastroFerramenta.getJTFNomeFerramenta().setText(ferramentaTeste.getNomeFerramenta());
         frmCadastroFerramenta.getJTFMarcaFerramenta().setText(ferramentaTeste.getMarcaFerramenta());
@@ -43,7 +43,7 @@ class TesteFrmCadastroFerramenta {
     }
 
     @Test
-    public void testLimparCadastro() {
+    void testLimparCadastro() {
         // Preenche os campos do formulário via getters do fake
         frmCadastroFerramenta.getJTFNomeFerramenta().setText(ferramentaTeste.getNomeFerramenta());
         frmCadastroFerramenta.getJTFMarcaFerramenta().setText(ferramentaTeste.getMarcaFerramenta());

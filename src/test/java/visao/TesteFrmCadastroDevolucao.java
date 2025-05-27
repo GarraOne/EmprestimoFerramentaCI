@@ -28,7 +28,7 @@ class TesteFrmCadastroDevolucao {
      * Inicializa os objetos para o teste.
      */
     @BeforeEach
-    public void inicializa() {
+    void inicializa() {
         //Dados de teste de inclusão
         amigoTeste = new Amigo(1, "Joao", "12345678");
         ferramentaTeste = new Ferramenta(1, "Tesoura", 17, "selos");
@@ -40,7 +40,7 @@ class TesteFrmCadastroDevolucao {
     }
 
     @Test
-    public void testCadastroValido() {
+    void testCadastroValido() {
 
         amigoTeste.insertAmigoDB("Joao", "12345678");
         ferramentaTeste.InsertFerramentaDB("Tesoura", "selos", 17);

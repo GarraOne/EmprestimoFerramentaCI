@@ -10,7 +10,7 @@ import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
-public class TesteFrmGerenciarAmigo {
+class TesteFrmGerenciarAmigo {
 
     //Objeto amigo a ser inserido
     Amigo amigoTeste;
@@ -21,7 +21,7 @@ public class TesteFrmGerenciarAmigo {
      * Inicializa os objetos para o teste.
      */
     @BeforeEach
-    public void inicializa() {
+    void inicializa() {
         //Dados de teste de inclusão
         amigoTeste = new Amigo(1, "Joao", "12345678");
         //Instância o formulário fake
@@ -30,7 +30,7 @@ public class TesteFrmGerenciarAmigo {
     }
 
     @Test
-    public void testModificarAmigo() {
+    void testModificarAmigo() {
 
         amigoTeste.insertAmigoDB("Joao", "12345678");
 
@@ -50,7 +50,7 @@ public class TesteFrmGerenciarAmigo {
     }
 
     @Test
-    public void testApagarAmigo() {
+    void testApagarAmigo() {
 
         amigoTeste.insertAmigoDB("Joao", "12345678");
 

@@ -91,7 +91,7 @@ class TesteEmprestimo {
         emp.deleteEmprestimoDB(1);
     }
     @AfterAll
-    public void finalizacao() {
+    void finalizacao() {
         emprestimo = null;
     }
 

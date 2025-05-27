@@ -79,7 +79,7 @@ class TesteFerramenta {
     }
 
     @AfterEach
-    public void finalizacao() {
+    void finalizacao() {
         ferramenta = null;
     }
 }
