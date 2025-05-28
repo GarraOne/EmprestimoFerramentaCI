@@ -37,7 +37,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTableEmprestimo = new javax.swing.JTable();
         JLID = new javax.swing.JLabel();
-        JLId = new javax.swing.JLabel();
+        JLIid = new javax.swing.JLabel();
         JLIdAmigo = new javax.swing.JLabel();
         JLIdFerramenta = new javax.swing.JLabel();
         JLDataInicio = new javax.swing.JLabel();
@@ -72,7 +72,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
         JLID.setText("ID Empréstimo:");
 
-        JLId.setText("0");
+        JLIid.setText("0");
 
         JLIdAmigo.setText("ID Amigo:");
 
@@ -129,7 +129,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JLID)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JLId))
+                                .addComponent(JLIid))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JLIdFerramenta)
@@ -152,7 +152,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLID)
-                    .addComponent(JLId))
+                    .addComponent(JLIid))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JTFIdAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,7 +200,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         dataDevolucao = JTFDataDevolucao.getText();
         if (emprestimo.updateEmprestimoDB(id, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao)) {
             mostrarMensagem("Empréstimo atualizado com sucesso.");
-            JLId.setVisible(false);
+            JLIid.setVisible(false);
             JTFIdAmigo.setText("");
             JTFIdFerramenta.setText("");
             JTFDataEmprestimo.setText("");
@@ -211,8 +211,8 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
     private void JTableEmprestimoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEmprestimoMouseClicked
         if (this.JTableEmprestimo.getSelectedRow() != -1) {
-            JLId.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 0).toString());
-            JLId.setVisible(true);
+            JLIid.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 0).toString());
+            JLIid.setVisible(true);
             JTFIdAmigo.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 1).toString());
             JTFIdFerramenta.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 2).toString());
             JTFDataEmprestimo.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 3).toString());
@@ -225,8 +225,8 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
 
-        emprestimo.deleteEmprestimoDB(Integer.parseInt(JLId.getText()));
-        JLId.setVisible(false);
+        emprestimo.deleteEmprestimoDB(Integer.parseInt(JLIid.getText()));
+        JLIid.setVisible(false);
         JTFIdAmigo.setText("");
         JTFIdFerramenta.setText("");
         JTFDataEmprestimo.setText("");
@@ -237,7 +237,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     public void CarregaListaEmprestimo() {
         DefaultTableModel model = (DefaultTableModel) JTableEmprestimo.getModel();
         model.setRowCount(0);
-        JLId.setVisible(false);
+        JLIid.setVisible(false);
         ArrayList<Emprestimo> listaEmprestimo = emprestimo.listaEmprestimo();
         for (int i = 0; i < listaEmprestimo.size(); i++) {
             model.addRow(new Object[]{
@@ -329,9 +329,9 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     private javax.swing.JLabel JLDataDevolucao;
     private javax.swing.JLabel JLDataInicio;
     private javax.swing.JLabel JLID;
-    private javax.swing.JLabel JLId;
     private javax.swing.JLabel JLIdAmigo;
     private javax.swing.JLabel JLIdFerramenta;
+    private javax.swing.JLabel JLIid;
     private javax.swing.JLabel JLativo;
     private javax.swing.JTextField JTFDataDevolucao;
     private javax.swing.JTextField JTFDataEmprestimo;
