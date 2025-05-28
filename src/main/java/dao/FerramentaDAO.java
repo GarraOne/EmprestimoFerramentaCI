@@ -112,17 +112,24 @@ public class FerramentaDAO extends ConexaoDAO {
     public Ferramenta retrieveFerramentaDB(int IdFerramenta) {
         Ferramenta ferramenta = new Ferramenta();
         ferramenta.setIdFerramenta(IdFerramenta);
-        try {
-            Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select * from ferramenta where idFerramenta = " + IdFerramenta);
-            res.next();
-            ferramenta.setNomeFerramenta(res.getString("nomeFerramenta"));
-            ferramenta.setMarcaFerramenta(res.getString("marcaFerramenta"));
-            ferramenta.setCustoFerramenta(res.getDouble("custoFerramenta"));
-            smt.close();
+        
+        String sql = "SELECT * FROM ferramenta WHERE idFerramenta = ?";
+        
+        try (
+            PreparedStatement pstmt = super.getConexao().prepareStatement(sql)
+        ) {
+            pstmt.setInt(1, IdFerramenta);
+            try (ResultSet res = pstmt.executeQuery()) {
+                if (res.next()) {
+                    ferramenta.setNomeFerramenta(res.getString("nomeFerramenta"));
+                    ferramenta.setMarcaFerramenta(res.getString("marcaFerramenta"));
+                    ferramenta.setCustoFerramenta(res.getDouble("custoFerramenta"));
+                }
+            }
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
+        
         return ferramenta;
     }
 
