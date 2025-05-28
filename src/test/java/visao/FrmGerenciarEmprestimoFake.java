@@ -19,7 +19,7 @@ public class FrmGerenciarEmprestimoFake extends FrmGerenciarEmprestimo {
         //Mostra a mensagem
         System.out.println("Mensagem:" + mensagem);
     }
-    
+
     @Override
     public int confirmarApagarEmprestimo() {
         return JOptionPane.YES_OPTION; // Simula clique no "Sim"

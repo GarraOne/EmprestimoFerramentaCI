@@ -18,7 +18,7 @@ public class ConexaoDAO {
             Class.forName("org.sqlite.JDBC");
 
             // Estabelece a conexão com o banco de dados
-            connection = DriverManager.getConnection("jdbc:sqlite:emprestimo.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:emprestimo");
 
             // Verifica se a conexão foi bem-sucedida e exibe uma mensagem
             if (connection != null) {

@@ -61,7 +61,7 @@ class TesteFrmGerenciarEmprestimo {
         // Verifica se a mensagem exibida é a de sucesso
         assertEquals("Empréstimo atualizado com sucesso.", frmGerenciarEmprestimo.getMensagem());
     }
-    
+
     @Test
     void testApagarEmprestimo() {
 
@@ -77,7 +77,7 @@ class TesteFrmGerenciarEmprestimo {
         // Verifica se a mensagem exibida é a de sucesso
         assertEquals("Emprestimo apagado com sucesso.", frmGerenciarEmprestimo.getMensagem());
     }
-    
+
     @AfterEach
     void finaliza() {
         AmigoDAO amigodao = new AmigoDAO();

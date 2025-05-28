@@ -258,7 +258,7 @@ public class Emprestimo {
         } catch (ParseException erro) {
             System.out.println("Erro: formato da data invalido");
         }
-        
+
         return listaEmprestimoAtivo;
     }
 

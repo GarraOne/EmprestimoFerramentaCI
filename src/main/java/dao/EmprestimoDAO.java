@@ -20,9 +20,8 @@ public class EmprestimoDAO extends ConexaoDAO {
     public ArrayList<Emprestimo> getListaEmprestimo() {
         // Limpa a lista para evitar duplicatas
         listaEmprestimo.clear();
-        try {
+        try (Statement smt = super.getConexao().createStatement()) {
             // Cria uma declaração para executar a consulta SQL
-            Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("select * from emprestimo");
 
             // Itera sobre o resultado da consulta e adiciona empréstimos à lista
@@ -33,11 +32,9 @@ public class EmprestimoDAO extends ConexaoDAO {
                 String dataEmprestimo = res.getString("dataInicio");
                 String dataDevolucao = res.getString("dataDevolucao");
                 Emprestimo objeto = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
-
                 listaEmprestimo.add(objeto);
             }
             // Fecha a declaração após a execução da consulta
-            smt.close();
         } catch (SQLException erro) {
             // Trata o erro caso ocorra algum problema na execução da consulta
             System.out.println("Erro: " + erro);
@@ -54,12 +51,10 @@ public class EmprestimoDAO extends ConexaoDAO {
 
     public int maiorIDEmprestimo() {
         int MaiorID = 0;
-        try {
-            Statement smt = super.getConexao().createStatement();
+        try (Statement smt = super.getConexao().createStatement()) {
             ResultSet res = smt.executeQuery("select MAX(idEmprestimo)idEmprestimo from emprestimo");
             res.next();
             MaiorID = res.getInt("idEmprestimo");
-            smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
@@ -82,8 +77,7 @@ public class EmprestimoDAO extends ConexaoDAO {
     public Emprestimo retrieveEmprestimoDB(int IdEmprestimo) {
         Emprestimo emprestimo = new Emprestimo();
         emprestimo.setIDEmprestimo(IdEmprestimo);
-        try {
-            Statement smt = super.getConexao().createStatement();
+        try (Statement smt = super.getConexao().createStatement()) {
             ResultSet res = smt.executeQuery("select * from emprestimo where idEmprestimo = " + IdEmprestimo);
             res.next();
             emprestimo.setIDEmprestimo(res.getInt("idEmprestimo"));
@@ -91,7 +85,6 @@ public class EmprestimoDAO extends ConexaoDAO {
             emprestimo.setDataEmprestimo(res.getString("dataInicio"));
             emprestimo.setIDAmigo(res.getInt("idAmigo"));
             emprestimo.setIDFerramenta(res.getInt("idFerramenta"));
-            smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
@@ -119,10 +112,8 @@ public class EmprestimoDAO extends ConexaoDAO {
     }
 
     public boolean deleteEmprestimoDB(int IdEmprestimo) {
-        try {
-            Statement smt = super.getConexao().createStatement();
+        try (Statement smt = super.getConexao().createStatement()) {
             smt.executeUpdate("delete from emprestimo where idEmprestimo=" + IdEmprestimo);
-            smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }

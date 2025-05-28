@@ -31,8 +31,7 @@ public class AmigoDAO extends ConexaoDAO {
         synchronized (listaAmigo) {
             listaAmigo.clear();
         }
-        try {
-            Statement smt = super.getConexao().createStatement();
+        try (Statement smt = super.getConexao().createStatement()) {
             ResultSet res = smt.executeQuery("select * from amigo");
             while (res.next()) {
                 int idAmigo = res.getInt("IdAmigo");
@@ -41,7 +40,6 @@ public class AmigoDAO extends ConexaoDAO {
                 Amigo objeto = new Amigo(idAmigo, nomeAmigo, telefoneAmigo);
                 listaAmigo.add(objeto);
             }
-            smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
@@ -67,12 +65,10 @@ public class AmigoDAO extends ConexaoDAO {
      */
     public int maiorIDAmigo() {
         int MaiorID = 0;
-        try {
-            Statement smt = super.getConexao().createStatement();
+        try (Statement smt = super.getConexao().createStatement()) {
             ResultSet res = smt.executeQuery("select MAX(idAmigo)idAmigo from amigo");
             res.next();
             MaiorID = res.getInt("idAmigo");
-            smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
@@ -108,13 +104,11 @@ public class AmigoDAO extends ConexaoDAO {
     public Amigo retrieveAmigoDB(int IdAmigo) {
         Amigo amigo = new Amigo();
         amigo.setIdAmigo(IdAmigo);
-        try {
-            Statement smt = super.getConexao().createStatement();
+        try (Statement smt = super.getConexao().createStatement()) {
             ResultSet res = smt.executeQuery("select * from amigo where idAmigo = " + IdAmigo);
             res.next();
             amigo.setNomeAmigo(res.getString("nomeAmigo"));
             amigo.setTelefone(res.getString("telefoneAmigo"));
-            smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
@@ -153,10 +147,8 @@ public class AmigoDAO extends ConexaoDAO {
      * {@code false}.
      */
     public boolean deleteAmigoDB(int IdAmigo) {
-        try {
-            Statement smt = super.getConexao().createStatement();
+        try (Statement smt = super.getConexao().createStatement()) {
             smt.executeUpdate("delete from amigo where idAmigo = " + IdAmigo);
-            smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }

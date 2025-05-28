@@ -285,6 +285,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
             }
         });
     }
+
     protected int confirmarApagarEmprestimo() {
         return JOptionPane.showConfirmDialog(null, "Esta ação também apagará todos os empréstimos associados a este Ferramenta, deseja continuar?");
     }

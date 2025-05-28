@@ -53,7 +53,7 @@ class TesteFrmGerenciarFerramenta {
     @Test
     void testApagarFerramenta() {
 
-        ferramentaTeste.InsertFerramentaDB("cano","felipes",25);
+        ferramentaTeste.InsertFerramentaDB("cano", "felipes", 25);
 
         frmGerenciarFerramenta.inicializarLista();
 
