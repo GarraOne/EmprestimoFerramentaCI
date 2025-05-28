@@ -40,7 +40,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="JLID" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JLId" min="-2" max="-2" attributes="0"/>
+                      <Component id="JLIid" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -64,7 +64,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JLID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLIid" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -179,7 +179,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBCancelarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLId">
+    <Component class="javax.swing.JLabel" name="JLIid">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>

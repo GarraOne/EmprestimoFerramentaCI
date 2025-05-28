@@ -45,7 +45,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         JBApagar = new javax.swing.JButton();
         JBModificar = new javax.swing.JButton();
         JBCancelar = new javax.swing.JButton();
-        JLId = new javax.swing.JLabel();
+        JLIid = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciador de Amigos");
@@ -101,7 +101,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
             }
         });
 
-        JLId.setText("0");
+        JLIid.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,7 +121,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(JLID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JLId)))
+                        .addComponent(JLIid)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(137, Short.MAX_VALUE)
@@ -140,7 +140,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLID)
-                    .addComponent(JLId))
+                    .addComponent(JLIid))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLNome)
@@ -189,7 +189,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
             if (amigo.updateAmigoDB(id, nome, telefone)) {
                 mostrarMensagem("Amigo atualizado com sucesso.");
-                JLId.setVisible(false);
+                JLIid.setVisible(false);
                 JTFNome.setText("");
                 JTFTelefone.setText("");
                 this.carregaListaAmigo();
@@ -201,8 +201,8 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
     private void jTableAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAmigosMouseClicked
         if (this.jTableAmigos.getSelectedRow() != -1) {
-            JLId.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
-            JLId.setVisible(true);
+            JLIid.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
+            JLIid.setVisible(true);
             JTFNome.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 1).toString());
             JTFTelefone.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 2).toString());
         }
@@ -217,12 +217,12 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         if (conf == 0) {
 
             for (int i = 0; i < listaEmprestimo.size(); i++) {
-                if (listaEmprestimo.get(i).getIDAmigo() == Integer.parseInt(JLId.getText())) {
+                if (listaEmprestimo.get(i).getIDAmigo() == Integer.parseInt(JLIid.getText())) {
                     emp.deleteEmprestimoDB(listaEmprestimo.get(i).getIDEmprestimo());
                 }
             }
-            amigo.deleteAmigoDB(Integer.parseInt(JLId.getText()));
-            JLId.setVisible(false);
+            amigo.deleteAmigoDB(Integer.parseInt(JLIid.getText()));
+            JLIid.setVisible(false);
             JTFNome.setText("");
             JTFTelefone.setText("");
             this.carregaListaAmigo();
@@ -232,7 +232,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     }//GEN-LAST:event_JBApagarActionPerformed
     public void carregaListaAmigo() {
         DefaultTableModel model = (DefaultTableModel) jTableAmigos.getModel();
-        JLId.setVisible(false);
+        JLIid.setVisible(false);
         model.setNumRows(0);
         ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
         for (Amigo objeto : listaAmigo) {
@@ -315,7 +315,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     private javax.swing.JButton JBCancelar;
     private javax.swing.JButton JBModificar;
     private javax.swing.JLabel JLID;
-    private javax.swing.JLabel JLId;
+    private javax.swing.JLabel JLIid;
     private javax.swing.JLabel JLNome;
     private javax.swing.JLabel JLTelefone;
     private javax.swing.JTextField JTFNome;
