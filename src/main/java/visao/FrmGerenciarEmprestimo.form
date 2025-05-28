@@ -41,7 +41,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="JLAtivo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JLativo" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="JLATIVO" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="JLID" min="-2" max="-2" attributes="0"/>
@@ -103,7 +103,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JLAtivo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLativo" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="JLATIVO" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="41" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -250,7 +250,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="JTFDataDevolucao">
     </Component>
-    <Component class="javax.swing.JLabel" name="JLativo">
+    <Component class="javax.swing.JLabel" name="JLATIVO">
     </Component>
   </SubComponents>
 </Form>

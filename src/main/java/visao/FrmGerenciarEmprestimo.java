@@ -50,7 +50,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         JTFIdFerramenta = new javax.swing.JTextField();
         JTFDataEmprestimo = new javax.swing.JTextField();
         JTFDataDevolucao = new javax.swing.JTextField();
-        JLativo = new javax.swing.JLabel();
+        JLATIVO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciador de Empréstimos");
@@ -125,7 +125,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JLAtivo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JLativo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JLATIVO, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JLID)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -172,7 +172,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLAtivo)
-                    .addComponent(JLativo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JLATIVO, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBCancelar)
@@ -325,6 +325,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     private javax.swing.JButton JBApagar;
     private javax.swing.JButton JBCancelar;
     private javax.swing.JButton JBModificar;
+    private javax.swing.JLabel JLATIVO;
     private javax.swing.JLabel JLAtivo;
     private javax.swing.JLabel JLDataDevolucao;
     private javax.swing.JLabel JLDataInicio;
@@ -332,7 +333,6 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     private javax.swing.JLabel JLIdAmigo;
     private javax.swing.JLabel JLIdFerramenta;
     private javax.swing.JLabel JLIid;
-    private javax.swing.JLabel JLativo;
     private javax.swing.JTextField JTFDataDevolucao;
     private javax.swing.JTextField JTFDataEmprestimo;
     private javax.swing.JTextField JTFIdAmigo;
