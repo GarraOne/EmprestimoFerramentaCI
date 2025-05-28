@@ -65,17 +65,22 @@ public class FerramentaDAO extends ConexaoDAO {
      * @return Maior ID de ferramenta.
      */
     public int maiorIDFerramenta() {
-        int MaiorID = 0;
-        try {
-            Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select MAX(idFerramenta)idFerramenta from ferramenta");
-            res.next();
-            MaiorID = res.getInt("idFerramenta");
-            smt.close();
+        int maiorID = 0;
+        
+        String sql = "SELECT MAX(idFerramenta) AS idFerramenta FROM ferramenta";
+        
+        try (
+            Statement stmt = super.getConexao().createStatement();
+            ResultSet res = stmt.executeQuery(sql)
+        ) {
+            if (res.next()) {
+                maiorID = res.getInt("idFerramenta");
+            }
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
-        return MaiorID;
+        
+        return maiorID;
     }
 
     /**
