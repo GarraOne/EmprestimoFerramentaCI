@@ -29,22 +29,24 @@ public class FerramentaDAO extends ConexaoDAO {
      */
     public ArrayList<Ferramenta> getListaFerramenta() {
         listaFerramenta.clear();
-        try {
-            Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select * from ferramenta");
+
+        String sql = "SELECT * FROM ferramenta";
+
+        try (
+                Connection conn = super.getConexao(); Statement smt = conn.createStatement(); ResultSet res = smt.executeQuery(sql)) {
             while (res.next()) {
                 int idFerramenta = res.getInt("IdFerramenta");
                 String nomeFerramenta = res.getString("nomeFerramenta");
                 String marcaFerramenta = res.getString("marcaFerramenta");
                 double custoFerramenta = res.getDouble("custoFerramenta");
-                Ferramenta objeto = new Ferramenta(idFerramenta, nomeFerramenta, custoFerramenta, marcaFerramenta);
 
+                Ferramenta objeto = new Ferramenta(idFerramenta, nomeFerramenta, custoFerramenta, marcaFerramenta);
                 listaFerramenta.add(objeto);
             }
-            smt.close();
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+            System.out.println("Erro: " + erro.getMessage());
         }
+
         return listaFerramenta;
     }
 
