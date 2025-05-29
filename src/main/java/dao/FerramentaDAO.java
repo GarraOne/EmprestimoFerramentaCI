@@ -66,20 +66,18 @@ public class FerramentaDAO extends ConexaoDAO {
      */
     public int maiorIDFerramenta() {
         int maiorID = 0;
-        
+
         String sql = "SELECT MAX(idFerramenta) AS idFerramenta FROM ferramenta";
-        
+
         try (
-            Statement stmt = super.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery(sql)
-        ) {
+                Statement stmt = super.getConexao().createStatement(); ResultSet res = stmt.executeQuery(sql)) {
             if (res.next()) {
                 maiorID = res.getInt("idFerramenta");
             }
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
-        
+
         return maiorID;
     }
 
@@ -112,12 +110,11 @@ public class FerramentaDAO extends ConexaoDAO {
     public Ferramenta retrieveFerramentaDB(int IdFerramenta) {
         Ferramenta ferramenta = new Ferramenta();
         ferramenta.setIdFerramenta(IdFerramenta);
-        
+
         String sql = "SELECT * FROM ferramenta WHERE idFerramenta = ?";
-        
+
         try (
-            PreparedStatement pstmt = super.getConexao().prepareStatement(sql)
-        ) {
+                PreparedStatement pstmt = super.getConexao().prepareStatement(sql)) {
             pstmt.setInt(1, IdFerramenta);
             try (ResultSet res = pstmt.executeQuery()) {
                 if (res.next()) {
@@ -129,7 +126,7 @@ public class FerramentaDAO extends ConexaoDAO {
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
-        
+
         return ferramenta;
     }
 
@@ -166,14 +163,16 @@ public class FerramentaDAO extends ConexaoDAO {
      * {@code false}.
      */
     public boolean deleteFerramentaDB(int IdFerramenta) {
-        try {
-            Statement smt = super.getConexao().createStatement();
-            smt.executeUpdate("delete from ferramenta where idFerramenta=" + IdFerramenta);
-            smt.close();
+        String sql = "DELETE FROM ferramenta WHERE idFerramenta = ?";
+
+        try (PreparedStatement pstmt = super.getConexao().prepareStatement(sql)) {
+            pstmt.setInt(1, IdFerramenta);
+            pstmt.executeUpdate();
+            return true;
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
+            return false;
         }
-        return true;
     }
 
     private void criar() {
