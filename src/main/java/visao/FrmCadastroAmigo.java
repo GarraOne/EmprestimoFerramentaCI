@@ -36,39 +36,39 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JLNomeAmigo = new javax.swing.JLabel();
-        JLTelefone = new javax.swing.JLabel();
-        JTFNomeAmigo = new javax.swing.JTextField();
-        JTFTelefone = new javax.swing.JTextField();
-        JBCadastrar = new javax.swing.JButton();
-        JBLimpar = new javax.swing.JButton();
-        JBCancelar = new javax.swing.JButton();
+        labelNomeAmigo = new javax.swing.JLabel();
+        labelTelefone = new javax.swing.JLabel();
+        textNomeAmigo = new javax.swing.JTextField();
+        textTelefone = new javax.swing.JTextField();
+        cadastrarButton = new javax.swing.JButton();
+        buttonLimpar = new javax.swing.JButton();
+        cancelarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Amigos");
 
-        JLNomeAmigo.setText("Nome:");
+        labelNomeAmigo.setText("Nome:");
 
-        JLTelefone.setText("Telefone:");
+        labelTelefone.setText("Telefone:");
 
-        JBCadastrar.setText("Cadastrar");
-        JBCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        cadastrarButton.setText("Cadastrar");
+        cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCadastrarActionPerformed(evt);
+                cadastrarButtonActionPerformed(evt);
             }
         });
 
-        JBLimpar.setText("Limpar");
-        JBLimpar.addActionListener(new java.awt.event.ActionListener() {
+        buttonLimpar.setText("Limpar");
+        buttonLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBLimparActionPerformed(evt);
+                buttonLimparActionPerformed(evt);
             }
         });
 
-        JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(new java.awt.event.ActionListener() {
+        cancelarButton.setText("Cancelar");
+        cancelarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCancelarActionPerformed(evt);
+                cancelarButtonActionPerformed(evt);
             }
         });
 
@@ -80,69 +80,69 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(150, 150, 150)
-                        .addComponent(JBCadastrar)
+                        .addComponent(cadastrarButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JBLimpar)
+                        .addComponent(buttonLimpar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JBCancelar))
+                        .addComponent(cancelarButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JLTelefone)
-                            .addComponent(JLNomeAmigo)
-                            .addComponent(JTFNomeAmigo)
-                            .addComponent(JTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(labelTelefone)
+                            .addComponent(labelNomeAmigo)
+                            .addComponent(textNomeAmigo)
+                            .addComponent(textTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(JLNomeAmigo)
+                .addComponent(labelNomeAmigo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTFNomeAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textNomeAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JLTelefone)
+                .addComponent(labelTelefone)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBCadastrar)
-                    .addComponent(JBLimpar)
-                    .addComponent(JBCancelar))
+                    .addComponent(cadastrarButton)
+                    .addComponent(buttonLimpar)
+                    .addComponent(cancelarButton))
                 .addGap(16, 16, 16))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
+    private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
         //Libera todos os recurso da interface gráfica
         this.dispose();
-    }//GEN-LAST:event_JBCancelarActionPerformed
+    }//GEN-LAST:event_cancelarButtonActionPerformed
 
-    private void JBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimparActionPerformed
-        JTFNomeAmigo.setText("");
-        JTFTelefone.setText("");
-    }//GEN-LAST:event_JBLimparActionPerformed
+    private void buttonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLimparActionPerformed
+        textNomeAmigo.setText("");
+        textTelefone.setText("");
+    }//GEN-LAST:event_buttonLimparActionPerformed
 
-    private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
+    private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         try {
             String nome = "";
             String telefone = "";
 
-            if (JTFNomeAmigo.getText().length() < 3) {
+            if (textNomeAmigo.getText().length() < 3) {
                 mostrarMensagem("Amigo Invalido.");
                 throw new Erro("Nome do amigo deve conter mais de 3 caracteres, tente novamente.");
             } else {
-                nome = JTFNomeAmigo.getText();
+                nome = textNomeAmigo.getText();
             }
 
-            if (JTFTelefone.getText().length() < 8) {
+            if (textTelefone.getText().length() < 8) {
                 mostrarMensagem("Telefone Invalido.");
                 throw new Erro("Número de telefone inválido.");
             } else {
-                telefone = JTFTelefone.getText();
+                telefone = textTelefone.getText();
             }
 
             // Usando o objetoamigo que já foi instanciado no construtor
@@ -151,13 +151,13 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
 
             if (objetoamigo.insertAmigoDB(nome, telefone)) {
                 mostrarMensagem("Amigo cadastrado com sucesso.");
-                JTFNomeAmigo.setText("");
-                JTFTelefone.setText("");
+                textNomeAmigo.setText("");
+                textTelefone.setText("");
             }
         } catch (Erro erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
-    }//GEN-LAST:event_JBCadastrarActionPerformed
+    }//GEN-LAST:event_cadastrarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,28 +199,28 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     }
 
     protected javax.swing.JTextField getJTFNomeAmigo() {
-        return this.JTFNomeAmigo;  // acesso direto porque está dentro da classe
+        return this.textNomeAmigo;  // acesso direto porque está dentro da classe
     }
 
     protected javax.swing.JTextField getJTFTelefone() {
-        return this.JTFTelefone;
+        return this.textTelefone;
     }
 
     protected javax.swing.JButton getJBCadastrar() {
-        return this.JBCadastrar;
+        return this.cadastrarButton;
     }
 
     protected javax.swing.JButton getJBLimpar() {
-        return this.JBLimpar;
+        return this.buttonLimpar;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBCadastrar;
-    private javax.swing.JButton JBCancelar;
-    private javax.swing.JButton JBLimpar;
-    private javax.swing.JLabel JLNomeAmigo;
-    private javax.swing.JLabel JLTelefone;
-    private javax.swing.JTextField JTFNomeAmigo;
-    private javax.swing.JTextField JTFTelefone;
+    private javax.swing.JButton buttonLimpar;
+    private javax.swing.JButton cadastrarButton;
+    private javax.swing.JButton cancelarButton;
+    private javax.swing.JLabel labelNomeAmigo;
+    private javax.swing.JLabel labelTelefone;
+    private javax.swing.JTextField textNomeAmigo;
+    private javax.swing.JTextField textTelefone;
     // End of variables declaration//GEN-END:variables
 }

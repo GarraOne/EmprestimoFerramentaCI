@@ -28,19 +28,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
-                      <Component id="JBCadastrar" min="-2" max="-2" attributes="0"/>
+                      <Component id="cadastrarButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JBLimpar" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonLimpar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JBCancelar" min="-2" max="-2" attributes="0"/>
+                      <Component id="cancelarButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="JLTelefone" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="JLNomeAmigo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="JTFNomeAmigo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="JTFTelefone" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="labelTelefone" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelNomeAmigo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textNomeAmigo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="textTelefone" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -52,18 +52,18 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="JLNomeAmigo" min="-2" max="-2" attributes="0"/>
+              <Component id="labelNomeAmigo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JTFNomeAmigo" min="-2" max="-2" attributes="0"/>
+              <Component id="textNomeAmigo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JLTelefone" min="-2" max="-2" attributes="0"/>
+              <Component id="labelTelefone" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JTFTelefone" min="-2" max="-2" attributes="0"/>
+              <Component id="textTelefone" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="137" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JBCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cadastrarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
           </Group>
@@ -71,42 +71,42 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="JLNomeAmigo">
+    <Component class="javax.swing.JLabel" name="labelNomeAmigo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLTelefone">
+    <Component class="javax.swing.JLabel" name="labelTelefone">
       <Properties>
         <Property name="text" type="java.lang.String" value="Telefone:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFNomeAmigo">
+    <Component class="javax.swing.JTextField" name="textNomeAmigo">
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFTelefone">
+    <Component class="javax.swing.JTextField" name="textTelefone">
     </Component>
-    <Component class="javax.swing.JButton" name="JBCadastrar">
+    <Component class="javax.swing.JButton" name="cadastrarButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBCadastrarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBLimpar">
+    <Component class="javax.swing.JButton" name="buttonLimpar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBLimparActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLimparActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBCancelar">
+    <Component class="javax.swing.JButton" name="cancelarButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBCancelarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

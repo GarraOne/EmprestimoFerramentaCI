@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class DAOExceptionTest {
+class DAOExceptionTest {
     
    @Test
     void testConstrutorComMensagem() {
