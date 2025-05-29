@@ -8,7 +8,7 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     /**
      * Creates new form FrmCadastroAmigo
      */
-    private transient Amigo objetoamigo;
+    private final transient Amigo objetoamigo;
     // cria o vínculo com Amigo.java
 
     private String mensagem;
@@ -128,23 +128,28 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
 
     private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
         try {
-
-            Amigo amigo = new Amigo();
             String nome = "";
             String telefone = "";
+
             if (JTFNomeAmigo.getText().length() < 3) {
                 mostrarMensagem("Amigo Invalido.");
                 throw new Erro("Nome do amigo deve conter mais de 3 caracteres, tente novamente.");
             } else {
-                nome = (JTFNomeAmigo.getText());
+                nome = JTFNomeAmigo.getText();
             }
+
             if (JTFTelefone.getText().length() < 8) {
                 mostrarMensagem("Telefone Invalido.");
                 throw new Erro("Número de telefone inválido.");
             } else {
-                telefone = (JTFTelefone.getText());
+                telefone = JTFTelefone.getText();
             }
-            if (amigo.insertAmigoDB(nome, telefone)) {
+
+            // Usando o objetoamigo que já foi instanciado no construtor
+            objetoamigo.setNomeAmigo(nome);
+            objetoamigo.setTelefone(telefone);
+
+            if (objetoamigo.insertAmigoDB(nome, telefone)) {
                 mostrarMensagem("Amigo cadastrado com sucesso.");
                 JTFNomeAmigo.setText("");
                 JTFTelefone.setText("");
