@@ -10,8 +10,8 @@ import modelo.Ferramenta;
 
 public class FrmCadastroEmprestimo extends javax.swing.JFrame {
 
-    private transient Ferramenta ferramenta;
-    private transient Amigo amigo;
+    private final transient Ferramenta ferramenta;
+    private final transient Amigo amigo;
 
     private String mensagem;
 
@@ -123,7 +123,7 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
             ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
             Emprestimo emprestimo = new Emprestimo();
-            if (listaFerramenta.get(posicaoFerramenta).getDisponivel(listaFerramenta.get(posicaoFerramenta).getIdFerramenta()) == "Não") {
+            if ("Não".equals(listaFerramenta.get(posicaoFerramenta).getDisponivel(listaFerramenta.get(posicaoFerramenta).getIdFerramenta()))) {
                 mostrarMensagem("Ferramenta já emprestada.");
                 throw new Erro("Ferramenta já emprestada.");
             }
