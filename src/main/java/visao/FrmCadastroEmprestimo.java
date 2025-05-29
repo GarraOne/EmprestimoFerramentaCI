@@ -129,8 +129,7 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             }
             int idAmigo = listaAmigo.get(posicaoAmigo).getIdAmigo();
             if (amigo.possuiEmprestimoAtivo(idAmigo)) {
-                conf = JOptionPane.showConfirmDialog(null, "Este amigo já possui um empréstimo ativo, deseja continuar?");
-                mostrarMensagem("Este amigo já possui um empréstimo ativo, deseja continuar?");
+                conf = confirmarCadastrarAmigoComEmprestimo();
             }
             int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramenta();
             String DataInicio = LocalDate.now() + "";
@@ -193,6 +192,10 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
                 new FrmCadastroEmprestimo().setVisible(true);
             }
         });
+    }
+
+    protected int confirmarCadastrarAmigoComEmprestimo() {
+        return JOptionPane.showConfirmDialog(null, "Este amigo já possui um empréstimo ativo, deseja continuar?");
     }
 
     public void mostrarMensagem(String mensagem) {

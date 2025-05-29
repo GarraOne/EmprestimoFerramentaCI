@@ -1,6 +1,7 @@
 package visao;
 
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 public class FrmCadastroEmprestimoFake extends FrmCadastroEmprestimo {
 
@@ -18,6 +19,11 @@ public class FrmCadastroEmprestimoFake extends FrmCadastroEmprestimo {
 
         //Mostra a mensagem
         System.out.println("Mensagem:" + mensagem);
+    }
+
+    @Override
+    public int confirmarCadastrarAmigoComEmprestimo() {
+        return JOptionPane.YES_OPTION; // Simula clique no "Sim"
     }
 
     public void inicializarCombos() {

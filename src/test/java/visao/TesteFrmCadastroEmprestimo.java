@@ -78,7 +78,7 @@ class TesteFrmCadastroEmprestimo {
 
         frmCadastroEmprestimo.getJCBAmigo().setSelectedIndex(0);
         frmCadastroEmprestimo.getJCBFerramenta().setSelectedIndex(0);
-        
+
         // Fecha a tela
         new javax.swing.Timer(500, e -> {
             for (Window w : Window.getWindows()) {
@@ -87,12 +87,12 @@ class TesteFrmCadastroEmprestimo {
                 }
             }
         }).start();
-        
+
         // Simula o clique no botão cadastrar via método do fake
         frmCadastroEmprestimo.clicarBotaoCadastrar();
 
         assertEquals("Ferramenta já emprestada.", frmCadastroEmprestimo.getMensagem());
-        
+
         AmigoDAO amigodao = new AmigoDAO();
         amigodao.deleteAmigoDB(1);
         amigodao.deleteAmigoDB(2);
@@ -102,5 +102,42 @@ class TesteFrmCadastroEmprestimo {
         emprestimodao.deleteEmprestimoDB(1);
     }
 
-    
+    @Test
+    void testEmprestimoInvalido() {
+
+        amigoTeste.insertAmigoDB("Joao", "12345678"); 
+        ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
+        ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
+        emprestimoTeste.insertEmprestimoDB(1, 1, "21-05-2025");
+
+        frmCadastroEmprestimo.inicializarCombos();
+
+        frmCadastroEmprestimo.getJCBAmigo().setSelectedIndex(0);
+        frmCadastroEmprestimo.getJCBFerramenta().setSelectedIndex(1);
+        
+        
+        // Fecha a tela
+        new javax.swing.Timer(500, e -> {
+            for (Window w : Window.getWindows()) {
+                if (w.isShowing() && w instanceof JDialog) {
+                    w.dispose(); // Fecha o JOptionPane como se clicasse em "OK"
+                }
+            }
+        }).start();
+
+        // Simula o clique no botão cadastrar via método do fake
+        frmCadastroEmprestimo.clicarBotaoCadastrar();
+
+        assertEquals("Empréstimo cadastrado com sucesso.", frmCadastroEmprestimo.getMensagem());
+
+        AmigoDAO amigodao = new AmigoDAO();
+        amigodao.deleteAmigoDB(1);
+        FerramentaDAO ferramentadao = new FerramentaDAO();
+        ferramentadao.deleteFerramentaDB(1);
+        ferramentadao.deleteFerramentaDB(2);
+        EmprestimoDAO emprestimodao = new EmprestimoDAO();
+        emprestimodao.deleteEmprestimoDB(1);
+        emprestimodao.deleteEmprestimoDB(2);
+    }
+
 }
