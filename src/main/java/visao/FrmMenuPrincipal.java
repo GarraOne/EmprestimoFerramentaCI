@@ -1,7 +1,5 @@
 package visao;
 
-import modelo.Amigo;
-
 public class FrmMenuPrincipal extends javax.swing.JFrame {
 
     /**

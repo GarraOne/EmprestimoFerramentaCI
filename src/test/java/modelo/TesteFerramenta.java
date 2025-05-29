@@ -1,13 +1,6 @@
 package modelo;
 
-import dao.ConexaoDAO;
-import dao.EmprestimoDAO;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
