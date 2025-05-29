@@ -89,10 +89,13 @@ public class AmigoDAO extends ConexaoDAO {
      * lança uma exceção.
      */
     public boolean insertAmigoDB(Amigo amigo) {
-        String res = "insert into amigo(idAmigo, nomeAmigo, telefoneAmigo) values ('" + amigo.getIdAmigo() + "','" + amigo.getNomeAmigo() + "','" + amigo.getTelefone() + "')";
+        String res = "insert into amigo(idAmigo, nomeAmigo, telefoneAmigo) values (? , ? , ?)";
         try {
-            Statement smt = super.getConexao().createStatement();
-            smt.executeUpdate(res);
+            PreparedStatement smt = super.getConexao().prepareStatement(res);
+            smt.setInt(1, amigo.getIdAmigo());
+            smt.setString(2, amigo.getNomeAmigo());
+            smt.setString(3, amigo.getTelefone());
+            smt.executeUpdate();
             smt.close();
             return true;
         } catch (SQLException erro) {
@@ -110,8 +113,10 @@ public class AmigoDAO extends ConexaoDAO {
     public Amigo retrieveAmigoDB(int idAmigo) {
         Amigo amigo = new Amigo();
         amigo.setIdAmigo(idAmigo);
-        try (Statement smt = super.getConexao().createStatement()) {
-            ResultSet res = smt.executeQuery("select idAmigo, nomeAmigo, TelefoneAmigo from amigo where idAmigo = " + idAmigo);
+        String query = "select idAmigo, nomeAmigo, TelefoneAmigo from amigo where idAmigo = ? ";
+        try (PreparedStatement smt = super.getConexao().prepareStatement(query)) {
+            smt.setInt(1, idAmigo);
+            ResultSet res = smt.executeQuery();
             res.next();
             amigo.setNomeAmigo(res.getString("nomeAmigo"));
             amigo.setTelefone(res.getString("telefoneAmigo"));
@@ -153,8 +158,10 @@ public class AmigoDAO extends ConexaoDAO {
      * {@code false}.
      */
     public boolean deleteAmigoDB(int idAmigo) {
-        try (Statement smt = super.getConexao().createStatement()) {
-            smt.executeUpdate("delete from amigo where idAmigo = " + idAmigo);
+String res = "delete from amigo where idAmigo = ?";
+        try (PreparedStatement smt = super.getConexao().prepareStatement(res)) {
+            smt.setInt(1, idAmigo);
+            smt.executeUpdate();
         } catch (SQLException erro) {
                 logErro(erro);
         }
