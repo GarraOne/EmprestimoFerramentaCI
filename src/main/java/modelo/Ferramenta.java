@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public class Ferramenta {
 
     private int idFerramenta;
-    private String nome;
-    private String marca;
-    private double custo;
+    private String nomeFerramenta;
+    private String marcaFerramenta;
+    private double custoFerramenta;
     private FerramentaDAO dao;
 
     /**
@@ -35,9 +35,9 @@ public class Ferramenta {
      */
     public Ferramenta(int idFerramenta, String nome, double custo, String marca) {
         this.idFerramenta = idFerramenta;
-        this.nome = nome;
-        this.custo = custo;
-        this.marca = marca; // Inicializa a marca como uma string vazia
+        this.nomeFerramenta = nome;
+        this.custoFerramenta = custo;
+        this.marcaFerramenta = marca; // Inicializa a marca como uma string vazia
         this.dao = new FerramentaDAO();
     }
 
@@ -47,11 +47,11 @@ public class Ferramenta {
      * @return O nome da ferramenta.
      */
     public String getNomeFerramenta() {
-        return nome;
+        return nomeFerramenta;
     }
 
     public void setNomeFerramenta(String nome) {
-        this.nome = nome;
+        this.nomeFerramenta = nome;
     }
 
     /**
@@ -60,11 +60,11 @@ public class Ferramenta {
      * @return O custo da ferramenta.
      */
     public double getCustoFerramenta() {
-        return custo;
+        return custoFerramenta;
     }
 
     public void setCustoFerramenta(double custo) {
-        this.custo = custo;
+        this.custoFerramenta = custo;
     }
 
     /**
@@ -91,11 +91,11 @@ public class Ferramenta {
      * @return A marca da ferramenta.
      */
     public String getMarcaFerramenta() {
-        return marca;
+        return marcaFerramenta;
     }
 
     public void setMarcaFerramenta(String marca) {
-        this.marca = marca;
+        this.marcaFerramenta = marca;
     }
 
     public int getIdFerramenta() {

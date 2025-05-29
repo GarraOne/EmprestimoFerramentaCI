@@ -26,7 +26,7 @@ public class Amigo {
      * telefone fornecidos.
      *
      * @param idAmigo O id do amigo
-     * @param nomeCliente O nome do amigo.
+     * @param nomeAmigo O nome do amigo.
      * @param telefone O telefone do amigo.
      */
     public Amigo(int idAmigo, String nomeAmigo, String telefone) {
@@ -131,7 +131,6 @@ public class Amigo {
      * @return O índice do amigo na lista.
      */
     private int procuraIndice(int id) {
-        AmigoDAO dao = new AmigoDAO();
         ArrayList<Amigo> amigos = dao.getListaAmigo();
         int indice = -1;
         for (int i = 0; i < amigos.size(); i++) {
@@ -153,7 +152,6 @@ public class Amigo {
      */
     public boolean updateAmigoDB(int id, String nome, String telefone) {
         Amigo amigo = new Amigo(id, nome, telefone);
-        int indice = this.procuraIndice(id);
         dao.updateAmigoDB(amigo);
         return true;
     }

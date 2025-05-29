@@ -157,8 +157,7 @@ public class Emprestimo {
      *
      * @param idAmigo O id do amigo a ser inserido.
      * @param idFerramenta O id da ferramenta a ser inserido.
-     * @param DataEmprestimo Data do emprestimo a ser inserido.
-     * @param DataDevolucao Data de devolução da ferramenta a ser inserida.
+     * @param dataEmprestimo Data do emprestimo a ser inserido.
      * @return true se a inserção for bem-sucedida, false caso contrário.
      */
     public boolean insertEmprestimoDB(int idAmigo, int idFerramenta, String dataEmprestimo) {
@@ -210,7 +209,6 @@ public class Emprestimo {
         System.out.println(dataDevolucao);
         Emprestimo emprestimo = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
         System.out.println(emprestimo.getDataDevolucao());
-        int indice = this.procuraIndice(idEmprestimo);
         dao.updateEmprestimoDB(emprestimo);
         return true;
     }
@@ -244,9 +242,9 @@ public class Emprestimo {
 
                 if ((!"null".equals(listaEmprestimo.get(i).getDataDevolucao())) && (!"".equals(listaEmprestimo.get(i).getDataDevolucao()))) {
                     String[] dataDevolucaoInvertida = listaEmprestimo.get(i).getDataDevolucao().split("-");
-                    Date dataDevolucao = sdf.parse(dataDevolucaoInvertida[2] + "-" + dataDevolucaoInvertida[1] + "-" + dataDevolucaoInvertida[0]);
+                    Date dataDevolucaoInvertido = sdf.parse(dataDevolucaoInvertida[2] + "-" + dataDevolucaoInvertida[1] + "-" + dataDevolucaoInvertida[0]);
                     Date dataAtual = sdf.parse(LocalDate.now() + "");
-                    if (dataAtual.compareTo(dataDevolucao) < 0) {
+                    if (dataAtual.compareTo(dataDevolucaoInvertido) < 0) {
                         listaEmprestimoAtivo.add(listaEmprestimo.get(i));
 
                     }
