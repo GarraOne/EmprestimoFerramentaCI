@@ -109,18 +109,18 @@ public class FerramentaDAO extends ConexaoDAO {
     /**
      * Recupera uma ferramenta do banco de dados com base no ID.
      *
-     * @param IdFerramenta ID da ferramenta a ser recuperada.
+     * @param idFerramenta ID da ferramenta a ser recuperada.
      * @return Ferramenta recuperada.
      */
-    public Ferramenta retrieveFerramentaDB(int IdFerramenta) {
+    public Ferramenta retrieveFerramentaDB(int idFerramenta) {
         Ferramenta ferramenta = new Ferramenta();
-        ferramenta.setIdFerramenta(IdFerramenta);
+        ferramenta.setIdFerramenta(idFerramenta);
 
         String sql = "SELECT idFerramenta, nomeFerramenta, marcaFerramenta, custoFerramenta FROM ferramenta WHERE idFerramenta = ?";
 
         try (
                 PreparedStatement pstmt = super.getConexao().prepareStatement(sql)) {
-            pstmt.setInt(1, IdFerramenta);
+            pstmt.setInt(1, idFerramenta);
             try (ResultSet res = pstmt.executeQuery()) {
                 if (res.next()) {
                     ferramenta.setNomeFerramenta(res.getString("nomeFerramenta"));
@@ -163,15 +163,15 @@ public class FerramentaDAO extends ConexaoDAO {
     /**
      * Remove uma ferramenta do banco de dados com base no ID.
      *
-     * @param IdFerramenta ID da ferramenta a ser removida.
+     * @param idFerramenta ID da ferramenta a ser removida.
      * @return {@code true} se a remoção for bem-sucedida, caso contrário,
      * {@code false}.
      */
-    public boolean deleteFerramentaDB(int IdFerramenta) {
+    public boolean deleteFerramentaDB(int idFerramenta) {
         String sql = "DELETE FROM ferramenta WHERE idFerramenta = ?";
 
         try (PreparedStatement pstmt = super.getConexao().prepareStatement(sql)) {
-            pstmt.setInt(1, IdFerramenta);
+            pstmt.setInt(1, idFerramenta);
             pstmt.executeUpdate();
             return true;
         } catch (SQLException erro) {

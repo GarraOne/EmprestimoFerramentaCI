@@ -110,7 +110,7 @@ public class Ferramenta {
         return dao.getListaFerramenta();
     }
 
-    public boolean InsertFerramentaDB(String nome, String marca, double custo) {
+    public boolean insertFerramentaDB(String nome, String marca, double custo) {
         int maiorID = dao.maiorIDFerramenta() + 1;
 
         Ferramenta ferramenta = new Ferramenta(maiorID, nome, custo, marca);
@@ -134,7 +134,7 @@ public class Ferramenta {
         return dao.retrieveFerramentaDB(id);
     }
 
-    public int MaiorID() {
+    public int maiorID() {
         return dao.maiorIDFerramenta();
     }
 

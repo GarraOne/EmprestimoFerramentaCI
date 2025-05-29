@@ -43,7 +43,7 @@ class TesteFrmCadastroDevolucao {
     void testCadastroValido() {
 
         amigoTeste.insertAmigoDB("Joao", "12345678");
-        ferramentaTeste.InsertFerramentaDB("Tesoura", "selos", 17);
+        ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
         emprestimoTeste.insertEmprestimoDB(1, 1, "21-05-2025");
 
         frmCadastroDevolucao.inicializarCombos();

@@ -36,7 +36,7 @@ class TesteFerramenta {
 
     @Test
     void TestRetriveFerramenta() {
-        ferramenta.InsertFerramentaDB("martelo", "Bosh", 15);
+        ferramenta.insertFerramentaDB("martelo", "Bosh", 15);
         ferramenta = ferramenta.retrieveFerramentaDB(1);
         int idEsperado = 1;
         String nomeEsperado = "martelo";
@@ -51,7 +51,7 @@ class TesteFerramenta {
 
     @Test
     void TestGetNomeFerramenta() {
-        ferramenta.InsertFerramentaDB("martelo", "Bosh", 15);
+        ferramenta.insertFerramentaDB("martelo", "Bosh", 15);
         ferramenta = ferramenta.retrieveFerramentaDB(1);
         String nomeEsperado = "martelo";
         assertEquals(nomeEsperado, ferramenta.getNomeFerramenta(1));
@@ -60,9 +60,9 @@ class TesteFerramenta {
 
     @Test
     void TestMaiorID() {
-        ferramenta.InsertFerramentaDB("martelo", "Bosh", 15);
+        ferramenta.insertFerramentaDB("martelo", "Bosh", 15);
         int maiorIDEsperado = 1;
-        int maiorIDRecebido = ferramenta.MaiorID();
+        int maiorIDRecebido = ferramenta.maiorID();
         assertEquals(maiorIDEsperado, maiorIDRecebido);
         ferramenta.deleteFerramentaDB(1);
     }

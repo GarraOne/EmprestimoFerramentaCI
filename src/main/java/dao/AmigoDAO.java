@@ -70,15 +70,15 @@ public class AmigoDAO extends ConexaoDAO {
      * @return Maior ID de amigo.
      */
     public int maiorIDAmigo() {
-        int MaiorID = 0;
+        int maiorID = 0;
         try (Statement smt = super.getConexao().createStatement()) {
             ResultSet res = smt.executeQuery("select MAX(idAmigo)idAmigo from amigo");
             res.next();
-            MaiorID = res.getInt("idAmigo");
+            maiorID = res.getInt("idAmigo");
         } catch (SQLException erro) {
                 logErro(erro);
         }
-        return MaiorID;
+        return maiorID;
     }
 
     /**
@@ -104,14 +104,14 @@ public class AmigoDAO extends ConexaoDAO {
     /**
      * Recupera um amigo do banco de dados com base no ID.
      *
-     * @param IdAmigo ID do amigo a ser recuperado.
+     * @param idAmigo ID do amigo a ser recuperado.
      * @return Amigo recuperado.
      */
-    public Amigo retrieveAmigoDB(int IdAmigo) {
+    public Amigo retrieveAmigoDB(int idAmigo) {
         Amigo amigo = new Amigo();
-        amigo.setIdAmigo(IdAmigo);
+        amigo.setIdAmigo(idAmigo);
         try (Statement smt = super.getConexao().createStatement()) {
-            ResultSet res = smt.executeQuery("select idAmigo, nomeAmigo, TelefoneAmigo from amigo where idAmigo = " + IdAmigo);
+            ResultSet res = smt.executeQuery("select idAmigo, nomeAmigo, TelefoneAmigo from amigo where idAmigo = " + idAmigo);
             res.next();
             amigo.setNomeAmigo(res.getString("nomeAmigo"));
             amigo.setTelefone(res.getString("telefoneAmigo"));
@@ -148,13 +148,13 @@ public class AmigoDAO extends ConexaoDAO {
     /**
      * Remove um amigo do banco de dados com base no ID.
      *
-     * @param IdAmigo ID do amigo a ser removido.
+     * @param idAmigo ID do amigo a ser removido.
      * @return {@code true} se a remoção for bem-sucedida, caso contrário,
      * {@code false}.
      */
-    public boolean deleteAmigoDB(int IdAmigo) {
+    public boolean deleteAmigoDB(int idAmigo) {
         try (Statement smt = super.getConexao().createStatement()) {
-            smt.executeUpdate("delete from amigo where idAmigo = " + IdAmigo);
+            smt.executeUpdate("delete from amigo where idAmigo = " + idAmigo);
         } catch (SQLException erro) {
                 logErro(erro);
         }

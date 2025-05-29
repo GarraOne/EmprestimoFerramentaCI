@@ -55,15 +55,15 @@ public class EmprestimoDAO extends ConexaoDAO {
     }
 
     public int maiorIDEmprestimo() {
-        int MaiorID = 0;
+        int maiorID = 0;
         try (Statement smt = super.getConexao().createStatement()) {
             ResultSet res = smt.executeQuery("select MAX(idEmprestimo)idEmprestimo from emprestimo");
             res.next();
-            MaiorID = res.getInt("idEmprestimo");
+            maiorID = res.getInt("idEmprestimo");
         } catch (SQLException erro) {
                 logErro(erro);
         }
-        return MaiorID;
+        return maiorID;
     }
 
     public boolean insertEmprestimoDB(Emprestimo emprestimo) {
@@ -79,11 +79,11 @@ public class EmprestimoDAO extends ConexaoDAO {
         }
     }
 
-    public Emprestimo retrieveEmprestimoDB(int IdEmprestimo) {
+    public Emprestimo retrieveEmprestimoDB(int idEmprestimo) {
         Emprestimo emprestimo = new Emprestimo();
-        emprestimo.setIDEmprestimo(IdEmprestimo);
+        emprestimo.setIDEmprestimo(idEmprestimo);
         try (Statement smt = super.getConexao().createStatement()) {
-            ResultSet res = smt.executeQuery("select idEmprestimo, idAmigo, idFerramenta, dataInicio, dataDevolucao from emprestimo where idEmprestimo = " + IdEmprestimo);
+            ResultSet res = smt.executeQuery("select idEmprestimo, idAmigo, idFerramenta, dataInicio, dataDevolucao from emprestimo where idEmprestimo = " + idEmprestimo);
             res.next();
             emprestimo.setIDEmprestimo(res.getInt("idEmprestimo"));
             emprestimo.setDataDevolucao(res.getString("dataDevolucao"));
@@ -116,9 +116,9 @@ public class EmprestimoDAO extends ConexaoDAO {
         }
     }
 
-    public boolean deleteEmprestimoDB(int IdEmprestimo) {
+    public boolean deleteEmprestimoDB(int idEmprestimo) {
         try (Statement smt = super.getConexao().createStatement()) {
-            smt.executeUpdate("delete from emprestimo where idEmprestimo=" + IdEmprestimo);
+            smt.executeUpdate("delete from emprestimo where idEmprestimo=" + idEmprestimo);
         } catch (SQLException erro) {
             logErro(erro);
         }

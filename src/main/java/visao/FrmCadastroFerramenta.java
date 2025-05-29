@@ -163,7 +163,7 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
                 custo = (Double.parseDouble(JTFCustoFerramenta.getText()));
 
             }
-            if (ferramenta.InsertFerramentaDB(nome, marca, custo)) {
+            if (ferramenta.insertFerramentaDB(nome, marca, custo)) {
                 mostrarMensagem("Ferramenta cadastrada com sucesso.");
                 JTFMarcaFerramenta.setText("");
                 JTFNomeFerramenta.setText("");

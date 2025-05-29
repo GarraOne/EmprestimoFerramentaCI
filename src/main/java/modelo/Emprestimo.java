@@ -38,15 +38,15 @@ public class Emprestimo {
      * @param idEmprestimo Id do emprestimo
      * @param idAmigo Para que amigo foi emprestada a ferramenta.
      * @param idFerramenta Que ferramenta foi emprestada.
-     * @param DataEmprestimo Quando foi emprestado a ferramenta.
-     * @param DataDevolucao Data de quando a ferramenta deve ser devolvida.
+     * @param dataEmprestimo Quando foi emprestado a ferramenta.
+     * @param dataDevolucao Data de quando a ferramenta deve ser devolvida.
      */
-    public Emprestimo(int idEmprestimo, int idAmigo, int idFerramenta, String DataEmprestimo, String DataDevolucao) {
+    public Emprestimo(int idEmprestimo, int idAmigo, int idFerramenta, String dataEmprestimo, String dataDevolucao) {
         this.idEmprestimo = idEmprestimo;
         this.idAmigo = idAmigo;
         this.idFerramenta = idFerramenta;
-        this.dataEmprestimo = DataEmprestimo;
-        this.dataDevolucao = DataDevolucao;
+        this.dataEmprestimo = dataEmprestimo;
+        this.dataDevolucao = dataDevolucao;
         this.dao = new EmprestimoDAO();
     }
 
@@ -119,10 +119,10 @@ public class Emprestimo {
     /**
      * Define a data do emprestimo.
      *
-     * @param DataEmprestimo A data do emprestimo a ser definida.
+     * @param dataEmprestimo A data do emprestimo a ser definida.
      */
-    public void setDataEmprestimo(String DataEmprestimo) {
-        this.dataEmprestimo = DataEmprestimo;
+    public void setDataEmprestimo(String dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
     }
 
     /**
@@ -137,10 +137,10 @@ public class Emprestimo {
     /**
      * Define a data de devolução do emprestimo.
      *
-     * @param DataDevolucao A data de devolução do emprestimo a ser definida.
+     * @param dataDevolucao A data de devolução do emprestimo a ser definida.
      */
-    public void setDataDevolucao(String DataDevolucao) {
-        this.dataDevolucao = DataDevolucao;
+    public void setDataDevolucao(String dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
     }
 
     /**

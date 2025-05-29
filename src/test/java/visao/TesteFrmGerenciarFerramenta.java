@@ -32,7 +32,7 @@ class TesteFrmGerenciarFerramenta {
     @Test
     void testModificarFerramenta() {
 
-        ferramentaTeste.InsertFerramentaDB("Tesoura", "selos", 17);
+        ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
 
         frmGerenciarFerramenta.inicializarLista();
 
@@ -53,7 +53,7 @@ class TesteFrmGerenciarFerramenta {
     @Test
     void testApagarFerramenta() {
 
-        ferramentaTeste.InsertFerramentaDB("cano", "felipes", 25);
+        ferramentaTeste.insertFerramentaDB("cano", "felipes", 25);
 
         frmGerenciarFerramenta.inicializarLista();
 
