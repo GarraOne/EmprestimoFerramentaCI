@@ -124,11 +124,13 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
             Emprestimo emprestimo = new Emprestimo();
             if (listaFerramenta.get(posicaoFerramenta).getDisponivel(listaFerramenta.get(posicaoFerramenta).getIdFerramenta()) == "Não") {
+                mostrarMensagem("Ferramenta já emprestada.");
                 throw new Erro("Ferramenta já emprestada.");
             }
             int idAmigo = listaAmigo.get(posicaoAmigo).getIdAmigo();
             if (amigo.possuiEmprestimoAtivo(idAmigo)) {
                 conf = JOptionPane.showConfirmDialog(null, "Este amigo já possui um empréstimo ativo, deseja continuar?");
+                mostrarMensagem("Este amigo já possui um empréstimo ativo, deseja continuar?");
             }
             int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramenta();
             String DataInicio = LocalDate.now() + "";
