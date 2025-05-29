@@ -94,10 +94,14 @@ public class FerramentaDAO extends ConexaoDAO {
      * lança uma exceção.
      */
     public boolean insertFerramentaDB(Ferramenta ferramenta) {
-        String res = "insert into ferramenta(idFerramenta,nomeFerramenta,marcaFerramenta,custoFerramenta)values('" + ferramenta.getIdFerramenta() + "','" + ferramenta.getNomeFerramenta() + "','" + ferramenta.getMarcaFerramenta() + "','" + ferramenta.getCustoFerramenta() + "')";
+        String res = "insert into ferramenta(idFerramenta,nomeFerramenta,marcaFerramenta,custoFerramenta)values(?,?,?,?)";
         try {
-            Statement smt = super.getConexao().createStatement();
-            smt.executeUpdate(res);
+            PreparedStatement smt = super.getConexao().prepareStatement(res);;
+            smt.setInt(1, ferramenta.getIdFerramenta());
+            smt.setString(2, ferramenta.getNomeFerramenta());
+            smt.setString(3, ferramenta.getMarcaFerramenta());
+            smt.setDouble(4, ferramenta.getCustoFerramenta());
+            smt.executeUpdate();
             smt.close();
             return true;
         } catch (SQLException erro) {
