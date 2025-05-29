@@ -193,9 +193,9 @@ public class Emprestimo {
      * @return true se a inserção for bem-sucedida, false caso contrário.
      */
     public boolean updateEmprestimoDB(int idEmprestimo, int idAmigo, int idFerramenta, String dataEmprestimo, String dataDevolucao) {
-        logger.info("Data de devolução recebida: " + dataDevolucao);
+        logger.log(Level.INFO, "Data de devolução recebida: {0}", dataDevolucao);
         Emprestimo emprestimo = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
-        logger.info("Data de devolução do objeto emprestimo: " + emprestimo.getDataDevolucao());
+        logger.log(Level.INFO, "Data de devolução do objeto emprestimo: {0}", emprestimo.getDataDevolucao());
         dao.updateEmprestimoDB(emprestimo);
         return true;
     }
