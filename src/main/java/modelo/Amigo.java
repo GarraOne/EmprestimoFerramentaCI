@@ -125,24 +125,6 @@ public class Amigo {
     }
 
     /**
-     * Retorna o índice de um amigo na lista.
-     *
-     * @param id O ID do amigo a ser buscado.
-     * @return O índice do amigo na lista.
-     */
-    private int procuraIndice(int id) {
-        ArrayList<Amigo> amigos = dao.getListaAmigo();
-        int indice = -1;
-        for (int i = 0; i < amigos.size(); i++) {
-            if (amigos.get(i).getIdAmigo() == id) {
-                indice = i;
-                break;
-            }
-        }
-        return indice;
-    }
-
-    /**
      * Atualiza um amigo no banco de dados.
      *
      * @param id O ID do amigo a ser atualizado.

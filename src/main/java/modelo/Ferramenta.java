@@ -124,16 +124,6 @@ public class Ferramenta {
         return true;
     }
 
-    public int procuraIndice(int id) {
-        int indice = -1;
-        for (int i = 0; i < FerramentaDAO.listaFerramenta.size(); i++) {
-            if (FerramentaDAO.listaFerramenta.get(i).getIdFerramenta() == id) {
-                indice = i;
-            }
-        }
-        return indice;
-    }
-
     public boolean updateFerramentaDB(int id, String nome, String marca, double custo) {
         Ferramenta ferramenta = new Ferramenta(id, nome, custo, marca);
         dao.updateFerramentaDB(ferramenta);

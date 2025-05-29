@@ -180,22 +180,6 @@ public class Emprestimo {
     }
 
     /**
-     * Retorna o índice de um emprestimo na lista.
-     *
-     * @param idEmprestimo O ID do emprestimo a ser buscado.
-     * @return O índice do emprestimo na lista.
-     */
-    private int procuraIndice(int idEmprestimo) {
-        int indice = -1;
-        for (int i = 0; i < EmprestimoDAO.listaEmprestimo.size(); i++) {
-            if (EmprestimoDAO.listaEmprestimo.get(i).getIDEmprestimo() == idEmprestimo) {
-                indice = i;
-            }
-        }
-        return indice;
-    }
-
-    /**
      * Atualiza um emprestimo no banco de dados.
      *
      * @param idEmprestimo O id do emprestimo a ser atualizado.

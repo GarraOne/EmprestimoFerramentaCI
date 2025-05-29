@@ -35,7 +35,7 @@ public class FerramentaDAO extends ConexaoDAO {
     public ArrayList<Ferramenta> getListaFerramenta() {
         listaFerramenta.clear();
 
-        String sql = "SELECT * FROM ferramenta";
+        String sql = "SELECT idFerramenta, nomeFerramenta, marcaFerramenta, custoFerramenta FROM ferramenta";
 
         try (
                 Connection conn = super.getConexao(); Statement smt = conn.createStatement(); ResultSet res = smt.executeQuery(sql)) {
@@ -116,7 +116,7 @@ public class FerramentaDAO extends ConexaoDAO {
         Ferramenta ferramenta = new Ferramenta();
         ferramenta.setIdFerramenta(IdFerramenta);
 
-        String sql = "SELECT * FROM ferramenta WHERE idFerramenta = ?";
+        String sql = "SELECT idFerramenta, nomeFerramenta, marcaFerramenta, custoFerramenta FROM ferramenta WHERE idFerramenta = ?";
 
         try (
                 PreparedStatement pstmt = super.getConexao().prepareStatement(sql)) {

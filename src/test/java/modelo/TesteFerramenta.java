@@ -59,17 +59,6 @@ class TesteFerramenta {
     }
 
     @Test
-    void TestProcuraIndice() {
-        ferramenta.InsertFerramentaDB("martelo", "Bosh", 15);
-        ferramenta.InsertFerramentaDB("maquita", "jorge", 20);
-        int indiceEsperado = 0;
-        int indiceRecebido = ferramenta.procuraIndice(1);
-        assertEquals(indiceEsperado, indiceRecebido);
-        ferramenta.deleteFerramentaDB(1);
-        ferramenta.deleteFerramentaDB(2);
-    }
-
-    @Test
     void TestMaiorID() {
         ferramenta.InsertFerramentaDB("martelo", "Bosh", 15);
         int maiorIDEsperado = 1;
