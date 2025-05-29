@@ -8,7 +8,6 @@ import java.awt.Window;
 import javax.swing.JDialog;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
-import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
