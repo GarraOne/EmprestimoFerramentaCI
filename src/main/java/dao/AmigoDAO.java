@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Amigo;
 
 /**
@@ -19,6 +21,7 @@ public class AmigoDAO extends ConexaoDAO {
     private static ArrayList<Amigo> listaAmigo = new ArrayList<>();
 
     private static final String MENSAGEM_ERRO = "Erro: ";
+    private static final Logger logger = Logger.getLogger(AmigoDAO.class.getName());
 
     /**
      * Obtém a lista de amigos do banco de dados.
@@ -30,7 +33,7 @@ public class AmigoDAO extends ConexaoDAO {
     }
 
     private void logErro(Exception e) {
-        System.out.println(MENSAGEM_ERRO + e);
+        logger.log(Level.SEVERE, MENSAGEM_ERRO, e);
     }
 
     public ArrayList<Amigo> getListaAmigo() {
@@ -47,7 +50,7 @@ public class AmigoDAO extends ConexaoDAO {
                 listaAmigo.add(objeto);
             }
         } catch (SQLException erro) {
-                logErro(erro);
+            logErro(erro);
         }
         return new ArrayList<>(listaAmigo);
     }
@@ -76,7 +79,7 @@ public class AmigoDAO extends ConexaoDAO {
             res.next();
             maiorID = res.getInt("idAmigo");
         } catch (SQLException erro) {
-                logErro(erro);
+            logErro(erro);
         }
         return maiorID;
     }
@@ -99,7 +102,7 @@ public class AmigoDAO extends ConexaoDAO {
             smt.close();
             return true;
         } catch (SQLException erro) {
-                logErro(erro);
+            logErro(erro);
             throw new RuntimeException(erro);
         }
     }
@@ -121,7 +124,7 @@ public class AmigoDAO extends ConexaoDAO {
             amigo.setNomeAmigo(res.getString("nomeAmigo"));
             amigo.setTelefone(res.getString("telefoneAmigo"));
         } catch (SQLException erro) {
-                logErro(erro);
+            logErro(erro);
         }
         return amigo;
     }
@@ -145,7 +148,7 @@ public class AmigoDAO extends ConexaoDAO {
             smt.close();
             return true;
         } catch (SQLException erro) {
-                logErro(erro);
+            logErro(erro);
             throw new RuntimeException(erro);
         }
     }
@@ -158,12 +161,12 @@ public class AmigoDAO extends ConexaoDAO {
      * {@code false}.
      */
     public boolean deleteAmigoDB(int idAmigo) {
-String res = "delete from amigo where idAmigo = ?";
+        String res = "delete from amigo where idAmigo = ?";
         try (PreparedStatement smt = super.getConexao().prepareStatement(res)) {
             smt.setInt(1, idAmigo);
             smt.executeUpdate();
         } catch (SQLException erro) {
-                logErro(erro);
+            logErro(erro);
         }
         return true;
     }
@@ -175,7 +178,7 @@ String res = "delete from amigo where idAmigo = ?";
                 stmt.execute("create table IF NOT EXISTS amigo (idAmigo integer PRIMARY KEY, nomeAmigo varchar(45), telefoneAmigo varchar(12));");
             }
         } catch (SQLException e) {
-            System.out.println("Erro no criar:{0}" + e.toString());
+            logger.log(Level.SEVERE, "Erro no criar: {0}", e.toString());
         }
     }
 }

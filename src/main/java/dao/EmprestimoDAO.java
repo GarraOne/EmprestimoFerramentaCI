@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Emprestimo;
 
 public class EmprestimoDAO extends ConexaoDAO {
@@ -14,13 +16,14 @@ public class EmprestimoDAO extends ConexaoDAO {
     public static ArrayList<Emprestimo> listaEmprestimo = new ArrayList<>();
 
     private static final String MENSAGEM_ERRO = "Erro: ";
+    private static final Logger logger = Logger.getLogger(AmigoDAO.class.getName());
 
     public EmprestimoDAO() {
         criar();
     }
 
     private void logErro(Exception e) {
-        System.out.println(MENSAGEM_ERRO + e);
+        logger.log(Level.SEVERE, MENSAGEM_ERRO, e);
     }
     private static final String ID_EMPRESTIMO = "idEmprestimo";
     private static final String ID_AMIGO = "idAmigo";
@@ -128,7 +131,7 @@ public class EmprestimoDAO extends ConexaoDAO {
     }
 
     public boolean deleteEmprestimoDB(int idEmprestimo) {
-String res = "delete from emprestimo where idEmprestimo=?";
+        String res = "delete from emprestimo where idEmprestimo=?";
         try (PreparedStatement smt = super.getConexao().prepareStatement(res)) {
             smt.setInt(1, idEmprestimo);
             smt.executeUpdate();
@@ -145,7 +148,7 @@ String res = "delete from emprestimo where idEmprestimo=?";
                 stmt.execute("create table IF NOT EXISTS emprestimo (idEmprestimo integer PRIMARY KEY, idFerramenta integer, idAmigo integer,dataInicio text, dataDevolucao text);");
             }
         } catch (SQLException e) {
-            System.out.println("Erro no criar:{0}" + e.toString());
+            logger.log(Level.SEVERE, "Erro no criar: {0}", e.toString());
         }
     }
 }

@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Ferramenta;
 
 /**
@@ -18,13 +20,14 @@ public class FerramentaDAO extends ConexaoDAO {
      */
     public static ArrayList<Ferramenta> listaFerramenta = new ArrayList<>();
     private static final String MENSAGEM_ERRO = "Erro: ";
+    private static final Logger logger = Logger.getLogger(AmigoDAO.class.getName());
 
     public FerramentaDAO() {
         criar();
     }
 
     private void logErro(Exception e) {
-        System.out.println(MENSAGEM_ERRO + e);
+        logger.log(Level.SEVERE, MENSAGEM_ERRO, e);
     }
 
     /**
@@ -191,7 +194,7 @@ public class FerramentaDAO extends ConexaoDAO {
                 stmt.execute("create table IF NOT EXISTS ferramenta (idFerramenta integer PRIMARY KEY, nomeFerramenta varchar(45), marcaFerramenta varchar(45), custoFerramenta real);");
             }
         } catch (SQLException e) {
-            System.out.println("Erro no criar:{0}" + e.toString());
+            logger.log(Level.SEVERE, "Erro no criar: {0}", e.toString());
         }
     }
 }
