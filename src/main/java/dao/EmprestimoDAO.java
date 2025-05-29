@@ -23,11 +23,11 @@ public class EmprestimoDAO extends ConexaoDAO {
         System.out.println(MENSAGEM_ERRO + e);
     }
 
-    private static final String IdAmigo = "idAmigo";
-    private static final String IdFerramenta = "idFerramenta";
-    private static final String DataInicio = "dataInicio";
-    private static final String DataDevolucao = "dataDevolucao";
-    private static final String EmprestimoId = "idEmprestimo";
+    private static final String idAmigoCostante = "idAmigo";
+    private static final String idFerramentaCostante = "idFerramenta";
+    private static final String dataInicioCostante = "dataInicio";
+    private static final String dataDevolucaoCostante = "dataDevolucao";
+    private static final String emprestimoIdCostante = "idEmprestimo";
 
     public ArrayList<Emprestimo> getListaEmprestimo() {
         // Limpa a lista para evitar duplicatas
@@ -38,11 +38,11 @@ public class EmprestimoDAO extends ConexaoDAO {
 
             // Itera sobre o resultado da consulta e adiciona empréstimos à lista
             while (res.next()) {
-                int idEmprestimo = res.getInt(EmprestimoId);
-                int idAmigo = res.getInt(IdAmigo);
-                int idFerramenta = res.getInt(IdFerramenta);
-                String dataEmprestimo = res.getString(DataInicio);
-                String dataDevolucao = res.getString(DataDevolucao);
+                int idEmprestimo = res.getInt(emprestimoIdCostante);
+                int idAmigo = res.getInt(idAmigoCostante);
+                int idFerramenta = res.getInt(idFerramentaCostante);
+                String dataEmprestimo = res.getString(dataInicioCostante);
+                String dataDevolucao = res.getString(dataDevolucaoCostante);
                 Emprestimo objeto = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
                 listaEmprestimo.add(objeto);
             }
@@ -65,7 +65,7 @@ public class EmprestimoDAO extends ConexaoDAO {
         try (Statement smt = super.getConexao().createStatement()) {
             ResultSet res = smt.executeQuery("select MAX(idEmprestimo)idEmprestimo from emprestimo");
             res.next();
-            maiorID = res.getInt(EmprestimoId);
+            maiorID = res.getInt(emprestimoIdCostante);
         } catch (SQLException erro) {
             logErro(erro);
         }
@@ -91,11 +91,11 @@ public class EmprestimoDAO extends ConexaoDAO {
         try (Statement smt = super.getConexao().createStatement()) {
             ResultSet res = smt.executeQuery("select idEmprestimo, idAmigo, idFerramenta, dataInicio, dataDevolucao from emprestimo where idEmprestimo = " + idEmprestimo);
             res.next();
-            emprestimo.setIDEmprestimo(res.getInt(EmprestimoId));
-            emprestimo.setDataDevolucao(res.getString(DataDevolucao));
-            emprestimo.setDataEmprestimo(res.getString(DataInicio));
-            emprestimo.setIDAmigo(res.getInt(IdAmigo));
-            emprestimo.setIDFerramenta(res.getInt(IdFerramenta));
+            emprestimo.setIDEmprestimo(res.getInt(emprestimoIdCostante));
+            emprestimo.setDataDevolucao(res.getString(dataDevolucaoCostante));
+            emprestimo.setDataEmprestimo(res.getString(dataInicioCostante));
+            emprestimo.setIDAmigo(res.getInt(idAmigoCostante));
+            emprestimo.setIDFerramenta(res.getInt(idFerramentaCostante));
         } catch (SQLException erro) {
             logErro(erro);
         }
