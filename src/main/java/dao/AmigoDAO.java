@@ -38,7 +38,7 @@ public class AmigoDAO extends ConexaoDAO {
             listaAmigo.clear();
         }
         try (Statement smt = super.getConexao().createStatement()) {
-            ResultSet res = smt.executeQuery("select * from amigo");
+            ResultSet res = smt.executeQuery("select idAmigo, nomeAmigo, TelefoneAmigo from amigo");
             while (res.next()) {
                 int idAmigo = res.getInt("IdAmigo");
                 String nomeAmigo = res.getString("nomeAmigo");
@@ -111,7 +111,7 @@ public class AmigoDAO extends ConexaoDAO {
         Amigo amigo = new Amigo();
         amigo.setIdAmigo(IdAmigo);
         try (Statement smt = super.getConexao().createStatement()) {
-            ResultSet res = smt.executeQuery("select * from amigo where idAmigo = " + IdAmigo);
+            ResultSet res = smt.executeQuery("select idAmigo, nomeAmigo, TelefoneAmigo from amigo where idAmigo = " + IdAmigo);
             res.next();
             amigo.setNomeAmigo(res.getString("nomeAmigo"));
             amigo.setTelefone(res.getString("telefoneAmigo"));

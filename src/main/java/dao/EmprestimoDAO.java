@@ -28,11 +28,11 @@ public class EmprestimoDAO extends ConexaoDAO {
         listaEmprestimo.clear();
         try (Statement smt = super.getConexao().createStatement()) {
             // Cria uma declaração para executar a consulta SQL
-            ResultSet res = smt.executeQuery("select * from emprestimo");
+            ResultSet res = smt.executeQuery("select idEmprestimo, idAmigo, idFerramenta, dataInicio, dataDevolucao from emprestimo");
 
             // Itera sobre o resultado da consulta e adiciona empréstimos à lista
             while (res.next()) {
-                int idEmprestimo = res.getInt("IdEmprestimo");
+                int idEmprestimo = res.getInt("idEmprestimo");
                 int idAmigo = res.getInt("idAmigo");
                 int idFerramenta = res.getInt("idFerramenta");
                 String dataEmprestimo = res.getString("dataInicio");
@@ -83,7 +83,7 @@ public class EmprestimoDAO extends ConexaoDAO {
         Emprestimo emprestimo = new Emprestimo();
         emprestimo.setIDEmprestimo(IdEmprestimo);
         try (Statement smt = super.getConexao().createStatement()) {
-            ResultSet res = smt.executeQuery("select * from emprestimo where idEmprestimo = " + IdEmprestimo);
+            ResultSet res = smt.executeQuery("select idEmprestimo, idAmigo, idFerramenta, dataInicio, dataDevolucao from emprestimo where idEmprestimo = " + IdEmprestimo);
             res.next();
             emprestimo.setIDEmprestimo(res.getInt("idEmprestimo"));
             emprestimo.setDataDevolucao(res.getString("dataDevolucao"));
