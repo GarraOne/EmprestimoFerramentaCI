@@ -35,10 +35,12 @@ public class FrmCadastroEmprestimoFake extends FrmCadastroEmprestimo {
         super.getJBCadastrar().doClick();
     }
 
+    @Override
     public JComboBox<String> getJCBAmigo() {
         return super.getJCBAmigo();
     }
 
+    @Override
     public JComboBox<String> getJCBFerramenta() {
         return super.getJCBFerramenta();
     }

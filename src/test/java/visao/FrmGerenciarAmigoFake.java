@@ -33,10 +33,12 @@ public class FrmGerenciarAmigoFake extends FrmGerenciarAmigo {
         getJTableAmigos().setRowSelectionInterval(linha, linha);
     }
 
+    @Override
     public javax.swing.JTextField getJTFNome() {
         return super.getJTFNome();  // usa o getter da superclasse
     }
 
+    @Override
     public javax.swing.JTextField getJTFTelefone() {
         return super.getJTFTelefone();
     }

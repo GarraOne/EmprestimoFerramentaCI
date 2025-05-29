@@ -3,7 +3,6 @@ package visao;
 import dao.FerramentaDAO;
 import java.awt.Window;
 import javax.swing.JDialog;
-import modelo.Amigo;
 import modelo.Ferramenta;
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;

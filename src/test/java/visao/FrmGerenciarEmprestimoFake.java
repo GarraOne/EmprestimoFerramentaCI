@@ -33,18 +33,22 @@ public class FrmGerenciarEmprestimoFake extends FrmGerenciarEmprestimo {
         getJTableEmprestimo().setRowSelectionInterval(linha, linha);
     }
 
+    @Override
     public javax.swing.JTextField getJTFIdAmigo() {
         return super.getJTFIdAmigo();  // usa o getter da superclasse
     }
 
+    @Override
     public javax.swing.JTextField getJTFIdFerramenta() {
         return super.getJTFIdFerramenta();
     }
 
+    @Override
     public javax.swing.JTextField getJTFDataEmprestimo() {
         return super.getJTFDataEmprestimo();
     }
 
+    @Override
     public javax.swing.JTextField getJTFDataDevolucao() {
         return super.getJTFDataDevolucao();
     }

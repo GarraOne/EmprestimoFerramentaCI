@@ -18,10 +18,12 @@ public class FrmCadastroAmigoFake extends FrmCadastroAmigo {
         System.out.println("Mensagem:" + mensagem);
     }
 
+    @Override
     public javax.swing.JTextField getJTFNomeAmigo() {
         return super.getJTFNomeAmigo();  // usa o getter da superclasse
     }
 
+    @Override
     public javax.swing.JTextField getJTFTelefone() {
         return super.getJTFTelefone();
     }

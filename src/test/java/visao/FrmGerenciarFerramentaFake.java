@@ -33,14 +33,17 @@ public class FrmGerenciarFerramentaFake extends FrmGerenciarFerramenta {
         getJTableAmigos().setRowSelectionInterval(linha, linha);
     }
 
+    @Override
     public javax.swing.JTextField getJTFNome() {
         return super.getJTFNome();  // usa o getter da superclasse
     }
 
+    @Override
     public javax.swing.JTextField getJTFCustoFerramenta() {
         return super.getJTFCustoFerramenta();
     }
 
+    @Override
     public javax.swing.JTextField getJTFMarca() {
         return super.getJTFMarca();
     }

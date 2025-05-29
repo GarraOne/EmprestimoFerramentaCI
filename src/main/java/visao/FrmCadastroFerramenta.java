@@ -141,7 +141,7 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
         try {
 
-            Ferramenta ferramenta = new Ferramenta();
+            objetoferramenta = new Ferramenta();
             String nome = "";
             String marca = "";
             double custo = 0;
@@ -166,7 +166,7 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
                 custo = (Double.parseDouble(JTFCustoFerramenta.getText()));
 
             }
-            if (ferramenta.insertFerramentaDB(nome, marca, custo)) {
+            if (objetoferramenta.insertFerramentaDB(nome, marca, custo)) {
                 mostrarMensagem("Ferramenta cadastrada com sucesso.");
                 JTFMarcaFerramenta.setText("");
                 JTFNomeFerramenta.setText("");

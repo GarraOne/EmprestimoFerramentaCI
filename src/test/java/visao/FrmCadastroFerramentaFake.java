@@ -18,14 +18,17 @@ public class FrmCadastroFerramentaFake extends FrmCadastroFerramenta {
         System.out.println("Mensagem:" + mensagem);
     }
 
+    @Override
     public javax.swing.JTextField getJTFNomeFerramenta() {
         return super.getJTFNomeFerramenta();  // usa o getter da superclasse
     }
 
+    @Override
     public javax.swing.JTextField getJTFMarcaFerramenta() {
         return super.getJTFMarcaFerramenta();
     }
 
+    @Override
     public javax.swing.JTextField getJTFCustoFerramenta() {
         return super.getJTFCustoFerramenta();
     }

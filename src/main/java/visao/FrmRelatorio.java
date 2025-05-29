@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import modelo.Amigo;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FrmRelatorio extends javax.swing.JFrame {
 
@@ -11,6 +13,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
         initComponents();
         this.criaRelatorio();
     }
+    private static final Logger logger = Logger.getLogger(FrmRelatorio.class.getName());
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -95,7 +98,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
         string = string + lista + "\n Amigo com maior quantidade de empréstimos: " + amg.getNomeAmigo(idAmigo) + "\n Quantidade de empréstimos: " + maior + "\n\n EMPRÉSTIMOS: \n";
         lista = "";
         for (int i = 0; i < listaEmprestimo.size(); i++) {
-            System.out.println(i);
+            logger.log(Level.INFO, "Processando empréstimo índice: {0}", i);
             lista = lista + "\n ID do Empréstimo: " + listaEmprestimo.get(i).getIDEmprestimo() + "\n Nome do Amigo: " + amg.getNomeAmigo(listaEmprestimo.get(i).getIDAmigo()) + "\n Nome da Ferramenta: " + frmt.getNomeFerramenta(listaEmprestimo.get(i).getIDFerramenta()) + "\n Data de Início: " + listaEmprestimo.get(i).getDataEmprestimo() + "\n Data de Devolução: " + listaEmprestimo.get(i).getDataDevolucao() + "\n";
         }
         string = string + lista;

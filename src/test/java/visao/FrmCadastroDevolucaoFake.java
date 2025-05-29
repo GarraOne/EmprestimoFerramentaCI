@@ -24,6 +24,7 @@ public class FrmCadastroDevolucaoFake extends FrmCadastroDevolucao {
         carregaCBEmprestimo();
     }
 
+    @Override
     public JComboBox<String> getJCBEmprestimo() {
         return super.getJCBEmprestimo();
     }
