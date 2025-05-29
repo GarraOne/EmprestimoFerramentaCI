@@ -18,6 +18,8 @@ public class AmigoDAO extends ConexaoDAO {
      */
     private static ArrayList<Amigo> listaAmigo = new ArrayList<>();
 
+    private static final String MENSAGEM_ERRO = "Erro: ";
+
     /**
      * Obtém a lista de amigos do banco de dados.
      *
@@ -25,6 +27,10 @@ public class AmigoDAO extends ConexaoDAO {
      */
     public AmigoDAO() {
         criar();
+    }
+
+    private void logErro(Exception e) {
+        System.out.println(MENSAGEM_ERRO + e);
     }
 
     public ArrayList<Amigo> getListaAmigo() {
@@ -41,7 +47,7 @@ public class AmigoDAO extends ConexaoDAO {
                 listaAmigo.add(objeto);
             }
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+                logErro(erro);
         }
         return new ArrayList<>(listaAmigo);
     }
@@ -70,7 +76,7 @@ public class AmigoDAO extends ConexaoDAO {
             res.next();
             MaiorID = res.getInt("idAmigo");
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+                logErro(erro);
         }
         return MaiorID;
     }
@@ -90,7 +96,7 @@ public class AmigoDAO extends ConexaoDAO {
             smt.close();
             return true;
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+                logErro(erro);
             throw new RuntimeException(erro);
         }
     }
@@ -110,7 +116,7 @@ public class AmigoDAO extends ConexaoDAO {
             amigo.setNomeAmigo(res.getString("nomeAmigo"));
             amigo.setTelefone(res.getString("telefoneAmigo"));
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+                logErro(erro);
         }
         return amigo;
     }
@@ -134,7 +140,7 @@ public class AmigoDAO extends ConexaoDAO {
             smt.close();
             return true;
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+                logErro(erro);
             throw new RuntimeException(erro);
         }
     }
@@ -150,7 +156,7 @@ public class AmigoDAO extends ConexaoDAO {
         try (Statement smt = super.getConexao().createStatement()) {
             smt.executeUpdate("delete from amigo where idAmigo = " + IdAmigo);
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+                logErro(erro);
         }
         return true;
     }
