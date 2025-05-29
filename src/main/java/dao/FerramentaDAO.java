@@ -20,7 +20,7 @@ public class FerramentaDAO extends ConexaoDAO {
      */
     public static ArrayList<Ferramenta> listaFerramenta = new ArrayList<>();
     private static final String MENSAGEM_ERRO = "Erro: ";
-    private static final Logger logger = Logger.getLogger(AmigoDAO.class.getName());
+    private static final Logger logger = Logger.getLogger(FerramentaDAO.class.getName());
 
     public FerramentaDAO() {
         criar();

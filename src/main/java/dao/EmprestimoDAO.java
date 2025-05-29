@@ -16,7 +16,7 @@ public class EmprestimoDAO extends ConexaoDAO {
     public static ArrayList<Emprestimo> listaEmprestimo = new ArrayList<>();
 
     private static final String MENSAGEM_ERRO = "Erro: ";
-    private static final Logger logger = Logger.getLogger(AmigoDAO.class.getName());
+    private static final Logger logger = Logger.getLogger(EmprestimoDAO.class.getName());
 
     public EmprestimoDAO() {
         criar();

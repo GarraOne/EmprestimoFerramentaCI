@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Representa um emprestimo com id, id do amigo, id da ferramenta, data de
@@ -19,6 +21,7 @@ public class Emprestimo {
     private String dataEmprestimo;
     private String dataDevolucao;
     private EmprestimoDAO dao;
+    private static final Logger logger = Logger.getLogger(Emprestimo.class.getName());
 
     /**
      * Construtor padrão para a classe Emprestimo. Inicializa o id do
@@ -190,9 +193,9 @@ public class Emprestimo {
      * @return true se a inserção for bem-sucedida, false caso contrário.
      */
     public boolean updateEmprestimoDB(int idEmprestimo, int idAmigo, int idFerramenta, String dataEmprestimo, String dataDevolucao) {
-        System.out.println(dataDevolucao);
+        logger.info("Data de devolução recebida: " + dataDevolucao);
         Emprestimo emprestimo = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
-        System.out.println(emprestimo.getDataDevolucao());
+        logger.info("Data de devolução do objeto emprestimo: " + emprestimo.getDataDevolucao());
         dao.updateEmprestimoDB(emprestimo);
         return true;
     }
@@ -238,7 +241,7 @@ public class Emprestimo {
 
             }
         } catch (ParseException erro) {
-            System.out.println("Erro: formato da data invalido");
+            logger.log(Level.SEVERE, "Erro: formato da data inválido", erro);
         }
 
         return listaEmprestimoAtivo;
