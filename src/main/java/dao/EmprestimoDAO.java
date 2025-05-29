@@ -65,7 +65,7 @@ public class EmprestimoDAO extends ConexaoDAO {
         try (Statement smt = super.getConexao().createStatement()) {
             ResultSet res = smt.executeQuery("select MAX(idEmprestimo)idEmprestimo from emprestimo");
             res.next();
-            maiorID = res.getInt("idEmprestimo");
+            maiorID = res.getInt(EmprestimoId);
         } catch (SQLException erro) {
             logErro(erro);
         }
