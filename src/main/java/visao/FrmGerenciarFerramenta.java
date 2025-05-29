@@ -9,7 +9,7 @@ import modelo.Ferramenta;
 
 public class FrmGerenciarFerramenta extends javax.swing.JFrame {
 
-    private Ferramenta ferramenta;
+    private transient Ferramenta ferramenta;
 
     private String mensagem;
 

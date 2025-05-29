@@ -8,7 +8,7 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     /**
      * Creates new form FrmCadastroAmigo
      */
-    private Amigo objetoamigo;
+    private transient Amigo objetoamigo;
     // cria o vínculo com Amigo.java
 
     private String mensagem;

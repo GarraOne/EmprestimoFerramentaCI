@@ -7,7 +7,7 @@ import modelo.Emprestimo;
 
 public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
-    private Emprestimo emprestimo;
+    private transient Emprestimo emprestimo;
 
     private String mensagem;
 

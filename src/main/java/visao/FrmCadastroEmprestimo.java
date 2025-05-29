@@ -10,8 +10,8 @@ import modelo.Ferramenta;
 
 public class FrmCadastroEmprestimo extends javax.swing.JFrame {
 
-    private Ferramenta ferramenta;
-    private Amigo amigo;
+    private transient Ferramenta ferramenta;
+    private transient Amigo amigo;
 
     private String mensagem;
 

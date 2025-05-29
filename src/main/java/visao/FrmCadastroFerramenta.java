@@ -8,7 +8,7 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     /**
      * Creates new form FrmCadastroFerramenta
      */
-    private Ferramenta objetoferramenta;
+    private transient Ferramenta objetoferramenta;
 
     private String mensagem;
 

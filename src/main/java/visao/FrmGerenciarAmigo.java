@@ -8,7 +8,7 @@ import modelo.Emprestimo;
 
 public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
-    private Amigo amigo;
+    private transient Amigo amigo;
 
     private String mensagem;
 
