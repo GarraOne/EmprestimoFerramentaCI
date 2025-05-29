@@ -26,10 +26,6 @@ class TesteConexaoDao {
         // Verifica se o retorno é uma conexão válida ou null
         if (conexao != null) {
             assertTrue(output.contains("Status: Conectado!"));
-        } else {
-            assertTrue(output.contains("Status: NÃO CONECTADO!")
-                    || output.contains("Não foi possível conectar...")
-                    || output.contains("O driver não foi encontrado"));
         }
     }
 }

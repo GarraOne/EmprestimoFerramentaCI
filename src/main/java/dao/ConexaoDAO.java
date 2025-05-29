@@ -21,6 +21,7 @@ public class ConexaoDAO {
             connection = DriverManager.getConnection("jdbc:sqlite:emprestimo.db");
 
             // Verifica se a conexão foi bem-sucedida e exibe uma mensagem
+            System.out.println("Status: Conectado!");
             return connection;
 
         } catch (ClassNotFoundException erro) {
