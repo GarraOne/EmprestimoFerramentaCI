@@ -23,6 +23,12 @@ public class EmprestimoDAO extends ConexaoDAO {
         System.out.println(MENSAGEM_ERRO + e);
     }
 
+    private static final String IdAmigo = "idAmigo";
+    private static final String IdFerramenta = "idFerramenta";
+    private static final String DataInicio = "dataInicio";
+    private static final String DataDevolucao = "dataDevolucao";
+    private static final String EmprestimoId = "idEmprestimo";
+
     public ArrayList<Emprestimo> getListaEmprestimo() {
         // Limpa a lista para evitar duplicatas
         listaEmprestimo.clear();
@@ -32,11 +38,11 @@ public class EmprestimoDAO extends ConexaoDAO {
 
             // Itera sobre o resultado da consulta e adiciona empréstimos à lista
             while (res.next()) {
-                int idEmprestimo = res.getInt("idEmprestimo");
-                int idAmigo = res.getInt("idAmigo");
-                int idFerramenta = res.getInt("idFerramenta");
-                String dataEmprestimo = res.getString("dataInicio");
-                String dataDevolucao = res.getString("dataDevolucao");
+                int idEmprestimo = res.getInt(EmprestimoId);
+                int idAmigo = res.getInt(IdAmigo);
+                int idFerramenta = res.getInt(IdFerramenta);
+                String dataEmprestimo = res.getString(DataInicio);
+                String dataDevolucao = res.getString(DataDevolucao);
                 Emprestimo objeto = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
                 listaEmprestimo.add(objeto);
             }
@@ -61,7 +67,7 @@ public class EmprestimoDAO extends ConexaoDAO {
             res.next();
             maiorID = res.getInt("idEmprestimo");
         } catch (SQLException erro) {
-                logErro(erro);
+            logErro(erro);
         }
         return maiorID;
     }
@@ -85,13 +91,13 @@ public class EmprestimoDAO extends ConexaoDAO {
         try (Statement smt = super.getConexao().createStatement()) {
             ResultSet res = smt.executeQuery("select idEmprestimo, idAmigo, idFerramenta, dataInicio, dataDevolucao from emprestimo where idEmprestimo = " + idEmprestimo);
             res.next();
-            emprestimo.setIDEmprestimo(res.getInt("idEmprestimo"));
-            emprestimo.setDataDevolucao(res.getString("dataDevolucao"));
-            emprestimo.setDataEmprestimo(res.getString("dataInicio"));
-            emprestimo.setIDAmigo(res.getInt("idAmigo"));
-            emprestimo.setIDFerramenta(res.getInt("idFerramenta"));
+            emprestimo.setIDEmprestimo(res.getInt(EmprestimoId));
+            emprestimo.setDataDevolucao(res.getString(DataDevolucao));
+            emprestimo.setDataEmprestimo(res.getString(DataInicio));
+            emprestimo.setIDAmigo(res.getInt(IdAmigo));
+            emprestimo.setIDFerramenta(res.getInt(IdFerramenta));
         } catch (SQLException erro) {
-          logErro(erro);
+            logErro(erro);
         }
         return emprestimo;
     }
