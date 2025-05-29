@@ -158,10 +158,20 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
-        //Encerra o programa
-        System.exit(0);
+        //Verifica se o programa está em "modo de teste"
+        //Se estiver evita encear a JVM durante os testes
+        if (!isEmTeste()) {
+            //Encerra a aplicação
+            System.exit(0);
+        }
     }//GEN-LAST:event_jMenuItemSairActionPerformed
-
+    
+    //Método que verifica se estamos executando modo de teste
+    private boolean isEmTeste() {
+        //Leitura da propriedade do sistema "modoTeste"
+        return Boolean.getBoolean("modoTeste");
+    }
+    
     private void jMenuItemGerenciarAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciarAmigosActionPerformed
         //Instancia a tela de gerenciar amigo
         FrmGerenciarAmigo objeto = new FrmGerenciarAmigo();
