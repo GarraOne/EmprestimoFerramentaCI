@@ -109,7 +109,7 @@ public class FerramentaDAO extends ConexaoDAO {
             return true;
         } catch (SQLException erro) {
             logErro(erro);
-            throw new RuntimeException(erro);
+            throw new DAOException("Erro ao inserir empréstimo", erro);
         }
     }
 
@@ -163,7 +163,7 @@ public class FerramentaDAO extends ConexaoDAO {
             return true;
         } catch (SQLException erro) {
             logErro(erro);
-            throw new RuntimeException(erro);
+            throw new DAOException("Erro ao atualizar ferramenta", erro);
         }
     }
 

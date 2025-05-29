@@ -103,7 +103,7 @@ public class AmigoDAO extends ConexaoDAO {
             return true;
         } catch (SQLException erro) {
             logErro(erro);
-            throw new RuntimeException(erro);
+            throw new DAOException("Erro ao inserir amigo", erro);
         }
     }
 
@@ -149,7 +149,7 @@ public class AmigoDAO extends ConexaoDAO {
             return true;
         } catch (SQLException erro) {
             logErro(erro);
-            throw new RuntimeException(erro);
+            throw new DAOException("Erro ao atualizar amigo", erro);
         }
     }
 
