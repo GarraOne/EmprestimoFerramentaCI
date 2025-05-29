@@ -13,8 +13,14 @@ public class EmprestimoDAO extends ConexaoDAO {
     // Lista para armazenar os dados dos empréstimos
     public static ArrayList<Emprestimo> listaEmprestimo = new ArrayList<>();
 
+    private static final String MENSAGEM_ERRO = "Erro: ";
+
     public EmprestimoDAO() {
         criar();
+    }
+
+    private void logErro(Exception e) {
+        System.out.println(MENSAGEM_ERRO + e);
     }
 
     public ArrayList<Emprestimo> getListaEmprestimo() {
@@ -36,8 +42,7 @@ public class EmprestimoDAO extends ConexaoDAO {
             }
             // Fecha a declaração após a execução da consulta
         } catch (SQLException erro) {
-            // Trata o erro caso ocorra algum problema na execução da consulta
-            System.out.println("Erro: " + erro);
+            logErro(erro);
         }
         // Retorna a lista de empréstimos
         return listaEmprestimo;
@@ -56,7 +61,7 @@ public class EmprestimoDAO extends ConexaoDAO {
             res.next();
             MaiorID = res.getInt("idEmprestimo");
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+                logErro(erro);
         }
         return MaiorID;
     }
@@ -69,7 +74,7 @@ public class EmprestimoDAO extends ConexaoDAO {
             smt.close();
             return true;
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+            logErro(erro);
             throw new RuntimeException(erro);
         }
     }
@@ -86,7 +91,7 @@ public class EmprestimoDAO extends ConexaoDAO {
             emprestimo.setIDAmigo(res.getInt("idAmigo"));
             emprestimo.setIDFerramenta(res.getInt("idFerramenta"));
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+          logErro(erro);
         }
         return emprestimo;
     }
@@ -106,7 +111,7 @@ public class EmprestimoDAO extends ConexaoDAO {
             smt.close();
             return true;
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+            logErro(erro);
             throw new RuntimeException(erro);
         }
     }
@@ -115,7 +120,7 @@ public class EmprestimoDAO extends ConexaoDAO {
         try (Statement smt = super.getConexao().createStatement()) {
             smt.executeUpdate("delete from emprestimo where idEmprestimo=" + IdEmprestimo);
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+            logErro(erro);
         }
         return true;
     }
