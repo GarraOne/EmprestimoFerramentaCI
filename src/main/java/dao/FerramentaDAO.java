@@ -17,9 +17,14 @@ public class FerramentaDAO extends ConexaoDAO {
      * Lista de ferramentas em armazenamento.
      */
     public static ArrayList<Ferramenta> listaFerramenta = new ArrayList<>();
+    private static final String MENSAGEM_ERRO = "Erro: ";
 
     public FerramentaDAO() {
         criar();
+    }
+
+    private void logErro(Exception e) {
+        System.out.println(MENSAGEM_ERRO + e);
     }
 
     /**
@@ -30,12 +35,12 @@ public class FerramentaDAO extends ConexaoDAO {
     public ArrayList<Ferramenta> getListaFerramenta() {
         listaFerramenta.clear();
 
-        String sql = "SELECT idFerramenta, nomeFerramenta, marcaFerramenta, custoFerramenta FROM ferramenta";
+        String sql = "SELECT * FROM ferramenta";
 
         try (
                 Connection conn = super.getConexao(); Statement smt = conn.createStatement(); ResultSet res = smt.executeQuery(sql)) {
             while (res.next()) {
-                int idFerramenta = res.getInt("idFerramenta");
+                int idFerramenta = res.getInt("IdFerramenta");
                 String nomeFerramenta = res.getString("nomeFerramenta");
                 String marcaFerramenta = res.getString("marcaFerramenta");
                 double custoFerramenta = res.getDouble("custoFerramenta");
@@ -44,7 +49,7 @@ public class FerramentaDAO extends ConexaoDAO {
                 listaFerramenta.add(objeto);
             }
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro.getMessage());
+            logErro(erro);
         }
 
         return listaFerramenta;
@@ -75,7 +80,7 @@ public class FerramentaDAO extends ConexaoDAO {
                 maiorID = res.getInt("idFerramenta");
             }
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+            logErro(erro);
         }
 
         return maiorID;
@@ -96,7 +101,7 @@ public class FerramentaDAO extends ConexaoDAO {
             smt.close();
             return true;
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+            logErro(erro);
             throw new RuntimeException(erro);
         }
     }
@@ -111,7 +116,7 @@ public class FerramentaDAO extends ConexaoDAO {
         Ferramenta ferramenta = new Ferramenta();
         ferramenta.setIdFerramenta(IdFerramenta);
 
-        String sql = "SELECT idFerramenta, nomeFerramenta, marcaFerramenta, custoFerramenta FROM ferramenta WHERE idFerramenta = ?";
+        String sql = "SELECT * FROM ferramenta WHERE idFerramenta = ?";
 
         try (
                 PreparedStatement pstmt = super.getConexao().prepareStatement(sql)) {
@@ -124,7 +129,7 @@ public class FerramentaDAO extends ConexaoDAO {
                 }
             }
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+            logErro(erro);
         }
 
         return ferramenta;
@@ -150,7 +155,7 @@ public class FerramentaDAO extends ConexaoDAO {
             smt.close();
             return true;
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+            logErro(erro);
             throw new RuntimeException(erro);
         }
     }
@@ -170,7 +175,7 @@ public class FerramentaDAO extends ConexaoDAO {
             pstmt.executeUpdate();
             return true;
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+            logErro(erro);
             return false;
         }
     }
