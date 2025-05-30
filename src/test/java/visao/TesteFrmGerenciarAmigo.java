@@ -30,15 +30,15 @@ class TesteFrmGerenciarAmigo {
         frmGerenciarAmigo = new FrmGerenciarAmigoFake();
         //Instância o controle do formulário
     }
-    
-     @Test
-    public void testCancelarFechaJanela() {
+
+    @Test
+    void testCancelarFechaJanela() {
         FrmGerenciarAmigo janela = new FrmGerenciarAmigo();
-        
+
         assertTrue(janela.isDisplayable());
-        
+
         janela.simularCliqueCancelar();
-        
+
         assertFalse(janela.isDisplayable());
     }
 

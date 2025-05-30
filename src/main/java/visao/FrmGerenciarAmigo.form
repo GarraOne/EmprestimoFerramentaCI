@@ -28,28 +28,28 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="JLTelefone" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelTelefone" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JTFTelefone" max="32767" attributes="0"/>
+                      <Component id="textTelefone" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="JLNome" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelNome" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="JTFNome" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="textNome" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="JLID" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelId" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JLIid" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelIid" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="137" max="32767" attributes="0"/>
-              <Component id="JBApagar" min="-2" max="-2" attributes="0"/>
+              <Component id="buttonApagar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JBModificar" min="-2" max="-2" attributes="0"/>
+              <Component id="buttonModificar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="JBCancelar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -63,23 +63,23 @@
               <Component id="jScrollPane1" min="-2" pref="120" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JLID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLIid" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelIid" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JLNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textNome" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JLTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="49" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JBApagar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBModificar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonApagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonModificar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JBCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -133,39 +133,39 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="JLID">
+    <Component class="javax.swing.JLabel" name="labelId">
       <Properties>
         <Property name="text" type="java.lang.String" value="ID:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLNome">
+    <Component class="javax.swing.JLabel" name="labelNome">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFNome">
+    <Component class="javax.swing.JTextField" name="textNome">
     </Component>
-    <Component class="javax.swing.JLabel" name="JLTelefone">
+    <Component class="javax.swing.JLabel" name="labelTelefone">
       <Properties>
         <Property name="text" type="java.lang.String" value="Telefone:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFTelefone">
+    <Component class="javax.swing.JTextField" name="textTelefone">
     </Component>
-    <Component class="javax.swing.JButton" name="JBApagar">
+    <Component class="javax.swing.JButton" name="buttonApagar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Apagar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBApagarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonApagarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBModificar">
+    <Component class="javax.swing.JButton" name="buttonModificar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBModificarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonModificarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="JBCancelar">
@@ -176,7 +176,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBCancelarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLIid">
+    <Component class="javax.swing.JLabel" name="labelIid">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
