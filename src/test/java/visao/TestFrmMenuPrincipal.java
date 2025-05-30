@@ -4,31 +4,30 @@ import org.junit.jupiter.api.Test;
 import javax.swing.*;
 import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
+import java.lang.reflect.InvocationTargetException;
 
 class TestFrmMenuPrincipal {
 
     @Test
-    void testMenuItemSairActionPerformed() throws Exception {
-        //Define a propriedade do sistema para indicar que estamos em modo de teste
+    public void testSairChamaEncerramentoForaDoModoTeste() {
+        System.clearProperty("modoTeste");
+        
+        FrmMenuPrincipalFake frm = new FrmMenuPrincipalFake();
+        frm.testarAcaoMenuSair();
+        
+        assertTrue(frm.encerramentoChamado);
+    }
+    
+    @Test
+    public void testSairNaoChamaEncerramentoEmModoTeste() {
         System.setProperty("modoTeste", "true");
 
-        //Cria e exibe a janela
-        FrmMenuPrincipal janela = new FrmMenuPrincipal();
-        janela.setVisible(true);
+        FrmMenuPrincipalFake frm = new FrmMenuPrincipalFake();
+        frm.testarAcaoMenuSair();
 
-        //Obtem JMenuItem "Sair"
-        JMenuBar menuBar = janela.getJMenuBar();
-        JMenu menuArquivo = menuBar.getMenu(0);
-        JMenuItem menuItemSair = menuArquivo.getItem(0);
+        assertFalse(frm.encerramentoChamado);
 
-        //Simula o clique
-        menuItemSair.doClick();
-
-        // Aguarda a ação a ser processada
-        Thread.sleep(500);
-
-        // Assertion: Verifica se a janela foi fechada
-        assertTrue(true);
+        System.clearProperty("modoTeste");
     }
 
     @Test
@@ -378,5 +377,27 @@ class TestFrmMenuPrincipal {
         }
 
         assertTrue(encontrou, "A janela FrmGerenciarFerramenta deve estar visivel apos o clique.");
+    }
+    
+    @Test
+    public void testMain() throws InvocationTargetException, InterruptedException {
+        System.setProperty("modoTeste", "true");
+
+        FrmMenuPrincipal.main(new String[]{});
+
+        if (!GraphicsEnvironment.isHeadless()) {
+            EventQueue.invokeAndWait(() -> {
+                boolean encontrou = false;
+                for (Frame frame : Frame.getFrames()) {
+                    if (frame instanceof FrmMenuPrincipal && frame.isVisible()) {
+                        encontrou = true;
+                        frame.dispose();
+                    }
+                }
+                assertTrue(encontrou, "FrmMenuPrincipal deve estar visível após o main()");
+            });
+        }
+
+        System.clearProperty("modoTeste");
     }
 }

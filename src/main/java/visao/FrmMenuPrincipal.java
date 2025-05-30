@@ -1,12 +1,20 @@
 package visao;
 
 public class FrmMenuPrincipal extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form FrmMenuPrincipal
      */
     public FrmMenuPrincipal() {
         initComponents();
+    }
+    
+    protected void encerrarAplicacao() {
+        System.exit(0);
+    }
+    
+    boolean isEmTeste() {
+        return Boolean.getBoolean("modoTeste");
     }
 
     /**
@@ -160,14 +168,12 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         //Se estiver evita encear a JVM durante os testes
         if (!isEmTeste()) {
             //Encerra a aplicação
-            System.exit(0);
+            encerrarAplicacao();
         }
     }//GEN-LAST:event_jMenuItemSairActionPerformed
     
-    //Método que verifica se estamos executando modo de teste
-    private boolean isEmTeste() {
-        //Leitura da propriedade do sistema "modoTeste"
-        return Boolean.getBoolean("modoTeste");
+    void testarAcaoMenuSair() {
+        jMenuItemSairActionPerformed(new java.awt.event.ActionEvent(this, 0, null));
     }
     
     private void jMenuItemGerenciarAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciarAmigosActionPerformed
