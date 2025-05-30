@@ -28,14 +28,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JTFNomeFerramenta" min="-2" pref="143" max="-2" attributes="0"/>
+                      <Component id="textNomeFerramenta" min="-2" pref="143" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="154" max="32767" attributes="0"/>
-                      <Component id="JBCadastrar" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonCadastrar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JBLimpar" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonLimpar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JBCancelar" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -45,11 +45,11 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="JLNomeFerramenta" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLMarcaFerramenta" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLCustoFerramenta" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFCustoFerramenta" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
-                  <Component id="JTFMarcaFerramenta" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
+                  <Component id="labelNomeFerramenta" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelMarcaFerramenta" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelCustoFeramenta" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="textCustoFerramenta" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
+                  <Component id="textMarcaFerramenta" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
@@ -59,22 +59,22 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="JLNomeFerramenta" min="-2" max="-2" attributes="0"/>
+              <Component id="labelNomeFerramenta" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JTFNomeFerramenta" min="-2" max="-2" attributes="0"/>
+              <Component id="textNomeFerramenta" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JLMarcaFerramenta" min="-2" max="-2" attributes="0"/>
+              <Component id="labelMarcaFerramenta" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JTFMarcaFerramenta" min="-2" max="-2" attributes="0"/>
+              <Component id="textMarcaFerramenta" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JLCustoFerramenta" min="-2" max="-2" attributes="0"/>
+              <Component id="labelCustoFeramenta" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JTFCustoFerramenta" min="-2" max="-2" attributes="0"/>
+              <Component id="textCustoFerramenta" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="94" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JBCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
           </Group>
@@ -82,44 +82,44 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="JLNomeFerramenta">
+    <Component class="javax.swing.JLabel" name="labelNomeFerramenta">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nome da Ferramenta:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLMarcaFerramenta">
+    <Component class="javax.swing.JLabel" name="labelMarcaFerramenta">
       <Properties>
         <Property name="text" type="java.lang.String" value="Marca da Ferramenta:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLCustoFerramenta">
+    <Component class="javax.swing.JLabel" name="labelCustoFeramenta">
       <Properties>
         <Property name="text" type="java.lang.String" value="Custo de Obten&#xe7;&#xe3;o:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFNomeFerramenta">
+    <Component class="javax.swing.JTextField" name="textNomeFerramenta">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFNomeFerramentaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textNomeFerramentaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFMarcaFerramenta">
+    <Component class="javax.swing.JTextField" name="textMarcaFerramenta">
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFCustoFerramenta">
+    <Component class="javax.swing.JTextField" name="textCustoFerramenta">
     </Component>
-    <Component class="javax.swing.JButton" name="JBCadastrar">
+    <Component class="javax.swing.JButton" name="buttonCadastrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBCadastrarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCadastrarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBLimpar">
+    <Component class="javax.swing.JButton" name="buttonLimpar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBLimparActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLimparActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="JBCancelar">

@@ -35,27 +35,27 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        JTableEmprestimo = new javax.swing.JTable();
-        JLID = new javax.swing.JLabel();
-        JLIid = new javax.swing.JLabel();
-        JLIdAmigo = new javax.swing.JLabel();
-        JLIdFerramenta = new javax.swing.JLabel();
-        JLDataInicio = new javax.swing.JLabel();
-        JLDataDevolucao = new javax.swing.JLabel();
-        JLAtivo = new javax.swing.JLabel();
+        tableEmprestimo = new javax.swing.JTable();
+        labelId = new javax.swing.JLabel();
+        labelIid = new javax.swing.JLabel();
+        labelIdAmigo = new javax.swing.JLabel();
+        labelIdFerramenta = new javax.swing.JLabel();
+        labelDataInicio = new javax.swing.JLabel();
+        labelDataDevolucao = new javax.swing.JLabel();
+        labelAtivoConstante = new javax.swing.JLabel();
         JBCancelar = new javax.swing.JButton();
-        JBApagar = new javax.swing.JButton();
-        JBModificar = new javax.swing.JButton();
-        JTFIdAmigo = new javax.swing.JTextField();
-        JTFIdFerramenta = new javax.swing.JTextField();
-        JTFDataEmprestimo = new javax.swing.JTextField();
-        JTFDataDevolucao = new javax.swing.JTextField();
+        buttonApagar = new javax.swing.JButton();
+        buttonModificar = new javax.swing.JButton();
+        textIdAmigo = new javax.swing.JTextField();
+        textIdFerramenta = new javax.swing.JTextField();
+        textDataEmprestimo = new javax.swing.JTextField();
+        textDataDevolucao = new javax.swing.JTextField();
         labelAtivo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciador de Empréstimos");
 
-        JTableEmprestimo.setModel(new javax.swing.table.DefaultTableModel(
+        tableEmprestimo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -63,26 +63,26 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                 "ID Empréstimo", "ID Amigo", "ID Ferramenta", "Data Início", "Data Devolução", "Empréstimo Ativo"
             }
         ));
-        JTableEmprestimo.addMouseListener(new java.awt.event.MouseAdapter() {
+        tableEmprestimo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTableEmprestimoMouseClicked(evt);
+                tableEmprestimoMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(JTableEmprestimo);
+        jScrollPane1.setViewportView(tableEmprestimo);
 
-        JLID.setText("ID Empréstimo:");
+        labelId.setText("ID Empréstimo:");
 
-        JLIid.setText("0");
+        labelIid.setText("0");
 
-        JLIdAmigo.setText("ID Amigo:");
+        labelIdAmigo.setText("ID Amigo:");
 
-        JLIdFerramenta.setText("ID Ferramenta:");
+        labelIdFerramenta.setText("ID Ferramenta:");
 
-        JLDataInicio.setText("Data Início:");
+        labelDataInicio.setText("Data Início:");
 
-        JLDataDevolucao.setText("Data Devolução:");
+        labelDataDevolucao.setText("Data Devolução:");
 
-        JLAtivo.setText("Empréstimo Ativo:");
+        labelAtivoConstante.setText("Empréstimo Ativo:");
 
         JBCancelar.setText("Cancelar");
         JBCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,17 +91,17 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
             }
         });
 
-        JBApagar.setText("Apagar");
-        JBApagar.addActionListener(new java.awt.event.ActionListener() {
+        buttonApagar.setText("Apagar");
+        buttonApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBApagarActionPerformed(evt);
+                buttonApagarActionPerformed(evt);
             }
         });
 
-        JBModificar.setText("Modificar");
-        JBModificar.addActionListener(new java.awt.event.ActionListener() {
+        buttonModificar.setText("Modificar");
+        buttonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBModificarActionPerformed(evt);
+                buttonModificarActionPerformed(evt);
             }
         });
 
@@ -115,33 +115,33 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(JBApagar)
+                        .addComponent(buttonApagar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JBModificar)
+                        .addComponent(buttonModificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JBCancelar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(JLAtivo)
+                                .addComponent(labelAtivoConstante)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(labelAtivo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(JLID)
+                                .addComponent(labelId)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JLIid))
+                                .addComponent(labelIid))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JLIdFerramenta)
-                                    .addComponent(JLIdAmigo)
-                                    .addComponent(JLDataInicio)
-                                    .addComponent(JLDataDevolucao, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(labelIdFerramenta)
+                                    .addComponent(labelIdAmigo)
+                                    .addComponent(labelDataInicio)
+                                    .addComponent(labelDataDevolucao, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGap(42, 42, 42)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(JTFDataDevolucao, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                                    .addComponent(JTFDataEmprestimo)
-                                    .addComponent(JTFIdFerramenta)
-                                    .addComponent(JTFIdAmigo))))
+                                    .addComponent(textDataDevolucao, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                                    .addComponent(textDataEmprestimo)
+                                    .addComponent(textIdFerramenta)
+                                    .addComponent(textIdAmigo))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -151,37 +151,37 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JLID)
-                    .addComponent(JLIid))
+                    .addComponent(labelId)
+                    .addComponent(labelIid))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTFIdAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLIdAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textIdAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelIdAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTFIdFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLIdFerramenta))
+                    .addComponent(textIdFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelIdFerramenta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTFDataEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLDataInicio))
+                    .addComponent(textDataEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelDataInicio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTFDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLDataDevolucao))
+                    .addComponent(textDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelDataDevolucao))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JLAtivo)
+                    .addComponent(labelAtivoConstante)
                     .addComponent(labelAtivo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBCancelar)
-                    .addComponent(JBApagar)
-                    .addComponent(JBModificar))
+                    .addComponent(buttonApagar)
+                    .addComponent(buttonModificar))
                 .addGap(15, 15, 15))
         );
 
-        JTFIdAmigo.getAccessibleContext().setAccessibleName("");
+        textIdAmigo.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,53 +191,53 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
-    private void JBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBModificarActionPerformed
+    private void buttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarActionPerformed
         String dataDevolucao = null;
-        int id = Integer.parseInt(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 0).toString());
-        int idAmigo = Integer.parseInt(JTFIdAmigo.getText());
-        int idFerramenta = Integer.parseInt(JTFIdFerramenta.getText());
-        String dataEmprestimo = JTFDataEmprestimo.getText();
-        dataDevolucao = JTFDataDevolucao.getText();
+        int id = Integer.parseInt(tableEmprestimo.getValueAt(this.tableEmprestimo.getSelectedRow(), 0).toString());
+        int idAmigo = Integer.parseInt(textIdAmigo.getText());
+        int idFerramenta = Integer.parseInt(textIdFerramenta.getText());
+        String dataEmprestimo = textDataEmprestimo.getText();
+        dataDevolucao = textDataDevolucao.getText();
         if (emprestimo.updateEmprestimoDB(id, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao)) {
             mostrarMensagem("Empréstimo atualizado com sucesso.");
-            JLIid.setVisible(false);
-            JTFIdAmigo.setText("");
-            JTFIdFerramenta.setText("");
-            JTFDataEmprestimo.setText("");
-            JTFDataDevolucao.setText("");
+            labelIid.setVisible(false);
+            textIdAmigo.setText("");
+            textIdFerramenta.setText("");
+            textDataEmprestimo.setText("");
+            textDataDevolucao.setText("");
             this.CarregaListaEmprestimo();
         }
-    }//GEN-LAST:event_JBModificarActionPerformed
+    }//GEN-LAST:event_buttonModificarActionPerformed
 
-    private void JTableEmprestimoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEmprestimoMouseClicked
-        if (this.JTableEmprestimo.getSelectedRow() != -1) {
-            JLIid.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 0).toString());
-            JLIid.setVisible(true);
-            JTFIdAmigo.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 1).toString());
-            JTFIdFerramenta.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 2).toString());
-            JTFDataEmprestimo.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 3).toString());
-            JLAtivo.setText("Empréstimo Ativo: " + JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 5).toString());
-            if (JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 4) != null) {
-                JTFDataDevolucao.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 4).toString());
+    private void tableEmprestimoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableEmprestimoMouseClicked
+        if (this.tableEmprestimo.getSelectedRow() != -1) {
+            labelIid.setText(tableEmprestimo.getValueAt(this.tableEmprestimo.getSelectedRow(), 0).toString());
+            labelIid.setVisible(true);
+            textIdAmigo.setText(tableEmprestimo.getValueAt(this.tableEmprestimo.getSelectedRow(), 1).toString());
+            textIdFerramenta.setText(tableEmprestimo.getValueAt(this.tableEmprestimo.getSelectedRow(), 2).toString());
+            textDataEmprestimo.setText(tableEmprestimo.getValueAt(this.tableEmprestimo.getSelectedRow(), 3).toString());
+            labelAtivoConstante.setText("Empréstimo Ativo: " + tableEmprestimo.getValueAt(this.tableEmprestimo.getSelectedRow(), 5).toString());
+            if (tableEmprestimo.getValueAt(this.tableEmprestimo.getSelectedRow(), 4) != null) {
+                textDataDevolucao.setText(tableEmprestimo.getValueAt(this.tableEmprestimo.getSelectedRow(), 4).toString());
             }
         }
-    }//GEN-LAST:event_JTableEmprestimoMouseClicked
+    }//GEN-LAST:event_tableEmprestimoMouseClicked
 
-    private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
+    private void buttonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonApagarActionPerformed
 
-        emprestimo.deleteEmprestimoDB(Integer.parseInt(JLIid.getText()));
-        JLIid.setVisible(false);
-        JTFIdAmigo.setText("");
-        JTFIdFerramenta.setText("");
-        JTFDataEmprestimo.setText("");
-        JTFDataDevolucao.setText("");
+        emprestimo.deleteEmprestimoDB(Integer.parseInt(labelIid.getText()));
+        labelIid.setVisible(false);
+        textIdAmigo.setText("");
+        textIdFerramenta.setText("");
+        textDataEmprestimo.setText("");
+        textDataDevolucao.setText("");
         this.CarregaListaEmprestimo();
         mostrarMensagem("Emprestimo apagado com sucesso.");
-    }//GEN-LAST:event_JBApagarActionPerformed
+    }//GEN-LAST:event_buttonApagarActionPerformed
     public void CarregaListaEmprestimo() {
-        DefaultTableModel model = (DefaultTableModel) JTableEmprestimo.getModel();
+        DefaultTableModel model = (DefaultTableModel) tableEmprestimo.getModel();
         model.setRowCount(0);
-        JLIid.setVisible(false);
+        labelIid.setVisible(false);
         ArrayList<Emprestimo> listaEmprestimo = emprestimo.listaEmprestimo();
         for (int i = 0; i < listaEmprestimo.size(); i++) {
             model.addRow(new Object[]{
@@ -295,49 +295,49 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     }
 
     protected javax.swing.JTextField getJTFIdAmigo() {
-        return this.JTFIdAmigo;  // acesso direto porque está dentro da classe
+        return this.textIdAmigo;  // acesso direto porque está dentro da classe
     }
 
     protected javax.swing.JTextField getJTFIdFerramenta() {
-        return this.JTFIdFerramenta;
+        return this.textIdFerramenta;
     }
 
     protected javax.swing.JTextField getJTFDataEmprestimo() {
-        return this.JTFDataEmprestimo;
+        return this.textDataEmprestimo;
     }
 
     protected javax.swing.JTextField getJTFDataDevolucao() {
-        return this.JTFDataDevolucao;
+        return this.textDataDevolucao;
     }
 
     protected javax.swing.JButton getJBModificar() {
-        return this.JBModificar;
+        return this.buttonModificar;
     }
 
     protected javax.swing.JButton getJBApagar() {
-        return this.JBApagar;
+        return this.buttonApagar;
     }
 
     protected javax.swing.JTable getJTableEmprestimo() {
-        return this.JTableEmprestimo;
+        return this.tableEmprestimo;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBApagar;
     private javax.swing.JButton JBCancelar;
-    private javax.swing.JButton JBModificar;
-    private javax.swing.JLabel JLAtivo;
-    private javax.swing.JLabel JLDataDevolucao;
-    private javax.swing.JLabel JLDataInicio;
-    private javax.swing.JLabel JLID;
-    private javax.swing.JLabel JLIdAmigo;
-    private javax.swing.JLabel JLIdFerramenta;
-    private javax.swing.JLabel JLIid;
-    private javax.swing.JTextField JTFDataDevolucao;
-    private javax.swing.JTextField JTFDataEmprestimo;
-    private javax.swing.JTextField JTFIdAmigo;
-    private javax.swing.JTextField JTFIdFerramenta;
-    private javax.swing.JTable JTableEmprestimo;
+    private javax.swing.JButton buttonApagar;
+    private javax.swing.JButton buttonModificar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelAtivo;
+    private javax.swing.JLabel labelAtivoConstante;
+    private javax.swing.JLabel labelDataDevolucao;
+    private javax.swing.JLabel labelDataInicio;
+    private javax.swing.JLabel labelId;
+    private javax.swing.JLabel labelIdAmigo;
+    private javax.swing.JLabel labelIdFerramenta;
+    private javax.swing.JLabel labelIid;
+    private javax.swing.JTable tableEmprestimo;
+    private javax.swing.JTextField textDataDevolucao;
+    private javax.swing.JTextField textDataEmprestimo;
+    private javax.swing.JTextField textIdAmigo;
+    private javax.swing.JTextField textIdFerramenta;
     // End of variables declaration//GEN-END:variables
 }

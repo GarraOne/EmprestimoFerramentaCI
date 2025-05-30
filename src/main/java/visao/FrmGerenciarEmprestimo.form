@@ -30,37 +30,37 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="JBApagar" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonApagar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JBModificar" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonModificar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JBCancelar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="JLAtivo" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelAtivoConstante" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="labelAtivo" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="JLID" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelId" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JLIid" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelIid" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="JLIdFerramenta" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLIdAmigo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLDataInicio" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLDataDevolucao" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelIdFerramenta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelIdAmigo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelDataInicio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelDataDevolucao" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="JTFDataDevolucao" pref="85" max="32767" attributes="0"/>
-                                  <Component id="JTFDataEmprestimo" max="32767" attributes="0"/>
-                                  <Component id="JTFIdFerramenta" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JTFIdAmigo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textDataDevolucao" pref="85" max="32767" attributes="0"/>
+                                  <Component id="textDataEmprestimo" max="32767" attributes="0"/>
+                                  <Component id="textIdFerramenta" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textIdAmigo" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -77,39 +77,39 @@
               <Component id="jScrollPane1" min="-2" pref="130" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JLID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLIid" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelIid" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JTFIdAmigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLIdAmigo" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="textIdAmigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelIdAmigo" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JTFIdFerramenta" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLIdFerramenta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textIdFerramenta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelIdFerramenta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JTFDataEmprestimo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLDataInicio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textDataEmprestimo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelDataInicio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JTFDataDevolucao" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLDataDevolucao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textDataDevolucao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelDataDevolucao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JLAtivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelAtivoConstante" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelAtivo" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="41" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JBCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBApagar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBModificar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonApagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonModificar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
           </Group>
@@ -124,7 +124,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="JTableEmprestimo">
+        <Component class="javax.swing.JTable" name="tableEmprestimo">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="6" rowCount="0">
@@ -175,42 +175,42 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JTableEmprestimoMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableEmprestimoMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="JLID">
+    <Component class="javax.swing.JLabel" name="labelId">
       <Properties>
         <Property name="text" type="java.lang.String" value="ID Empr&#xe9;stimo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLIid">
+    <Component class="javax.swing.JLabel" name="labelIid">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLIdAmigo">
+    <Component class="javax.swing.JLabel" name="labelIdAmigo">
       <Properties>
         <Property name="text" type="java.lang.String" value="ID Amigo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLIdFerramenta">
+    <Component class="javax.swing.JLabel" name="labelIdFerramenta">
       <Properties>
         <Property name="text" type="java.lang.String" value="ID Ferramenta:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLDataInicio">
+    <Component class="javax.swing.JLabel" name="labelDataInicio">
       <Properties>
         <Property name="text" type="java.lang.String" value="Data In&#xed;cio:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLDataDevolucao">
+    <Component class="javax.swing.JLabel" name="labelDataDevolucao">
       <Properties>
         <Property name="text" type="java.lang.String" value="Data Devolu&#xe7;&#xe3;o:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLAtivo">
+    <Component class="javax.swing.JLabel" name="labelAtivoConstante">
       <Properties>
         <Property name="text" type="java.lang.String" value="Empr&#xe9;stimo Ativo:"/>
       </Properties>
@@ -223,32 +223,32 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBCancelarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBApagar">
+    <Component class="javax.swing.JButton" name="buttonApagar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Apagar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBApagarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonApagarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBModificar">
+    <Component class="javax.swing.JButton" name="buttonModificar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBModificarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonModificarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFIdAmigo">
+    <Component class="javax.swing.JTextField" name="textIdAmigo">
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
       </AccessibilityProperties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFIdFerramenta">
+    <Component class="javax.swing.JTextField" name="textIdFerramenta">
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFDataEmprestimo">
+    <Component class="javax.swing.JTextField" name="textDataEmprestimo">
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFDataDevolucao">
+    <Component class="javax.swing.JTextField" name="textDataDevolucao">
     </Component>
     <Component class="javax.swing.JLabel" name="labelAtivo">
     </Component>

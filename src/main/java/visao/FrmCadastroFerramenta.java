@@ -29,42 +29,42 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JLNomeFerramenta = new javax.swing.JLabel();
-        JLMarcaFerramenta = new javax.swing.JLabel();
-        JLCustoFerramenta = new javax.swing.JLabel();
-        JTFNomeFerramenta = new javax.swing.JTextField();
-        JTFMarcaFerramenta = new javax.swing.JTextField();
-        JTFCustoFerramenta = new javax.swing.JTextField();
-        JBCadastrar = new javax.swing.JButton();
-        JBLimpar = new javax.swing.JButton();
+        labelNomeFerramenta = new javax.swing.JLabel();
+        labelMarcaFerramenta = new javax.swing.JLabel();
+        labelCustoFeramenta = new javax.swing.JLabel();
+        textNomeFerramenta = new javax.swing.JTextField();
+        textMarcaFerramenta = new javax.swing.JTextField();
+        textCustoFerramenta = new javax.swing.JTextField();
+        buttonCadastrar = new javax.swing.JButton();
+        buttonLimpar = new javax.swing.JButton();
         JBCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Ferramentas");
 
-        JLNomeFerramenta.setText("Nome da Ferramenta:");
+        labelNomeFerramenta.setText("Nome da Ferramenta:");
 
-        JLMarcaFerramenta.setText("Marca da Ferramenta:");
+        labelMarcaFerramenta.setText("Marca da Ferramenta:");
 
-        JLCustoFerramenta.setText("Custo de Obtenção:");
+        labelCustoFeramenta.setText("Custo de Obtenção:");
 
-        JTFNomeFerramenta.addActionListener(new java.awt.event.ActionListener() {
+        textNomeFerramenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFNomeFerramentaActionPerformed(evt);
+                textNomeFerramentaActionPerformed(evt);
             }
         });
 
-        JBCadastrar.setText("Cadastrar");
-        JBCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        buttonCadastrar.setText("Cadastrar");
+        buttonCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCadastrarActionPerformed(evt);
+                buttonCadastrarActionPerformed(evt);
             }
         });
 
-        JBLimpar.setText("Limpar");
-        JBLimpar.addActionListener(new java.awt.event.ActionListener() {
+        buttonLimpar.setText("Limpar");
+        buttonLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBLimparActionPerformed(evt);
+                buttonLimparActionPerformed(evt);
             }
         });
 
@@ -83,105 +83,105 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(JTFNomeFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textNomeFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 154, Short.MAX_VALUE)
-                        .addComponent(JBCadastrar)
+                        .addComponent(buttonCadastrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JBLimpar)
+                        .addComponent(buttonLimpar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JBCancelar)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLNomeFerramenta)
-                    .addComponent(JLMarcaFerramenta)
-                    .addComponent(JLCustoFerramenta)
-                    .addComponent(JTFCustoFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JTFMarcaFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelNomeFerramenta)
+                    .addComponent(labelMarcaFerramenta)
+                    .addComponent(labelCustoFeramenta)
+                    .addComponent(textCustoFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textMarcaFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(JLNomeFerramenta)
+                .addComponent(labelNomeFerramenta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTFNomeFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textNomeFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JLMarcaFerramenta)
+                .addComponent(labelMarcaFerramenta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTFMarcaFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textMarcaFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JLCustoFerramenta)
+                .addComponent(labelCustoFeramenta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTFCustoFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textCustoFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBCancelar)
-                    .addComponent(JBLimpar)
-                    .addComponent(JBCadastrar))
+                    .addComponent(buttonLimpar)
+                    .addComponent(buttonCadastrar))
                 .addGap(8, 8, 8))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JTFNomeFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeFerramentaActionPerformed
+    private void textNomeFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeFerramentaActionPerformed
 
-    }//GEN-LAST:event_JTFNomeFerramentaActionPerformed
+    }//GEN-LAST:event_textNomeFerramentaActionPerformed
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
 //Libera todos os recurso da interface gráfica
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
-    private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
+    private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
         try {
 
             objetoferramenta = new Ferramenta();
             String nome = "";
             String marca = "";
             double custo = 0;
-            if (JTFNomeFerramenta.getText().length() < 2) {
+            if (textNomeFerramenta.getText().length() < 2) {
                 mostrarMensagem("Ferramenta Invalida.");
                 throw new Erro("Nome deve conter pelo menos 2 caracteres, tente novamente.");
             } else {
-                nome = (JTFNomeFerramenta.getText());
+                nome = (textNomeFerramenta.getText());
 
             }
-            if (JTFMarcaFerramenta.getText().length() < 2) {
+            if (textMarcaFerramenta.getText().length() < 2) {
                 mostrarMensagem("Marca Invalida.");
                 throw new Erro("Marca deve conter pelo menos 2 caracteres, tente novamente.");
             } else {
-                marca = (JTFMarcaFerramenta.getText());
+                marca = (textMarcaFerramenta.getText());
 
             }
-            if (Double.parseDouble(JTFCustoFerramenta.getText()) <= 0) {
+            if (Double.parseDouble(textCustoFerramenta.getText()) <= 0) {
                 mostrarMensagem("Custo Invalido.");
                 throw new Erro("Custo deve ser maior que 0, tente novamente.");
             } else {
-                custo = (Double.parseDouble(JTFCustoFerramenta.getText()));
+                custo = (Double.parseDouble(textCustoFerramenta.getText()));
 
             }
             if (objetoferramenta.insertFerramentaDB(nome, marca, custo)) {
                 mostrarMensagem("Ferramenta cadastrada com sucesso.");
-                JTFMarcaFerramenta.setText("");
-                JTFNomeFerramenta.setText("");
-                JTFCustoFerramenta.setText("");
+                textMarcaFerramenta.setText("");
+                textNomeFerramenta.setText("");
+                textCustoFerramenta.setText("");
             }
         } catch (Erro erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
-    }//GEN-LAST:event_JBCadastrarActionPerformed
+    }//GEN-LAST:event_buttonCadastrarActionPerformed
 
-    private void JBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimparActionPerformed
-        JTFMarcaFerramenta.setText("");
-        JTFNomeFerramenta.setText("");
-        JTFCustoFerramenta.setText("");
-    }//GEN-LAST:event_JBLimparActionPerformed
+    private void buttonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLimparActionPerformed
+        textMarcaFerramenta.setText("");
+        textNomeFerramenta.setText("");
+        textCustoFerramenta.setText("");
+    }//GEN-LAST:event_buttonLimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,34 +223,34 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     }
 
     protected javax.swing.JTextField getJTFNomeFerramenta() {
-        return this.JTFNomeFerramenta;  // acesso direto porque está dentro da classe
+        return this.textNomeFerramenta;  // acesso direto porque está dentro da classe
     }
 
     protected javax.swing.JTextField getJTFMarcaFerramenta() {
-        return this.JTFMarcaFerramenta;
+        return this.textMarcaFerramenta;
     }
 
     protected javax.swing.JTextField getJTFCustoFerramenta() {
-        return this.JTFCustoFerramenta;
+        return this.textCustoFerramenta;
     }
 
     protected javax.swing.JButton getJBCadastrar() {
-        return this.JBCadastrar;
+        return this.buttonCadastrar;
     }
 
     protected javax.swing.JButton getJBLimpar() {
-        return this.JBLimpar;
+        return this.buttonLimpar;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBCadastrar;
     private javax.swing.JButton JBCancelar;
-    private javax.swing.JButton JBLimpar;
-    private javax.swing.JLabel JLCustoFerramenta;
-    private javax.swing.JLabel JLMarcaFerramenta;
-    private javax.swing.JLabel JLNomeFerramenta;
-    private javax.swing.JTextField JTFCustoFerramenta;
-    private javax.swing.JTextField JTFMarcaFerramenta;
-    private javax.swing.JTextField JTFNomeFerramenta;
+    private javax.swing.JButton buttonCadastrar;
+    private javax.swing.JButton buttonLimpar;
+    private javax.swing.JLabel labelCustoFeramenta;
+    private javax.swing.JLabel labelMarcaFerramenta;
+    private javax.swing.JLabel labelNomeFerramenta;
+    private javax.swing.JTextField textCustoFerramenta;
+    private javax.swing.JTextField textMarcaFerramenta;
+    private javax.swing.JTextField textNomeFerramenta;
     // End of variables declaration//GEN-END:variables
 }
