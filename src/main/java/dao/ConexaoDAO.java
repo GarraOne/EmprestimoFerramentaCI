@@ -23,7 +23,7 @@ public class ConexaoDAO {
             logger.info("Status: Conectado!");
             return connection;
         } catch (ClassNotFoundException erro) {
-            logger.log(Level.SEVERE, "O driver não foi encontrado." + erro);
+            logger.log(Level.SEVERE, "O driver não foi encontrado.", erro);
             return null;
         } catch (SQLException erro) {
             logger.log(Level.SEVERE, "Não foi possível conectar ao banco de dados.", erro);

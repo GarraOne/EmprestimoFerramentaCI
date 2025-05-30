@@ -11,25 +11,22 @@ class TestFrmMenuPrincipal {
     void testMenuItemSairActionPerformed() throws Exception {
         //Define a propriedade do sistema para indicar que estamos em modo de teste
         System.setProperty("modoTeste", "true");
-        
+
         //Cria e exibe a janela
         FrmMenuPrincipal janela = new FrmMenuPrincipal();
         janela.setVisible(true);
-        
-        //Aguarda a interface renderizar
-        Thread.sleep(1000);
-        
+
         //Obtem JMenuItem "Sair"
         JMenuBar menuBar = janela.getJMenuBar();
         JMenu menuArquivo = menuBar.getMenu(0);
         JMenuItem menuItemSair = menuArquivo.getItem(0);
-        
+
         //Simula o clique
         menuItemSair.doClick();
-        
+
         // Aguarda a ação a ser processada
         Thread.sleep(500);
-        
+
         // Assertion: Verifica se a janela foi fechada
         assertTrue(true);
     }
@@ -40,9 +37,6 @@ class TestFrmMenuPrincipal {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
-
-        //Aquarda o swing processar os eventos
-        Thread.sleep(500);
 
         JMenuBar menuBar = frame.getJMenuBar();
         assertNotNull(menuBar, "A JMenuBar deve estar presente na janela");
@@ -73,9 +67,6 @@ class TestFrmMenuPrincipal {
         //Simulação do clique
         itemGerenciar.doClick();
 
-        //Aquarda a janela abrir
-        Thread.sleep(500);
-
         //Verifica se FrmGerenciarAmigo foi aberto
         boolean encontrou = false;
         for (Window w : Window.getWindows()) {
@@ -93,8 +84,6 @@ class TestFrmMenuPrincipal {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
-
-        Thread.sleep(1000);
 
         JMenuBar menuBar = frame.getJMenuBar();
         assertNotNull(menuBar, "A JMenuBar deve estar presente na janela");
@@ -122,8 +111,6 @@ class TestFrmMenuPrincipal {
 
         itemCadastrarFerramentas.doClick();
 
-        Thread.sleep(500);
-
         boolean encontrou = false;
         for (Window w : Window.getWindows()) {
             if (w instanceof FrmCadastroFerramenta && w.isVisible()) {
@@ -140,8 +127,6 @@ class TestFrmMenuPrincipal {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
-
-        Thread.sleep(1000);
 
         JMenuBar menuBar = frame.getJMenuBar();
         assertNotNull(menuBar, "A JMenuBar deve estar presente na janela");
@@ -169,8 +154,6 @@ class TestFrmMenuPrincipal {
 
         itemEmprestimo.doClick();
 
-        Thread.sleep(500);
-
         boolean encontrou = false;
         for (Window w : Window.getWindows()) {
             if (w instanceof FrmCadastroEmprestimo && w.isVisible()) {
@@ -187,8 +170,6 @@ class TestFrmMenuPrincipal {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
-
-        Thread.sleep(1000);
 
         JMenuBar menuBar = frame.getJMenuBar();
         assertNotNull(menuBar, "A JMenuBar deve estar presente na janela");
@@ -216,8 +197,6 @@ class TestFrmMenuPrincipal {
 
         itemDevolucao.doClick();
 
-        Thread.sleep(500);
-
         boolean encontrou = false;
         for (Window w : Window.getWindows()) {
             if (w instanceof FrmCadastroDevolucao && w.isVisible()) {
@@ -234,8 +213,6 @@ class TestFrmMenuPrincipal {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
-
-        Thread.sleep(1000);
 
         JMenuBar menuBar = frame.getJMenuBar();
         assertNotNull(menuBar, "A JMenuBar deve estar presente na janela");
@@ -263,8 +240,6 @@ class TestFrmMenuPrincipal {
 
         itemGerenciarEmprestimo.doClick();
 
-        Thread.sleep(500);
-
         boolean encontrou = false;
         for (Window w : Window.getWindows()) {
             if (w instanceof FrmGerenciarEmprestimo && w.isVisible()) {
@@ -281,8 +256,6 @@ class TestFrmMenuPrincipal {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
-
-        Thread.sleep(1000);
 
         JMenuBar menuBar = frame.getJMenuBar();
         assertNotNull(menuBar, "A JMenuBar deve estar presente na janela");
@@ -310,8 +283,6 @@ class TestFrmMenuPrincipal {
 
         itemRelatorio.doClick();
 
-        Thread.sleep(500);
-
         boolean encontrou = false;
         for (Window w : Window.getWindows()) {
             if (w instanceof FrmRelatorio && w.isVisible()) {
@@ -328,8 +299,6 @@ class TestFrmMenuPrincipal {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
-
-        Thread.sleep(1000);
 
         JMenuBar menuBar = frame.getJMenuBar();
         assertNotNull(menuBar, "A JMenuBar deve estar presente na janela");
@@ -357,8 +326,6 @@ class TestFrmMenuPrincipal {
 
         itemCadastrarAmigos.doClick();
 
-        Thread.sleep(500);
-
         boolean encontrou = false;
         for (Window w : Window.getWindows()) {
             if (w instanceof FrmCadastroAmigo && w.isVisible()) {
@@ -375,8 +342,6 @@ class TestFrmMenuPrincipal {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
-
-        Thread.sleep(1000);
 
         JMenuBar menuBar = frame.getJMenuBar();
         assertNotNull(menuBar, "A JMenuBar deve estar presente na janela");
@@ -403,8 +368,6 @@ class TestFrmMenuPrincipal {
         assertNotNull(itemGerenciarFerramentas, "O item 'Gerenciar Ferramentas' deve estar presente no menu no menu.");
 
         itemGerenciarFerramentas.doClick();
-
-        Thread.sleep(500);
 
         boolean encontrou = false;
         for (Window w : Window.getWindows()) {
