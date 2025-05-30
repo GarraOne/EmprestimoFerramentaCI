@@ -44,9 +44,9 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        JCBEmprestimo = new javax.swing.JComboBox<>();
-        JBCancelar = new javax.swing.JButton();
-        JBCadastrar = new javax.swing.JButton();
+        comboBoxEmprestimo = new javax.swing.JComboBox<>();
+        buttonCancelar = new javax.swing.JButton();
+        buttonCadatrar = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -57,19 +57,19 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
 
         jLabel1.setText("Empréstimo:");
 
-        JCBEmprestimo.setMaximumRowCount(999);
+        comboBoxEmprestimo.setMaximumRowCount(999);
 
-        JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(new java.awt.event.ActionListener() {
+        buttonCancelar.setText("Cancelar");
+        buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCancelarActionPerformed(evt);
+                buttonCancelarActionPerformed(evt);
             }
         });
 
-        JBCadastrar.setText("Cadastrar");
-        JBCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        buttonCadatrar.setText("Cadastrar");
+        buttonCadatrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCadastrarActionPerformed(evt);
+                buttonCadatrarActionPerformed(evt);
             }
         });
 
@@ -82,13 +82,13 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 226, Short.MAX_VALUE)
-                        .addComponent(JBCadastrar)
+                        .addComponent(buttonCadatrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JBCancelar))
+                        .addComponent(buttonCancelar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(JCBEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboBoxEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -98,24 +98,24 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JCBEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboBoxEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBCancelar)
-                    .addComponent(JBCadastrar))
+                    .addComponent(buttonCancelar)
+                    .addComponent(buttonCadatrar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
+    private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
         this.dispose();
-    }//GEN-LAST:event_JBCancelarActionPerformed
+    }//GEN-LAST:event_buttonCancelarActionPerformed
 
-    private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
+    private void buttonCadatrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadatrarActionPerformed
 
-        int posicaoEmprestimo = JCBEmprestimo.getSelectedIndex();
+        int posicaoEmprestimo = comboBoxEmprestimo.getSelectedIndex();
         ArrayList<Emprestimo> listaEmprestimo = emprestimo.getListaEmprestimoAtivo();
         Emprestimo emp = new Emprestimo();
         String data = LocalDate.now() + "";
@@ -124,12 +124,12 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
 
         if (emp.updateEmprestimoDB(listaEmprestimo.get(posicaoEmprestimo).getIDEmprestimo(), listaEmprestimo.get(posicaoEmprestimo).getIDAmigo(), listaEmprestimo.get(posicaoEmprestimo).getIDFerramenta(), listaEmprestimo.get(posicaoEmprestimo).getDataEmprestimo(), data)) {
             mostrarMensagem("Devolucao cadastrada com sucesso.");
-            JCBEmprestimo.removeAllItems();
+            comboBoxEmprestimo.removeAllItems();
             this.carregaCBEmprestimo();
         } else {
 
         }
-    }//GEN-LAST:event_JBCadastrarActionPerformed
+    }//GEN-LAST:event_buttonCadatrarActionPerformed
 
     public void carregaCBEmprestimo() {
         Emprestimo emprestimo = new Emprestimo();
@@ -138,7 +138,7 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
         ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
 
         for (Emprestimo objeto : listaEmprestimo) {
-            JCBEmprestimo.addItem(objeto.getIDEmprestimo() + "- " + listaAmigo.get(objeto.getIDAmigo() - 1).getNomeAmigo() + "- " + listaFerramenta.get(objeto.getIDFerramenta() - 1).getNomeFerramenta());
+            comboBoxEmprestimo.addItem(objeto.getIDEmprestimo() + "- " + listaAmigo.get(objeto.getIDAmigo() - 1).getNomeAmigo() + "- " + listaFerramenta.get(objeto.getIDFerramenta() - 1).getNomeFerramenta());
         }
     }
 
@@ -179,17 +179,17 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
     }
 
     public JComboBox<String> getJCBEmprestimo() {
-        return JCBEmprestimo;
+        return comboBoxEmprestimo;
     }
 
     protected javax.swing.JButton getJBCadastrar() {
-        return this.JBCadastrar;
+        return this.buttonCadatrar;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBCadastrar;
-    private javax.swing.JButton JBCancelar;
-    private javax.swing.JComboBox<String> JCBEmprestimo;
+    private javax.swing.JButton buttonCadatrar;
+    private javax.swing.JButton buttonCancelar;
+    private javax.swing.JComboBox<String> comboBoxEmprestimo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
