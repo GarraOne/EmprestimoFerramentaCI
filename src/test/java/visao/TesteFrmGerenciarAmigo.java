@@ -4,6 +4,8 @@ import dao.AmigoDAO;
 import modelo.Amigo;
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -27,6 +29,17 @@ class TesteFrmGerenciarAmigo {
         //Instância o formulário fake
         frmGerenciarAmigo = new FrmGerenciarAmigoFake();
         //Instância o controle do formulário
+    }
+    
+     @Test
+    public void testCancelarFechaJanela() {
+        FrmGerenciarAmigo janela = new FrmGerenciarAmigo();
+        
+        assertTrue(janela.isDisplayable());
+        
+        janela.simularCliqueCancelar();
+        
+        assertFalse(janela.isDisplayable());
     }
 
     @Test

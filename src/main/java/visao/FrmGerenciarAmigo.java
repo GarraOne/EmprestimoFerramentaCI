@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
 import modelo.Emprestimo;
+import javax.swing.*;
 
 public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
@@ -16,6 +17,8 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         initComponents();
         this.amigo = new Amigo();
         this.carregaListaAmigo();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setVisible(true);
     }
 
     public String getMensagem() {
@@ -71,12 +74,6 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         JLID.setText("ID:");
 
         JLNome.setText("Nome:");
-
-        JTFNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFNomeActionPerformed(evt);
-            }
-        });
 
         JLTelefone.setText("Telefone:");
 
@@ -160,15 +157,15 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
-
-    }//GEN-LAST:event_JTFNomeActionPerformed
-
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
-//Libera todos os recurso da interface gráfica
+        //Libera todos os recurso da interface gráfica
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
+    public void simularCliqueCancelar() {
+        JBCancelarActionPerformed(null);
+    }
+    
     private void JBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBModificarActionPerformed
         try {
             int id = Integer.parseInt(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
