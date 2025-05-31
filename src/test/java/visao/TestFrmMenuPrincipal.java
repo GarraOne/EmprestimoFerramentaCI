@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 class TestFrmMenuPrincipal {
 
     @Test
-    public void testSairChamaEncerramentoForaDoModoTeste() {
+    void testSairChamaEncerramentoForaDoModoTeste() {
         System.clearProperty("modoTeste");
         
         FrmMenuPrincipalFake frm = new FrmMenuPrincipalFake();
@@ -19,7 +19,7 @@ class TestFrmMenuPrincipal {
     }
     
     @Test
-    public void testSairNaoChamaEncerramentoEmModoTeste() {
+    void testSairNaoChamaEncerramentoEmModoTeste() {
         System.setProperty("modoTeste", "true");
 
         FrmMenuPrincipalFake frm = new FrmMenuPrincipalFake();
@@ -380,7 +380,7 @@ class TestFrmMenuPrincipal {
     }
     
     @Test
-    public void testMain() throws InvocationTargetException, InterruptedException {
+    void testMain() throws InvocationTargetException, InterruptedException {
         System.setProperty("modoTeste", "true");
 
         FrmMenuPrincipal.main(new String[]{});
