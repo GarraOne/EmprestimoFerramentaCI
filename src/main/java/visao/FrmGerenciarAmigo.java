@@ -17,7 +17,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         initComponents();
         this.amigo = new Amigo();
         this.carregaListaAmigo();
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
     }
 
