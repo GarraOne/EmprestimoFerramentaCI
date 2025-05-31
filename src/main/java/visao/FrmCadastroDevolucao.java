@@ -126,8 +126,6 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
             mostrarMensagem("Devolucao cadastrada com sucesso.");
             comboBoxEmprestimo.removeAllItems();
             this.carregaCBEmprestimo();
-        } else {
-
         }
     }//GEN-LAST:event_buttonCadatrarActionPerformed
 
