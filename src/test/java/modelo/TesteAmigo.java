@@ -77,8 +77,8 @@ class TesteAmigo {
     @Test
     void testGetVazio() {
         String retornoEsperado = "";
-        Amigo amigo = new Amigo();
-        String retornoFeito = amigo.getNomeAmigo();
+        Amigo ami = new Amigo();
+        String retornoFeito = ami.getNomeAmigo();
         assertEquals(retornoEsperado, retornoFeito, "");
     }
 
