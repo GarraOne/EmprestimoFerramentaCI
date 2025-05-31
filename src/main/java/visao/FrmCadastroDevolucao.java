@@ -130,8 +130,8 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCadatrarActionPerformed
 
     public void carregaCBEmprestimo() {
-        Emprestimo emprestimo = new Emprestimo();
-        ArrayList<Emprestimo> listaEmprestimo = emprestimo.getListaEmprestimoAtivo();
+        Emprestimo emp = new Emprestimo();
+        ArrayList<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
         ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
         ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
 
