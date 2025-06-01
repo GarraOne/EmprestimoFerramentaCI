@@ -1,6 +1,7 @@
 package visao;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
@@ -231,7 +232,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTableAmigos.getModel();
         labelIid.setVisible(false);
         model.setNumRows(0);
-        ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
+        List<Amigo> listaAmigo = amigo.listaAmigo();
         for (Amigo objeto : listaAmigo) {
             model.addRow(new Object[]{
                 objeto.getIdAmigo(),

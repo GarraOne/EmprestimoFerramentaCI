@@ -1,6 +1,7 @@
 package visao;
 
 import java.util.ArrayList;
+import java.util.List;
 import modelo.Amigo;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
@@ -78,7 +79,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
         Amigo amg = new Amigo();
         Ferramenta frmt = new Ferramenta();
         Emprestimo emp = new Emprestimo();
-        ArrayList<Amigo> listaAmigo = amg.listaAmigo();
+        List<Amigo> listaAmigo = amg.listaAmigo();
         ArrayList<Ferramenta> listaFerramenta = frmt.listaFerramenta();
         ArrayList<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
 

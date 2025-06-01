@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Amigo;
@@ -36,24 +37,21 @@ public class AmigoDAO extends ConexaoDAO {
         logger.log(Level.SEVERE, MENSAGEM_ERRO, e);
     }
 
-    public ArrayList<Amigo> getListaAmigo() {
-        synchronized (listaAmigo) {
-            listaAmigo.clear();
+    public List<Amigo> getListaAmigo() {
+    List<Amigo> lista = new ArrayList<>();
+    try (Statement smt = super.getConexao().createStatement()) {
+        ResultSet res = smt.executeQuery("select idAmigo, nomeAmigo, TelefoneAmigo from amigo");
+        while (res.next()) {
+            int idAmigo = res.getInt("IdAmigo");
+            String nomeAmigo = res.getString("nomeAmigo");
+            String telefoneAmigo = res.getString("telefoneAmigo");
+            lista.add(new Amigo(idAmigo, nomeAmigo, telefoneAmigo));
         }
-        try (Statement smt = super.getConexao().createStatement()) {
-            ResultSet res = smt.executeQuery("select idAmigo, nomeAmigo, TelefoneAmigo from amigo");
-            while (res.next()) {
-                int idAmigo = res.getInt("IdAmigo");
-                String nomeAmigo = res.getString("nomeAmigo");
-                String telefoneAmigo = res.getString("telefoneAmigo");
-                Amigo objeto = new Amigo(idAmigo, nomeAmigo, telefoneAmigo);
-                listaAmigo.add(objeto);
-            }
-        } catch (SQLException erro) {
-            logErro(erro);
-        }
-        return new ArrayList<>(listaAmigo);
+    } catch (SQLException erro) {
+        logErro(erro);
     }
+    return lista;
+}
 
     /**
      * Define a lista de amigos.

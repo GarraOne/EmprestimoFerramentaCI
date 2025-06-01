@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.TestInstance;
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -24,7 +25,7 @@ class TesteAmigo {
         assertTrue(result);
 
         // Verifica se o amigo foi realmente inserido
-        ArrayList<Amigo> amigos = amigo.listaAmigo();
+        List<Amigo> amigos = amigo.listaAmigo();
         assertFalse(amigos.isEmpty(), "A lista de amigos não deve estar vazia.");
         assertEquals("Joao", amigos.get(amigos.size() - 1).getNomeAmigo());
     }
@@ -37,7 +38,7 @@ class TesteAmigo {
 
         assertTrue(result);
 
-        ArrayList<Amigo> amigos = amigo.listaAmigo();
+        List<Amigo> amigos = amigo.listaAmigo();
         assertFalse(amigos.stream().anyMatch(a -> a.getIdAmigo() == id));
     }
 

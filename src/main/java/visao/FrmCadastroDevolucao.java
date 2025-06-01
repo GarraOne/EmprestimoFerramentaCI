@@ -2,6 +2,7 @@ package visao;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import modelo.Amigo;
@@ -132,7 +133,7 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
     public void carregaCBEmprestimo() {
         Emprestimo emp = new Emprestimo();
         ArrayList<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
-        ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
+        List<Amigo> listaAmigo = amigo.listaAmigo();
         ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
 
         for (Emprestimo objeto : listaEmprestimo) {

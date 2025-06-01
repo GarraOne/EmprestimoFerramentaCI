@@ -3,6 +3,7 @@ package visao;
 import javax.swing.JComboBox;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.Amigo;
 import modelo.Emprestimo;
@@ -121,7 +122,7 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             int posicaoFerramenta = JCBFerramenta.getSelectedIndex();
             int posicaoAmigo = JCBAmigo.getSelectedIndex();
             ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
-            ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
+            List<Amigo> listaAmigo = amigo.listaAmigo();
             Emprestimo emprestimo = new Emprestimo();
             if ("Não".equals(listaFerramenta.get(posicaoFerramenta).getDisponivel(listaFerramenta.get(posicaoFerramenta).getIdFerramenta()))) {
                 mostrarMensagem("Ferramenta já emprestada.");
@@ -155,7 +156,7 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
     }
 
     public void carregaCBAmigo() {
-        ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
+        List<Amigo> listaAmigo = amigo.listaAmigo();
         for (Amigo objeto : listaAmigo) {
             JCBAmigo.addItem(objeto.getIdAmigo() + "- " + objeto.getNomeAmigo());
         }

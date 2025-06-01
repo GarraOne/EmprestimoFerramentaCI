@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.List;
 import modelo.Amigo;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,7 @@ class TesteAmigoDao {
     @Test
     void TestGetListaAmigo() {
         AmigoDAO dao = new AmigoDAO();
-        ArrayList<Amigo> listaEmprestimo = dao.getListaAmigo();
+        List<Amigo> listaEmprestimo = dao.getListaAmigo();
         int retornoEsperado = 2;
         assertEquals(retornoEsperado, listaEmprestimo.size());
 

@@ -2,6 +2,7 @@ package modelo;
 
 import dao.AmigoDAO;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Representa um amigo com id, nome e telefone.
@@ -95,7 +96,7 @@ public class Amigo {
      *
      * @return Uma lista de amigos.
      */
-    public ArrayList<Amigo> listaAmigo() {
+    public List<Amigo> listaAmigo() {
         return dao.getListaAmigo();
     }
 
@@ -204,7 +205,7 @@ public class Amigo {
      */
     public String getNomeAmigo(int id) {
         String nome = "";
-        ArrayList<Amigo> listaAmigo = this.listaAmigo();
+        List<Amigo> listaAmigo = this.listaAmigo();
         for (int i = 0; i < listaAmigo.size(); i++) {
             if (id == listaAmigo.get(i).getIdAmigo()) {
                 nome = listaAmigo.get(i).getNomeAmigo();
