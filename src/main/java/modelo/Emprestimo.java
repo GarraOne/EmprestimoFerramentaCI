@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -151,7 +152,7 @@ public class Emprestimo {
      *
      * @return Uma lista de emprestimos.
      */
-    public ArrayList<Emprestimo> listaEmprestimo() {
+    public List<Emprestimo> listaEmprestimo() {
         return dao.getListaEmprestimo();
     }
 
@@ -223,7 +224,7 @@ public class Emprestimo {
         ArrayList<Emprestimo> listaEmprestimoAtivo = new ArrayList<>();
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            ArrayList<Emprestimo> listaEmprestimo = this.listaEmprestimo();
+            List<Emprestimo> listaEmprestimo = this.listaEmprestimo();
 
             for (int i = 0; i < listaEmprestimo.size(); i++) {
 

@@ -209,7 +209,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     private void buttonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonApagarActionPerformed
         int conf = 0;
         Emprestimo emp = new Emprestimo();
-        ArrayList<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
+        List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
         int idEmprestimo = 0;
         conf = confirmarApagarAmigo();
         if (conf == 0) {

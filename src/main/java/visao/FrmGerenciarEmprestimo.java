@@ -1,6 +1,7 @@
 package visao;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Emprestimo;
@@ -238,7 +239,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tableEmprestimo.getModel();
         model.setRowCount(0);
         labelIid.setVisible(false);
-        ArrayList<Emprestimo> listaEmprestimo = emprestimo.listaEmprestimo();
+        List<Emprestimo> listaEmprestimo = emprestimo.listaEmprestimo();
         for (int i = 0; i < listaEmprestimo.size(); i++) {
             model.addRow(new Object[]{
                 listaEmprestimo.get(i).getIDEmprestimo(),

@@ -2,6 +2,7 @@ package visao;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Emprestimo;
@@ -249,7 +250,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
         int conf = 0;
         Emprestimo emp = new Emprestimo();
-        ArrayList<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
+        List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
         int idEmprestimo = 0;
         conf = confirmarApagarFerramenta();
         if (conf == 0) {

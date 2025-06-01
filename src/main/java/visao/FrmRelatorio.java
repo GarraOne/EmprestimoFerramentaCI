@@ -81,7 +81,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
         Emprestimo emp = new Emprestimo();
         List<Amigo> listaAmigo = amg.listaAmigo();
         ArrayList<Ferramenta> listaFerramenta = frmt.listaFerramenta();
-        ArrayList<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
+        List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
 
         for (int i = 0; i < listaFerramenta.size(); i++) {
             lista = lista + "\n ID da Ferramenta: " + listaFerramenta.get(i).getIdFerramenta() + "\n Nome da Ferramenta: " + listaFerramenta.get(i).getNomeFerramenta() + "\n Marca da Ferramenta: " + listaFerramenta.get(i).getMarcaFerramenta() + "\n Custo da Ferramenta: " + listaFerramenta.get(i).getCustoFerramenta() + "\n";

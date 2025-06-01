@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Emprestimo;
@@ -31,7 +32,7 @@ public class EmprestimoDAO extends ConexaoDAO {
     private static final String DATA_INICIO = "dataInicio";
     private static final String DATA_DEVOLUCAO = "dataDevolucao";
 
-    public ArrayList<Emprestimo> getListaEmprestimo() {
+    public List<Emprestimo> getListaEmprestimo() {
         // Limpa a lista para evitar duplicatas
         listaEmprestimo.clear();
         try (Statement smt = super.getConexao().createStatement()) {
