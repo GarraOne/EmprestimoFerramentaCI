@@ -10,10 +10,10 @@
 Esse projeto tem como objetivo utilizar de tecnologias de CI (Continous Integration) para poder melhorar e testar um codigo legado com funcao de gerenciar os empréstimos de ferramentas que o usuário faria para seus amigos.
 
 ## Integrantes do trabalho:
- Gabriel Teotônio Cordeiro 10724111027 \
- Luan Campi Galatti 1072419087 \
- Davi Dias Perius 10724114628 \
- Victor Lucio Scheuer Rodrigues 1072410296
+GarraOne: Gabriel Teotônio Cordeiro 10724111027 \
+LuanGalatti: Luan Campi Galatti 1072419087 \
+Periusdv: Davi Dias Perius 10724114628 \
+VictorLSRodrigues: Victor Lucio Scheuer Rodrigues 1072410296
 
 ## Tecnologias utilizadas:
 O projeto utiliza Java 8. \
