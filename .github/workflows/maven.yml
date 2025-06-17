@@ -48,6 +48,8 @@ jobs:
         run: Xvfb :1 -screen 0 1600x1200x24 & 
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4
@@ -89,6 +91,8 @@ jobs:
         run: Xvfb :1 -screen 0 1600x1200x24 &    
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4
