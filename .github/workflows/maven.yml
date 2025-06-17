@@ -78,7 +78,7 @@ jobs:
         with:
           maven-version: '3.9.6'
         
-        build-prd:
+  build-prd:
     runs-on: ubuntu-latest
     needs: build-hmg
     environment:
