@@ -23,9 +23,6 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
-      - name: Setup Maven
-        uses: s4u/setup-maven-action@v1
-        with:
           maven-version: '3.9.6'
 
       - name: Build with Maven
@@ -53,6 +50,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+          maven-version: '3.9.6'
 
       - name: Cache SonarQube packages
         uses: actions/cache@v4
@@ -73,11 +71,6 @@ jobs:
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=GarraOne_EmprestimoFerramentaCI
       - name: Desliga Xvfb
         run: killall Xvfb
-      - name: Setup Maven
-        uses: s4u/setup-maven-action@v1
-        with:
-          maven-version: '3.9.6'
-        
   build-prd:
     runs-on: ubuntu-latest
     needs: build-hmg
@@ -95,6 +88,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+          maven-version: '3.9.6'
 
       - name: Package project with Maven
         env:
@@ -113,8 +107,4 @@ jobs:
           name: Package
           path: staging
       - name: Desliga Xvfb
-        run: killall Xvfb     
-      - name: Setup Maven
-        uses: s4u/setup-maven-action@v1
-        with:
-          maven-version: '3.9.6'
+        run: killall Xvfb   
