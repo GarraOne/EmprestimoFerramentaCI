@@ -84,7 +84,12 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           DISPLAY: :1
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=GarraOne_EmprestimoFerramentaCI
+        run: |
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+            -Dsonar.projectKey=GarraOne_EmprestimoFerramentaCI \
+            -Dsonar.scm.enabled=true \
+            -Dsonar.scm.provider=git
+        
       - name: Desliga Xvfb
         run: killall Xvfb
   build-prd:
