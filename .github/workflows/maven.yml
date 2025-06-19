@@ -39,94 +39,105 @@ jobs:
           DISPLAY: :1
 
       - name: Stop Xvfb
-        run: killall Xvfb
+        run: killall Xvfb || echo "Xvfb já parado"
 
   build-hmg:
-   runs-on: ubuntu-latest
-   needs: build-dev
-   environment:
-     name: hmg
-   steps:
-    - name: Start virtual display (Xvfb)
-      run: Xvfb :1 -screen 0 1600x1200x24 &
+    runs-on: ubuntu-latest
+    needs: build-dev
+    environment:
+      name: hmg
+    steps:
+      - name: Start virtual display (Xvfb)
+        run: Xvfb :1 -screen 0 1600x1200x24 &
 
-    - name: Checkout repository (clone completo)
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0           # clone completo (sem shallow)
-        persist-credentials: false
+      - name: Checkout repository (clone completo)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
 
-    - name: Remove shallow flag (se existir)
-      run: |
-        if [ -f .git/shallow ]; then
-          echo "Arquivo .git/shallow encontrado, removendo..."
-          rm .git/shallow
-        else
-          echo "Nenhum arquivo .git/shallow encontrado"
-        fi
-        echo "Shallow? $(git rev-parse --is-shallow-repository)"
+      - name: Garantir .git/config seguro (extra)
+        run: git config --add safe.directory "$GITHUB_WORKSPACE"
 
-    - name: Configure git safe.directory e fetch completo
-      run: |
-        git config --global --add safe.directory "$GITHUB_WORKSPACE"
-        git fetch --unshallow || echo "Repositório já não é shallow"
-        git fetch --tags
-        git fetch origin +refs/heads/*:refs/remotes/origin/*
-        echo "Verificação final do clone:"
-        echo "Shallow? $(git rev-parse --is-shallow-repository)"
-        echo "Últimos commits:"
-        git log -3 --oneline
+      - name: Remover shallow flag e garantir fetch completo
+        run: |
+          if [ -f .git/shallow ]; then
+            echo "Removendo .git/shallow..."
+            rm .git/shallow
+          fi
+          git fetch --unshallow || echo "Já era completo"
+          git fetch --tags
+          git fetch origin +refs/heads/*:refs/remotes/origin/*
+          echo "Shallow? $(git rev-parse --is-shallow-repository)"
+          echo "Profundidade: $(git rev-list --count HEAD)"
 
-    - name: Limpar cache Sonar (opcional para testes)
-      run: rm -rf ~/.sonar/cache || echo "Cache sonar não existe ou não pôde ser removido"
+      - name: Validar branch (defensivo)
+        run: |
+          BRANCH=$(git rev-parse --abbrev-ref HEAD)
+          echo "Branch atual: $BRANCH"
+          if [ "$BRANCH" != "main" ]; then
+            echo "::warning::Branch atual não é 'main'"
+          fi
 
-    - name: Setup JDK 21
-      uses: actions/setup-java@v4
-      with:
-        java-version: '21'
-        distribution: 'temurin'
-        cache: maven
+      - name: Limpar repositório
+        run: git clean -fdx
 
-    - name: Setup Maven
-      uses: s4u/setup-maven-action@v1.18.0
-      with:
-        maven-version: '3.9.6'
+      - name: Limpar cache Sonar (opcional)
+        run: rm -rf ~/.sonar/cache || echo "Cache sonar não existe ou não pôde ser removido"
 
-    - name: Cache Sonar packages
-      uses: actions/cache@v4
-      with:
-        path: ~/.sonar/cache
-        key: ${{ runner.os }}-sonar
-        restore-keys: ${{ runner.os }}-sonar
+      - name: Setup JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
 
-    - name: Cache Maven packages
-      uses: actions/cache@v4
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
+      - name: Setup Maven
+        uses: s4u/setup-maven-action@v1.18.0
+        with:
+          maven-version: '3.9.6'
 
-    - name: Final sanity check do repositório
-      run: |
-        echo "Verificando clone e arquivos importantes..."
-        echo "Shallow? $(git rev-parse --is-shallow-repository)"
-        test -f .git/shallow && echo ".git/shallow ainda existe" || echo "Clone completo confirmado"
-        git status
-        git remote -v
+      - name: Cache Sonar packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
 
-    - name: Build and analyze with SonarCloud
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        DISPLAY: :1
-      run: |
-        mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-          -Dsonar.projectKey=GarraOne_EmprestimoFerramentaCI \
-          -Dsonar.scm.enabled=true \
-          -Dsonar.scm.provider=git \
-          -Dsonar.verbose=true
+      - name: Cache Maven packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
 
-    - name: Stop Xvfb
-      run: killall Xvfb || echo "Xvfb já finalizado"
+      - name: Final sanity check do repositório
+        run: |
+          echo "Shallow? $(git rev-parse --is-shallow-repository)"
+          test -f .git/shallow && echo ".git/shallow ainda existe" || echo "Clone completo confirmado"
+          git status
+          git log -3 --oneline
+
+      - name: Build and analyze with SonarCloud
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          DISPLAY: :1
+        run: |
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+            -Dsonar.projectKey=GarraOne_EmprestimoFerramentaCI \
+            -Dsonar.scm.enabled=true \
+            -Dsonar.scm.provider=git \
+            -Dsonar.verbose=true
+
+      - name: Backup temporário do diretório .scannerwork (debug opcional)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scannerwork-debug
+          path: .scannerwork/
+
+      - name: Stop Xvfb
+        run: killall Xvfb || echo "Xvfb já parado"
 
   build-prd:
     runs-on: ubuntu-latest
@@ -137,10 +148,19 @@ jobs:
       - name: Start virtual display (Xvfb)
         run: Xvfb :1 -screen 0 1600x1200x24 &
 
-      - name: Checkout repository
+      - name: Checkout repository (clone completo)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
+
+      - name: Garantir .git/config seguro
+        run: git config --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Verificar profundidade do repositório
+        run: |
+          echo "Shallow? $(git rev-parse --is-shallow-repository)"
+          echo "Profundidade: $(git rev-list --count HEAD)"
 
       - name: Setup JDK 21
         uses: actions/setup-java@v4
@@ -172,4 +192,5 @@ jobs:
           path: staging
 
       - name: Stop Xvfb
-        run: killall Xvfb
+        run: killall Xvfb || echo "Xvfb já parado"
+
