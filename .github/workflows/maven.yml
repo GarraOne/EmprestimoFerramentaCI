@@ -92,6 +92,14 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
+      - name: Verificação final do repositório
+        run: |
+          echo "Shallow? $(git rev-parse --is-shallow-repository)"
+          git log -n 3 --oneline
+          ls -la .git
+          cat .git/HEAD || echo "Sem HEAD"
+
+
       - name: Build and analyze with SonarCloud
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
