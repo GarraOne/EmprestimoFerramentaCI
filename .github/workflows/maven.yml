@@ -57,7 +57,11 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-
+          
+      - name: Forçar fetch completo do Git
+        run: |
+          git fetch --prune --unshallow || echo "Repositório já completo"
+          
       - name: Garante histórico completo do Git para SonarCloud
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
