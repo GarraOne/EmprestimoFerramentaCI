@@ -54,6 +54,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Corrige shallow clone
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git fetch --unshallow || echo "Repositório já não é shallow"
+          git rev-parse --is-shallow-repository
+
       - name: Configure Git for SonarCloud
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
