@@ -54,15 +54,11 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: Converte repositório para não-shallow (se necessário)
-        run: |
-          if git rev-parse --is-shallow-repository | grep true; then
-           echo "Repositório é shallow, convertendo..."
-           git fetch --unshallow
-          else
-           echo "Repositório já é completo. Nenhuma ação necessária."
-          fi
-          
+     - name: Garante histórico completo do Git para SonarCloud
+       run: |
+        git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        git fetch origin +refs/heads/*:refs/remotes/origin/*
+
       - name: Verifica existência do .git 
         run: ls -la .git
         
