@@ -54,6 +54,9 @@ jobs:
         with:
           fetch-depth: 0
           
+      - name: Converte repositório para não-shallow
+        run: git fetch --unshallow
+          
       - name: Verifica existência do .git 
         run: ls -la .git
         
