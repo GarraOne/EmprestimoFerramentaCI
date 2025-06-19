@@ -54,10 +54,23 @@ jobs:
         with:
           fetch-depth: 0
           
+     - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
      - name: Garante histórico completo do Git para SonarCloud
        run: |
         git config --global --add safe.directory "$GITHUB_WORKSPACE"
         git fetch origin +refs/heads/*:refs/remotes/origin/*
+
+      - name: Verifica existência do .git 
+        run: ls -la .git
+        
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
 
       - name: Verifica existência do .git 
         run: ls -la .git
