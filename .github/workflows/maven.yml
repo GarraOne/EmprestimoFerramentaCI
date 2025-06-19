@@ -56,6 +56,14 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Remove shallow flag se existir
+        run: |
+          if [ -f .git/shallow ]; then
+            echo "Removendo shallow flag..."
+            rm .git/shallow
+          fi
+          echo "Shallow? $(git rev-parse --is-shallow-repository)"
+
       - name: Configure Git and ensure full clone
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
