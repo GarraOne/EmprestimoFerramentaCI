@@ -54,15 +54,15 @@ jobs:
         with:
           fetch-depth: 0
           
-     - name: Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           
-     - name: Garante histórico completo do Git para SonarCloud
-       run: |
-        git config --global --add safe.directory "$GITHUB_WORKSPACE"
-        git fetch origin +refs/heads/*:refs/remotes/origin/*
+      - name: Garante histórico completo do Git para SonarCloud
+        run: |
+         git config --global --add safe.directory "$GITHUB_WORKSPACE"
+         git fetch origin +refs/heads/*:refs/remotes/origin/*
 
       - name: Verifica existência do .git 
         run: ls -la .git
