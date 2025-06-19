@@ -54,8 +54,14 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: Converte repositório para não-shallow
-        run: git fetch --unshallow
+      - name: Converte repositório para não-shallow (se necessário)
+        run: |
+          if git rev-parse --is-shallow-repository | grep true; then
+           echo "Repositório é shallow, convertendo..."
+           git fetch --unshallow
+         else
+           echo "Repositório já é completo. Nenhuma ação necessária."
+         fi
           
       - name: Verifica existência do .git 
         run: ls -la .git
