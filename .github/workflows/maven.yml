@@ -56,22 +56,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: false
-          
-      - name: Forçar fetch completo do Git
-        run: |
-          git fetch --prune --unshallow || echo "Repositório já completo"
-          
-      - name: Garante histórico completo do Git para SonarCloud
+
+      - name: Garantir clone completo para Sonar
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git fetch --prune --unshallow || true
+          git fetch --prune --unshallow || echo "Repositório já completo"
           git fetch origin +refs/heads/*:refs/remotes/origin/*
-      
-      - name: Debug Git e Sonar
-        run: |
-          git rev-parse --is-shallow-repository || echo "Erro ignorado"
-          git log -n 5 --oneline || echo "Erro ignorado"
+
+      - name: Debug shallow clone
+        run: git rev-parse --is-shallow-repository
 
       - name: Verifica existência do .git 
         run: ls -la .git
