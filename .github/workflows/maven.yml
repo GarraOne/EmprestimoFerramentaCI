@@ -12,18 +12,15 @@ jobs:
     environment:
       name: dev
     steps:
-      - name: Configura Xvfb para tela
+      - name: Start virtual display (Xvfb)
         run: Xvfb :1 -screen 0 1600x1200x24 &
-      
-      - name: Checkout repository (fetch completo)
+
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Clona todo o histórico
+          fetch-depth: 0
 
-      - name: Verifica existência do .git
-        run: ls -la .git
-
-      - name: Set up JDK 21
+      - name: Setup JDK 21
         uses: actions/setup-java@v4
         with:
           java-version: '21'
@@ -40,7 +37,7 @@ jobs:
         env:
           DISPLAY: :1
 
-      - name: Desliga Xvfb
+      - name: Stop Xvfb
         run: killall Xvfb
 
   build-hmg:
@@ -49,29 +46,21 @@ jobs:
     environment:
       name: hmg
     steps:
-      - name: Configura Xvfb para tela
+      - name: Start virtual display (Xvfb)
         run: Xvfb :1 -screen 0 1600x1200x24 &
 
-      - name: Checkout repository (fetch completo)
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Garante histórico completo do Git para SonarCloud
+      - name: Configure Git for SonarCloud
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git fetch --prune --unshallow || echo "Repositório já completo"
+          git fetch --prune --unshallow || echo "Repo already complete"
           git fetch origin +refs/heads/*:refs/remotes/origin/*
 
-      - name: Debug Git para verificar clone
-        run: |
-          echo "Repositório shallow? $(git rev-parse --is-shallow-repository)"
-          git log -n 5 --oneline
-
-      - name: Verifica existência do .git
-        run: ls -la .git
-
-      - name: Set up JDK 21
+      - name: Setup JDK 21
         uses: actions/setup-java@v4
         with:
           java-version: '21'
@@ -83,7 +72,7 @@ jobs:
         with:
           maven-version: '3.9.6'
 
-      - name: Cache SonarQube packages
+      - name: Cache Sonar packages
         uses: actions/cache@v4
         with:
           path: ~/.sonar/cache
@@ -97,12 +86,6 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      - name: Verifica .git e log antes da análise Sonar
-        run: |
-          ls -la
-          git status
-          git log -n 2
-
       - name: Build and analyze with SonarCloud
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -114,7 +97,7 @@ jobs:
             -Dsonar.scm.provider=git \
             -Dsonar.verbose=true
 
-      - name: Desliga Xvfb
+      - name: Stop Xvfb
         run: killall Xvfb
 
   build-prd:
@@ -123,18 +106,15 @@ jobs:
     environment:
       name: prd
     steps:
-      - name: Configura Xvfb para tela
-        run: Xvfb :1 -screen 0 1600x1200x24 &    
+      - name: Start virtual display (Xvfb)
+        run: Xvfb :1 -screen 0 1600x1200x24 &
 
-      - name: Checkout repository (fetch completo)
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Verifica existência do .git
-        run: ls -la .git
-
-      - name: Set up JDK 21
+      - name: Setup JDK 21
         uses: actions/setup-java@v4
         with:
           java-version: '21'
@@ -148,13 +128,13 @@ jobs:
 
       - name: Package project with Maven
         env:
-          DISPLAY: :1 
+          DISPLAY: :1
         run: mvn -B package --file pom.xml
 
-      - name: Create temporary artifact folder
+      - name: Create artifact folder
         run: mkdir staging
 
-      - name: Copy artifacts to staging folder
+      - name: Copy artifacts
         run: cp target/*jar-with-dependencies.jar staging
 
       - name: Upload artifact
@@ -163,5 +143,5 @@ jobs:
           name: Package
           path: staging
 
-      - name: Desliga Xvfb
+      - name: Stop Xvfb
         run: killall Xvfb
