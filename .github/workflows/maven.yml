@@ -12,14 +12,13 @@ jobs:
     environment:
       name: dev
     steps:
-      - name: Configura xvfb para tela
+      - name: Configura Xvfb para tela
         run: Xvfb :1 -screen 0 1600x1200x24 &
-
-      - name: Checkout repository
+      
+      - name: Checkout repository (fetch completo)
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          persist-credentials: true
+          fetch-depth: 0  # Clona todo o histórico
 
       - name: Verifica existência do .git
         run: ls -la .git
@@ -50,25 +49,23 @@ jobs:
     environment:
       name: hmg
     steps:
-      - name: Configura xvfb para tela
+      - name: Configura Xvfb para tela
         run: Xvfb :1 -screen 0 1600x1200x24 &
 
-      - name: Checkout repository
+      - name: Checkout repository (fetch completo)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: true
 
       - name: Garante histórico completo do Git para SonarCloud
         run: |
-          echo "Antes do fetch --unshallow:"
-          git rev-parse --is-shallow-repository
-          git fetch --unshallow || true
-          echo "Depois do fetch --unshallow:"
-          git rev-parse --is-shallow-repository
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git fetch --prune --unshallow || echo "Repositório já completo"
+          git fetch origin +refs/heads/*:refs/remotes/origin/*
 
-      - name: Debug Git e Sonar
+      - name: Debug Git para verificar clone
         run: |
+          echo "Repositório shallow? $(git rev-parse --is-shallow-repository)"
           git log -n 5 --oneline
 
       - name: Verifica existência do .git
@@ -106,7 +103,7 @@ jobs:
           git status
           git log -n 2
 
-      - name: Build and analyze
+      - name: Build and analyze with SonarCloud
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           DISPLAY: :1
@@ -126,14 +123,13 @@ jobs:
     environment:
       name: prd
     steps:
-      - name: Configura xvfb para tela
-        run: Xvfb :1 -screen 0 1600x1200x24 &
+      - name: Configura Xvfb para tela
+        run: Xvfb :1 -screen 0 1600x1200x24 &    
 
-      - name: Checkout repository
+      - name: Checkout repository (fetch completo)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: true
 
       - name: Verifica existência do .git
         run: ls -la .git
@@ -152,7 +148,7 @@ jobs:
 
       - name: Package project with Maven
         env:
-          DISPLAY: :1
+          DISPLAY: :1 
         run: mvn -B package --file pom.xml
 
       - name: Create temporary artifact folder
