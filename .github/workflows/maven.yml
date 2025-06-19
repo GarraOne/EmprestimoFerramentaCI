@@ -80,6 +80,14 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+
+      - name: Verifica .git e log antes da análise Sonar
+        run: |
+          ls -la
+          ls -la .git
+          git status
+          git log -n 2
+          
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
