@@ -96,7 +96,8 @@ jobs:
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey=GarraOne_EmprestimoFerramentaCI \
             -Dsonar.scm.enabled=true \
-            -Dsonar.scm.provider=git
+            -Dsonar.scm.provider=git \
+            -Dsonar.verbose=true
         
       - name: Desliga Xvfb
         run: killall Xvfb
