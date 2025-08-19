@@ -12,7 +12,7 @@ import service.AmigoService;
 public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
     private transient Amigo amigo;
-    AmigoService amigoService = new AmigoService();
+    private transient AmigoService amigoService;
 
     private String mensagem;
 
