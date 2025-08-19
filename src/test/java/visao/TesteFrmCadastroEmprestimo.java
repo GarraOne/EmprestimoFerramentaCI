@@ -12,10 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import service.AmigoService;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 class TesteFrmCadastroEmprestimo {
+
+    AmigoService amigoService = new AmigoService();
 
     //Objeto amigo a ser inserido
     Amigo amigoTeste;
@@ -43,7 +46,7 @@ class TesteFrmCadastroEmprestimo {
     @Test
     void testCadastroValido() {
 
-        amigoTeste.insertAmigoDB("Joao", "12345678");
+        amigoService.insertAmigoDB("Joao", "12345678");
         ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
 
         frmCadastroEmprestimo.inicializarCombos();
@@ -69,8 +72,8 @@ class TesteFrmCadastroEmprestimo {
     @Test
     void testFerramentaInvalido() {
 
-        amigoTeste.insertAmigoDB("Joao", "12345678");
-        amigoTeste.insertAmigoDB("Ana", "87654321");
+        amigoService.insertAmigoDB("Joao", "12345678");
+        amigoService.insertAmigoDB("Ana", "87654321");
         ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
         emprestimoTeste.insertEmprestimoDB(1, 1, "21-05-2025");
 
@@ -105,7 +108,7 @@ class TesteFrmCadastroEmprestimo {
     @Test
     void testEmprestimoInvalido() {
 
-        amigoTeste.insertAmigoDB("Joao", "12345678"); 
+        amigoService.insertAmigoDB("Joao", "12345678");
         ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
         ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
         emprestimoTeste.insertEmprestimoDB(1, 1, "21-05-2025");
@@ -114,8 +117,7 @@ class TesteFrmCadastroEmprestimo {
 
         frmCadastroEmprestimo.getJCBAmigo().setSelectedIndex(0);
         frmCadastroEmprestimo.getJCBFerramenta().setSelectedIndex(1);
-        
-        
+
         // Fecha a tela
         new javax.swing.Timer(500, e -> {
             for (Window w : Window.getWindows()) {

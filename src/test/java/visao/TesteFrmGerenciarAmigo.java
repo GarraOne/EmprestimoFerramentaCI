@@ -9,10 +9,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import service.AmigoService;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 class TesteFrmGerenciarAmigo {
+
+    AmigoService amigoService = new AmigoService();
 
     //Objeto amigo a ser inserido
     Amigo amigoTeste;
@@ -45,7 +48,7 @@ class TesteFrmGerenciarAmigo {
     @Test
     void testModificarAmigo() {
 
-        amigoTeste.insertAmigoDB("Joao", "12345678");
+        amigoService.insertAmigoDB("Joao", "12345678");
 
         frmGerenciarAmigo.inicializarLista();
 
@@ -65,7 +68,7 @@ class TesteFrmGerenciarAmigo {
     @Test
     void testApagarAmigo() {
 
-        amigoTeste.insertAmigoDB("Joao", "12345678");
+        amigoService.insertAmigoDB("Joao", "12345678");
 
         frmGerenciarAmigo.inicializarLista();
 

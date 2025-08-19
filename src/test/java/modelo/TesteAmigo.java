@@ -7,11 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import service.AmigoService;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class TesteAmigo {
 
     Amigo amigo;
+    AmigoService amigoService = new AmigoService();
 
     @BeforeEach
     void inicializacao() {
@@ -21,36 +23,36 @@ class TesteAmigo {
 
     @Test
     void testInsertAmigoDB() {
-        boolean result = amigo.insertAmigoDB("Joao", "48999");
+        boolean result = amigoService.insertAmigoDB("Joao", "48999");
         assertTrue(result);
 
         // Verifica se o amigo foi realmente inserido
-        List<Amigo> amigos = amigo.listaAmigo();
+        List<Amigo> amigos = amigoService.listaAmigo();
         assertFalse(amigos.isEmpty(), "A lista de amigos não deve estar vazia.");
         assertEquals("Joao", amigos.get(amigos.size() - 1).getNomeAmigo());
     }
 
     @Test
     void testDeleteAmigoDB() {
-        amigo.insertAmigoDB("Joao", "48999");
-        int id = amigo.maiorID(); // Pega o ID do último amigo inserido
-        boolean result = amigo.deleteAmigoDB(id);
+        amigoService.insertAmigoDB("Joao", "48999");
+        int id = amigoService.maiorID(); // Pega o ID do último amigo inserido
+        boolean result = amigoService.deleteAmigoDB(id);
 
         assertTrue(result);
 
-        List<Amigo> amigos = amigo.listaAmigo();
+        List<Amigo> amigos = amigoService.listaAmigo();
         assertFalse(amigos.stream().anyMatch(a -> a.getIdAmigo() == id));
     }
 
     @Test
     void testUpdateAmigoDB() {
-        amigo.insertAmigoDB("Carlos", "111222333");
-        int id = amigo.maiorID();
-        boolean result = amigo.updateAmigoDB(id, "Carlos Silva", "444555666");
+        amigoService.insertAmigoDB("Carlos", "111222333");
+        int id = amigoService.maiorID();
+        boolean result = amigoService.updateAmigoDB(id, "Carlos Silva", "444555666");
 
         assertTrue(result);
 
-        Amigo amigoAtualizado = amigo.retrieveAmigoDB(id);
+        Amigo amigoAtualizado = amigoService.retrieveAmigoDB(id);
         assertEquals("Carlos Silva", amigoAtualizado.getNomeAmigo());
         assertEquals("444555666", amigoAtualizado.getTelefone());
     }
@@ -60,7 +62,7 @@ class TesteAmigo {
         Emprestimo emp = new Emprestimo();
         emp.insertEmprestimoDB(1, 1, "05-05-2005");
         boolean emprestimoAtivoEsperado = true;
-        boolean emprestimoAtivoRecebido = amigo.possuiEmprestimoAtivo(1);
+        boolean emprestimoAtivoRecebido = amigoService.possuiEmprestimoAtivo(1);
         assertEquals(emprestimoAtivoEsperado, emprestimoAtivoRecebido);
         emp.deleteEmprestimoDB(1);
     }
@@ -70,7 +72,7 @@ class TesteAmigo {
         Emprestimo emp = new Emprestimo();
         emp.insertEmprestimoDB(1, 1, "05-05-2005");
         int quantidadeEsperada = 1;
-        int quantidadeRecebida = amigo.quantidadeEmprestimo(1);
+        int quantidadeRecebida = amigoService.quantidadeEmprestimo(1);
         assertEquals(quantidadeEsperada, quantidadeRecebida);
         emp.deleteEmprestimoDB(1);
     }
@@ -85,18 +87,16 @@ class TesteAmigo {
 
     @Test
     void testGetNomeAmigo() {
-        amigo.insertAmigoDB("jorge", "123123123");
+        amigoService.insertAmigoDB("jorge", "123123123");
         String nomeEsperado = "jorge";
-        String nomeRecebido = amigo.getNomeAmigo(1);
+        String nomeRecebido = amigoService.getNomeAmigo(1);
         assertEquals(nomeEsperado, nomeRecebido);
-        amigo.deleteAmigoDB(1);
+        amigoService.deleteAmigoDB(1);
     }
 
     @AfterEach
     void finalizacao() {
-        Amigo dao = new Amigo();
-        dao.deleteAmigoDB(1);
-        dao.deleteAmigoDB(2);
+        amigoService.deleteAmigoDB(1);
+        amigoService.deleteAmigoDB(2);
     }
-
 }

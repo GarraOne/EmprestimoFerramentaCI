@@ -11,11 +11,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import service.AmigoService;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class TesteFrmGerenciarEmprestimo {
-    //Objeto amigo a ser inserido
 
+    AmigoService amigoService = new AmigoService();
+
+    //Objeto amigo a ser inserido
     Amigo amigoTeste;
     //Objeto ferramenta a ser inserido
     Ferramenta ferramentaTeste;
@@ -41,7 +44,7 @@ class TesteFrmGerenciarEmprestimo {
     @Test
     void testModificarEmprestimo() {
 
-        amigoTeste.insertAmigoDB("Joao", "12345678");
+        amigoService.insertAmigoDB("Joao", "12345678");
         ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
         emprestimoTeste.insertEmprestimoDB(1, 1, "21-05-2025");
 

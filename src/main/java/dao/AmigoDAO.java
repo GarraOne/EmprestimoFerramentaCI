@@ -38,20 +38,20 @@ public class AmigoDAO extends ConexaoDAO {
     }
 
     public List<Amigo> getListaAmigo() {
-    List<Amigo> lista = new ArrayList<>();
-    try (Statement smt = super.getConexao().createStatement()) {
-        ResultSet res = smt.executeQuery("select idAmigo, nomeAmigo, TelefoneAmigo from amigo");
-        while (res.next()) {
-            int idAmigo = res.getInt("IdAmigo");
-            String nomeAmigo = res.getString("nomeAmigo");
-            String telefoneAmigo = res.getString("telefoneAmigo");
-            lista.add(new Amigo(idAmigo, nomeAmigo, telefoneAmigo));
+        List<Amigo> lista = new ArrayList<>();
+        try (Statement smt = super.getConexao().createStatement()) {
+            ResultSet res = smt.executeQuery("select idAmigo, nomeAmigo, TelefoneAmigo from amigo");
+            while (res.next()) {
+                int idAmigo = res.getInt("IdAmigo");
+                String nomeAmigo = res.getString("nomeAmigo");
+                String telefoneAmigo = res.getString("telefoneAmigo");
+                lista.add(new Amigo(idAmigo, nomeAmigo, telefoneAmigo));
+            }
+        } catch (SQLException erro) {
+            logErro(erro);
         }
-    } catch (SQLException erro) {
-        logErro(erro);
+        return lista;
     }
-    return lista;
-}
 
     /**
      * Define a lista de amigos.
@@ -114,15 +114,22 @@ public class AmigoDAO extends ConexaoDAO {
     public Amigo retrieveAmigoDB(int idAmigo) {
         Amigo amigo = new Amigo();
         amigo.setIdAmigo(idAmigo);
-        String query = "select idAmigo, nomeAmigo, TelefoneAmigo from amigo where idAmigo = ? ";
+        String query = "select idAmigo, nomeAmigo, telefoneAmigo from amigo where idAmigo = ? ";
         try (PreparedStatement smt = super.getConexao().prepareStatement(query)) {
             smt.setInt(1, idAmigo);
             ResultSet res = smt.executeQuery();
-            res.next();
-            amigo.setNomeAmigo(res.getString("nomeAmigo"));
-            amigo.setTelefone(res.getString("telefoneAmigo"));
+            if (res.next()) {
+                amigo.setNomeAmigo(res.getString("nomeAmigo"));
+                amigo.setTelefone(res.getString("telefoneAmigo"));
+            } else {
+                // Nenhum registro encontrado: mantém valores padrão
+                amigo.setNomeAmigo("");
+                amigo.setTelefone("");
+            }
         } catch (SQLException erro) {
             logErro(erro);
+            amigo.setNomeAmigo("");
+            amigo.setTelefone("");
         }
         return amigo;
     }
