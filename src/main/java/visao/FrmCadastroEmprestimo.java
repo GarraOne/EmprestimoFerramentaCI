@@ -8,12 +8,15 @@ import javax.swing.JOptionPane;
 import modelo.Amigo;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
+import service.AmigoService;
 
 public class FrmCadastroEmprestimo extends javax.swing.JFrame {
 
     private final transient Ferramenta ferramenta;
     private final transient Amigo amigo;
+    AmigoService amigoService = new AmigoService();
 
+    
     private String mensagem;
 
     public FrmCadastroEmprestimo() {
@@ -122,14 +125,14 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             int posicaoFerramenta = JCBFerramenta.getSelectedIndex();
             int posicaoAmigo = JCBAmigo.getSelectedIndex();
             ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
-            List<Amigo> listaAmigo = amigo.listaAmigo();
+            List<Amigo> listaAmigo = amigoService.listaAmigo();
             Emprestimo emprestimo = new Emprestimo();
             if ("Não".equals(listaFerramenta.get(posicaoFerramenta).getDisponivel(listaFerramenta.get(posicaoFerramenta).getIdFerramenta()))) {
                 mostrarMensagem("Ferramenta já emprestada.");
                 throw new Erro("Ferramenta já emprestada.");
             }
             int idAmigo = listaAmigo.get(posicaoAmigo).getIdAmigo();
-            if (amigo.possuiEmprestimoAtivo(idAmigo)) {
+            if (amigoService.possuiEmprestimoAtivo(idAmigo)) {
                 conf = confirmarCadastrarAmigoComEmprestimo();
             }
             int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramenta();
@@ -156,7 +159,7 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
     }
 
     public void carregaCBAmigo() {
-        List<Amigo> listaAmigo = amigo.listaAmigo();
+        List<Amigo> listaAmigo = amigoService.listaAmigo();
         for (Amigo objeto : listaAmigo) {
             JCBAmigo.addItem(objeto.getIdAmigo() + "- " + objeto.getNomeAmigo());
         }

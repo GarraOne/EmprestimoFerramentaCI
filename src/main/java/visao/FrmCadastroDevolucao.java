@@ -8,12 +8,14 @@ import javax.swing.JOptionPane;
 import modelo.Amigo;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
+import service.AmigoService;
 
 public class FrmCadastroDevolucao extends javax.swing.JFrame {
 
     private transient Emprestimo emprestimo;
     private transient Amigo amigo;
     private transient Ferramenta ferramenta;
+    AmigoService amigoService = new AmigoService();
 
     private String mensagem;
 
@@ -133,7 +135,7 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
     public void carregaCBEmprestimo() {
         Emprestimo emp = new Emprestimo();
         ArrayList<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
-        List<Amigo> listaAmigo = amigo.listaAmigo();
+        List<Amigo> listaAmigo = amigoService.listaAmigo();
         ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
 
         for (Emprestimo objeto : listaEmprestimo) {

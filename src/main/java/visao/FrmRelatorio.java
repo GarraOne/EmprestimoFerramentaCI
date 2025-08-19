@@ -7,6 +7,7 @@ import modelo.Emprestimo;
 import modelo.Ferramenta;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import service.AmigoService;
 
 public class FrmRelatorio extends javax.swing.JFrame {
 
@@ -76,10 +77,10 @@ public class FrmRelatorio extends javax.swing.JFrame {
         String string = "FERRAMENTAS: \n";
         String lista = "";
         double som = 0;
-        Amigo amg = new Amigo();
+        AmigoService amigoService = new AmigoService();
         Ferramenta frmt = new Ferramenta();
         Emprestimo emp = new Emprestimo();
-        List<Amigo> listaAmigo = amg.listaAmigo();
+        List<Amigo> listaAmigo = amigoService.listaAmigo();
         ArrayList<Ferramenta> listaFerramenta = frmt.listaFerramenta();
         List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
 
@@ -90,17 +91,17 @@ public class FrmRelatorio extends javax.swing.JFrame {
         string = string + lista + "\n Custo total das ferramentas: R$" + som + "\n\n AMIGOS: \n";
         lista = "";
         for (int i = 0; i < listaAmigo.size(); i++) {
-            lista = lista + "\n ID do Amigo: " + listaAmigo.get(i).getIdAmigo() + "\n Nome do Amigo: " + listaAmigo.get(i).getNomeAmigo() + "\n Telefone do Amigo: " + listaAmigo.get(i).getTelefone() + "\n Número de Empréstimos: " + listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo()) + "\n Possui empréstimo ativo: " + listaAmigo.get(i).possuiEmprestimoAtivo(listaAmigo.get(i).getIdAmigo()) + "\n";
-            if (listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo()) > maior) {
+            lista = lista + "\n ID do Amigo: " + listaAmigo.get(i).getIdAmigo() + "\n Nome do Amigo: " + listaAmigo.get(i).getNomeAmigo() + "\n Telefone do Amigo: " + listaAmigo.get(i).getTelefone() + "\n Número de Empréstimos: " + amigoService.quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo()) + "\n Possui empréstimo ativo: " + amigoService.possuiEmprestimoAtivo(listaAmigo.get(i).getIdAmigo()) + "\n";
+            if (amigoService.quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo()) > maior) {
                 idAmigo = listaAmigo.get(i).getIdAmigo();
-                maior = listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo());
+                maior = amigoService.quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo());
             }
         }
-        string = string + lista + "\n Amigo com maior quantidade de empréstimos: " + amg.getNomeAmigo(idAmigo) + "\n Quantidade de empréstimos: " + maior + "\n\n EMPRÉSTIMOS: \n";
+        string = string + lista + "\n Amigo com maior quantidade de empréstimos: " + amigoService.getNomeAmigo(idAmigo) + "\n Quantidade de empréstimos: " + maior + "\n\n EMPRÉSTIMOS: \n";
         lista = "";
         for (int i = 0; i < listaEmprestimo.size(); i++) {
             logger.log(Level.INFO, "Processando empréstimo índice: {0}", i);
-            lista = lista + "\n ID do Empréstimo: " + listaEmprestimo.get(i).getIDEmprestimo() + "\n Nome do Amigo: " + amg.getNomeAmigo(listaEmprestimo.get(i).getIDAmigo()) + "\n Nome da Ferramenta: " + frmt.getNomeFerramenta(listaEmprestimo.get(i).getIDFerramenta()) + "\n Data de Início: " + listaEmprestimo.get(i).getDataEmprestimo() + "\n Data de Devolução: " + listaEmprestimo.get(i).getDataDevolucao() + "\n";
+            lista = lista + "\n ID do Empréstimo: " + listaEmprestimo.get(i).getIDEmprestimo() + "\n Nome do Amigo: " + amigoService.getNomeAmigo(listaEmprestimo.get(i).getIDAmigo()) + "\n Nome da Ferramenta: " + frmt.getNomeFerramenta(listaEmprestimo.get(i).getIDFerramenta()) + "\n Data de Início: " + listaEmprestimo.get(i).getDataEmprestimo() + "\n Data de Devolução: " + listaEmprestimo.get(i).getDataDevolucao() + "\n";
         }
         string = string + lista;
         JTARelatorio.setText(string);

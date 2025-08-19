@@ -7,10 +7,12 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
 import modelo.Emprestimo;
 import javax.swing.*;
+import service.AmigoService;
 
 public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
     private transient Amigo amigo;
+    AmigoService amigoService = new AmigoService();
 
     private String mensagem;
 
@@ -185,7 +187,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
             }
 
-            if (amigo.updateAmigoDB(id, nome, telefone)) {
+            if (amigoService.updateAmigoDB(id, nome, telefone)) {
                 mostrarMensagem("Amigo atualizado com sucesso.");
                 labelIid.setVisible(false);
                 textNome.setText("");
@@ -219,7 +221,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
                     emp.deleteEmprestimoDB(listaEmprestimo.get(i).getIDEmprestimo());
                 }
             }
-            amigo.deleteAmigoDB(Integer.parseInt(labelIid.getText()));
+            amigoService.deleteAmigoDB(Integer.parseInt(labelIid.getText()));
             labelIid.setVisible(false);
             textNome.setText("");
             textTelefone.setText("");
@@ -232,7 +234,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTableAmigos.getModel();
         labelIid.setVisible(false);
         model.setNumRows(0);
-        List<Amigo> listaAmigo = amigo.listaAmigo();
+        List<Amigo> listaAmigo = amigoService.listaAmigo();
         for (Amigo objeto : listaAmigo) {
             model.addRow(new Object[]{
                 objeto.getIdAmigo(),

@@ -2,6 +2,7 @@ package visao;
 
 import javax.swing.JOptionPane;
 import modelo.Amigo;
+import service.AmigoService;
 
 public class FrmCadastroAmigo extends javax.swing.JFrame {
 
@@ -10,6 +11,7 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
      */
     private final transient Amigo objetoamigo;
     // cria o vínculo com Amigo.java
+    private final transient AmigoService serviceAmigo;
 
     private String mensagem;
 
@@ -17,6 +19,7 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         initComponents();
         this.objetoamigo = new Amigo();
         // carrega o objeto vazio de amigo
+        this.serviceAmigo = new AmigoService();
     }
 
     public String getMensagem() {
@@ -149,7 +152,7 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
             objetoamigo.setNomeAmigo(nome);
             objetoamigo.setTelefone(telefone);
 
-            if (objetoamigo.insertAmigoDB(nome, telefone)) {
+            if (serviceAmigo.insertAmigoDB(nome, telefone)) {
                 mostrarMensagem("Amigo cadastrado com sucesso.");
                 textNomeAmigo.setText("");
                 textTelefone.setText("");
