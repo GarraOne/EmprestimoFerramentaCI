@@ -2,6 +2,7 @@ package visao;
 
 import javax.swing.JOptionPane;
 import modelo.Ferramenta;
+import service.FerramentaService;
 
 public class FrmCadastroFerramenta extends javax.swing.JFrame {
 
@@ -9,7 +10,7 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
      * Creates new form FrmCadastroFerramenta
      */
     private transient Ferramenta objetoferramenta;
-
+    private transient FerramentaService ferramentaService = new FerramentaService();
     private String mensagem;
 
     public FrmCadastroFerramenta() {
@@ -166,7 +167,7 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
                 custo = (Double.parseDouble(textCustoFerramenta.getText()));
 
             }
-            if (objetoferramenta.insertFerramentaDB(nome, marca, custo)) {
+            if (ferramentaService.insertFerramentaDB(nome, marca, custo)) {
                 mostrarMensagem("Ferramenta cadastrada com sucesso.");
                 textMarcaFerramenta.setText("");
                 textNomeFerramenta.setText("");

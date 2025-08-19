@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import modelo.Amigo;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
+import service.FerramentaService;
 import service.AmigoService;
 
 public class FrmCadastroDevolucao extends javax.swing.JFrame {
@@ -16,7 +17,7 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
     private transient Amigo amigo;
     private transient Ferramenta ferramenta;
     private transient AmigoService amigoService = new AmigoService();
-
+    private transient FerramentaService ferramentaService = new FerramentaService();
     private String mensagem;
 
     public FrmCadastroDevolucao() {
@@ -136,7 +137,7 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
         Emprestimo emp = new Emprestimo();
         ArrayList<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
         List<Amigo> listaAmigo = amigoService.listaAmigo();
-        ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
+        List<Ferramenta> listaFerramenta = ferramentaService.listaFerramenta();
 
         for (Emprestimo objeto : listaEmprestimo) {
             comboBoxEmprestimo.addItem(objeto.getIDEmprestimo() + "- " + listaAmigo.get(objeto.getIDAmigo() - 1).getNomeAmigo() + "- " + listaFerramenta.get(objeto.getIDFerramenta() - 1).getNomeFerramenta());

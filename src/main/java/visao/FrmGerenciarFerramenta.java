@@ -7,11 +7,12 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
+import service.FerramentaService;
 
 public class FrmGerenciarFerramenta extends javax.swing.JFrame {
 
     private transient Ferramenta ferramenta;
-
+    private transient FerramentaService ferramentaService = new FerramentaService();
     private String mensagem;
 
     public FrmGerenciarFerramenta() {
@@ -233,7 +234,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 custo = (Double.parseDouble(JTFCustoFerramenta.getText()));
 
             }
-            if (ferramenta.updateFerramentaDB(id, nome, marca, custo)) {
+            if (ferramentaService.updateFerramentaDB(id, nome, marca, custo)) {
                 mostrarMensagem("Ferramenta atualizada com sucesso.");
                 JLIid.setVisible(false);
                 JTFMarca.setText("");
@@ -260,7 +261,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                     emp.deleteEmprestimoDB(listaEmprestimo.get(i).getIDEmprestimo());
                 }
             }
-            ferramenta.deleteFerramentaDB(Integer.parseInt(JLIid.getText()));
+            ferramentaService.deleteFerramentaDB(Integer.parseInt(JLIid.getText()));
             JLIid.setVisible(false);
             JTFMarca.setText("");
             JTFNome.setText("");
@@ -277,14 +278,14 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         double som = 0;
         DecimalFormat df = new DecimalFormat("0.00");
         model.setNumRows(0);
-        ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
+        List<Ferramenta> listaFerramenta = ferramentaService.listaFerramenta();
         for (Ferramenta objeto : listaFerramenta) {
             model.addRow(new Object[]{
                 objeto.getIdFerramenta(),
                 objeto.getNomeFerramenta(),
                 objeto.getMarcaFerramenta(),
                 objeto.getCustoFerramenta(),
-                objeto.getDisponivel(objeto.getIdFerramenta()),}
+                ferramentaService.getDisponivel(objeto.getIdFerramenta()),}
             );
             som += objeto.getCustoFerramenta();
         }

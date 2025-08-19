@@ -1,8 +1,5 @@
 package modelo;
 
-import dao.FerramentaDAO;
-import java.util.ArrayList;
-
 /**
  * Classe de ferramenta com nome, marca, custo e disponibilidade.
  */
@@ -12,7 +9,6 @@ public class Ferramenta {
     private String nomeFerramenta;
     private String marcaFerramenta;
     private double custoFerramenta;
-    private FerramentaDAO dao;
 
     /**
      * Construtor para a classe Ferramenta. Inicializa a ferramenta com nome e
@@ -38,7 +34,7 @@ public class Ferramenta {
         this.nomeFerramenta = nome;
         this.custoFerramenta = custo;
         this.marcaFerramenta = marca; // Inicializa a marca como uma string vazia
-        this.dao = new FerramentaDAO();
+
     }
 
     /**
@@ -73,18 +69,6 @@ public class Ferramenta {
      * @return {@code true} se a ferramenta estiver disponível, {@code false}
      * caso contrário.
      */
-    public String getDisponivel(int id) {
-        String disponivel = "Sim";
-        Emprestimo emp = new Emprestimo();
-        ArrayList<Emprestimo> listaEmprestimoAtivo = emp.getListaEmprestimoAtivo();
-        for (int i = 0; i < listaEmprestimoAtivo.size(); i++) {
-            if (listaEmprestimoAtivo.get(i).getIDFerramenta() == id) {
-                disponivel = "Não";
-            }
-        }
-        return disponivel;
-    }
-
     /**
      * Obtém a marca da ferramenta.
      *
@@ -106,46 +90,4 @@ public class Ferramenta {
         this.idFerramenta = idFerramenta;
     }
 
-    public ArrayList<Ferramenta> listaFerramenta() {
-        return dao.getListaFerramenta();
-    }
-
-    public boolean insertFerramentaDB(String nome, String marca, double custo) {
-        int maiorID = dao.maiorIDFerramenta() + 1;
-
-        Ferramenta ferramenta = new Ferramenta(maiorID, nome, custo, marca);
-        dao.insertFerramentaDB(ferramenta);
-        return true;
-
-    }
-
-    public boolean deleteFerramentaDB(int id) {
-        dao.deleteFerramentaDB(id);
-        return true;
-    }
-
-    public boolean updateFerramentaDB(int id, String nome, String marca, double custo) {
-        Ferramenta ferramenta = new Ferramenta(id, nome, custo, marca);
-        dao.updateFerramentaDB(ferramenta);
-        return true;
-    }
-
-    public Ferramenta retrieveFerramentaDB(int id) {
-        return dao.retrieveFerramentaDB(id);
-    }
-
-    public int maiorID() {
-        return dao.maiorIDFerramenta();
-    }
-
-    public String getNomeFerramenta(int id) {
-        String nome = "";
-        ArrayList<Ferramenta> listaFerramenta = this.listaFerramenta();
-        for (int i = 0; i < listaFerramenta.size(); i++) {
-            if (id == listaFerramenta.get(i).getIdFerramenta()) {
-                nome = listaFerramenta.get(i).getNomeFerramenta();
-            }
-        }
-        return nome;
-    }
 }

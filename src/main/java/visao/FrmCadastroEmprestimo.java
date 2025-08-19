@@ -9,12 +9,14 @@ import modelo.Amigo;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
 import service.AmigoService;
+import service.FerramentaService;
 
 public class FrmCadastroEmprestimo extends javax.swing.JFrame {
 
     private final transient Ferramenta ferramenta;
     private final transient Amigo amigo;
     private transient AmigoService amigoService = new AmigoService();
+    private transient FerramentaService ferramentaService= new FerramentaService();
 
     private String mensagem;
 
@@ -123,10 +125,10 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
 
             int posicaoFerramenta = JCBFerramenta.getSelectedIndex();
             int posicaoAmigo = JCBAmigo.getSelectedIndex();
-            ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
+            List<Ferramenta> listaFerramenta = ferramentaService.listaFerramenta();
             List<Amigo> listaAmigo = amigoService.listaAmigo();
             Emprestimo emprestimo = new Emprestimo();
-            if ("Não".equals(listaFerramenta.get(posicaoFerramenta).getDisponivel(listaFerramenta.get(posicaoFerramenta).getIdFerramenta()))) {
+            if ("Não".equals(ferramentaService.getDisponivel(listaFerramenta.get(posicaoFerramenta).getIdFerramenta()))) {
                 mostrarMensagem("Ferramenta já emprestada.");
                 throw new Erro("Ferramenta já emprestada.");
             }
@@ -141,7 +143,7 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             if (conf == 0) {
                 if (emprestimo.insertEmprestimoDB(idAmigo, idFerramenta, DataInicio)) {
                     mostrarMensagem("Empréstimo cadastrado com sucesso.");
-                    ferramenta.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramenta(), listaFerramenta.get(posicaoFerramenta).getMarcaFerramenta(), listaFerramenta.get(posicaoFerramenta).getCustoFerramenta());
+                    ferramentaService.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramenta(), listaFerramenta.get(posicaoFerramenta).getMarcaFerramenta(), listaFerramenta.get(posicaoFerramenta).getCustoFerramenta());
                 };
 
             }
@@ -150,7 +152,7 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JBCadastrarActionPerformed
     public void carregaCBFerramenta() {
-        ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
+        List<Ferramenta> listaFerramenta = ferramentaService.listaFerramenta();
         for (Ferramenta objeto : listaFerramenta) {
             JCBFerramenta.addItem(objeto.getIdFerramenta() + "- " + objeto.getNomeFerramenta());
         }

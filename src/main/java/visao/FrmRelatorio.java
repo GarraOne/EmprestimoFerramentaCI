@@ -8,6 +8,7 @@ import modelo.Ferramenta;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import service.AmigoService;
+import service.FerramentaService;
 
 public class FrmRelatorio extends javax.swing.JFrame {
 
@@ -16,6 +17,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
         this.criaRelatorio();
     }
     private static final Logger logger = Logger.getLogger(FrmRelatorio.class.getName());
+    private transient FerramentaService ferramentaService = new FerramentaService();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,7 +83,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
         Ferramenta frmt = new Ferramenta();
         Emprestimo emp = new Emprestimo();
         List<Amigo> listaAmigo = amigoService.listaAmigo();
-        ArrayList<Ferramenta> listaFerramenta = frmt.listaFerramenta();
+        List<Ferramenta> listaFerramenta = ferramentaService.listaFerramenta();
         List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
 
         for (int i = 0; i < listaFerramenta.size(); i++) {
@@ -101,7 +103,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
         lista = "";
         for (int i = 0; i < listaEmprestimo.size(); i++) {
             logger.log(Level.INFO, "Processando empréstimo índice: {0}", i);
-            lista = lista + "\n ID do Empréstimo: " + listaEmprestimo.get(i).getIDEmprestimo() + "\n Nome do Amigo: " + amigoService.getNomeAmigo(listaEmprestimo.get(i).getIDAmigo()) + "\n Nome da Ferramenta: " + frmt.getNomeFerramenta(listaEmprestimo.get(i).getIDFerramenta()) + "\n Data de Início: " + listaEmprestimo.get(i).getDataEmprestimo() + "\n Data de Devolução: " + listaEmprestimo.get(i).getDataDevolucao() + "\n";
+            lista = lista + "\n ID do Empréstimo: " + listaEmprestimo.get(i).getIDEmprestimo() + "\n Nome do Amigo: " + amigoService.getNomeAmigo(listaEmprestimo.get(i).getIDAmigo()) + "\n Nome da Ferramenta: " + ferramentaService.getNomeFerramenta(listaEmprestimo.get(i).getIDFerramenta()) + "\n Data de Início: " + listaEmprestimo.get(i).getDataEmprestimo() + "\n Data de Devolução: " + listaEmprestimo.get(i).getDataDevolucao() + "\n";
         }
         string = string + lista;
         JTARelatorio.setText(string);

@@ -7,12 +7,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import service.FerramentaService;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 class TesteFrmGerenciarFerramenta {
     //Objeto amigo a ser inserido
-
+    private transient FerramentaService ferramentaService = new FerramentaService();
     Ferramenta ferramentaTeste;
     //Formulário fake para inclusão dos dados
     FrmGerenciarFerramentaFake frmGerenciarFerramenta;
@@ -32,7 +33,7 @@ class TesteFrmGerenciarFerramenta {
     @Test
     void testModificarFerramenta() {
 
-        ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
+        ferramentaService.insertFerramentaDB("Tesoura", "selos", 17);
 
         frmGerenciarFerramenta.inicializarLista();
 
@@ -53,7 +54,7 @@ class TesteFrmGerenciarFerramenta {
     @Test
     void testApagarFerramenta() {
 
-        ferramentaTeste.insertFerramentaDB("cano", "felipes", 25);
+        ferramentaService.insertFerramentaDB("cano", "felipes", 25);
 
         frmGerenciarFerramenta.inicializarLista();
 

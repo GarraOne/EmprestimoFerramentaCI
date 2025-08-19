@@ -13,11 +13,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import service.AmigoService;
+import service.FerramentaService;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 class TesteFrmCadastroEmprestimo {
 
+    private transient FerramentaService ferramentaService = new FerramentaService();
     AmigoService amigoService = new AmigoService();
 
     //Objeto amigo a ser inserido
@@ -47,7 +49,7 @@ class TesteFrmCadastroEmprestimo {
     void testCadastroValido() {
 
         amigoService.insertAmigoDB("Joao", "12345678");
-        ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
+        ferramentaService.insertFerramentaDB("Tesoura", "selos", 17);
 
         frmCadastroEmprestimo.inicializarCombos();
 
@@ -74,7 +76,7 @@ class TesteFrmCadastroEmprestimo {
 
         amigoService.insertAmigoDB("Joao", "12345678");
         amigoService.insertAmigoDB("Ana", "87654321");
-        ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
+        ferramentaService.insertFerramentaDB("Tesoura", "selos", 17);
         emprestimoTeste.insertEmprestimoDB(1, 1, "21-05-2025");
 
         frmCadastroEmprestimo.inicializarCombos();
@@ -109,8 +111,8 @@ class TesteFrmCadastroEmprestimo {
     void testEmprestimoInvalido() {
 
         amigoService.insertAmigoDB("Joao", "12345678");
-        ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
-        ferramentaTeste.insertFerramentaDB("Tesoura", "selos", 17);
+        ferramentaService.insertFerramentaDB("Tesoura", "selos", 17);
+        ferramentaService.insertFerramentaDB("Tesoura", "selos", 17);
         emprestimoTeste.insertEmprestimoDB(1, 1, "21-05-2025");
 
         frmCadastroEmprestimo.inicializarCombos();

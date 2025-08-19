@@ -5,11 +5,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
+import service.FerramentaService;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 class TesteFerramenta {
 
+    FerramentaService ferramentaService = new FerramentaService();
     Ferramenta ferramenta;
 
     @BeforeEach
@@ -22,15 +24,15 @@ class TesteFerramenta {
         Emprestimo emp = new Emprestimo();
         emp.insertEmprestimoDB(1, 1, "05-05-2005");
         String disponivelEsperado = "Não";
-        String DisponivelRecebido = ferramenta.getDisponivel(1);
+        String DisponivelRecebido = ferramentaService.getDisponivel(1);
         assertEquals(disponivelEsperado, DisponivelRecebido);
         emp.deleteEmprestimoDB(1);
     }
 
     @Test
     void TestRetriveFerramenta() {
-        ferramenta.insertFerramentaDB("martelo", "Bosh", 15);
-        ferramenta = ferramenta.retrieveFerramentaDB(1);
+        ferramentaService.insertFerramentaDB("martelo", "Bosh", 15);
+        ferramenta = ferramentaService.retrieveFerramentaDB(1);
         int idEsperado = 1;
         String nomeEsperado = "martelo";
         String marcaEsperada = "Bosh";
@@ -39,25 +41,25 @@ class TesteFerramenta {
         assertEquals(nomeEsperado, ferramenta.getNomeFerramenta());
         assertEquals(marcaEsperada, ferramenta.getMarcaFerramenta());
         assertEquals(custoEsperado, ferramenta.getCustoFerramenta());
-        ferramenta.deleteFerramentaDB(ferramenta.getIdFerramenta());
+        ferramentaService.deleteFerramentaDB(ferramenta.getIdFerramenta());
     }
 
     @Test
     void TestGetNomeFerramenta() {
-        ferramenta.insertFerramentaDB("martelo", "Bosh", 15);
-        ferramenta = ferramenta.retrieveFerramentaDB(1);
+        ferramentaService.insertFerramentaDB("martelo", "Bosh", 15);
+        ferramenta = ferramentaService.retrieveFerramentaDB(1);
         String nomeEsperado = "martelo";
-        assertEquals(nomeEsperado, ferramenta.getNomeFerramenta(1));
-        ferramenta.deleteFerramentaDB(ferramenta.getIdFerramenta());
+        assertEquals(nomeEsperado, ferramentaService.getNomeFerramenta(1));
+        ferramentaService.deleteFerramentaDB(ferramenta.getIdFerramenta());
     }
 
     @Test
     void TestMaiorID() {
-        ferramenta.insertFerramentaDB("martelo", "Bosh", 15);
+        ferramentaService.insertFerramentaDB("martelo", "Bosh", 15);
         int maiorIDEsperado = 1;
-        int maiorIDRecebido = ferramenta.maiorID();
+        int maiorIDRecebido = ferramentaService.maiorID();
         assertEquals(maiorIDEsperado, maiorIDRecebido);
-        ferramenta.deleteFerramentaDB(1);
+        ferramentaService.deleteFerramentaDB(1);
     }
 
     @AfterEach
