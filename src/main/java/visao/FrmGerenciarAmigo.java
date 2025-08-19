@@ -12,7 +12,7 @@ import service.AmigoService;
 public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
     private transient Amigo amigo;
-    private transient AmigoService amigoService;
+    private transient AmigoService amigoService = new AmigoService();
 
     private String mensagem;
 
@@ -168,7 +168,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     public void simularCliqueCancelar() {
         JBCancelarActionPerformed(null);
     }
-    
+
     private void buttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarActionPerformed
         try {
             int id = Integer.parseInt(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
@@ -324,5 +324,4 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     private javax.swing.JTextField textTelefone;
     // End of variables declaration//GEN-END:variables
 
-    
 }

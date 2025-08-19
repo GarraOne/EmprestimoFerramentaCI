@@ -15,7 +15,7 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
     private transient Emprestimo emprestimo;
     private transient Amigo amigo;
     private transient Ferramenta ferramenta;
-    private transient AmigoService amigoService;
+    private transient AmigoService amigoService = new AmigoService();
 
     private String mensagem;
 
