@@ -5,16 +5,20 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Emprestimo;
+import service.EmprestimoService;
 
 public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
     private transient Emprestimo emprestimo;
+    private transient EmprestimoService emprestimoService;
+    
 
     private String mensagem;
 
     public FrmGerenciarEmprestimo() {
         initComponents();
         this.emprestimo = new Emprestimo();
+        this.emprestimoService = new EmprestimoService();
         this.CarregaListaEmprestimo();
     }
 
@@ -199,7 +203,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         int idFerramenta = Integer.parseInt(textIdFerramenta.getText());
         String dataEmprestimo = textDataEmprestimo.getText();
         dataDevolucao = textDataDevolucao.getText();
-        if (emprestimo.updateEmprestimoDB(id, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao)) {
+        if (emprestimoService.updateEmprestimoDB(id, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao)) {
             mostrarMensagem("Empréstimo atualizado com sucesso.");
             labelIid.setVisible(false);
             textIdAmigo.setText("");
@@ -226,7 +230,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
     private void buttonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonApagarActionPerformed
 
-        emprestimo.deleteEmprestimoDB(Integer.parseInt(labelIid.getText()));
+        emprestimoService.deleteEmprestimoDB(Integer.parseInt(labelIid.getText()));
         labelIid.setVisible(false);
         textIdAmigo.setText("");
         textIdFerramenta.setText("");
@@ -239,7 +243,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tableEmprestimo.getModel();
         model.setRowCount(0);
         labelIid.setVisible(false);
-        List<Emprestimo> listaEmprestimo = emprestimo.listaEmprestimo();
+        List<Emprestimo> listaEmprestimo = emprestimoService.listaEmprestimo();
         for (int i = 0; i < listaEmprestimo.size(); i++) {
             model.addRow(new Object[]{
                 listaEmprestimo.get(i).getIDEmprestimo(),
@@ -247,7 +251,8 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                 listaEmprestimo.get(i).getIDFerramenta(),
                 listaEmprestimo.get(i).getDataEmprestimo(),
                 listaEmprestimo.get(i).getDataDevolucao(),
-                listaEmprestimo.get(i).emprestimoAtivo(listaEmprestimo.get(i).getIDEmprestimo()),}
+                emprestimoService.emprestimoAtivo(listaEmprestimo.get(i).getIDEmprestimo()),
+            }
             );
         }
     }

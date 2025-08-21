@@ -12,11 +12,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import service.AmigoService;
+import service.EmprestimoService;
 import service.FerramentaService;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 class TesteFrmCadastroDevolucao {
+
     private transient FerramentaService ferramentaService = new FerramentaService();
     AmigoService amigoService = new AmigoService();
 
@@ -25,6 +27,8 @@ class TesteFrmCadastroDevolucao {
     //Objeto ferramenta a ser inserido
     Ferramenta ferramentaTeste;
     Emprestimo emprestimoTeste;
+    EmprestimoService emprestimoService;
+
     //Formulário fake para inclusão dos dados
     FrmCadastroDevolucaoFake frmCadastroDevolucao;
 
@@ -48,7 +52,7 @@ class TesteFrmCadastroDevolucao {
 
         amigoService.insertAmigoDB("Joao", "12345678");
         ferramentaService.insertFerramentaDB("Tesoura", "selos", 17);
-        emprestimoTeste.insertEmprestimoDB(1, 1, "21-05-2025");
+        emprestimoService.insertEmprestimoDB(1, 1, "21-05-2025");
 
         frmCadastroDevolucao.inicializarCombos();
 

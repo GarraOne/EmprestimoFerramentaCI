@@ -10,10 +10,12 @@ import modelo.Emprestimo;
 import modelo.Ferramenta;
 import service.FerramentaService;
 import service.AmigoService;
+import service.EmprestimoService;
 
 public class FrmCadastroDevolucao extends javax.swing.JFrame {
 
     private transient Emprestimo emprestimo;
+    private transient EmprestimoService emprestimoService;
     private transient Amigo amigo;
     private transient Ferramenta ferramenta;
     private transient AmigoService amigoService = new AmigoService();
@@ -25,6 +27,7 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
         emprestimo = new Emprestimo();
         amigo = new Amigo();
         ferramenta = new Ferramenta();
+        emprestimoService = new EmprestimoService();  
         this.carregaCBEmprestimo();
     }
 
@@ -120,8 +123,8 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
     private void buttonCadatrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadatrarActionPerformed
 
         int posicaoEmprestimo = comboBoxEmprestimo.getSelectedIndex();
-        ArrayList<Emprestimo> listaEmprestimo = emprestimo.getListaEmprestimoAtivo();
-        Emprestimo emp = new Emprestimo();
+        ArrayList<Emprestimo> listaEmprestimo = emprestimoService.getListaEmprestimoAtivo();
+        EmprestimoService emp = new EmprestimoService();
         String data = LocalDate.now() + "";
         String[] dataInvertida = data.split("-");
         data = dataInvertida[2] + "-" + dataInvertida[1] + "-" + dataInvertida[0];
@@ -134,7 +137,7 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCadatrarActionPerformed
 
     public void carregaCBEmprestimo() {
-        Emprestimo emp = new Emprestimo();
+        EmprestimoService emp = new EmprestimoService();
         ArrayList<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
         List<Amigo> listaAmigo = amigoService.listaAmigo();
         List<Ferramenta> listaFerramenta = ferramentaService.listaFerramenta();

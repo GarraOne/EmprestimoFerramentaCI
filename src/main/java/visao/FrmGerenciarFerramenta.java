@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
+import service.EmprestimoService;
 import service.FerramentaService;
 
 public class FrmGerenciarFerramenta extends javax.swing.JFrame {
@@ -250,7 +251,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
 
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
         int conf = 0;
-        Emprestimo emp = new Emprestimo();
+        EmprestimoService emp = new EmprestimoService();
         List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
         int idEmprestimo = 0;
         conf = confirmarApagarFerramenta();

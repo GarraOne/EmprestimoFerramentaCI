@@ -8,6 +8,7 @@ import modelo.Amigo;
 import modelo.Emprestimo;
 import javax.swing.*;
 import service.AmigoService;
+import service.EmprestimoService;
 
 public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
@@ -210,7 +211,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
     private void buttonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonApagarActionPerformed
         int conf = 0;
-        Emprestimo emp = new Emprestimo();
+        EmprestimoService emp = new EmprestimoService();
         List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
         int idEmprestimo = 0;
         conf = confirmarApagarAmigo();

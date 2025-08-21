@@ -8,6 +8,7 @@ import modelo.Ferramenta;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import service.AmigoService;
+import service.EmprestimoService;
 import service.FerramentaService;
 
 public class FrmRelatorio extends javax.swing.JFrame {
@@ -81,7 +82,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
         double som = 0;
         AmigoService amigoService = new AmigoService();
         Ferramenta frmt = new Ferramenta();
-        Emprestimo emp = new Emprestimo();
+        EmprestimoService emp = new EmprestimoService();
         List<Amigo> listaAmigo = amigoService.listaAmigo();
         List<Ferramenta> listaFerramenta = ferramentaService.listaFerramenta();
         List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
+import service.EmprestimoService;
 import service.FerramentaService;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -13,6 +14,7 @@ class TesteFerramenta {
 
     FerramentaService ferramentaService = new FerramentaService();
     Ferramenta ferramenta;
+    EmprestimoService emprestimoService;
 
     @BeforeEach
     void inicializacao() {
@@ -22,11 +24,11 @@ class TesteFerramenta {
     @Test
     void TestGetDisponivel() {
         Emprestimo emp = new Emprestimo();
-        emp.insertEmprestimoDB(1, 1, "05-05-2005");
+        emprestimoService.insertEmprestimoDB(1, 1, "05-05-2005");
         String disponivelEsperado = "Não";
         String DisponivelRecebido = ferramentaService.getDisponivel(1);
         assertEquals(disponivelEsperado, DisponivelRecebido);
-        emp.deleteEmprestimoDB(1);
+        emprestimoService.deleteEmprestimoDB(1);
     }
 
     @Test

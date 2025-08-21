@@ -43,7 +43,7 @@ public class FerramentaService {
     public boolean possuiEmprestimoAtivo(int id) {
         boolean emprestimoAtivo = false;
 
-        Emprestimo emp = new Emprestimo();
+        EmprestimoService emp = new EmprestimoService();
 
         ArrayList<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
         for (int i = 0; i < listaEmprestimo.size(); i++) {
@@ -56,7 +56,7 @@ public class FerramentaService {
 
     public int quantidadeEmprestimo(int id) {
         int som = 0;
-        Emprestimo emp = new Emprestimo();
+        EmprestimoService emp = new EmprestimoService();
         List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
         for (int i = 0; i < listaEmprestimo.size(); i++) {
             if (listaEmprestimo.get(i).getIDAmigo() == id) {
@@ -68,7 +68,7 @@ public class FerramentaService {
 
     public String getDisponivel(int id) {
         String disponivel = "Sim";
-        Emprestimo emp = new Emprestimo();
+        EmprestimoService emp = new EmprestimoService();
         ArrayList<Emprestimo> listaEmprestimoAtivo = emp.getListaEmprestimoAtivo();
         for (int i = 0; i < listaEmprestimoAtivo.size(); i++) {
             if (listaEmprestimoAtivo.get(i).getIDFerramenta() == id) {

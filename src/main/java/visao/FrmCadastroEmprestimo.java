@@ -9,6 +9,7 @@ import modelo.Amigo;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
 import service.AmigoService;
+import service.EmprestimoService;
 import service.FerramentaService;
 
 public class FrmCadastroEmprestimo extends javax.swing.JFrame {
@@ -127,7 +128,7 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             int posicaoAmigo = JCBAmigo.getSelectedIndex();
             List<Ferramenta> listaFerramenta = ferramentaService.listaFerramenta();
             List<Amigo> listaAmigo = amigoService.listaAmigo();
-            Emprestimo emprestimo = new Emprestimo();
+            EmprestimoService emprestimo = new EmprestimoService();
             if ("Não".equals(ferramentaService.getDisponivel(listaFerramenta.get(posicaoFerramenta).getIdFerramenta()))) {
                 mostrarMensagem("Ferramenta já emprestada.");
                 throw new Erro("Ferramenta já emprestada.");

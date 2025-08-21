@@ -8,12 +8,15 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.TestInstance;
+import service.EmprestimoService;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 class TesteEmprestimo {
 
     Emprestimo emprestimo;
+    EmprestimoService emprestimoService;
+
 
     @BeforeAll
     void inicializacao() {
@@ -32,8 +35,8 @@ class TesteEmprestimo {
 
     @Test
     void TestRetrieveIDEmprestimo() {
-        emprestimo.insertEmprestimoDB(1, 1, "05-05-2005");
-        Emprestimo emp = emprestimo.retrieveEmprestimoDB(1);
+        emprestimoService.insertEmprestimoDB(1, 1, "05-05-2005");
+        Emprestimo emp = emprestimoService.retrieveEmprestimoDB(1);
         int idEmprestimoEsperado = 1;
         int idAmigoEsperado = 1;
         int idFerramentaEsperado = 1;
@@ -44,25 +47,25 @@ class TesteEmprestimo {
         assertEquals(idFerramentaEsperado, emp.getIDFerramenta());
         assertEquals(dataEmprestimoEsperado, emp.getDataEmprestimo());
         assertEquals(dataDevolucaoEsperada, emp.getDataDevolucao());
-        emp.deleteEmprestimoDB(emp.getIDEmprestimo());
+        emprestimoService.deleteEmprestimoDB(emp.getIDEmprestimo());
     }
 
     @Test
     void TestMaiorID() {
-        emprestimo.insertEmprestimoDB(1, 1, "05-05-2005");
+        emprestimoService.insertEmprestimoDB(1, 1, "05-05-2005");
         int maiorIDEsperado = 1;
-        int maiorIDRecebido = emprestimo.maiorID();
+        int maiorIDRecebido = emprestimoService.maiorID();
         assertEquals(maiorIDEsperado, maiorIDRecebido);
-        emprestimo.deleteEmprestimoDB(1);
+        emprestimoService.deleteEmprestimoDB(1);
     }
 
     @Test
     void TestEmprestimoAtivo() {
-        emprestimo.insertEmprestimoDB(1, 1, "05-05-2005");
+        emprestimoService.insertEmprestimoDB(1, 1, "05-05-2005");
         String atividadeEsperado = "Sim";
-        String atividadeRecebido = emprestimo.emprestimoAtivo(1);
+        String atividadeRecebido = emprestimoService.emprestimoAtivo(1);
         assertEquals(atividadeEsperado, atividadeRecebido);
-        emprestimo.deleteEmprestimoDB(1);
+        emprestimoService.deleteEmprestimoDB(1);
     }
 
     @Test
@@ -73,11 +76,11 @@ class TesteEmprestimo {
         diaAmanha = diaAmanhaSeparado[2] + "-" + diaAmanhaSeparado[1] + "-" + diaAmanhaSeparado[0];
         Emprestimo emp = new Emprestimo(1, 1, 1, "05-05-2005", diaAmanha);
         dao.insertEmprestimoDB(emp);
-        ArrayList<Emprestimo> listaEmprestimoAtivo = emprestimo.getListaEmprestimoAtivo();
+        ArrayList<Emprestimo> listaEmprestimoAtivo = emprestimoService.getListaEmprestimoAtivo();
         int tamanhoListaEsperado = 1;
         int tamanhoListaRecebido = listaEmprestimoAtivo.size();
         assertEquals(tamanhoListaEsperado, tamanhoListaRecebido);
-        emp.deleteEmprestimoDB(1);
+        emprestimoService.deleteEmprestimoDB(1);
     }
 
     @Test
@@ -85,11 +88,11 @@ class TesteEmprestimo {
         EmprestimoDAO dao = new EmprestimoDAO();
         Emprestimo emp = new Emprestimo(1, 1, 1, "05-05-2005", "a-1-1");
         dao.insertEmprestimoDB(emp);
-        ArrayList<Emprestimo> listaEmprestimoAtivo = emprestimo.getListaEmprestimoAtivo();
+        ArrayList<Emprestimo> listaEmprestimoAtivo = emprestimoService.getListaEmprestimoAtivo();
         int tamanhoListaEsperado = 0;
         int tamanhoListaRecebido = listaEmprestimoAtivo.size();
         assertEquals(tamanhoListaEsperado, tamanhoListaRecebido);
-        emp.deleteEmprestimoDB(1);
+        emprestimoService.deleteEmprestimoDB(1);
     }
 
     @AfterAll

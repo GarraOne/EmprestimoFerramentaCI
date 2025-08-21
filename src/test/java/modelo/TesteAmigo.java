@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import service.AmigoService;
+import service.EmprestimoService;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class TesteAmigo {
@@ -59,7 +60,7 @@ class TesteAmigo {
 
     @Test
     void testPossuiEmprestimoAtivo() {
-        Emprestimo emp = new Emprestimo();
+        EmprestimoService emp = new EmprestimoService();
         emp.insertEmprestimoDB(1, 1, "05-05-2005");
         boolean emprestimoAtivoEsperado = true;
         boolean emprestimoAtivoRecebido = amigoService.possuiEmprestimoAtivo(1);
@@ -69,7 +70,7 @@ class TesteAmigo {
 
     @Test
     void testQuantidadeEmprestimo() {
-        Emprestimo emp = new Emprestimo();
+        EmprestimoService emp = new EmprestimoService();
         emp.insertEmprestimoDB(1, 1, "05-05-2005");
         int quantidadeEsperada = 1;
         int quantidadeRecebida = amigoService.quantidadeEmprestimo(1);

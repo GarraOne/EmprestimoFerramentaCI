@@ -13,6 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import service.AmigoService;
+import service.EmprestimoService;
 import service.FerramentaService;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -27,6 +28,8 @@ class TesteFrmCadastroEmprestimo {
     //Objeto ferramenta a ser inserido
     Ferramenta ferramentaTeste;
     Emprestimo emprestimoTeste;
+    EmprestimoService emprestimoService;
+
     //Formulário fake para inclusão dos dados
     FrmCadastroEmprestimoFake frmCadastroEmprestimo;
 
@@ -77,7 +80,7 @@ class TesteFrmCadastroEmprestimo {
         amigoService.insertAmigoDB("Joao", "12345678");
         amigoService.insertAmigoDB("Ana", "87654321");
         ferramentaService.insertFerramentaDB("Tesoura", "selos", 17);
-        emprestimoTeste.insertEmprestimoDB(1, 1, "21-05-2025");
+        emprestimoService.insertEmprestimoDB(1, 1, "21-05-2025");
 
         frmCadastroEmprestimo.inicializarCombos();
 
@@ -113,7 +116,7 @@ class TesteFrmCadastroEmprestimo {
         amigoService.insertAmigoDB("Joao", "12345678");
         ferramentaService.insertFerramentaDB("Tesoura", "selos", 17);
         ferramentaService.insertFerramentaDB("Tesoura", "selos", 17);
-        emprestimoTeste.insertEmprestimoDB(1, 1, "21-05-2025");
+        emprestimoService.insertEmprestimoDB(1, 1, "21-05-2025");
 
         frmCadastroEmprestimo.inicializarCombos();
 
