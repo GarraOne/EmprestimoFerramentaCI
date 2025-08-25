@@ -54,29 +54,20 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuCadastro.setMinimumSize(new java.awt.Dimension(60, 22));
 
         jMenuItemCadastrarAmigos.setText("Cadastrar Amigos");
-        jMenuItemCadastrarAmigos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCadastrarAmigosActionPerformed(evt);
-            }
-        });
+        jMenuItemCadastrarAmigos.addActionListener(evt -> jMenuItemCadastrarAmigosActionPerformed(evt));
+
         jMenuCadastro.add(jMenuItemCadastrarAmigos);
         jMenuCadastro.add(jSeparator2);
 
         jMenuItemCadastrarFerramentas.setText("Cadastrar Ferramentas");
-        jMenuItemCadastrarFerramentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCadastrarFerramentasActionPerformed(evt);
-            }
-        });
+        jMenuItemCadastrarFerramentas.addActionListener(evt -> jMenuItemCadastrarFerramentasActionPerformed(evt));
+
         jMenuCadastro.add(jMenuItemCadastrarFerramentas);
         jMenuCadastro.add(jSeparator3);
 
         jMenuItemSair.setText("Sair");
-        jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemSairActionPerformed(evt);
-            }
-        });
+        jMenuItemSair.addActionListener(evt -> jMenuItemSairActionPerformed(evt));
+
         jMenuCadastro.add(jMenuItemSair);
 
         jMenuBar1.add(jMenuCadastro);
@@ -87,20 +78,14 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuTransação.setPreferredSize(new java.awt.Dimension(60, 22));
 
         jMenuItemEmpréstimo.setText("Empréstimo");
-        jMenuItemEmpréstimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemEmpréstimoActionPerformed(evt);
-            }
-        });
+        jMenuItemEmpréstimo.addActionListener(evt -> jMenuItemEmpréstimoActionPerformed(evt));
+
         jMenuTransação.add(jMenuItemEmpréstimo);
         jMenuTransação.add(jSeparator1);
 
         jMenuItemDevolução.setText("Devolução");
-        jMenuItemDevolução.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemDevoluçãoActionPerformed(evt);
-            }
-        });
+        jMenuItemDevolução.addActionListener(evt -> jMenuItemDevoluçãoActionPerformed(evt));
+
         jMenuTransação.add(jMenuItemDevolução);
 
         jMenuBar1.add(jMenuTransação);
@@ -108,29 +93,20 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuGerenciamento.setText("Gerenciamento");
 
         jMenuItemGerenciarAmigos.setText("Gerenciar Amigos");
-        jMenuItemGerenciarAmigos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemGerenciarAmigosActionPerformed(evt);
-            }
-        });
+        jMenuItemGerenciarAmigos.addActionListener(evt -> jMenuItemGerenciarAmigosActionPerformed(evt));
+
         jMenuGerenciamento.add(jMenuItemGerenciarAmigos);
         jMenuGerenciamento.add(jSeparator4);
 
         jMenuItemGerenciarFerramentas.setText("Gerenciar Ferramentas");
-        jMenuItemGerenciarFerramentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemGerenciarFerramentasActionPerformed(evt);
-            }
-        });
+        jMenuItemGerenciarFerramentas.addActionListener(evt -> jMenuItemGerenciarFerramentasActionPerformed(evt));
+
         jMenuGerenciamento.add(jMenuItemGerenciarFerramentas);
         jMenuGerenciamento.add(jSeparator5);
 
         jMenuItemGerenciarEmprestimo.setText("Gerenciar Empréstimo");
-        jMenuItemGerenciarEmprestimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemGerenciarEmprestimoActionPerformed(evt);
-            }
-        });
+        jMenuItemGerenciarEmprestimo.addActionListener(evt -> jMenuItemGerenciarEmprestimoActionPerformed(evt));
+
         jMenuGerenciamento.add(jMenuItemGerenciarEmprestimo);
 
         jMenuBar1.add(jMenuGerenciamento);
@@ -138,11 +114,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuRelatorio.setText("Relatório");
 
         jMenuItemRelatorio.setText("Relatório");
-        jMenuItemRelatorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemRelatorioActionPerformed(evt);
-            }
-        });
+        jMenuItemRelatorio.addActionListener(evt -> jMenuItemRelatorioActionPerformed(evt));
+
         jMenuRelatorio.add(jMenuItemRelatorio);
 
         jMenuBar1.add(jMenuRelatorio);
@@ -177,42 +150,49 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }
     
     private void jMenuItemGerenciarAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciarAmigosActionPerformed
+        if (evt == null) return;
         //Instancia a tela de gerenciar amigo
         FrmGerenciarAmigo objeto = new FrmGerenciarAmigo();
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemGerenciarAmigosActionPerformed
 
     private void jMenuItemCadastrarFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastrarFerramentasActionPerformed
+        if (evt == null) return;
         // Instancia a tela de cadastro de ferramenta
         FrmCadastroFerramenta objeto = new FrmCadastroFerramenta();
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadastrarFerramentasActionPerformed
 
     private void jMenuItemEmpréstimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEmpréstimoActionPerformed
+        if (evt == null) return;
         // Instancia a tela de cadastro de empréstimo
         FrmCadastroEmprestimo tela = new FrmCadastroEmprestimo();
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItemEmpréstimoActionPerformed
 
     private void jMenuItemDevoluçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDevoluçãoActionPerformed
+        if (evt == null) return;
         // Instancia a tela de cadastro devoluçao
         FrmCadastroDevolucao tela = new FrmCadastroDevolucao();
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItemDevoluçãoActionPerformed
 
     private void jMenuItemGerenciarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciarEmprestimoActionPerformed
+        if (evt == null) return;
         //Instancia a tela de gerenciar emprestimo
         FrmGerenciarEmprestimo objeto = new FrmGerenciarEmprestimo();
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemGerenciarEmprestimoActionPerformed
 
     private void jMenuItemRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRelatorioActionPerformed
+        if (evt == null) return;
         //Instancia a tela de relatorio
         FrmRelatorio objeto = new FrmRelatorio();
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemRelatorioActionPerformed
 
     private void jMenuItemCadastrarAmigosActionPerformed(java.awt.event.ActionEvent evt) {
+        if (evt == null) return;
         //Instancia a tela de cadastrar amigo
         FrmCadastroAmigo objeto = new FrmCadastroAmigo();
         objeto.setVisible(true);
@@ -220,6 +200,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }
 
     private void jMenuItemGerenciarFerramentasActionPerformed(java.awt.event.ActionEvent evt) {
+        if (evt == null) return;
         // Instancia a tela de gerenciar ferramenta
         FrmGerenciarFerramenta objeto = new FrmGerenciarFerramenta();
         objeto.setVisible(true);

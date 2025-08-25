@@ -200,11 +200,8 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmCadastroFerramenta().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new FrmCadastroFerramenta().setVisible(true));
+
     }
 
     public void mostrarMensagem(String mensagem) {

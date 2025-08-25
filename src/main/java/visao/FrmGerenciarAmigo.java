@@ -65,11 +65,14 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
                 "ID", "Nome", "Telefone"
             }
         ));
+
         jTableAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableAmigosMouseClicked(evt);
             }
         });
+
         jScrollPane1.setViewportView(jTableAmigos);
 
         labelId.setText("ID:");
@@ -148,8 +151,9 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
         //Libera todos os recurso da interface gráfica
-
         this.dispose();
+        if (evt == null) return;
+
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     public void simularCliqueCancelar() {
@@ -269,12 +273,10 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmGerenciarAmigo().setVisible(true);
+        java.awt.EventQueue.invokeLater(() -> {
+            new FrmGerenciarAmigo().setVisible(true);
+            });
             }
-        });
-    }
 
     protected int confirmarApagarAmigo() {
         return JOptionPane.showConfirmDialog(null, "Esta ação também apagará todos os empréstimos associados a este amigo, deseja continuar?");

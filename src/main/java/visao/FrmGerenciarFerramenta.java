@@ -69,6 +69,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
             }
         ));
         jTableAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableAmigosMouseClicked(evt);
             }
@@ -86,25 +87,13 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         JLDisponivel.setText("Disponível:");
 
         JBApagar.setText("Apagar");
-        JBApagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBApagarActionPerformed(evt);
-            }
-        });
+        JBApagar.addActionListener(evt -> JBApagarActionPerformed(evt));
 
         JBModificar.setText("Modificar");
-        JBModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBModificarActionPerformed(evt);
-            }
-        });
+        JBModificar.addActionListener(evt -> JBModificarActionPerformed(evt));
 
         JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCancelarActionPerformed(evt);
-            }
-        });
+        JBCancelar.addActionListener(evt -> JBCancelarActionPerformed(evt));
 
         JLIid.setText("0");
 
@@ -194,10 +183,14 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
         //Libera todos os recurso da interface gráfica
+        if (evt == null) return;
+
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     private void jTableAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAmigosMouseClicked
+        if (evt == null) return;
+
         if (this.jTableAmigos.getSelectedRow() != -1) {
             JLIid.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
             JLIid.setVisible(true);
@@ -210,6 +203,8 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableAmigosMouseClicked
 
     private void JBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBModificarActionPerformed
+        if (evt == null) return;
+
         try {
             int id = Integer.parseInt(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
             String nome = "";
@@ -248,6 +243,8 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     }//GEN-LAST:event_JBModificarActionPerformed
 
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
+        if (evt == null) return;
+
         int conf = 0;
         EmprestimoService emp = new EmprestimoService();
         List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
@@ -319,11 +316,8 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmGerenciarFerramenta().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new FrmGerenciarFerramenta().setVisible(true));
+
     }
 
     protected int confirmarApagarFerramenta() {

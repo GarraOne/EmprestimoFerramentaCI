@@ -66,7 +66,9 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                 "ID Empréstimo", "ID Amigo", "ID Ferramenta", "Data Início", "Data Devolução", "Empréstimo Ativo"
             }
         ));
+
         tableEmprestimo.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableEmprestimoMouseClicked(evt);
             }
@@ -278,11 +280,10 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmGerenciarEmprestimo().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> {
+            new FrmGerenciarEmprestimo().setVisible(true);
+            });
+
     }
 
     protected int confirmarApagarEmprestimo() {

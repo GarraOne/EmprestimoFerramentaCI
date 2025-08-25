@@ -41,11 +41,8 @@ public class FrmRelatorio extends javax.swing.JFrame {
         jScrollPane1.setViewportView(JTARelatorio);
 
         jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jButton1.addActionListener(evt -> jButton1ActionPerformed(evt));
+
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,6 +69,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (evt == null) return;
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
     public void criaRelatorio() {
@@ -135,11 +133,8 @@ public class FrmRelatorio extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmRelatorio().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new FrmRelatorio().setVisible(true));
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
