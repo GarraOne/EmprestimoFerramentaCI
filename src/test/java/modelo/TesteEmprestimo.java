@@ -14,17 +14,16 @@ import service.EmprestimoService;
 
 class TesteEmprestimo {
 
-    Emprestimo emprestimo;
     EmprestimoService emprestimoService;
-
 
     @BeforeAll
     void inicializacao() {
-        emprestimo = new Emprestimo(5, 5, 5, "", "");
+        emprestimoService = new EmprestimoService();
     }
 
     @Test
     void testgetIDEmprestimo() {
+        Emprestimo emprestimo = new Emprestimo(5, 5, 5, "", "");
         //Define o valor esperado para a operação
         double retornoEsperado = 5.0;
         //Chama a operacao getIDEmprestimo()
@@ -97,7 +96,7 @@ class TesteEmprestimo {
 
     @AfterAll
     void finalizacao() {
-        emprestimo = null;
+        emprestimoService = null;
     }
 
 }

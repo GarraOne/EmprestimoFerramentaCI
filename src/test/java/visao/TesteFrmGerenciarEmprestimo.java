@@ -41,6 +41,8 @@ class TesteFrmGerenciarEmprestimo {
         ferramentaTeste = new Ferramenta(1, "Tesoura", 17, "selos");
         emprestimoTeste = new Emprestimo(1, 1, 1, "21-05-2025", "");
 
+        emprestimoService = new EmprestimoService();
+
         //Instância o formulário fake
         frmGerenciarEmprestimo = new FrmGerenciarEmprestimoFake();
         //Instância o controle do formulário

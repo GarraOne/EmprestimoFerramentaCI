@@ -43,6 +43,8 @@ class TesteFrmCadastroEmprestimo {
         ferramentaTeste = new Ferramenta(1, "Tesoura", 17, "selos");
         emprestimoTeste = new Emprestimo();
 
+        emprestimoService = new EmprestimoService();
+
         //Instância o formulário fake
         frmCadastroEmprestimo = new FrmCadastroEmprestimoFake();
         //Instância o controle do formulário

@@ -19,6 +19,8 @@ class TesteFerramenta {
     @BeforeEach
     void inicializacao() {
         ferramenta = new Ferramenta(1, "Martelo", 10, "Bosh");
+        emprestimoService = new EmprestimoService();
+
     }
 
     @Test
