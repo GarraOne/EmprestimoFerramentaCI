@@ -14,7 +14,7 @@ import modelo.Emprestimo;
 public class EmprestimoDAO extends ConexaoDAO {
 
     // Lista para armazenar os dados dos empréstimos
-    public static ArrayList<Emprestimo> listaEmprestimo = new ArrayList<>();
+    public static List<Emprestimo> listaEmprestimo = new ArrayList<>();
 
     private static final String MENSAGEM_ERRO = "Erro: ";
     private static final Logger logger = Logger.getLogger(EmprestimoDAO.class.getName());
@@ -58,7 +58,7 @@ public class EmprestimoDAO extends ConexaoDAO {
 
     }
 
-    public static void setListaEmprestimo(ArrayList<Emprestimo> listaEmprestimo) {
+    public static void setListaEmprestimo(List<Emprestimo> listaEmprestimo) {
         EmprestimoDAO.listaEmprestimo = listaEmprestimo;
 
     }
