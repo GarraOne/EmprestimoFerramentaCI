@@ -58,7 +58,7 @@ public class AmigoDAO extends ConexaoDAO {
      *
      * @param listaAmigo Lista de amigos a ser definida.
      */
-    public static void setListaAmigo(ArrayList<Amigo> novaLista) {
+    public static void setListaAmigo(List<Amigo> novaLista) {
         synchronized (listaAmigo) {
             listaAmigo.clear();
             listaAmigo.addAll(novaLista);
