@@ -137,6 +137,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
+        if (evt == null) return;
         //Verifica se o programa está em "modo de teste"
         //Se estiver evita encear a JVM durante os testes
         if (!isEmTeste()) {
@@ -231,11 +232,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmMenuPrincipal().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new FrmMenuPrincipal().setVisible(true));
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

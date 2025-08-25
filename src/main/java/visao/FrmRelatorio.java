@@ -79,7 +79,6 @@ public class FrmRelatorio extends javax.swing.JFrame {
         String lista = "";
         double som = 0;
         AmigoService amigoService = new AmigoService();
-        Ferramenta frmt = new Ferramenta();
         EmprestimoService emp = new EmprestimoService();
         List<Amigo> listaAmigo = amigoService.listaAmigo();
         List<Ferramenta> listaFerramenta = ferramentaService.listaFerramenta();
