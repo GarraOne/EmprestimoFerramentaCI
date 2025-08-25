@@ -47,32 +47,16 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
 
         labelCustoFeramenta.setText("Custo de Obtenção:");
 
-        textNomeFerramenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textNomeFerramentaActionPerformed(evt);
-            }
-        });
+        textNomeFerramenta.addActionListener(evt -> textNomeFerramentaActionPerformed(evt));
 
         buttonCadastrar.setText("Cadastrar");
-        buttonCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCadastrarActionPerformed(evt);
-            }
-        });
+        buttonCadastrar.addActionListener(evt -> buttonCadastrarActionPerformed(evt));
 
         buttonLimpar.setText("Limpar");
-        buttonLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonLimparActionPerformed(evt);
-            }
-        });
+        buttonLimpar.addActionListener(evt -> buttonLimparActionPerformed(evt));
 
         JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCancelarActionPerformed(evt);
-            }
-        });
+        JBCancelar.addActionListener(evt -> JBCancelarActionPerformed(evt));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,15 +113,20 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void textNomeFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeFerramentaActionPerformed
+        if (evt == null) return;
 
     }//GEN-LAST:event_textNomeFerramentaActionPerformed
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
-//Libera todos os recurso da interface gráfica
+        //Libera todos os recurso da interface gráfica
+        if (evt == null) return;
+
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
+        if (evt == null) return;
+
         try {
 
             String nome = "";
@@ -176,6 +165,8 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCadastrarActionPerformed
 
     private void buttonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLimparActionPerformed
+        if (evt == null) return;
+
         textMarcaFerramenta.setText("");
         textNomeFerramenta.setText("");
         textCustoFerramenta.setText("");

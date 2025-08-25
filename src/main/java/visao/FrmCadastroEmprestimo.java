@@ -181,11 +181,8 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmCadastroEmprestimo().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new FrmCadastroEmprestimo().setVisible(true));
+
     }
 
     protected int confirmarCadastrarAmigoComEmprestimo() {

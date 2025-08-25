@@ -79,25 +79,13 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         labelTelefone.setText("Telefone:");
 
         buttonApagar.setText("Apagar");
-        buttonApagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonApagarActionPerformed(evt);
-            }
-        });
+        buttonApagar.addActionListener(evt -> buttonApagarActionPerformed(evt));
 
         buttonModificar.setText("Modificar");
-        buttonModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonModificarActionPerformed(evt);
-            }
-        });
+        buttonModificar.addActionListener(evt -> buttonModificarActionPerformed(evt));
 
         JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCancelarActionPerformed(evt);
-            }
-        });
+        JBCancelar.addActionListener(evt -> JBCancelarActionPerformed(evt));
 
         labelIid.setText("0");
 
@@ -160,14 +148,18 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
         //Libera todos os recurso da interface gráfica
+
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     public void simularCliqueCancelar() {
+
         JBCancelarActionPerformed(null);
     }
 
     private void buttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarActionPerformed
+        if (evt == null) return;
+
         try {
             int id = Integer.parseInt(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
             String nome = "";
@@ -198,6 +190,8 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonModificarActionPerformed
 
     private void jTableAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAmigosMouseClicked
+        if (evt == null) return;
+
         if (this.jTableAmigos.getSelectedRow() != -1) {
             labelIid.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
             labelIid.setVisible(true);
@@ -207,6 +201,8 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableAmigosMouseClicked
 
     private void buttonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonApagarActionPerformed
+        if (evt == null) return;
+
         int conf = 0;
         EmprestimoService emp = new EmprestimoService();
         List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();

@@ -88,25 +88,13 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         labelAtivoConstante.setText("Empréstimo Ativo:");
 
         JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCancelarActionPerformed(evt);
-            }
-        });
+        JBCancelar.addActionListener(evt -> JBCancelarActionPerformed(evt));
 
         buttonApagar.setText("Apagar");
-        buttonApagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonApagarActionPerformed(evt);
-            }
-        });
+        buttonApagar.addActionListener(evt -> buttonApagarActionPerformed(evt));
 
         buttonModificar.setText("Modificar");
-        buttonModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonModificarActionPerformed(evt);
-            }
-        });
+        buttonModificar.addActionListener(evt -> buttonModificarActionPerformed(evt));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,11 +178,15 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
-//Libera todos os recurso da interface gráfica
+    //Libera todos os recurso da interface gráfica
+        if (evt == null) return;
+
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     private void buttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarActionPerformed
+        if (evt == null) return;
+
         String dataDevolucao = null;
         int id = Integer.parseInt(tableEmprestimo.getValueAt(this.tableEmprestimo.getSelectedRow(), 0).toString());
         int idAmigo = Integer.parseInt(textIdAmigo.getText());
@@ -213,6 +205,8 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonModificarActionPerformed
 
     private void tableEmprestimoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableEmprestimoMouseClicked
+        if (evt == null) return;
+
         if (this.tableEmprestimo.getSelectedRow() != -1) {
             labelIid.setText(tableEmprestimo.getValueAt(this.tableEmprestimo.getSelectedRow(), 0).toString());
             labelIid.setVisible(true);
@@ -227,6 +221,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     }//GEN-LAST:event_tableEmprestimoMouseClicked
 
     private void buttonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonApagarActionPerformed
+        if (evt == null) return;
 
         emprestimoService.deleteEmprestimoDB(Integer.parseInt(labelIid.getText()));
         labelIid.setVisible(false);
