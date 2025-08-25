@@ -57,18 +57,10 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
         jLabel2.setText("Amigo:");
 
         JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCancelarActionPerformed(evt);
-            }
-        });
+        JBCancelar.addActionListener(evt -> JBCancelarActionPerformed(evt));
 
         JBCadastrar.setText("Cadastrar");
-        JBCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCadastrarActionPerformed(evt);
-            }
-        });
+        JBCadastrar.addActionListener(evt -> JBCadastrarActionPerformed(evt));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,10 +103,12 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
+        if (evt == null) return;
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
+        if (evt == null) return;
         try {
             int conf = 0;
 
