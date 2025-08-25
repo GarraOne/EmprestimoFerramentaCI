@@ -61,18 +61,10 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
         comboBoxEmprestimo.setMaximumRowCount(999);
 
         buttonCancelar.setText("Cancelar");
-        buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCancelarActionPerformed(evt);
-            }
-        });
+        buttonCancelar.addActionListener(evt -> buttonCancelarActionPerformed(evt));
 
         buttonCadatrar.setText("Cadastrar");
-        buttonCadatrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCadatrarActionPerformed(evt);
-            }
-        });
+        buttonCadatrar.addActionListener(evt -> buttonCadatrarActionPerformed(evt));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,11 +103,12 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
+        if (evt == null) return;
         this.dispose();
     }//GEN-LAST:event_buttonCancelarActionPerformed
 
     private void buttonCadatrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadatrarActionPerformed
-
+        if (evt == null) return;
         int posicaoEmprestimo = comboBoxEmprestimo.getSelectedIndex();
         ArrayList<Emprestimo> listaEmprestimo = emprestimoService.getListaEmprestimoAtivo();
         EmprestimoService emp = new EmprestimoService();
@@ -166,11 +159,8 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmCadastroDevolucao().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new FrmCadastroDevolucao().setVisible(true));
+
     }
 
     public void mostrarMensagem(String mensagem) {
