@@ -108,24 +108,21 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param evt evento do Swing (não usado)
-     */
+  
     private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
         //Libera todos os recurso da interface gráfica
+        if (evt == null) return;
         this.dispose();
     }//GEN-LAST:event_cancelarButtonActionPerformed
-    /**
-     * @param evt evento do Swing (não usado)
-     */
+ 
     private void buttonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLimparActionPerformed
+        if (evt == null) return;
         textNomeAmigo.setText("");
         textTelefone.setText("");
     }//GEN-LAST:event_buttonLimparActionPerformed
-    /**
-     * @param evt evento do Swing (não usado)
-     */
+    
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
+        if (evt == null) return;
         try {
             String nome = "";
             String telefone = "";
