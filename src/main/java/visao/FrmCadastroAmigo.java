@@ -183,11 +183,10 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmCadastroAmigo().setVisible(true);
-            }
-        });
+        /* Create and display the form */
+        
+        java.awt.EventQueue.invokeLater(() -> new FrmCadastroAmigo().setVisible(true));
+
     }
 
     public void mostrarMensagem(String mensagem) {
