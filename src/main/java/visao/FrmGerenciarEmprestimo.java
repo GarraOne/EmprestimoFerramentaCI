@@ -9,7 +9,6 @@ import service.EmprestimoService;
 
 public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
-    private transient Emprestimo emprestimo;
     private transient EmprestimoService emprestimoService;
     
 
@@ -17,7 +16,6 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
     public FrmGerenciarEmprestimo() {
         initComponents();
-        this.emprestimo = new Emprestimo();
         this.emprestimoService = new EmprestimoService();
         this.CarregaListaEmprestimo();
     }

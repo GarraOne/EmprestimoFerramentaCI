@@ -9,13 +9,11 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     /**
      * Creates new form FrmCadastroFerramenta
      */
-    private transient Ferramenta objetoferramenta;
     private transient FerramentaService ferramentaService = new FerramentaService();
     private String mensagem;
 
     public FrmCadastroFerramenta() {
         initComponents();
-        this.objetoferramenta = new Ferramenta();
     }
 
     public String getMensagem() {
@@ -142,7 +140,6 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
         try {
 
-            objetoferramenta = new Ferramenta();
             String nome = "";
             String marca = "";
             double custo = 0;

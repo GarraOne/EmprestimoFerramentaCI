@@ -12,13 +12,11 @@ import service.FerramentaService;
 
 public class FrmGerenciarFerramenta extends javax.swing.JFrame {
 
-    private transient Ferramenta ferramenta;
     private transient FerramentaService ferramentaService = new FerramentaService();
     private String mensagem;
 
     public FrmGerenciarFerramenta() {
         initComponents();
-        this.ferramenta = new Ferramenta();
         this.CarregaListaFerramenta();
     }
 

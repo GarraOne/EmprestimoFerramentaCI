@@ -2,11 +2,9 @@ package visao;
 
 import javax.swing.JComboBox;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.Amigo;
-import modelo.Emprestimo;
 import modelo.Ferramenta;
 import service.AmigoService;
 import service.EmprestimoService;
@@ -14,8 +12,6 @@ import service.FerramentaService;
 
 public class FrmCadastroEmprestimo extends javax.swing.JFrame {
 
-    private final transient Ferramenta ferramenta;
-    private final transient Amigo amigo;
     private transient AmigoService amigoService = new AmigoService();
     private transient FerramentaService ferramentaService= new FerramentaService();
 
@@ -23,8 +19,6 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
 
     public FrmCadastroEmprestimo() {
         initComponents();
-        this.ferramenta = new Ferramenta();
-        this.amigo = new Amigo();
         carregaCBFerramenta();
         carregaCBAmigo();
     }

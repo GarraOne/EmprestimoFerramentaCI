@@ -1,6 +1,5 @@
 package visao;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -12,14 +11,12 @@ import service.EmprestimoService;
 
 public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
-    private transient Amigo amigo;
     private transient AmigoService amigoService = new AmigoService();
 
     private String mensagem;
 
     public FrmGerenciarAmigo() {
         initComponents();
-        this.amigo = new Amigo();
         this.carregaListaAmigo();
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);

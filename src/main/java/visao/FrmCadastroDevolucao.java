@@ -14,19 +14,13 @@ import service.EmprestimoService;
 
 public class FrmCadastroDevolucao extends javax.swing.JFrame {
 
-    private transient Emprestimo emprestimo;
     private transient EmprestimoService emprestimoService;
-    private transient Amigo amigo;
-    private transient Ferramenta ferramenta;
     private transient AmigoService amigoService = new AmigoService();
     private transient FerramentaService ferramentaService = new FerramentaService();
     private String mensagem;
 
     public FrmCadastroDevolucao() {
         initComponents();
-        emprestimo = new Emprestimo();
-        amigo = new Amigo();
-        ferramenta = new Ferramenta();
         emprestimoService = new EmprestimoService();  
         this.carregaCBEmprestimo();
     }
