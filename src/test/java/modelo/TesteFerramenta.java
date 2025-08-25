@@ -25,7 +25,6 @@ class TesteFerramenta {
 
     @Test
     void TestGetDisponivel() {
-        Emprestimo emp = new Emprestimo();
         emprestimoService.insertEmprestimoDB(1, 1, "05-05-2005");
         String disponivelEsperado = "Não";
         String DisponivelRecebido = ferramentaService.getDisponivel(1);

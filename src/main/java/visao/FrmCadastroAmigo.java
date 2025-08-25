@@ -20,6 +20,10 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         this.objetoamigo = new Amigo();
         // carrega o objeto vazio de amigo
         this.serviceAmigo = new AmigoService();
+
+        cadastrarButton.addActionListener(evt -> cadastrarButtonActionPerformed(evt));
+        buttonLimpar.addActionListener(evt -> buttonLimparActionPerformed(evt));
+        cancelarButton.addActionListener(evt -> cancelarButtonActionPerformed(evt));
     }
 
     public String getMensagem() {
@@ -55,25 +59,10 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         labelTelefone.setText("Telefone:");
 
         cadastrarButton.setText("Cadastrar");
-        cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrarButtonActionPerformed(evt);
-            }
-        });
 
         buttonLimpar.setText("Limpar");
-        buttonLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonLimparActionPerformed(evt);
-            }
-        });
 
         cancelarButton.setText("Cancelar");
-        cancelarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
