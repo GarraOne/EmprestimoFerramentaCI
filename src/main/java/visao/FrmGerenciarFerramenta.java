@@ -68,6 +68,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
             }
         ));
         jTableAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableAmigosMouseClicked(evt);
             }
@@ -85,25 +86,13 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         JLDisponivel.setText("Disponível:");
 
         jBApagar.setText("Apagar");
-        jBApagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBApagarActionPerformed(evt);
-            }
-        });
-
+        jBApagar.addActionListener(this::jBApagarActionPerformed);
+        
         jBModificar.setText("Modificar");
-        jBModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBModificarActionPerformed(evt);
-            }
-        });
-
+        jBModificar.addActionListener(this::jBModificarActionPerformed);
+        
         jBCancelar.setText("Cancelar");
-        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCancelarActionPerformed(evt);
-            }
-        });
+        jBCancelar.addActionListener(this::jBCancelarActionPerformed);
 
         JLIid.setText("0");
 

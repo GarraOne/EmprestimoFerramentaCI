@@ -52,33 +52,23 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuCadastro.setText("Cadastro");
         jMenuCadastro.setMaximumSize(new java.awt.Dimension(60, 32767));
         jMenuCadastro.setMinimumSize(new java.awt.Dimension(60, 22));
-
+        
         jMenuItemCadastrarAmigos.setText("Cadastrar Amigos");
-        jMenuItemCadastrarAmigos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCadastrarAmigosActionPerformed(evt);
-            }
-        });
+        jMenuItemCadastrarAmigos.addActionListener(this::jMenuItemCadastrarAmigosActionPerformed);
+
         jMenuCadastro.add(jMenuItemCadastrarAmigos);
         jMenuCadastro.add(jSeparator2);
 
         jMenuItemCadastrarFerramentas.setText("Cadastrar Ferramentas");
-        jMenuItemCadastrarFerramentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCadastrarFerramentasActionPerformed(evt);
-            }
-        });
+        jMenuItemCadastrarFerramentas.addActionListener(this::jMenuItemCadastrarFerramentasActionPerformed);
+
         jMenuCadastro.add(jMenuItemCadastrarFerramentas);
         jMenuCadastro.add(jSeparator3);
 
         jMenuItemSair.setText("Sair");
-        jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemSairActionPerformed(evt);
-            }
-        });
-        jMenuCadastro.add(jMenuItemSair);
+        jMenuItemSair.addActionListener(this::jMenuItemSairActionPerformed);
 
+        jMenuCadastro.add(jMenuItemSair);
         jMenuBar1.add(jMenuCadastro);
 
         jMenuTransação.setText("Transação");
@@ -87,20 +77,12 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuTransação.setPreferredSize(new java.awt.Dimension(60, 22));
 
         jMenuItemEmprestimo.setText("Empréstimo");
-        jMenuItemEmprestimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemEmprestimoActionPerformed(evt);
-            }
-        });
+        jMenuItemEmprestimo.addActionListener(this::jMenuItemEmprestimoActionPerformed);
         jMenuTransação.add(jMenuItemEmprestimo);
         jMenuTransação.add(jSeparator1);
 
         jMenuItemDevolucao.setText("Devolução");
-        jMenuItemDevolucao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemDevolucaoActionPerformed(evt);
-            }
-        });
+        jMenuItemDevolucao.addActionListener(this::jMenuItemDevolucaoActionPerformed);
         jMenuTransação.add(jMenuItemDevolucao);
 
         jMenuBar1.add(jMenuTransação);
@@ -108,29 +90,17 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuGerenciamento.setText("Gerenciamento");
 
         jMenuItemGerenciarAmigos.setText("Gerenciar Amigos");
-        jMenuItemGerenciarAmigos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemGerenciarAmigosActionPerformed(evt);
-            }
-        });
+        jMenuItemGerenciarAmigos.addActionListener(this::jMenuItemGerenciarAmigosActionPerformed);
         jMenuGerenciamento.add(jMenuItemGerenciarAmigos);
         jMenuGerenciamento.add(jSeparator4);
 
         jMenuItemGerenciarFerramentas.setText("Gerenciar Ferramentas");
-        jMenuItemGerenciarFerramentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemGerenciarFerramentasActionPerformed(evt);
-            }
-        });
+        jMenuItemGerenciarFerramentas.addActionListener(this::jMenuItemGerenciarFerramentasActionPerformed);
         jMenuGerenciamento.add(jMenuItemGerenciarFerramentas);
         jMenuGerenciamento.add(jSeparator5);
 
         jMenuItemGerenciarEmprestimo.setText("Gerenciar Empréstimo");
-        jMenuItemGerenciarEmprestimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemGerenciarEmprestimoActionPerformed(evt);
-            }
-        });
+        jMenuItemGerenciarEmprestimo.addActionListener(this::jMenuItemGerenciarEmprestimoActionPerformed);
         jMenuGerenciamento.add(jMenuItemGerenciarEmprestimo);
 
         jMenuBar1.add(jMenuGerenciamento);
@@ -138,11 +108,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuRelatorio.setText("Relatório");
 
         jMenuItemRelatorio.setText("Relatório");
-        jMenuItemRelatorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemRelatorioActionPerformed(evt);
-            }
-        });
+        jMenuItemRelatorio.addActionListener(this::jMenuItemRelatorioActionPerformed);
+
         jMenuRelatorio.add(jMenuItemRelatorio);
 
         jMenuBar1.add(jMenuRelatorio);

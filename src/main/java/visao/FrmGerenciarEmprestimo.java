@@ -66,6 +66,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
             }
         ));
         tableEmprestimo.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableEmprestimoMouseClicked(evt);
             }
@@ -87,25 +88,14 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         labelAtivoConstante.setText("Empréstimo Ativo:");
 
         jBCancelar.setText("Cancelar");
-        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCancelarActionPerformed(evt);
-            }
-        });
-
+        jBCancelar.addActionListener(this::jBCancelarActionPerformed);
+        
         buttonApagar.setText("Apagar");
-        buttonApagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonApagarActionPerformed(evt);
-            }
-        });
-
+        buttonApagar.addActionListener(this::buttonApagarActionPerformed);
+        
         buttonModificar.setText("Modificar");
-        buttonModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonModificarActionPerformed(evt);
-            }
-        });
+        buttonModificar.addActionListener(this::buttonModificarActionPerformed);
+
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -57,18 +57,10 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
         jLabel2.setText("Amigo:");
 
         jBCancelar.setText("Cancelar");
-        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCancelarActionPerformed(evt);
-            }
-        });
+        jBCancelar.addActionListener(this::jBCancelarActionPerformed);
 
         jBCadastrar.setText("Cadastrar");
-        jBCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCadastrarActionPerformed(evt);
-            }
-        });
+        jBCadastrar.addActionListener(this::jBCadastrarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,12 +129,9 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             String dataInicio = LocalDate.now() + "";
             String[] inversaoData = dataInicio.split("-");
             dataInicio = inversaoData[2] + "-" + inversaoData[1] + "-" + inversaoData[0];
-            if (conf == 0) {
-                if (emprestimo.insertEmprestimoDB(idAmigo, idFerramenta, dataInicio)) {
-                    mostrarMensagem("Empréstimo cadastrado com sucesso.");
-                    ferramentaService.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramenta(), listaFerramenta.get(posicaoFerramenta).getMarcaFerramenta(), listaFerramenta.get(posicaoFerramenta).getCustoFerramenta());
-                }
-
+            if (conf == 0 && emprestimo.insertEmprestimoDB(idAmigo, idFerramenta, dataInicio)) {
+                mostrarMensagem("Empréstimo cadastrado com sucesso.");
+                ferramentaService.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramenta(), listaFerramenta.get(posicaoFerramenta).getMarcaFerramenta(), listaFerramenta.get(posicaoFerramenta).getCustoFerramenta());
             }
         } catch (Erro erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());

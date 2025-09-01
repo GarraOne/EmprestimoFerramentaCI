@@ -46,32 +46,17 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
 
         labelCustoFeramenta.setText("Custo de Obtenção:");
 
-        textNomeFerramenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textNomeFerramentaActionPerformed(evt);
-            }
-        });
-
+        textNomeFerramenta.addActionListener(this::textNomeFerramentaActionPerformed);
+        
         buttonCadastrar.setText("Cadastrar");
-        buttonCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCadastrarActionPerformed(evt);
-            }
-        });
-
+        buttonCadastrar.addActionListener(this::buttonCadastrarActionPerformed);
+        
         buttonLimpar.setText("Limpar");
-        buttonLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonLimparActionPerformed(evt);
-            }
-        });
-
+        buttonLimpar.addActionListener(this::buttonLimparActionPerformed);
+        
         jBCancelar.setText("Cancelar");
-        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCancelarActionPerformed(evt);
-            }
-        });
+        jBCancelar.addActionListener(this::jBCancelarActionPerformed);
+
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

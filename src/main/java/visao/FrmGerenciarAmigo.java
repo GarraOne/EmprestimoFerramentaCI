@@ -66,6 +66,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
             }
         ));
         jTableAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableAmigosMouseClicked(evt);
             }
@@ -79,25 +80,13 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         labelTelefone.setText("Telefone:");
 
         buttonApagar.setText("Apagar");
-        buttonApagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonApagarActionPerformed(evt);
-            }
-        });
-
+        buttonApagar.addActionListener(this::buttonApagarActionPerformed);
+        
         buttonModificar.setText("Modificar");
-        buttonModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonModificarActionPerformed(evt);
-            }
-        });
-
+        buttonModificar.addActionListener(this::buttonModificarActionPerformed);
+        
         jBCancelar.setText("Cancelar");
-        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCancelarActionPerformed(evt);
-            }
-        });
+        jBCancelar.addActionListener(this::jBCancelarActionPerformed);
 
         labelIid.setText("0");
 
