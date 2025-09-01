@@ -1,6 +1,7 @@
 package service;
 
 import dao.AmigoDAO;
+import java.util.ArrayList;
 import modelo.Amigo;
 import java.util.List;
 import modelo.Emprestimo;
@@ -39,40 +40,34 @@ public class AmigoService {
         return amigoDAO.maiorIDAmigo();
     }
 
-    public boolean possuiEmprestimoAtivo(int id) {
-        boolean emprestimoAtivo = false;
-
+    private List<Emprestimo> buscarEmprestimosDoAmigo(int id, boolean apenasAtivos) {
         EmprestimoService emp = new EmprestimoService();
+        List<Emprestimo> lista = apenasAtivos ? emp.getListaEmprestimoAtivo()
+                : emp.listaEmprestimo();
 
-        List<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
-        for (int i = 0; i < listaEmprestimo.size(); i++) {
-            if (listaEmprestimo.get(i).getIDAmigo() == id) {
-                emprestimoAtivo = true;
+        List<Emprestimo> resultado = new ArrayList<>();
+        for (Emprestimo e : lista) {
+            if (e.getIDAmigo() == id) {
+                resultado.add(e);
             }
         }
-        return emprestimoAtivo;
+        return resultado;
+    }
+
+    public boolean possuiEmprestimoAtivo(int id) {
+        return !buscarEmprestimosDoAmigo(id, true).isEmpty();
     }
 
     public int quantidadeEmprestimo(int id) {
-        int som = 0;
-        EmprestimoService emp = new EmprestimoService();
-        List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
-        for (int i = 0; i < listaEmprestimo.size(); i++) {
-            if (listaEmprestimo.get(i).getIDAmigo() == id) {
-                som++;
-            }
-        }
-        return som;
+        return buscarEmprestimosDoAmigo(id, false).size();
     }
 
     public String getNomeAmigo(int id) {
-        String nome = "";
-        List<Amigo> listaAmigo = this.listaAmigo();
-        for (int i = 0; i < listaAmigo.size(); i++) {
-            if (id == listaAmigo.get(i).getIdAmigo()) {
-                nome = listaAmigo.get(i).getNomeAmigo();
+        for (Amigo a : listaAmigo()) {
+            if (a.getIdAmigo() == id) {
+                return a.getNomeAmigo();
             }
         }
-        return nome;
+        return "";
     }
 }
