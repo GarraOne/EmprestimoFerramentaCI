@@ -13,7 +13,7 @@ import modelo.Emprestimo;
 
 public class EmprestimoService {
 
-    private static final Logger logger = Logger.getLogger(Emprestimo.class.getName());
+    private static final Logger logger = Logger.getLogger(EmprestimoService.class.getName());
 
     private EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
 
@@ -85,7 +85,7 @@ public class EmprestimoService {
         return emprestimoDAO.maiorIDEmprestimo();
     }
 
-    public ArrayList<Emprestimo> getListaEmprestimoAtivo() {
+    public List<Emprestimo> getListaEmprestimoAtivo() {
         ArrayList<Emprestimo> listaEmprestimoAtivo = new ArrayList<>();
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -116,7 +116,7 @@ public class EmprestimoService {
     public String emprestimoAtivo(int idEmprestimo) {
         String ativo = "Não";
         EmprestimoService emp = new EmprestimoService();
-        ArrayList<Emprestimo> listaEmprestimoAtivo = emp.getListaEmprestimoAtivo();
+        List<Emprestimo> listaEmprestimoAtivo = emp.getListaEmprestimoAtivo();
         for (int i = 0; i < listaEmprestimoAtivo.size(); i++) {
             if (listaEmprestimoAtivo.get(i).getIDEmprestimo() == idEmprestimo) {
                 ativo = "Sim";

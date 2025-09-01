@@ -3,6 +3,7 @@ package modelo;
 import dao.EmprestimoDAO;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -75,7 +76,7 @@ class TesteEmprestimo {
         diaAmanha = diaAmanhaSeparado[2] + "-" + diaAmanhaSeparado[1] + "-" + diaAmanhaSeparado[0];
         Emprestimo emp = new Emprestimo(1, 1, 1, "05-05-2005", diaAmanha);
         dao.insertEmprestimoDB(emp);
-        ArrayList<Emprestimo> listaEmprestimoAtivo = emprestimoService.getListaEmprestimoAtivo();
+        List<Emprestimo> listaEmprestimoAtivo = emprestimoService.getListaEmprestimoAtivo();
         int tamanhoListaEsperado = 1;
         int tamanhoListaRecebido = listaEmprestimoAtivo.size();
         assertEquals(tamanhoListaEsperado, tamanhoListaRecebido);
@@ -87,7 +88,7 @@ class TesteEmprestimo {
         EmprestimoDAO dao = new EmprestimoDAO();
         Emprestimo emp = new Emprestimo(1, 1, 1, "05-05-2005", "a-1-1");
         dao.insertEmprestimoDB(emp);
-        ArrayList<Emprestimo> listaEmprestimoAtivo = emprestimoService.getListaEmprestimoAtivo();
+        List<Emprestimo> listaEmprestimoAtivo = emprestimoService.getListaEmprestimoAtivo();
         int tamanhoListaEsperado = 0;
         int tamanhoListaRecebido = listaEmprestimoAtivo.size();
         assertEquals(tamanhoListaEsperado, tamanhoListaRecebido);

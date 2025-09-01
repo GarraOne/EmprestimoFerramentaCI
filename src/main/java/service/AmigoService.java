@@ -45,7 +45,7 @@ public class AmigoService {
 
         EmprestimoService emp = new EmprestimoService();
 
-        ArrayList<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
+        List<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
         for (int i = 0; i < listaEmprestimo.size(); i++) {
             if (listaEmprestimo.get(i).getIDAmigo() == id) {
                 emprestimoAtivo = true;

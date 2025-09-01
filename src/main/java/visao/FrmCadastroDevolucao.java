@@ -110,7 +110,7 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
     private void buttonCadatrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadatrarActionPerformed
         if (evt == null) return;
         int posicaoEmprestimo = comboBoxEmprestimo.getSelectedIndex();
-        ArrayList<Emprestimo> listaEmprestimo = emprestimoService.getListaEmprestimoAtivo();
+        List<Emprestimo> listaEmprestimo = emprestimoService.getListaEmprestimoAtivo();
         EmprestimoService emp = new EmprestimoService();
         String data = LocalDate.now() + "";
         String[] dataInvertida = data.split("-");
@@ -125,7 +125,7 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
 
     public void carregaCBEmprestimo() {
         EmprestimoService emp = new EmprestimoService();
-        ArrayList<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
+        List<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
         List<Amigo> listaAmigo = amigoService.listaAmigo();
         List<Ferramenta> listaFerramenta = ferramentaService.listaFerramenta();
 
