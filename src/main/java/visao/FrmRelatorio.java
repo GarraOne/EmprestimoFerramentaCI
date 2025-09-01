@@ -75,7 +75,6 @@ public class FrmRelatorio extends javax.swing.JFrame {
     public void criaRelatorio() {
         int idAmigo = 0;
         int maior = 0;
-        String string = "FERRAMENTAS: \n";
         StringBuilder sb = new StringBuilder();
         double som = 0;
         AmigoService amigoService = new AmigoService();

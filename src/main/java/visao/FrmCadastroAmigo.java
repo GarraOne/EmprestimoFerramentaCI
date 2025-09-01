@@ -21,9 +21,6 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         // carrega o objeto vazio de amigo
         this.serviceAmigo = new AmigoService();
 
-        cadastrarButton.addActionListener(this::cadastrarButtonActionPerformed);
-        buttonLimpar.addActionListener(this::buttonLimparActionPerformed);
-        cancelarButton.addActionListener(this::cancelarButtonActionPerformed);
     }
 
     public String getMensagem() {
@@ -45,7 +42,6 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         
         javax.swing.JLabel labelNomeAmigo = new javax.swing.JLabel();
         javax.swing.JLabel labelTelefone = new javax.swing.JLabel();
-        labelTelefone = new javax.swing.JLabel();
         textNomeAmigo = new javax.swing.JTextField();
         textTelefone = new javax.swing.JTextField();
         cadastrarButton = new javax.swing.JButton();
@@ -60,10 +56,13 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         labelTelefone.setText("Telefone:");
 
         cadastrarButton.setText("Cadastrar");
+        cadastrarButton.addActionListener(this::cadastrarButtonActionPerformed);
 
         buttonLimpar.setText("Limpar");
+        buttonLimpar.addActionListener(this::buttonLimparActionPerformed);
 
         cancelarButton.setText("Cancelar");
+        cancelarButton.addActionListener(this::cancelarButtonActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

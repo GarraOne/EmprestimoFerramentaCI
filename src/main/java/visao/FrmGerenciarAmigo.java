@@ -150,7 +150,8 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
         //Libera todos os recurso da interface gráfica
         this.dispose();
-        if (evt == null) return;
+        if (evt == null) {
+        }
 
     }//GEN-LAST:event_jBCancelarActionPerformed
 
@@ -208,7 +209,6 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         int conf = 0;
         EmprestimoService emp = new EmprestimoService();
         List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
-        int idEmprestimo = 0;
         conf = confirmarApagarAmigo();
         if (conf == 0) {
 
@@ -270,9 +270,8 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new FrmGerenciarAmigo().setVisible(true);
-            });
+        java.awt.EventQueue.invokeLater(() -> new FrmGerenciarAmigo().setVisible(true));
+
             }
 
     protected int confirmarApagarAmigo() {

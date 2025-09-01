@@ -247,7 +247,6 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         int conf = 0;
         EmprestimoService emp = new EmprestimoService();
         List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
-        int idEmprestimo = 0;
         conf = confirmarApagarFerramenta();
         if (conf == 0) {
 

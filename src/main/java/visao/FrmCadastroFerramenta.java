@@ -113,7 +113,8 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void textNomeFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeFerramentaActionPerformed
-        if (evt == null) return;
+        if (evt == null) {
+        }
 
     }//GEN-LAST:event_textNomeFerramentaActionPerformed
 
