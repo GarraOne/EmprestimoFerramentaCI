@@ -39,16 +39,16 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         jTableAmigos = new javax.swing.JTable();
-        labelId = new javax.swing.JLabel();
-        labelNome = new javax.swing.JLabel();
+        javax.swing.JLabel labelId = new javax.swing.JLabel();
+        javax.swing.JLabel labelNome = new javax.swing.JLabel();
         textNome = new javax.swing.JTextField();
-        labelTelefone = new javax.swing.JLabel();
+        javax.swing.JLabel labelTelefone = new javax.swing.JLabel();
         textTelefone = new javax.swing.JTextField();
         buttonApagar = new javax.swing.JButton();
         buttonModificar = new javax.swing.JButton();
-        jBCancelar = new javax.swing.JButton();
+        javax.swing.JButton jBCancelar = new javax.swing.JButton();
         labelIid = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -306,13 +306,8 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonApagar;
     private javax.swing.JButton buttonModificar;
-    private javax.swing.JButton jBCancelar;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableAmigos;
-    private javax.swing.JLabel labelId;
     private javax.swing.JLabel labelIid;
-    private javax.swing.JLabel labelNome;
-    private javax.swing.JLabel labelTelefone;
     private javax.swing.JTextField textNome;
     private javax.swing.JTextField textTelefone;
     // End of variables declaration//GEN-END:variables

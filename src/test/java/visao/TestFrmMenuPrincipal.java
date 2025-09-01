@@ -11,13 +11,13 @@ class TestFrmMenuPrincipal {
     @Test
     void testSairChamaEncerramentoForaDoModoTeste() {
         System.clearProperty("modoTeste");
-        
+
         FrmMenuPrincipalFake frm = new FrmMenuPrincipalFake();
         frm.testarAcaoMenuSair();
-        
+
         assertTrue(frm.encerramentoChamado);
     }
-    
+
     @Test
     void testSairNaoChamaEncerramentoEmModoTeste() {
         System.setProperty("modoTeste", "true");
@@ -31,7 +31,7 @@ class TestFrmMenuPrincipal {
     }
 
     @Test
-    void testMenuItemGerenciarAmigosActionPerformed() throws Exception {
+    void testMenuItemGerenciarAmigosActionPerformed() {
         //Criação da janela
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
@@ -79,7 +79,7 @@ class TestFrmMenuPrincipal {
     }
 
     @Test
-    void testMenuItemCadastarFerramentasActionPerformed() throws Exception {
+    void testMenuItemCadastarFerramentasActionPerformed() {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
@@ -122,7 +122,7 @@ class TestFrmMenuPrincipal {
     }
 
     @Test
-    void testMenuItemEmpréstimoActionPerformed() throws Exception {
+    void testMenuItemEmpréstimoActionPerformed() {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
@@ -165,7 +165,7 @@ class TestFrmMenuPrincipal {
     }
 
     @Test
-    void testMenuItemDevoluçãoActionPerformed() throws Exception {
+    void testMenuItemDevoluçãoActionPerformed() {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
@@ -208,7 +208,7 @@ class TestFrmMenuPrincipal {
     }
 
     @Test
-    void testMenuItemGerenciarEmprestimoPerformed() throws Exception {
+    void testMenuItemGerenciarEmprestimoPerformed() {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
@@ -251,7 +251,7 @@ class TestFrmMenuPrincipal {
     }
 
     @Test
-    void testMenuItemRelatorioPerformed() throws Exception {
+    void testMenuItemRelatorioPerformed() {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
@@ -294,7 +294,7 @@ class TestFrmMenuPrincipal {
     }
 
     @Test
-    void testMenuItemCadastrarAmigosPerformed() throws Exception {
+    void testMenuItemCadastrarAmigosPerformed() {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
@@ -337,7 +337,7 @@ class TestFrmMenuPrincipal {
     }
 
     @Test
-    void testMenuItemGerenciarFerramentasAmigosPerformed() throws Exception {
+    void testMenuItemGerenciarFerramentasAmigosPerformed() {
         JFrame frame = new FrmMenuPrincipal();
         frame.setVisible(true);
         frame.setSize(400, 300);
@@ -378,7 +378,7 @@ class TestFrmMenuPrincipal {
 
         assertTrue(encontrou, "A janela FrmGerenciarFerramenta deve estar visivel apos o clique.");
     }
-    
+
     @Test
     void testMain() throws InvocationTargetException, InterruptedException {
         System.setProperty("modoTeste", "true");

@@ -27,15 +27,15 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelNomeFerramenta = new javax.swing.JLabel();
-        labelMarcaFerramenta = new javax.swing.JLabel();
-        labelCustoFeramenta = new javax.swing.JLabel();
+        javax.swing.JLabel labelNomeFerramenta = new javax.swing.JLabel();
+        javax.swing.JLabel labelMarcaFerramenta = new javax.swing.JLabel();
+        javax.swing.JLabel labelCustoFeramenta = new javax.swing.JLabel();
         textNomeFerramenta = new javax.swing.JTextField();
         textMarcaFerramenta = new javax.swing.JTextField();
         textCustoFerramenta = new javax.swing.JTextField();
         buttonCadastrar = new javax.swing.JButton();
         buttonLimpar = new javax.swing.JButton();
-        jBCancelar = new javax.swing.JButton();
+        javax.swing.JButton jBCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Ferramentas");
@@ -227,10 +227,6 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCadastrar;
     private javax.swing.JButton buttonLimpar;
-    private javax.swing.JButton jBCancelar;
-    private javax.swing.JLabel labelCustoFeramenta;
-    private javax.swing.JLabel labelMarcaFerramenta;
-    private javax.swing.JLabel labelNomeFerramenta;
     private javax.swing.JTextField textCustoFerramenta;
     private javax.swing.JTextField textMarcaFerramenta;
     private javax.swing.JTextField textNomeFerramenta;

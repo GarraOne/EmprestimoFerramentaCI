@@ -41,11 +41,12 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JTextArea jTextArea1 = new javax.swing.JTextArea();
+        javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
         comboBoxEmprestimo = new javax.swing.JComboBox<>();
-        buttonCancelar = new javax.swing.JButton();
+        javax.swing.JButton buttonCancelar = new javax.swing.JButton();
         buttonCadatrar = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
@@ -172,10 +173,6 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCadatrar;
-    private javax.swing.JButton buttonCancelar;
     private javax.swing.JComboBox<String> comboBoxEmprestimo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

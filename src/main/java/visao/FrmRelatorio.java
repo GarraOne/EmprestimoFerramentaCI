@@ -28,9 +28,9 @@ public class FrmRelatorio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         jTARelatorio = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        javax.swing.JButton jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Relatório");
@@ -67,14 +67,16 @@ public class FrmRelatorio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (evt == null) return;
+        if (evt == null) {
+            return;
+        }
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
     public void criaRelatorio() {
         int idAmigo = 0;
         int maior = 0;
         String string = "FERRAMENTAS: \n";
-        String lista = "";
+        StringBuilder sb = new StringBuilder();
         double som = 0;
         AmigoService amigoService = new AmigoService();
         EmprestimoService emp = new EmprestimoService();
@@ -82,27 +84,53 @@ public class FrmRelatorio extends javax.swing.JFrame {
         List<Ferramenta> listaFerramenta = ferramentaService.listaFerramenta();
         List<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
 
-        for (int i = 0; i < listaFerramenta.size(); i++) {
-            lista = lista + "\n ID da Ferramenta: " + listaFerramenta.get(i).getIdFerramenta() + "\n Nome da Ferramenta: " + listaFerramenta.get(i).getNomeFerramenta() + "\n Marca da Ferramenta: " + listaFerramenta.get(i).getMarcaFerramenta() + "\n Custo da Ferramenta: " + listaFerramenta.get(i).getCustoFerramenta() + "\n";
-            som += listaFerramenta.get(i).getCustoFerramenta();
+        for (Ferramenta f : listaFerramenta) {
+            sb.append("\n ID da Ferramenta: ").append(f.getIdFerramenta())
+                    .append("\n Nome da Ferramenta: ").append(f.getNomeFerramenta())
+                    .append("\n Marca da Ferramenta: ").append(f.getMarcaFerramenta())
+                    .append("\n Custo da Ferramenta: ").append(f.getCustoFerramenta())
+                    .append("\n");
+            som += f.getCustoFerramenta();
         }
-        string = string + lista + "\n Custo total das ferramentas: R$" + som + "\n\n AMIGOS: \n";
-        lista = "";
-        for (int i = 0; i < listaAmigo.size(); i++) {
-            lista = lista + "\n ID do Amigo: " + listaAmigo.get(i).getIdAmigo() + "\n Nome do Amigo: " + listaAmigo.get(i).getNomeAmigo() + "\n Telefone do Amigo: " + listaAmigo.get(i).getTelefone() + "\n Número de Empréstimos: " + amigoService.quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo()) + "\n Possui empréstimo ativo: " + amigoService.possuiEmprestimoAtivo(listaAmigo.get(i).getIdAmigo()) + "\n";
-            if (amigoService.quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo()) > maior) {
-                idAmigo = listaAmigo.get(i).getIdAmigo();
-                maior = amigoService.quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo());
+
+        sb.append("\n Custo total das ferramentas: R$").append(som).append("\n\n AMIGOS: \n");
+
+        for (Amigo a : listaAmigo) {
+            int qtdEmprestimos = amigoService.quantidadeEmprestimo(a.getIdAmigo());
+            boolean possuiAtivo = amigoService.possuiEmprestimoAtivo(a.getIdAmigo());
+
+            sb.append("\n ID do Amigo: ").append(a.getIdAmigo())
+                    .append("\n Nome do Amigo: ").append(a.getNomeAmigo())
+                    .append("\n Telefone do Amigo: ").append(a.getTelefone())
+                    .append("\n Número de Empréstimos: ").append(qtdEmprestimos)
+                    .append("\n Possui empréstimo ativo: ").append(possuiAtivo)
+                    .append("\n");
+
+            if (qtdEmprestimos > maior) {
+                idAmigo = a.getIdAmigo();
+                maior = qtdEmprestimos;
             }
         }
-        string = string + lista + "\n Amigo com maior quantidade de empréstimos: " + amigoService.getNomeAmigo(idAmigo) + "\n Quantidade de empréstimos: " + maior + "\n\n EMPRÉSTIMOS: \n";
-        lista = "";
+
+        sb.append("\n Amigo com maior quantidade de empréstimos: ")
+                .append(amigoService.getNomeAmigo(idAmigo))
+                .append("\n Quantidade de empréstimos: ")
+                .append(maior)
+                .append("\n\n EMPRÉSTIMOS: \n");
+
         for (int i = 0; i < listaEmprestimo.size(); i++) {
+            Emprestimo e = listaEmprestimo.get(i);
             logger.log(Level.INFO, "Processando empréstimo índice: {0}", i);
-            lista = lista + "\n ID do Empréstimo: " + listaEmprestimo.get(i).getIDEmprestimo() + "\n Nome do Amigo: " + amigoService.getNomeAmigo(listaEmprestimo.get(i).getIDAmigo()) + "\n Nome da Ferramenta: " + ferramentaService.getNomeFerramenta(listaEmprestimo.get(i).getIDFerramenta()) + "\n Data de Início: " + listaEmprestimo.get(i).getDataEmprestimo() + "\n Data de Devolução: " + listaEmprestimo.get(i).getDataDevolucao() + "\n";
+
+            sb.append("\n ID do Empréstimo: ").append(e.getIDEmprestimo())
+                    .append("\n Nome do Amigo: ").append(amigoService.getNomeAmigo(e.getIDAmigo()))
+                    .append("\n Nome da Ferramenta: ").append(ferramentaService.getNomeFerramenta(e.getIDFerramenta()))
+                    .append("\n Data de Início: ").append(e.getDataEmprestimo())
+                    .append("\n Data de Devolução: ").append(e.getDataDevolucao())
+                    .append("\n");
         }
-        string = string + lista;
-        jTARelatorio.setText(string);
+        jTARelatorio.setText(sb.toString());
+
     }
 
     public static void main(String[] args) {
@@ -122,7 +150,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrmRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
@@ -131,8 +159,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
+
     private javax.swing.JTextArea jTARelatorio;
     // End of variables declaration//GEN-END:variables
 }

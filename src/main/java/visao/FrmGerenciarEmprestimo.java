@@ -36,23 +36,23 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         tableEmprestimo = new javax.swing.JTable();
-        labelId = new javax.swing.JLabel();
+        javax.swing.JLabel labelId = new javax.swing.JLabel();
         labelIid = new javax.swing.JLabel();
-        labelIdAmigo = new javax.swing.JLabel();
-        labelIdFerramenta = new javax.swing.JLabel();
-        labelDataInicio = new javax.swing.JLabel();
-        labelDataDevolucao = new javax.swing.JLabel();
+        javax.swing.JLabel labelIdAmigo = new javax.swing.JLabel();
+        javax.swing.JLabel labelIdFerramenta = new javax.swing.JLabel();
+        javax.swing.JLabel labelDataInicio = new javax.swing.JLabel();
+        javax.swing.JLabel labelDataDevolucao = new javax.swing.JLabel();
         labelAtivoConstante = new javax.swing.JLabel();
-        jBCancelar = new javax.swing.JButton();
+        javax.swing.JButton jBCancelar = new javax.swing.JButton();
         buttonApagar = new javax.swing.JButton();
         buttonModificar = new javax.swing.JButton();
         textIdAmigo = new javax.swing.JTextField();
         textIdFerramenta = new javax.swing.JTextField();
         textDataEmprestimo = new javax.swing.JTextField();
         textDataDevolucao = new javax.swing.JTextField();
-        labelAtivo = new javax.swing.JLabel();
+        javax.swing.JLabel labelAtivo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciador de Empréstimos");
@@ -275,9 +275,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new FrmGerenciarEmprestimo().setVisible(true);
-            });
+        java.awt.EventQueue.invokeLater(() -> new FrmGerenciarEmprestimo().setVisible(true));
 
     }
 
@@ -319,15 +317,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonApagar;
     private javax.swing.JButton buttonModificar;
-    private javax.swing.JButton jBCancelar;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel labelAtivo;
     private javax.swing.JLabel labelAtivoConstante;
-    private javax.swing.JLabel labelDataDevolucao;
-    private javax.swing.JLabel labelDataInicio;
-    private javax.swing.JLabel labelId;
-    private javax.swing.JLabel labelIdAmigo;
-    private javax.swing.JLabel labelIdFerramenta;
     private javax.swing.JLabel labelIid;
     private javax.swing.JTable tableEmprestimo;
     private javax.swing.JTextField textDataDevolucao;

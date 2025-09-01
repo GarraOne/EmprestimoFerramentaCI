@@ -42,8 +42,9 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        labelNomeAmigo = new javax.swing.JLabel();
+        
+        javax.swing.JLabel labelNomeAmigo = new javax.swing.JLabel();
+        javax.swing.JLabel labelTelefone = new javax.swing.JLabel();
         labelTelefone = new javax.swing.JLabel();
         textNomeAmigo = new javax.swing.JTextField();
         textTelefone = new javax.swing.JTextField();
@@ -209,8 +210,6 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     private javax.swing.JButton buttonLimpar;
     private javax.swing.JButton cadastrarButton;
     private javax.swing.JButton cancelarButton;
-    private javax.swing.JLabel labelNomeAmigo;
-    private javax.swing.JLabel labelTelefone;
     private javax.swing.JTextField textNomeAmigo;
     private javax.swing.JTextField textTelefone;
     // End of variables declaration//GEN-END:variables

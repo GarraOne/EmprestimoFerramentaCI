@@ -26,25 +26,25 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenuCadastro = new javax.swing.JMenu();
-        jMenuItemCadastrarAmigos = new javax.swing.JMenuItem();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuItemCadastrarFerramentas = new javax.swing.JMenuItem();
-        jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        jMenuItemSair = new javax.swing.JMenuItem();
-        jMenuTransacao = new javax.swing.JMenu();
-        jMenuItemEmprestimo = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItemDevolucao = new javax.swing.JMenuItem();
-        jMenuGerenciamento = new javax.swing.JMenu();
-        jMenuItemGerenciarAmigos = new javax.swing.JMenuItem();
-        jSeparator4 = new javax.swing.JPopupMenu.Separator();
-        jMenuItemGerenciarFerramentas = new javax.swing.JMenuItem();
-        jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        jMenuItemGerenciarEmprestimo = new javax.swing.JMenuItem();
-        jMenuRelatorio = new javax.swing.JMenu();
-        jMenuItemRelatorio = new javax.swing.JMenuItem();
+        javax.swing.JMenuBar jMenuBar1 = new javax.swing.JMenuBar();
+        javax.swing.JMenu jMenuCadastro = new javax.swing.JMenu();
+        javax.swing.JMenuItem jMenuItemCadastrarAmigos = new javax.swing.JMenuItem();
+        javax.swing.JPopupMenu.Separator jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        javax.swing.JMenuItem jMenuItemCadastrarFerramentas = new javax.swing.JMenuItem();
+        javax.swing.JPopupMenu.Separator jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        javax.swing.JMenuItem jMenuItemSair = new javax.swing.JMenuItem();
+        javax.swing.JMenu jMenuTransacao = new javax.swing.JMenu();
+        javax.swing.JMenuItem jMenuItemEmprestimo = new javax.swing.JMenuItem();
+        javax.swing.JPopupMenu.Separator jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        javax.swing.JMenuItem jMenuItemDevolucao = new javax.swing.JMenuItem();
+        javax.swing.JMenu jMenuGerenciamento = new javax.swing.JMenu();
+        javax.swing.JMenuItem jMenuItemGerenciarAmigos = new javax.swing.JMenuItem();
+        javax.swing.JPopupMenu.Separator jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        javax.swing.JMenuItem jMenuItemGerenciarFerramentas = new javax.swing.JMenuItem();
+        javax.swing.JPopupMenu.Separator jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        javax.swing.JMenuItem jMenuItemGerenciarEmprestimo = new javax.swing.JMenuItem();
+        javax.swing.JMenu jMenuRelatorio = new javax.swing.JMenu();
+        javax.swing.JMenuItem jMenuItemRelatorio = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
@@ -227,24 +227,5 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jMenuCadastro;
-    private javax.swing.JMenu jMenuGerenciamento;
-    private javax.swing.JMenuItem jMenuItemCadastrarAmigos;
-    private javax.swing.JMenuItem jMenuItemCadastrarFerramentas;
-    private javax.swing.JMenuItem jMenuItemDevolucao;
-    private javax.swing.JMenuItem jMenuItemEmprestimo;
-    private javax.swing.JMenuItem jMenuItemGerenciarAmigos;
-    private javax.swing.JMenuItem jMenuItemGerenciarEmprestimo;
-    private javax.swing.JMenuItem jMenuItemGerenciarFerramentas;
-    private javax.swing.JMenuItem jMenuItemRelatorio;
-    private javax.swing.JMenuItem jMenuItemSair;
-    private javax.swing.JMenu jMenuRelatorio;
-    private javax.swing.JMenu jMenuTransacao;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JPopupMenu.Separator jSeparator3;
-    private javax.swing.JPopupMenu.Separator jSeparator4;
-    private javax.swing.JPopupMenu.Separator jSeparator5;
     // End of variables declaration//GEN-END:variables
 }

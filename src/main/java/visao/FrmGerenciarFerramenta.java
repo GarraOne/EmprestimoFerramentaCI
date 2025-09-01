@@ -36,19 +36,19 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         jTableAmigos = new javax.swing.JTable();
-        jLID = new javax.swing.JLabel();
-        jLNome = new javax.swing.JLabel();
+        javax.swing.JLabel jLID = new javax.swing.JLabel();
+        javax.swing.JLabel jLNome = new javax.swing.JLabel();
         jTFNome = new javax.swing.JTextField();
-        jLMarca = new javax.swing.JLabel();
+        javax.swing.JLabel jLMarca = new javax.swing.JLabel();
         jTFMarca = new javax.swing.JTextField();
-        jLCustoFerramenta = new javax.swing.JLabel();
+        javax.swing.JLabel jLCustoFerramenta = new javax.swing.JLabel();
         jTFCustoFerramenta = new javax.swing.JTextField();
-        jLDisponivel = new javax.swing.JLabel();
+        javax.swing.JLabel jLDisponivel = new javax.swing.JLabel();
         jBApagar = new javax.swing.JButton();
         jBModificar = new javax.swing.JButton();
-        jBCancelar = new javax.swing.JButton();
+        javax.swing.JButton jBCancelar = new javax.swing.JButton();
         jLIid = new javax.swing.JLabel();
         jLCustoTotal = new javax.swing.JLabel();
         labelDisponivel = new javax.swing.JLabel();
@@ -347,17 +347,10 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         return this.jTableAmigos;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLCustoFerramenta;
     private javax.swing.JLabel jLCustoTotal;
-    private javax.swing.JLabel jLDisponivel;
-    private javax.swing.JLabel jLID;
     private javax.swing.JLabel jLIid;
-    private javax.swing.JLabel jLMarca;
-    private javax.swing.JLabel jLNome;
     private javax.swing.JButton jBApagar;
-    private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBModificar;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTFCustoFerramenta;
     private javax.swing.JTextField jTFMarca;
     private javax.swing.JTextField jTFNome;
