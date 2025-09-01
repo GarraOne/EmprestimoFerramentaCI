@@ -1,6 +1,5 @@
 package dao;
 
-import java.util.ArrayList;
 import java.util.List;
 import modelo.Emprestimo;
 import org.junit.jupiter.api.AfterEach;

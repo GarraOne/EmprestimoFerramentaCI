@@ -35,7 +35,7 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
         textCustoFerramenta = new javax.swing.JTextField();
         buttonCadastrar = new javax.swing.JButton();
         buttonLimpar = new javax.swing.JButton();
-        JBCancelar = new javax.swing.JButton();
+        jBCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Ferramentas");
@@ -46,16 +46,32 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
 
         labelCustoFeramenta.setText("Custo de Obtenção:");
 
-        textNomeFerramenta.addActionListener(this::textNomeFerramentaActionPerformed);
+        textNomeFerramenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNomeFerramentaActionPerformed(evt);
+            }
+        });
 
         buttonCadastrar.setText("Cadastrar");
-        buttonCadastrar.addActionListener(this::buttonCadastrarActionPerformed);
+        buttonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCadastrarActionPerformed(evt);
+            }
+        });
 
         buttonLimpar.setText("Limpar");
-        buttonLimpar.addActionListener(this::buttonLimparActionPerformed);
+        buttonLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLimparActionPerformed(evt);
+            }
+        });
 
-        JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(this::JBCancelarActionPerformed);
+        jBCancelar.setText("Cancelar");
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,7 +89,7 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonLimpar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JBCancelar)))
+                        .addComponent(jBCancelar)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -102,7 +118,7 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
                 .addComponent(textCustoFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBCancelar)
+                    .addComponent(jBCancelar)
                     .addComponent(buttonLimpar)
                     .addComponent(buttonCadastrar))
                 .addGap(8, 8, 8))
@@ -116,12 +132,12 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
 
     }//GEN-LAST:event_textNomeFerramentaActionPerformed
 
-    private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
         //Libera todos os recurso da interface gráfica
         if (evt == null) return;
 
         this.dispose();
-    }//GEN-LAST:event_JBCancelarActionPerformed
+    }//GEN-LAST:event_jBCancelarActionPerformed
 
     private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
         if (evt == null) return;
@@ -174,7 +190,7 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -224,9 +240,9 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBCancelar;
     private javax.swing.JButton buttonCadastrar;
     private javax.swing.JButton buttonLimpar;
+    private javax.swing.JButton jBCancelar;
     private javax.swing.JLabel labelCustoFeramenta;
     private javax.swing.JLabel labelMarcaFerramenta;
     private javax.swing.JLabel labelNomeFerramenta;

@@ -52,8 +52,8 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="JTFMarca" pref="140" max="32767" attributes="0"/>
-                                          <Component id="JTFCustoFerramenta" pref="140" max="32767" attributes="0"/>
+                                          <Component id="jTFMarca" pref="140" max="32767" attributes="0"/>
+                                          <Component id="jTFCustoFerramenta" pref="140" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -61,16 +61,16 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="labelDisponivel" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="JTFNome" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="jTFNome" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="239" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="JBApagar" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBApagar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JBModificar" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBModificar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JBCancelar" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBCancelar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -93,16 +93,16 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JLNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTFNome" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JTFMarca" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTFMarca" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JLMarca" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JTFCustoFerramenta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTFCustoFerramenta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JLCustoFerramenta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -112,9 +112,9 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JBApagar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBModificar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBApagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBModificar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
           </Group>
@@ -189,49 +189,49 @@
         <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFNome">
+    <Component class="javax.swing.JTextField" name="jTFNome">
     </Component>
     <Component class="javax.swing.JLabel" name="JLMarca">
       <Properties>
         <Property name="text" type="java.lang.String" value="Marca:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFMarca">
+    <Component class="javax.swing.JTextField" name="jTFMarca">
     </Component>
     <Component class="javax.swing.JLabel" name="JLCustoFerramenta">
       <Properties>
         <Property name="text" type="java.lang.String" value="Custo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFCustoFerramenta">
+    <Component class="javax.swing.JTextField" name="jTFCustoFerramenta">
     </Component>
     <Component class="javax.swing.JLabel" name="JLDisponivel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Dispon&#xed;vel:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="JBApagar">
+    <Component class="javax.swing.JButton" name="jBApagar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Apagar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBApagarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBApagarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBModificar">
+    <Component class="javax.swing.JButton" name="jBModificar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBModificarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBModificarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBCancelar">
+    <Component class="javax.swing.JButton" name="jBCancelar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBCancelarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCancelarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="JLIid">

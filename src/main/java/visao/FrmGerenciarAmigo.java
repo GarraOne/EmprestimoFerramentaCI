@@ -48,7 +48,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         textTelefone = new javax.swing.JTextField();
         buttonApagar = new javax.swing.JButton();
         buttonModificar = new javax.swing.JButton();
-        JBCancelar = new javax.swing.JButton();
+        jBCancelar = new javax.swing.JButton();
         labelIid = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,14 +65,11 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
                 "ID", "Nome", "Telefone"
             }
         ));
-
         jTableAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableAmigosMouseClicked(evt);
             }
         });
-
         jScrollPane1.setViewportView(jTableAmigos);
 
         labelId.setText("ID:");
@@ -82,13 +79,25 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         labelTelefone.setText("Telefone:");
 
         buttonApagar.setText("Apagar");
-        buttonApagar.addActionListener(this::buttonApagarActionPerformed);
+        buttonApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonApagarActionPerformed(evt);
+            }
+        });
 
         buttonModificar.setText("Modificar");
-        buttonModificar.addActionListener(this::buttonModificarActionPerformed);
+        buttonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonModificarActionPerformed(evt);
+            }
+        });
 
-        JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(this::JBCancelarActionPerformed);
+        jBCancelar.setText("Cancelar");
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelarActionPerformed(evt);
+            }
+        });
 
         labelIid.setText("0");
 
@@ -118,7 +127,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBCancelar)
+                .addComponent(jBCancelar)
                 .addGap(22, 22, 22))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
@@ -142,23 +151,23 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonApagar)
                     .addComponent(buttonModificar)
-                    .addComponent(JBCancelar))
+                    .addComponent(jBCancelar))
                 .addGap(18, 18, 18))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
         //Libera todos os recurso da interface gráfica
         this.dispose();
         if (evt == null) return;
 
-    }//GEN-LAST:event_JBCancelarActionPerformed
+    }//GEN-LAST:event_jBCancelarActionPerformed
 
     public void simularCliqueCancelar() {
 
-        JBCancelarActionPerformed(null);
+        jBCancelarActionPerformed(null);
     }
 
     private void buttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarActionPerformed
@@ -245,7 +254,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -306,9 +315,9 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBCancelar;
     private javax.swing.JButton buttonApagar;
     private javax.swing.JButton buttonModificar;
+    private javax.swing.JButton jBCancelar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableAmigos;
     private javax.swing.JLabel labelId;

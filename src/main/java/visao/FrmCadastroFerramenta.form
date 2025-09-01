@@ -37,7 +37,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="buttonLimpar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JBCancelar" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBCancelar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -72,7 +72,7 @@
               <Component id="textCustoFerramenta" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="94" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JBCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -122,12 +122,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLimparActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBCancelar">
+    <Component class="javax.swing.JButton" name="jBCancelar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBCancelarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCancelarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

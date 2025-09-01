@@ -27,8 +27,8 @@ class TesteFerramenta {
     void TestGetDisponivel() {
         emprestimoService.insertEmprestimoDB(1, 1, "05-05-2005");
         String disponivelEsperado = "Não";
-        String DisponivelRecebido = ferramentaService.getDisponivel(1);
-        assertEquals(disponivelEsperado, DisponivelRecebido);
+        String disponivelRecebido = ferramentaService.getDisponivel(1);
+        assertEquals(disponivelEsperado, disponivelRecebido);
         emprestimoService.deleteEmprestimoDB(1);
     }
 

@@ -40,15 +40,15 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         jTableAmigos = new javax.swing.JTable();
         JLID = new javax.swing.JLabel();
         JLNome = new javax.swing.JLabel();
-        JTFNome = new javax.swing.JTextField();
+        jTFNome = new javax.swing.JTextField();
         JLMarca = new javax.swing.JLabel();
-        JTFMarca = new javax.swing.JTextField();
+        jTFMarca = new javax.swing.JTextField();
         JLCustoFerramenta = new javax.swing.JLabel();
-        JTFCustoFerramenta = new javax.swing.JTextField();
+        jTFCustoFerramenta = new javax.swing.JTextField();
         JLDisponivel = new javax.swing.JLabel();
-        JBApagar = new javax.swing.JButton();
-        JBModificar = new javax.swing.JButton();
-        JBCancelar = new javax.swing.JButton();
+        jBApagar = new javax.swing.JButton();
+        jBModificar = new javax.swing.JButton();
+        jBCancelar = new javax.swing.JButton();
         JLIid = new javax.swing.JLabel();
         JLCustoTotal = new javax.swing.JLabel();
         labelDisponivel = new javax.swing.JLabel();
@@ -68,7 +68,6 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
             }
         ));
         jTableAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableAmigosMouseClicked(evt);
             }
@@ -85,14 +84,26 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
 
         JLDisponivel.setText("Disponível:");
 
-        JBApagar.setText("Apagar");
-        JBApagar.addActionListener(this::JBApagarActionPerformed);
+        jBApagar.setText("Apagar");
+        jBApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBApagarActionPerformed(evt);
+            }
+        });
 
-        JBModificar.setText("Modificar");
-        JBModificar.addActionListener(this::JBModificarActionPerformed);
+        jBModificar.setText("Modificar");
+        jBModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBModificarActionPerformed(evt);
+            }
+        });
 
-        JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(this::JBCancelarActionPerformed);
+        jBCancelar.setText("Cancelar");
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelarActionPerformed(evt);
+            }
+        });
 
         JLIid.setText("0");
 
@@ -127,20 +138,20 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                                             .addComponent(JLMarca))
                                         .addGap(28, 28, 28)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(JTFMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                            .addComponent(JTFCustoFerramenta, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
+                                            .addComponent(jTFMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                            .addComponent(jTFCustoFerramenta, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(JLDisponivel)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(labelDisponivel))
-                                    .addComponent(JTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(239, 239, 239))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(JBApagar)
+                                .addComponent(jBApagar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JBModificar)
+                                .addComponent(jBModificar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JBCancelar)
+                                .addComponent(jBCancelar)
                                 .addContainerGap())))))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
@@ -156,14 +167,14 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLNome)
-                    .addComponent(JTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTFMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JLMarca))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTFCustoFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFCustoFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JLCustoFerramenta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -171,21 +182,21 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                     .addComponent(labelDisponivel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBApagar)
-                    .addComponent(JBModificar)
-                    .addComponent(JBCancelar))
+                    .addComponent(jBApagar)
+                    .addComponent(jBModificar)
+                    .addComponent(jBCancelar))
                 .addGap(7, 7, 7))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
         //Libera todos os recurso da interface gráfica
         if (evt == null) return;
 
         this.dispose();
-    }//GEN-LAST:event_JBCancelarActionPerformed
+    }//GEN-LAST:event_jBCancelarActionPerformed
 
     private void jTableAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAmigosMouseClicked
         if (evt == null) return;
@@ -193,15 +204,15 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         if (this.jTableAmigos.getSelectedRow() != -1) {
             JLIid.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
             JLIid.setVisible(true);
-            JTFNome.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 1).toString());
-            JTFMarca.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 2).toString());
-            JTFCustoFerramenta.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 3).toString());
+            jTFNome.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 1).toString());
+            jTFMarca.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 2).toString());
+            jTFCustoFerramenta.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 3).toString());
             labelDisponivel.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 4).toString());
 
         }
     }//GEN-LAST:event_jTableAmigosMouseClicked
 
-    private void JBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBModificarActionPerformed
+    private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
         if (evt == null) return;
 
         try {
@@ -209,39 +220,39 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
             String nome = "";
             String marca = "";
             double custo = 0;
-            if (JTFNome.getText().length() < 2) {
+            if (jTFNome.getText().length() < 2) {
                 throw new Erro("Nome deve conter pelo menos 2 caracteres, tente novamente.");
             } else {
-                nome = (JTFNome.getText());
+                nome = (jTFNome.getText());
 
             }
-            if (JTFMarca.getText().length() < 2) {
+            if (jTFMarca.getText().length() < 2) {
                 throw new Erro("Marca deve conter pelo menos 2 caracteres, tente novamente.");
             } else {
-                marca = (JTFMarca.getText());
+                marca = (jTFMarca.getText());
 
             }
-            if (Double.parseDouble(JTFCustoFerramenta.getText()) <= 0) {
+            if (Double.parseDouble(jTFCustoFerramenta.getText()) <= 0) {
                 throw new Erro("Custo deve ser maior que 0, tente novamente.");
             } else {
-                custo = (Double.parseDouble(JTFCustoFerramenta.getText()));
+                custo = (Double.parseDouble(jTFCustoFerramenta.getText()));
 
             }
             if (ferramentaService.updateFerramentaDB(id, nome, marca, custo)) {
                 mostrarMensagem("Ferramenta atualizada com sucesso.");
                 JLIid.setVisible(false);
-                JTFMarca.setText("");
-                JTFNome.setText("");
-                JTFCustoFerramenta.setText("");
+                jTFMarca.setText("");
+                jTFNome.setText("");
+                jTFCustoFerramenta.setText("");
                 labelDisponivel.setText("");
                 this.CarregaListaFerramenta();
             }
         } catch (Erro erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
-    }//GEN-LAST:event_JBModificarActionPerformed
+    }//GEN-LAST:event_jBModificarActionPerformed
 
-    private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
+    private void jBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBApagarActionPerformed
         if (evt == null) return;
 
         int conf = 0;
@@ -258,15 +269,15 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
             }
             ferramentaService.deleteFerramentaDB(Integer.parseInt(JLIid.getText()));
             JLIid.setVisible(false);
-            JTFMarca.setText("");
-            JTFNome.setText("");
-            JTFCustoFerramenta.setText("");
+            jTFMarca.setText("");
+            jTFNome.setText("");
+            jTFCustoFerramenta.setText("");
             labelDisponivel.setText("");
             this.CarregaListaFerramenta();
             mostrarMensagem("Ferramenta apagada com sucesso.");
         }
 
-    }//GEN-LAST:event_JBApagarActionPerformed
+    }//GEN-LAST:event_jBApagarActionPerformed
     public void CarregaListaFerramenta() {
         DefaultTableModel model = (DefaultTableModel) jTableAmigos.getModel();
         JLIid.setVisible(false);
@@ -290,7 +301,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -324,32 +335,29 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     }
 
     protected javax.swing.JTextField getJTFNome() {
-        return this.JTFNome;  // acesso direto porque está dentro da classe
+        return this.jTFNome;  // acesso direto porque está dentro da classe
     }
 
     protected javax.swing.JTextField getJTFCustoFerramenta() {
-        return this.JTFCustoFerramenta;
+        return this.jTFCustoFerramenta;
     }
 
     protected javax.swing.JTextField getJTFMarca() {
-        return this.JTFMarca;
+        return this.jTFMarca;
     }
 
     protected javax.swing.JButton getJBModificar() {
-        return this.JBModificar;
+        return this.jBModificar;
     }
 
     protected javax.swing.JButton getJBApagar() {
-        return this.JBApagar;
+        return this.jBApagar;
     }
 
     protected javax.swing.JTable getJTableAmigos() {
         return this.jTableAmigos;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBApagar;
-    private javax.swing.JButton JBCancelar;
-    private javax.swing.JButton JBModificar;
     private javax.swing.JLabel JLCustoFerramenta;
     private javax.swing.JLabel JLCustoTotal;
     private javax.swing.JLabel JLDisponivel;
@@ -357,10 +365,13 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     private javax.swing.JLabel JLIid;
     private javax.swing.JLabel JLMarca;
     private javax.swing.JLabel JLNome;
-    private javax.swing.JTextField JTFCustoFerramenta;
-    private javax.swing.JTextField JTFMarca;
-    private javax.swing.JTextField JTFNome;
+    private javax.swing.JButton jBApagar;
+    private javax.swing.JButton jBCancelar;
+    private javax.swing.JButton jBModificar;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTFCustoFerramenta;
+    private javax.swing.JTextField jTFMarca;
+    private javax.swing.JTextField jTFNome;
     private javax.swing.JTable jTableAmigos;
     private javax.swing.JLabel labelDisponivel;
     // End of variables declaration//GEN-END:variables

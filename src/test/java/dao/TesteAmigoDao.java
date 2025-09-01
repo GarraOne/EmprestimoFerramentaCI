@@ -1,6 +1,5 @@
 package dao;
 
-import java.util.ArrayList;
 import java.util.List;
 import modelo.Amigo;
 import org.junit.jupiter.api.AfterEach;
@@ -42,12 +41,12 @@ class TesteAmigoDao {
         AmigoDAO dao = new AmigoDAO();
         Amigo amigoRecebido = dao.retrieveAmigoDB(1);
         int idAmigoEsperado = 1;
-        String NomeEsperado = "jorge";
-        String TelefoneEsperado = "1234567890";
+        String nomeEsperado = "jorge";
+        String telefoneEsperado = "1234567890";
 
         assertEquals(idAmigoEsperado, amigoRecebido.getIdAmigo());
-        assertEquals(NomeEsperado, amigoRecebido.getNomeAmigo());
-        assertEquals(TelefoneEsperado, amigoRecebido.getTelefone());
+        assertEquals(nomeEsperado, amigoRecebido.getNomeAmigo());
+        assertEquals(telefoneEsperado, amigoRecebido.getTelefone());
 
     }
 

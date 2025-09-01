@@ -29,19 +29,22 @@ public class FrmRelatorio extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        JTARelatorio = new javax.swing.JTextArea();
+        jTARelatorio = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Relatório");
 
-        JTARelatorio.setColumns(20);
-        JTARelatorio.setRows(5);
-        jScrollPane1.setViewportView(JTARelatorio);
+        jTARelatorio.setColumns(20);
+        jTARelatorio.setRows(5);
+        jScrollPane1.setViewportView(jTARelatorio);
 
         jButton1.setText("Cancelar");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,10 +106,10 @@ public class FrmRelatorio extends javax.swing.JFrame {
             lista = lista + "\n ID do Empréstimo: " + listaEmprestimo.get(i).getIDEmprestimo() + "\n Nome do Amigo: " + amigoService.getNomeAmigo(listaEmprestimo.get(i).getIDAmigo()) + "\n Nome da Ferramenta: " + ferramentaService.getNomeFerramenta(listaEmprestimo.get(i).getIDFerramenta()) + "\n Data de Início: " + listaEmprestimo.get(i).getDataEmprestimo() + "\n Data de Devolução: " + listaEmprestimo.get(i).getDataDevolucao() + "\n";
         }
         string = string + lista;
-        JTARelatorio.setText(string);
+        jTARelatorio.setText(string);
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -132,8 +135,8 @@ public class FrmRelatorio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea JTARelatorio;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTARelatorio;
     // End of variables declaration//GEN-END:variables
 }

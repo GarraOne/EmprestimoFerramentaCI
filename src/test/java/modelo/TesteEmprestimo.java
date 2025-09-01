@@ -2,7 +2,6 @@ package modelo;
 
 import dao.EmprestimoDAO;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

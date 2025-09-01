@@ -45,7 +45,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         labelDataInicio = new javax.swing.JLabel();
         labelDataDevolucao = new javax.swing.JLabel();
         labelAtivoConstante = new javax.swing.JLabel();
-        JBCancelar = new javax.swing.JButton();
+        jBCancelar = new javax.swing.JButton();
         buttonApagar = new javax.swing.JButton();
         buttonModificar = new javax.swing.JButton();
         textIdAmigo = new javax.swing.JTextField();
@@ -65,9 +65,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                 "ID Empréstimo", "ID Amigo", "ID Ferramenta", "Data Início", "Data Devolução", "Empréstimo Ativo"
             }
         ));
-
         tableEmprestimo.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableEmprestimoMouseClicked(evt);
             }
@@ -88,14 +86,26 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
         labelAtivoConstante.setText("Empréstimo Ativo:");
 
-        JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(this::JBCancelarActionPerformed);
+        jBCancelar.setText("Cancelar");
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelarActionPerformed(evt);
+            }
+        });
 
         buttonApagar.setText("Apagar");
-        buttonApagar.addActionListener(this::buttonApagarActionPerformed);
+        buttonApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonApagarActionPerformed(evt);
+            }
+        });
 
         buttonModificar.setText("Modificar");
-        buttonModificar.addActionListener(this::buttonModificarActionPerformed);
+        buttonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonModificarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,7 +121,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonModificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JBCancelar))
+                        .addComponent(jBCancelar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -167,7 +177,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                     .addComponent(labelAtivo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBCancelar)
+                    .addComponent(jBCancelar)
                     .addComponent(buttonApagar)
                     .addComponent(buttonModificar))
                 .addGap(15, 15, 15))
@@ -178,12 +188,12 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
     //Libera todos os recurso da interface gráfica
         if (evt == null) return;
 
         this.dispose();
-    }//GEN-LAST:event_JBCancelarActionPerformed
+    }//GEN-LAST:event_jBCancelarActionPerformed
 
     private void buttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarActionPerformed
         if (evt == null) return;
@@ -254,7 +264,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -317,9 +327,9 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         return this.tableEmprestimo;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBCancelar;
     private javax.swing.JButton buttonApagar;
     private javax.swing.JButton buttonModificar;
+    private javax.swing.JButton jBCancelar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelAtivo;
     private javax.swing.JLabel labelAtivoConstante;

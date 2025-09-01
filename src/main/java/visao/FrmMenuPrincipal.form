@@ -59,22 +59,22 @@
             </Property>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemEmpr&#xe9;stimo">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemEmprestimo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Empr&#xe9;stimo"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemEmpr&#xe9;stimoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemEmprestimoActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemDevolu&#xe7;&#xe3;o">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemDevolucao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Devolu&#xe7;&#xe3;o"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemDevolu&#xe7;&#xe3;oActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemDevolucaoActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

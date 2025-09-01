@@ -41,26 +41,34 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        JCBFerramenta = new javax.swing.JComboBox<>();
+        jCBFerramenta = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        JCBAmigo = new javax.swing.JComboBox<>();
-        JBCancelar = new javax.swing.JButton();
-        JBCadastrar = new javax.swing.JButton();
+        jCBAmigo = new javax.swing.JComboBox<>();
+        jBCancelar = new javax.swing.JButton();
+        jBCadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Empréstimo");
 
         jLabel1.setText("Ferramenta:");
 
-        JCBFerramenta.setToolTipText("");
+        jCBFerramenta.setToolTipText("");
 
         jLabel2.setText("Amigo:");
 
-        JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(this::JBCancelarActionPerformed);
+        jBCancelar.setText("Cancelar");
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelarActionPerformed(evt);
+            }
+        });
 
-        JBCadastrar.setText("Cadastrar");
-        JBCadastrar.addActionListener(this::JBCadastrarActionPerformed);
+        jBCadastrar.setText("Cadastrar");
+        jBCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCadastrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,16 +76,16 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(226, Short.MAX_VALUE)
-                .addComponent(JBCadastrar)
+                .addComponent(jBCadastrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JBCancelar)
+                .addComponent(jBCancelar)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JCBAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCBAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(JCBFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCBFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -87,33 +95,33 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JCBFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jCBFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JCBAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jCBAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBCancelar)
-                    .addComponent(JBCadastrar))
+                    .addComponent(jBCancelar)
+                    .addComponent(jBCadastrar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
         if (evt == null) return;
         this.dispose();
-    }//GEN-LAST:event_JBCancelarActionPerformed
+    }//GEN-LAST:event_jBCancelarActionPerformed
 
-    private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
+    private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
         if (evt == null) return;
         try {
             int conf = 0;
 
-            int posicaoFerramenta = JCBFerramenta.getSelectedIndex();
-            int posicaoAmigo = JCBAmigo.getSelectedIndex();
+            int posicaoFerramenta = jCBFerramenta.getSelectedIndex();
+            int posicaoAmigo = jCBAmigo.getSelectedIndex();
             List<Ferramenta> listaFerramenta = ferramentaService.listaFerramenta();
             List<Amigo> listaAmigo = amigoService.listaAmigo();
             EmprestimoService emprestimo = new EmprestimoService();
@@ -126,24 +134,24 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
                 conf = confirmarCadastrarAmigoComEmprestimo();
             }
             int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramenta();
-            String DataInicio = LocalDate.now() + "";
-            String[] inversaoData = DataInicio.split("-");
-            DataInicio = inversaoData[2] + "-" + inversaoData[1] + "-" + inversaoData[0];
+            String dataInicio = LocalDate.now() + "";
+            String[] inversaoData = dataInicio.split("-");
+            dataInicio = inversaoData[2] + "-" + inversaoData[1] + "-" + inversaoData[0];
             if (conf == 0) {
-                if (emprestimo.insertEmprestimoDB(idAmigo, idFerramenta, DataInicio)) {
+                if (emprestimo.insertEmprestimoDB(idAmigo, idFerramenta, dataInicio)) {
                     mostrarMensagem("Empréstimo cadastrado com sucesso.");
                     ferramentaService.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramenta(), listaFerramenta.get(posicaoFerramenta).getMarcaFerramenta(), listaFerramenta.get(posicaoFerramenta).getCustoFerramenta());
-                };
+                }
 
             }
         } catch (Erro erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
-    }//GEN-LAST:event_JBCadastrarActionPerformed
+    }//GEN-LAST:event_jBCadastrarActionPerformed
     public void carregaCBFerramenta() {
         List<Ferramenta> listaFerramenta = ferramentaService.listaFerramenta();
         for (Ferramenta objeto : listaFerramenta) {
-            JCBFerramenta.addItem(objeto.getIdFerramenta() + "- " + objeto.getNomeFerramenta());
+            jCBFerramenta.addItem(objeto.getIdFerramenta() + "- " + objeto.getNomeFerramenta());
         }
 
     }
@@ -151,12 +159,12 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
     public void carregaCBAmigo() {
         List<Amigo> listaAmigo = amigoService.listaAmigo();
         for (Amigo objeto : listaAmigo) {
-            JCBAmigo.addItem(objeto.getIdAmigo() + "- " + objeto.getNomeAmigo());
+            jCBAmigo.addItem(objeto.getIdAmigo() + "- " + objeto.getNomeAmigo());
         }
 
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -190,22 +198,22 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
     }
 
     protected javax.swing.JButton getJBCadastrar() {
-        return this.JBCadastrar;
+        return this.jBCadastrar;
     }
 
     public JComboBox<String> getJCBAmigo() {
-        return JCBAmigo;
+        return jCBAmigo;
     }
 
     public JComboBox<String> getJCBFerramenta() {
-        return JCBFerramenta;
+        return jCBFerramenta;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBCadastrar;
-    private javax.swing.JButton JBCancelar;
-    private javax.swing.JComboBox<String> JCBAmigo;
-    private javax.swing.JComboBox<String> JCBFerramenta;
+    private javax.swing.JButton jBCadastrar;
+    private javax.swing.JButton jBCancelar;
+    private javax.swing.JComboBox<String> jCBAmigo;
+    private javax.swing.JComboBox<String> jCBFerramenta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
