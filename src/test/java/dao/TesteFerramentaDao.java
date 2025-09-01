@@ -1,6 +1,6 @@
 package dao;
 
-import java.util.ArrayList;
+import java.util.List;
 import modelo.Ferramenta;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -21,7 +21,7 @@ class TesteFerramentaDao {
     @Test
     void TestGetListaFerramenta() {
         FerramentaDAO dao = new FerramentaDAO();
-        ArrayList<Ferramenta> listaFerramenta = dao.getListaFerramenta();
+        List<Ferramenta> listaFerramenta = dao.getListaFerramenta();
         int retornoEsperado = 2;
         assertEquals(retornoEsperado, listaFerramenta.size());
     }
