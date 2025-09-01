@@ -58,9 +58,9 @@ public class EmprestimoDAO extends ConexaoDAO {
 
     }
 
-    public static void setListaEmprestimo(List<Emprestimo> listaEmprestimo) {
+    public static void setListaEmprestimo(List<Emprestimo> novaLista) {
         listaEmprestimo.clear();
-        listaEmprestimo.addAll(listaEmprestimo);
+        listaEmprestimo.addAll(novaLista);
     }
 
     public int maiorIDEmprestimo() {
