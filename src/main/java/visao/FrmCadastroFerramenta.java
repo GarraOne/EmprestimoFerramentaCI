@@ -114,7 +114,6 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
 
     private void textNomeFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeFerramentaActionPerformed
 
-
     }//GEN-LAST:event_textNomeFerramentaActionPerformed
 
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
