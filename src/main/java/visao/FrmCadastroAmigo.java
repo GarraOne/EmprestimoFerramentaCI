@@ -46,7 +46,7 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         textTelefone = new javax.swing.JTextField();
         cadastrarButton = new javax.swing.JButton();
         buttonLimpar = new javax.swing.JButton();
-        cancelarButton = new javax.swing.JButton();
+        javax.swing.JButton cancelarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Amigos");
@@ -208,7 +208,6 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonLimpar;
     private javax.swing.JButton cadastrarButton;
-    private javax.swing.JButton cancelarButton;
     private javax.swing.JTextField textNomeAmigo;
     private javax.swing.JTextField textTelefone;
     // End of variables declaration//GEN-END:variables

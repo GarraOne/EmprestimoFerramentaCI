@@ -150,8 +150,6 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
         //Libera todos os recurso da interface gráfica
         this.dispose();
-        if (evt == null) {
-        }
 
     }//GEN-LAST:event_jBCancelarActionPerformed
 
@@ -161,7 +159,9 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     }
 
     private void buttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarActionPerformed
-        if (evt == null) return;
+        if (evt == null) {
+            return;
+        }
 
         try {
             int id = Integer.parseInt(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
@@ -193,7 +193,9 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonModificarActionPerformed
 
     private void jTableAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAmigosMouseClicked
-        if (evt == null) return;
+        if (evt == null) {
+            return;
+        }
 
         if (this.jTableAmigos.getSelectedRow() != -1) {
             labelIid.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
@@ -204,7 +206,9 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableAmigosMouseClicked
 
     private void buttonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonApagarActionPerformed
-        if (evt == null) return;
+        if (evt == null) {
+            return;
+        }
 
         int conf = 0;
         EmprestimoService emp = new EmprestimoService();
@@ -263,7 +267,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        
+
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -272,7 +276,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new FrmGerenciarAmigo().setVisible(true));
 
-            }
+    }
 
     protected int confirmarApagarAmigo() {
         return JOptionPane.showConfirmDialog(null, "Esta ação também apagará todos os empréstimos associados a este amigo, deseja continuar?");
