@@ -1,7 +1,6 @@
 package visao;
 
 import javax.swing.JOptionPane;
-import modelo.Ferramenta;
 import service.FerramentaService;
 
 public class FrmCadastroFerramenta extends javax.swing.JFrame {
