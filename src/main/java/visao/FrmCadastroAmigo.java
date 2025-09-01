@@ -21,9 +21,9 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         // carrega o objeto vazio de amigo
         this.serviceAmigo = new AmigoService();
 
-        cadastrarButton.addActionListener(evt -> cadastrarButtonActionPerformed(evt));
-        buttonLimpar.addActionListener(evt -> buttonLimparActionPerformed(evt));
-        cancelarButton.addActionListener(evt -> cancelarButtonActionPerformed(evt));
+        cadastrarButton.addActionListener(this::cadastrarButtonActionPerformed);
+        buttonLimpar.addActionListener(this::buttonLimparActionPerformed);
+        cancelarButton.addActionListener(this::cancelarButtonActionPerformed);
     }
 
     public String getMensagem() {

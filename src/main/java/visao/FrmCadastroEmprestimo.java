@@ -57,10 +57,10 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
         jLabel2.setText("Amigo:");
 
         JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(evt -> JBCancelarActionPerformed(evt));
+        JBCancelar.addActionListener(this::JBCancelarActionPerformed);
 
         JBCadastrar.setText("Cadastrar");
-        JBCadastrar.addActionListener(evt -> JBCadastrarActionPerformed(evt));
+        JBCadastrar.addActionListener(this::JBCadastrarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

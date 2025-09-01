@@ -1,7 +1,6 @@
 package service;
 
 import dao.AmigoDAO;
-import java.util.ArrayList;
 import modelo.Amigo;
 import java.util.List;
 import modelo.Emprestimo;

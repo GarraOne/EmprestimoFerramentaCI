@@ -90,13 +90,13 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         labelAtivoConstante.setText("Empréstimo Ativo:");
 
         JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(evt -> JBCancelarActionPerformed(evt));
+        JBCancelar.addActionListener(this::JBCancelarActionPerformed);
 
         buttonApagar.setText("Apagar");
-        buttonApagar.addActionListener(evt -> buttonApagarActionPerformed(evt));
+        buttonApagar.addActionListener(this::buttonApagarActionPerformed);
 
         buttonModificar.setText("Modificar");
-        buttonModificar.addActionListener(evt -> buttonModificarActionPerformed(evt));
+        buttonModificar.addActionListener(this::buttonModificarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -1,7 +1,6 @@
 package service;
 
 import dao.FerramentaDAO;
-import java.util.ArrayList;
 import modelo.Ferramenta;
 import java.util.List;
 import modelo.Emprestimo;

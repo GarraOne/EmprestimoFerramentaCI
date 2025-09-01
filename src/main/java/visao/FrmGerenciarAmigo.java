@@ -82,13 +82,13 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         labelTelefone.setText("Telefone:");
 
         buttonApagar.setText("Apagar");
-        buttonApagar.addActionListener(evt -> buttonApagarActionPerformed(evt));
+        buttonApagar.addActionListener(this::buttonApagarActionPerformed);
 
         buttonModificar.setText("Modificar");
-        buttonModificar.addActionListener(evt -> buttonModificarActionPerformed(evt));
+        buttonModificar.addActionListener(this::buttonModificarActionPerformed);
 
         JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(evt -> JBCancelarActionPerformed(evt));
+        JBCancelar.addActionListener(this::JBCancelarActionPerformed);
 
         labelIid.setText("0");
 

@@ -54,19 +54,19 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuCadastro.setMinimumSize(new java.awt.Dimension(60, 22));
 
         jMenuItemCadastrarAmigos.setText("Cadastrar Amigos");
-        jMenuItemCadastrarAmigos.addActionListener(evt -> jMenuItemCadastrarAmigosActionPerformed(evt));
+        jMenuItemCadastrarAmigos.addActionListener(this::jMenuItemCadastrarAmigosActionPerformed);
 
         jMenuCadastro.add(jMenuItemCadastrarAmigos);
         jMenuCadastro.add(jSeparator2);
 
         jMenuItemCadastrarFerramentas.setText("Cadastrar Ferramentas");
-        jMenuItemCadastrarFerramentas.addActionListener(evt -> jMenuItemCadastrarFerramentasActionPerformed(evt));
+        jMenuItemCadastrarFerramentas.addActionListener(this::jMenuItemCadastrarFerramentasActionPerformed);
 
         jMenuCadastro.add(jMenuItemCadastrarFerramentas);
         jMenuCadastro.add(jSeparator3);
 
         jMenuItemSair.setText("Sair");
-        jMenuItemSair.addActionListener(evt -> jMenuItemSairActionPerformed(evt));
+        jMenuItemSair.addActionListener(this::jMenuItemSairActionPerformed);
 
         jMenuCadastro.add(jMenuItemSair);
 
@@ -78,13 +78,13 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuTransação.setPreferredSize(new java.awt.Dimension(60, 22));
 
         jMenuItemEmpréstimo.setText("Empréstimo");
-        jMenuItemEmpréstimo.addActionListener(evt -> jMenuItemEmpréstimoActionPerformed(evt));
+        jMenuItemEmpréstimo.addActionListener(this::jMenuItemEmpréstimoActionPerformed);
 
         jMenuTransação.add(jMenuItemEmpréstimo);
         jMenuTransação.add(jSeparator1);
 
         jMenuItemDevolução.setText("Devolução");
-        jMenuItemDevolução.addActionListener(evt -> jMenuItemDevoluçãoActionPerformed(evt));
+        jMenuItemDevolução.addActionListener(this::jMenuItemDevoluçãoActionPerformed);
 
         jMenuTransação.add(jMenuItemDevolução);
 
@@ -93,19 +93,19 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuGerenciamento.setText("Gerenciamento");
 
         jMenuItemGerenciarAmigos.setText("Gerenciar Amigos");
-        jMenuItemGerenciarAmigos.addActionListener(evt -> jMenuItemGerenciarAmigosActionPerformed(evt));
+        jMenuItemGerenciarAmigos.addActionListener(this::jMenuItemGerenciarAmigosActionPerformed);
 
         jMenuGerenciamento.add(jMenuItemGerenciarAmigos);
         jMenuGerenciamento.add(jSeparator4);
 
         jMenuItemGerenciarFerramentas.setText("Gerenciar Ferramentas");
-        jMenuItemGerenciarFerramentas.addActionListener(evt -> jMenuItemGerenciarFerramentasActionPerformed(evt));
+        jMenuItemGerenciarFerramentas.addActionListener(this::jMenuItemGerenciarFerramentasActionPerformed);
 
         jMenuGerenciamento.add(jMenuItemGerenciarFerramentas);
         jMenuGerenciamento.add(jSeparator5);
 
         jMenuItemGerenciarEmprestimo.setText("Gerenciar Empréstimo");
-        jMenuItemGerenciarEmprestimo.addActionListener(evt -> jMenuItemGerenciarEmprestimoActionPerformed(evt));
+        jMenuItemGerenciarEmprestimo.addActionListener(this::jMenuItemGerenciarEmprestimoActionPerformed);
 
         jMenuGerenciamento.add(jMenuItemGerenciarEmprestimo);
 
@@ -114,7 +114,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuRelatorio.setText("Relatório");
 
         jMenuItemRelatorio.setText("Relatório");
-        jMenuItemRelatorio.addActionListener(evt -> jMenuItemRelatorioActionPerformed(evt));
+        jMenuItemRelatorio.addActionListener(this::jMenuItemRelatorioActionPerformed);
 
         jMenuRelatorio.add(jMenuItemRelatorio);
 

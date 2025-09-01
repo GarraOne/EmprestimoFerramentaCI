@@ -87,13 +87,13 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         JLDisponivel.setText("Disponível:");
 
         JBApagar.setText("Apagar");
-        JBApagar.addActionListener(evt -> JBApagarActionPerformed(evt));
+        JBApagar.addActionListener(this::JBApagarActionPerformed);
 
         JBModificar.setText("Modificar");
-        JBModificar.addActionListener(evt -> JBModificarActionPerformed(evt));
+        JBModificar.addActionListener(this::JBModificarActionPerformed);
 
         JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(evt -> JBCancelarActionPerformed(evt));
+        JBCancelar.addActionListener(this::JBCancelarActionPerformed);
 
         JLIid.setText("0");
 

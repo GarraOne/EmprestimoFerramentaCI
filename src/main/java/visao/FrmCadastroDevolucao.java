@@ -61,10 +61,10 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
         comboBoxEmprestimo.setMaximumRowCount(999);
 
         buttonCancelar.setText("Cancelar");
-        buttonCancelar.addActionListener(evt -> buttonCancelarActionPerformed(evt));
+        buttonCancelar.addActionListener(this::buttonCancelarActionPerformed);
 
         buttonCadatrar.setText("Cadastrar");
-        buttonCadatrar.addActionListener(evt -> buttonCadatrarActionPerformed(evt));
+        buttonCadatrar.addActionListener(this::buttonCadatrarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

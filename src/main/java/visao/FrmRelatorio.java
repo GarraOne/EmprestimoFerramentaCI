@@ -41,7 +41,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
         jScrollPane1.setViewportView(JTARelatorio);
 
         jButton1.setText("Cancelar");
-        jButton1.addActionListener(evt -> jButton1ActionPerformed(evt));
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

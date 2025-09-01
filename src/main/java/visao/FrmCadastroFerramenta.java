@@ -47,16 +47,16 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
 
         labelCustoFeramenta.setText("Custo de Obtenção:");
 
-        textNomeFerramenta.addActionListener(evt -> textNomeFerramentaActionPerformed(evt));
+        textNomeFerramenta.addActionListener(this::textNomeFerramentaActionPerformed);
 
         buttonCadastrar.setText("Cadastrar");
-        buttonCadastrar.addActionListener(evt -> buttonCadastrarActionPerformed(evt));
+        buttonCadastrar.addActionListener(this::buttonCadastrarActionPerformed);
 
         buttonLimpar.setText("Limpar");
-        buttonLimpar.addActionListener(evt -> buttonLimparActionPerformed(evt));
+        buttonLimpar.addActionListener(this::buttonLimparActionPerformed);
 
         JBCancelar.setText("Cancelar");
-        JBCancelar.addActionListener(evt -> JBCancelarActionPerformed(evt));
+        JBCancelar.addActionListener(this::JBCancelarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
