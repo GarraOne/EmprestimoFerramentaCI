@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Ferramenta;
@@ -18,7 +19,7 @@ public class FerramentaDAO extends ConexaoDAO {
     /**
      * Lista de ferramentas em armazenamento.
      */
-    public static ArrayList<Ferramenta> listaFerramenta = new ArrayList<>();
+    protected static final List<Ferramenta> listaFerramenta = new ArrayList<>();
     private static final String MENSAGEM_ERRO = "Erro: ";
     private static final Logger logger = Logger.getLogger(FerramentaDAO.class.getName());
 
@@ -35,7 +36,7 @@ public class FerramentaDAO extends ConexaoDAO {
      *
      * @return Lista de ferramentas.
      */
-    public ArrayList<Ferramenta> getListaFerramenta() {
+    public List<Ferramenta> getListaFerramenta() {
         listaFerramenta.clear();
 
         String sql = "SELECT idFerramenta, nomeFerramenta, marcaFerramenta, custoFerramenta FROM ferramenta";
@@ -63,8 +64,10 @@ public class FerramentaDAO extends ConexaoDAO {
      *
      * @param listaFerramenta Lista de ferramentas a ser definida.
      */
-    public static void setListaFerramenta(ArrayList<Ferramenta> listaFerramenta) {
-        FerramentaDAO.listaFerramenta = listaFerramenta;
+    public static void setListaFerramenta(List<Ferramenta> novaLista) {
+        listaFerramenta.clear();
+        listaFerramenta.addAll(novaLista);
+
     }
 
     /**
@@ -99,7 +102,7 @@ public class FerramentaDAO extends ConexaoDAO {
     public boolean insertFerramentaDB(Ferramenta ferramenta) {
         String res = "insert into ferramenta(idFerramenta,nomeFerramenta,marcaFerramenta,custoFerramenta)values(?,?,?,?)";
         try {
-            PreparedStatement smt = super.getConexao().prepareStatement(res);;
+            PreparedStatement smt = super.getConexao().prepareStatement(res);
             smt.setInt(1, ferramenta.getIdFerramenta());
             smt.setString(2, ferramenta.getNomeFerramenta());
             smt.setString(3, ferramenta.getMarcaFerramenta());
