@@ -26,7 +26,7 @@ public class FrmGerenciarFerramentaFake extends FrmGerenciarFerramenta {
     }
 
     public void inicializarLista() {
-        CarregaListaFerramenta();
+        carregaListaFerramenta();
     }
 
     public void selecionarLinha(int linha) {

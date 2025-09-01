@@ -33,7 +33,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuItemCadastrarFerramentas = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuItemSair = new javax.swing.JMenuItem();
-        jMenuTransação = new javax.swing.JMenu();
+        jMenuTransacao = new javax.swing.JMenu();
         jMenuItemEmprestimo = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItemDevolucao = new javax.swing.JMenuItem();
@@ -71,21 +71,21 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuCadastro.add(jMenuItemSair);
         jMenuBar1.add(jMenuCadastro);
 
-        jMenuTransação.setText("Transação");
-        jMenuTransação.setMaximumSize(new java.awt.Dimension(70, 32767));
-        jMenuTransação.setMinimumSize(new java.awt.Dimension(60, 22));
-        jMenuTransação.setPreferredSize(new java.awt.Dimension(60, 22));
+        jMenuTransacao.setText("Transação");
+        jMenuTransacao.setMaximumSize(new java.awt.Dimension(70, 32767));
+        jMenuTransacao.setMinimumSize(new java.awt.Dimension(60, 22));
+        jMenuTransacao.setPreferredSize(new java.awt.Dimension(60, 22));
 
         jMenuItemEmprestimo.setText("Empréstimo");
         jMenuItemEmprestimo.addActionListener(this::jMenuItemEmprestimoActionPerformed);
-        jMenuTransação.add(jMenuItemEmprestimo);
-        jMenuTransação.add(jSeparator1);
+        jMenuTransacao.add(jMenuItemEmprestimo);
+        jMenuTransacao.add(jSeparator1);
 
         jMenuItemDevolucao.setText("Devolução");
         jMenuItemDevolucao.addActionListener(this::jMenuItemDevolucaoActionPerformed);
-        jMenuTransação.add(jMenuItemDevolucao);
+        jMenuTransacao.add(jMenuItemDevolucao);
 
-        jMenuBar1.add(jMenuTransação);
+        jMenuBar1.add(jMenuTransacao);
 
         jMenuGerenciamento.setText("Gerenciamento");
 
@@ -240,7 +240,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemRelatorio;
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenu jMenuRelatorio;
-    private javax.swing.JMenu jMenuTransação;
+    private javax.swing.JMenu jMenuTransacao;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;

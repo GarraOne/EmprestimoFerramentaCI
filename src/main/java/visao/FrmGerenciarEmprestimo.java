@@ -16,7 +16,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     public FrmGerenciarEmprestimo() {
         initComponents();
         this.emprestimoService = new EmprestimoService();
-        this.CarregaListaEmprestimo();
+        this.carregaListaEmprestimo();
     }
 
     public String getMensagem() {
@@ -201,7 +201,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
             textIdFerramenta.setText("");
             textDataEmprestimo.setText("");
             textDataDevolucao.setText("");
-            this.CarregaListaEmprestimo();
+            this.carregaListaEmprestimo();
         }
     }//GEN-LAST:event_buttonModificarActionPerformed
 
@@ -230,10 +230,10 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         textIdFerramenta.setText("");
         textDataEmprestimo.setText("");
         textDataDevolucao.setText("");
-        this.CarregaListaEmprestimo();
+        this.carregaListaEmprestimo();
         mostrarMensagem("Emprestimo apagado com sucesso.");
     }//GEN-LAST:event_buttonApagarActionPerformed
-    public void CarregaListaEmprestimo() {
+    public void carregaListaEmprestimo() {
         DefaultTableModel model = (DefaultTableModel) tableEmprestimo.getModel();
         model.setRowCount(0);
         labelIid.setVisible(false);

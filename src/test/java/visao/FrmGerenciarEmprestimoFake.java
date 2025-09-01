@@ -26,7 +26,7 @@ public class FrmGerenciarEmprestimoFake extends FrmGerenciarEmprestimo {
     }
 
     public void inicializarLista() {
-        CarregaListaEmprestimo();
+        carregaListaEmprestimo();
     }
 
     public void selecionarLinha(int linha) {

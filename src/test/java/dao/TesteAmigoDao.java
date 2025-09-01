@@ -55,11 +55,11 @@ class TesteAmigoDao {
         AmigoDAO dao = new AmigoDAO();
         Amigo amigoRecebido = dao.retrieveAmigoDB(4);
         int idAmigoEsperado = 4;
-        String NomeEsperado = "";
-        String TelefoneEsperado = "";
+        String nomeEsperado = "";
+        String telefoneEsperado = "";
         assertEquals(idAmigoEsperado, amigoRecebido.getIdAmigo());
-        assertEquals(NomeEsperado, amigoRecebido.getNomeAmigo());
-        assertEquals(TelefoneEsperado, amigoRecebido.getTelefone());
+        assertEquals(nomeEsperado, amigoRecebido.getNomeAmigo());
+        assertEquals(telefoneEsperado, amigoRecebido.getTelefone());
     }
 
     @Test
